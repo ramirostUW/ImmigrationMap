@@ -1,18 +1,6 @@
-# React Parcel Template
+# Immigration Map
 
-This repo is a private template for websites made with React, bundled with Parcel, and hosted on Github Pages. 
-
-## How to get started with this template
-
-First, clone the repo to your computer and run `npm install`.
-
-Next, create a blank repo on Github, and then open the local folder you cloned the repo to. Follow the steps that appear on the blank repo page in Github under "push an existing repository from the command line". 
-
-Next, on Github, go to the Settings page and click on the Pages menu. Under the 'source' heading, choose the main branch and then the docs folder to turn on Github Pages for the repo. Click Save.
-
-Copy the url that Github Pages provides, then open your `package.json` file. Replace "https://replace-this-url.com" with the Github Pages url for your repo. 
-
-Them simply use git to save your changes to your new repo and commit & push. Your new website is now ready!
+This is the repo for the iGlobetrotters team's 2022 Capstone Project.
 
 ## Testing and deploying the site
 

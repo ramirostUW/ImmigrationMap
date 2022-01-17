@@ -8,7 +8,7 @@ export function App() {
   return (
     <div>
       <header>
-        <h1>React Parcel Template</h1>
+        <h1>Immigration Map</h1>
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
