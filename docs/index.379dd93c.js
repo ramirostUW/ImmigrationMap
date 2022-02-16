@@ -24587,11 +24587,24 @@ $parcel$ReactRefreshHelpers$dec9.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Home", ()=>Home
+/*
+            <div>
+                <MapChart setTooltipContent={setContent} />
+                <ReactTooltip>{content}</ReactTooltip>
+            </div>
+*/ parcelHelpers.export(exports, "Home", ()=>Home
 );
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouterDom = require("react-router-dom");
+var _react = require("react");
+var _mapChart = require("./MapChart");
+var _mapChartDefault = parcelHelpers.interopDefault(_mapChart);
+var _reactTooltip = require("react-tooltip");
+var _reactTooltipDefault = parcelHelpers.interopDefault(_reactTooltip);
+var _s = $RefreshSig$();
 function Home() {
+    _s();
+    const [content, setContent] = _react.useState("");
     return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_jsxDevRuntime.Fragment, {
         children: [
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("main", {
@@ -24599,12 +24612,34 @@ function Home() {
                     children: "This is the home page of the website."
                 }, void 0, false, {
                     fileName: "src/Home.js",
-                    lineNumber: 7,
+                    lineNumber: 17,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "src/Home.js",
-                lineNumber: 6,
+                lineNumber: 16,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                children: [
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_mapChartDefault.default, {
+                        setTooltipContent: setContent
+                    }, void 0, false, {
+                        fileName: "src/Home.js",
+                        lineNumber: 20,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactTooltipDefault.default, {
+                        children: content
+                    }, void 0, false, {
+                        fileName: "src/Home.js",
+                        lineNumber: 21,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/Home.js",
+                lineNumber: 19,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("nav", {
@@ -24613,17 +24648,18 @@ function Home() {
                     children: "Page with a picture"
                 }, void 0, false, {
                     fileName: "src/Home.js",
-                    lineNumber: 10,
+                    lineNumber: 24,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "src/Home.js",
-                lineNumber: 9,
+                lineNumber: 23,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true));
 }
+_s(Home, "KPwtwb4lt1NZxOwnjhyyIoKb9lQ=");
 _c = Home;
 exports.default = Home;
 var _c;
@@ -24634,7 +24670,7 @@ $RefreshReg$(_c, "Home");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"3jZUD","react-router-dom":"16kZP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"9pz13":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"3jZUD","react-router-dom":"16kZP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","react":"4mchR","./MapChart":"6gTEY","react-tooltip":"g9bhJ"}],"9pz13":[function(require,module,exports) {
 "use strict";
 var Refresh = require('react-refresh/runtime');
 function debounce(func, delay) {
@@ -24754,7 +24790,11856 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"aeH4U"}],"7KYeb":[function(require,module,exports) {
+},{"react-refresh/runtime":"aeH4U"}],"6gTEY":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$bffe = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$bffe.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactSimpleMaps = require("react-simple-maps");
+const geoUrl = "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
+const rounded = (num)=>{
+    if (num > 1000000000) return Math.round(num / 100000000) / 10 + "Bn";
+    else if (num > 1000000) return Math.round(num / 100000) / 10 + "M";
+    else return Math.round(num / 100) / 10 + "K";
+};
+const MapChart = ({ setTooltipContent  })=>{
+    return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_jsxDevRuntime.Fragment, {
+        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactSimpleMaps.ComposableMap, {
+            "data-tip": "",
+            projectionConfig: {
+                scale: 200
+            },
+            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactSimpleMaps.ZoomableGroup, {
+                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactSimpleMaps.Geographies, {
+                    geography: geoUrl,
+                    children: ({ geographies  })=>geographies.map((geo)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactSimpleMaps.Geography, {
+                                geography: geo,
+                                onMouseEnter: ()=>{
+                                    const { NAME , POP_EST  } = geo.properties;
+                                    setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
+                                },
+                                onMouseLeave: ()=>{
+                                    setTooltipContent("");
+                                },
+                                style: {
+                                    default: {
+                                        fill: "#D6D6DA",
+                                        outline: "none"
+                                    },
+                                    hover: {
+                                        fill: "#F53",
+                                        outline: "none"
+                                    },
+                                    pressed: {
+                                        fill: "#E42",
+                                        outline: "none"
+                                    }
+                                }
+                            }, geo.rsmKey, false, {
+                                fileName: "src/MapChart.js",
+                                lineNumber: 30,
+                                columnNumber: 17
+                            }, undefined)
+                        )
+                }, void 0, false, {
+                    fileName: "src/MapChart.js",
+                    lineNumber: 27,
+                    columnNumber: 11
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/MapChart.js",
+                lineNumber: 26,
+                columnNumber: 9
+            }, undefined)
+        }, void 0, false, {
+            fileName: "src/MapChart.js",
+            lineNumber: 25,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false));
+};
+_c = MapChart;
+exports.default = /*#__PURE__*/ _c1 = _react.memo(MapChart);
+var _c, _c1;
+$RefreshReg$(_c, "MapChart");
+$RefreshReg$(_c1, "%default%");
+
+  $parcel$ReactRefreshHelpers$bffe.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"3jZUD","react":"4mchR","react-simple-maps":"kFZBo","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"kFZBo":[function(require,module,exports) {
+!function(e, o) {
+    "object" == typeof exports && "undefined" != typeof module ? o(exports, require("react"), require("prop-types"), require("d3-geo"), require("topojson-client"), require("d3-zoom"), require("d3-selection")) : "function" == typeof define && define.amd ? define([
+        "exports",
+        "react",
+        "prop-types",
+        "d3-geo",
+        "topojson-client",
+        "d3-zoom",
+        "d3-selection"
+    ], o) : o((e = e || self).reactSimpleMaps = e.reactSimpleMaps || {
+    }, e.React, e.PropTypes, e.d3, e.topojson, e.d3, e.d3);
+}(this, function(e1, o1, t1, r1, n1, a1, s1) {
+    "use strict";
+    var i1 = "default" in o1 ? o1.default : o1;
+    t1 = t1 && Object.prototype.hasOwnProperty.call(t1, "default") ? t1.default : t1;
+    var c1 = Object.assign || function(e) {
+        for(var o = 1; o < arguments.length; o++){
+            var t = arguments[o];
+            for(var r in t)Object.prototype.hasOwnProperty.call(t, r) && (e[r] = t[r]);
+        }
+        return e;
+    }, u1 = function(e, o) {
+        var t = {
+        };
+        for(var r in e)o.indexOf(r) >= 0 || Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r]);
+        return t;
+    }, l1 = function(e2, o2) {
+        if (Array.isArray(e2)) return e2;
+        if (Symbol.iterator in Object(e2)) return (function(e, o) {
+            var t = [], r = !0, n = !1, a = void 0;
+            try {
+                for(var s, i = e[Symbol.iterator](); !(r = (s = i.next()).done) && (t.push(s.value), !o || t.length !== o); r = !0);
+            } catch (e3) {
+                n = !0, a = e3;
+            } finally{
+                try {
+                    !r && i.return && i.return();
+                } finally{
+                    if (n) throw a;
+                }
+            }
+            return t;
+        })(e2, o2);
+        throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    }, p1 = r1.geoPath, f1 = u1(r1, [
+        "geoPath"
+    ]), d1 = o1.createContext(), m1 = function(e4) {
+        var t2 = e4.width, r2 = e4.height, n2 = e4.projection, a2 = e4.projectionConfig, s2 = u1(e4, [
+            "width",
+            "height",
+            "projection",
+            "projectionConfig"
+        ]), m = a2.center || [], h = l1(m, 2), v = h[0], g = h[1], y = a2.rotate || [], M = l1(y, 3), b = M[0], E = M[1], j = M[2], k = a2.parallels || [], x = l1(k, 2), N = x[0], w = x[1], C = a2.scale || null, O = o1.useMemo(function() {
+            return (function(e5) {
+                var o = e5.projectionConfig, t = void 0 === o ? {
+                } : o, r = e5.projection, n = void 0 === r ? "geoEqualEarth" : r, a = e5.width, s = void 0 === a ? 800 : a, i = e5.height, c = void 0 === i ? 600 : i;
+                if ("function" == typeof n) return n;
+                var u = f1[n]().translate([
+                    s / 2,
+                    c / 2
+                ]);
+                return [
+                    u.center ? "center" : null,
+                    u.rotate ? "rotate" : null,
+                    u.scale ? "scale" : null,
+                    u.parallels ? "parallels" : null
+                ].forEach(function(e) {
+                    e && (u = u[e](t[e] || u[e]()));
+                }), u;
+            })({
+                projectionConfig: {
+                    center: v || 0 === v || g || 0 === g ? [
+                        v,
+                        g
+                    ] : null,
+                    rotate: b || 0 === b || E || 0 === E ? [
+                        b,
+                        E,
+                        j
+                    ] : null,
+                    parallels: N || 0 === N || w || 0 === w ? [
+                        N,
+                        w
+                    ] : null,
+                    scale: C
+                },
+                projection: n2,
+                width: t2,
+                height: r2
+            });
+        }, [
+            t2,
+            r2,
+            n2,
+            v,
+            g,
+            b,
+            E,
+            j,
+            N,
+            w,
+            C
+        ]), T = o1.useCallback(O, [
+            O
+        ]), S = o1.useMemo(function() {
+            return {
+                width: t2,
+                height: r2,
+                projection: T,
+                path: p1().projection(T)
+            };
+        }, [
+            t2,
+            r2,
+            T
+        ]);
+        return i1.createElement(d1.Provider, c1({
+            value: S
+        }, s2));
+    };
+    m1.propTypes = {
+        width: t1.number,
+        height: t1.number,
+        projection: t1.oneOfType([
+            t1.string,
+            t1.func
+        ]),
+        projectionConfig: t1.object
+    };
+    var h1 = function(e) {
+        var o = e.width, t = void 0 === o ? 800 : o, r = e.height, n = void 0 === r ? 600 : r, a = e.projection, s = void 0 === a ? "geoEqualEarth" : a, l = e.projectionConfig, p = void 0 === l ? {
+        } : l, f = e.className, d = void 0 === f ? "" : f, h = u1(e, [
+            "width",
+            "height",
+            "projection",
+            "projectionConfig",
+            "className"
+        ]);
+        return i1.createElement(m1, {
+            width: t,
+            height: n,
+            projection: s,
+            projectionConfig: p
+        }, i1.createElement("svg", c1({
+            viewBox: "0 0 " + t + " " + n,
+            className: "rsm-svg " + d
+        }, h)));
+    };
+    function v1(e, o, t) {
+        var r = (e * t.k - e) / 2, n = (o * t.k - o) / 2;
+        return [
+            e / 2 - (r + t.x) / t.k,
+            o / 2 - (n + t.y) / t.k
+        ];
+    }
+    function g1(e, o) {
+        if (!("Topology" === e.type)) return o ? o(e.features || e) : e.features || e;
+        var t = n1.feature(e, e.objects[Object.keys(e.objects)[0]]).features;
+        return o ? o(t) : t;
+    }
+    function y1(e6) {
+        return "Topology" === e6.type ? {
+            outline: n1.mesh(e6, e6.objects[Object.keys(e6.objects)[0]], function(e, o) {
+                return e === o;
+            }),
+            borders: n1.mesh(e6, e6.objects[Object.keys(e6.objects)[0]], function(e, o) {
+                return e !== o;
+            })
+        } : null;
+    }
+    function M1(e7, o) {
+        return e7 ? e7.map(function(e, t) {
+            return c1({
+            }, e, {
+                rsmKey: "geo-" + t,
+                svgPath: o(e)
+            });
+        }) : [];
+    }
+    function b1(e8) {
+        var t3 = e8.geography, r = e8.parseGeographies, n = o1.useContext(d1).path, a = o1.useState({
+        }), s = l1(a, 2), i = s[0], u = s[1];
+        o1.useEffect(function() {
+            var e9;
+            "undefined" != typeof window && t3 && ("string" == typeof t3 ? (e9 = t3, fetch(e9).then(function(e) {
+                if (!e.ok) throw Error(e.statusText);
+                return e.json();
+            }).catch(function(e) {
+                console.log("There was a problem when fetching the data: ", e);
+            })).then(function(e) {
+                e && u({
+                    geographies: g1(e, r),
+                    mesh: y1(e)
+                });
+            }) : u({
+                geographies: g1(t3, r),
+                mesh: y1(t3)
+            }));
+        }, [
+            t3,
+            r
+        ]);
+        var p = o1.useMemo(function() {
+            var e10 = i.mesh || {
+            }, o3 = function(e, o, t) {
+                return e && o ? {
+                    outline: c1({
+                    }, e, {
+                        rsmKey: "outline",
+                        svgPath: t(e)
+                    }),
+                    borders: c1({
+                    }, o, {
+                        rsmKey: "borders",
+                        svgPath: t(o)
+                    })
+                } : {
+                };
+            }(e10.outline, e10.borders, n);
+            return {
+                geographies: M1(i.geographies, n),
+                outline: o3.outline,
+                borders: o3.borders
+            };
+        }, [
+            i,
+            n
+        ]);
+        return {
+            geographies: p.geographies,
+            outline: p.outline,
+            borders: p.borders
+        };
+    }
+    h1.propTypes = {
+        width: t1.number,
+        height: t1.number,
+        projection: t1.oneOfType([
+            t1.string,
+            t1.func
+        ]),
+        projectionConfig: t1.object,
+        className: t1.string
+    };
+    var E1 = function(e) {
+        var t = e.geography, r = e.children, n = e.parseGeographies, a = e.className, s = void 0 === a ? "" : a, l = u1(e, [
+            "geography",
+            "children",
+            "parseGeographies",
+            "className"
+        ]), p = o1.useContext(d1), f = p.path, m = p.projection, h = b1({
+            geography: t,
+            parseGeographies: n
+        }), v = h.geographies, g = h.outline, y = h.borders;
+        return i1.createElement("g", c1({
+            className: "rsm-geographies " + s
+        }, l), v && v.length > 0 && r({
+            geographies: v,
+            outline: g,
+            borders: y,
+            path: f,
+            projection: m
+        }));
+    };
+    E1.propTypes = {
+        geography: t1.oneOfType([
+            t1.string,
+            t1.object,
+            t1.array
+        ]),
+        children: t1.func,
+        parseGeographies: t1.func,
+        className: t1.string
+    };
+    var j1 = function(e11) {
+        var t = e11.geography, r = e11.onMouseEnter, n = e11.onMouseLeave, a = e11.onMouseDown, s = e11.onMouseUp, p = e11.onFocus, f = e11.onBlur, d = e11.style, m = void 0 === d ? {
+        } : d, h = e11.className, v = void 0 === h ? "" : h, g = u1(e11, [
+            "geography",
+            "onMouseEnter",
+            "onMouseLeave",
+            "onMouseDown",
+            "onMouseUp",
+            "onFocus",
+            "onBlur",
+            "style",
+            "className"
+        ]), y = o1.useState(!1), M = l1(y, 2), b = M[0], E = M[1], j = o1.useState(!1), k = l1(j, 2), x = k[0], N = k[1];
+        return i1.createElement("path", c1({
+            tabIndex: "0",
+            className: "rsm-geography " + v,
+            d: t.svgPath,
+            onMouseEnter: function(e) {
+                N(!0), r && r(e);
+            },
+            onMouseLeave: function(e) {
+                N(!1), b && E(!1), n && n(e);
+            },
+            onFocus: function(e) {
+                N(!0), p && p(e);
+            },
+            onBlur: function(e) {
+                N(!1), b && E(!1), f && f(e);
+            },
+            onMouseDown: function(e) {
+                E(!0), a && a(e);
+            },
+            onMouseUp: function(e) {
+                E(!1), s && s(e);
+            },
+            style: m[b || x ? b ? "pressed" : "hover" : "default"]
+        }, g));
+    };
+    j1.propTypes = {
+        geography: t1.object,
+        onMouseEnter: t1.func,
+        onMouseLeave: t1.func,
+        onMouseDown: t1.func,
+        onMouseUp: t1.func,
+        onFocus: t1.func,
+        onBlur: t1.func,
+        style: t1.object,
+        className: t1.string
+    };
+    var k1 = o1.memo(j1), x1 = function(e) {
+        var t = e.fill, n = void 0 === t ? "transparent" : t, a = e.stroke, s = void 0 === a ? "currentcolor" : a, l = e.step, p = void 0 === l ? [
+            10,
+            10
+        ] : l, f = e.className, m = void 0 === f ? "" : f, h = u1(e, [
+            "fill",
+            "stroke",
+            "step",
+            "className"
+        ]), v = o1.useContext(d1).path;
+        return i1.createElement("path", c1({
+            d: v(r1.geoGraticule().step(p)()),
+            fill: n,
+            stroke: s,
+            className: "rsm-graticule " + m
+        }, h));
+    };
+    x1.propTypes = {
+        fill: t1.string,
+        stroke: t1.string,
+        step: t1.array,
+        className: t1.string
+    };
+    var N1 = o1.memo(x1);
+    function w1(e12) {
+        var t4 = e12.center, r3 = e12.filterZoomEvent, n3 = e12.onMoveStart, i = e12.onMoveEnd, c = e12.onMove, u = e12.translateExtent, p = void 0 === u ? [
+            [
+                -1 / 0,
+                -1 / 0
+            ],
+            [
+                1 / 0,
+                1 / 0
+            ]
+        ] : u, f = e12.scaleExtent, m = void 0 === f ? [
+            1,
+            8
+        ] : f, h = e12.zoom, g = void 0 === h ? 1 : h, y = o1.useContext(d1), M = y.width, b = y.height, E = y.projection, j = l1(t4, 2), k = j[0], x = j[1], N = o1.useState({
+            x: 0,
+            y: 0,
+            k: 1
+        }), w = l1(N, 2), C = w[0], O = w[1], T = o1.useRef({
+            x: 0,
+            y: 0,
+            k: 1
+        }), S = o1.useRef(), P = o1.useRef(), z = o1.useRef(!1), Z = l1(p, 2), G = Z[0], L = Z[1], B = l1(G, 2), F = B[0], q = B[1], D = l1(L, 2), U = D[0], W = D[1], R = l1(m, 2), A = R[0], K = R[1];
+        return o1.useEffect(function() {
+            var e13 = s1.select(S.current);
+            var o4 = a1.zoom().filter(function(e) {
+                return r3 ? r3(e) : !!e && !e.ctrlKey && !e.button;
+            }).scaleExtent([
+                A,
+                K
+            ]).translateExtent([
+                [
+                    F,
+                    q
+                ],
+                [
+                    U,
+                    W
+                ]
+            ]).on("start", function(e) {
+                n3 && !z.current && n3({
+                    coordinates: E.invert(v1(M, b, e.transform)),
+                    zoom: e.transform.k
+                }, e);
+            }).on("zoom", function(e) {
+                if (!z.current) {
+                    var o = e.transform, t = e.sourceEvent;
+                    O({
+                        x: o.x,
+                        y: o.y,
+                        k: o.k,
+                        dragging: t
+                    }), c && c({
+                        x: o.x,
+                        y: o.y,
+                        k: o.k,
+                        dragging: t
+                    }, e);
+                }
+            }).on("end", function(e) {
+                if (z.current) z.current = !1;
+                else {
+                    var o = E.invert(v1(M, b, e.transform)), t = l1(o, 2), r = t[0], n = t[1];
+                    T.current = {
+                        x: r,
+                        y: n,
+                        k: e.transform.k
+                    }, i && i({
+                        coordinates: [
+                            r,
+                            n
+                        ],
+                        zoom: e.transform.k
+                    }, e);
+                }
+            });
+            P.current = o4, e13.call(o4);
+        }, [
+            M,
+            b,
+            F,
+            q,
+            U,
+            W,
+            A,
+            K,
+            E,
+            n3,
+            c,
+            i,
+            r3
+        ]), o1.useEffect(function() {
+            if (k !== T.current.x || x !== T.current.y || g !== T.current.k) {
+                var e = E([
+                    k,
+                    x
+                ]), o = e[0] * g, t = e[1] * g, r = s1.select(S.current);
+                z.current = !0, r.call(P.current.transform, a1.zoomIdentity.translate(M / 2 - o, b / 2 - t).scale(g)), O({
+                    x: M / 2 - o,
+                    y: b / 2 - t,
+                    k: g
+                }), T.current = {
+                    x: k,
+                    y: x,
+                    k: g
+                };
+            }
+        }, [
+            k,
+            x,
+            g,
+            M,
+            b,
+            E
+        ]), {
+            mapRef: S,
+            position: C,
+            transformString: "translate(" + C.x + " " + C.y + ") scale(" + C.k + ")"
+        };
+    }
+    var C1 = function(e) {
+        var t = e.center, r = void 0 === t ? [
+            0,
+            0
+        ] : t, n = e.zoom, a = void 0 === n ? 1 : n, s = e.minZoom, l = void 0 === s ? 1 : s, p = e.maxZoom, f = void 0 === p ? 8 : p, m = e.translateExtent, h = e.filterZoomEvent, v = e.onMoveStart, g = e.onMove, y = e.onMoveEnd, M = e.className, b = u1(e, [
+            "center",
+            "zoom",
+            "minZoom",
+            "maxZoom",
+            "translateExtent",
+            "filterZoomEvent",
+            "onMoveStart",
+            "onMove",
+            "onMoveEnd",
+            "className"
+        ]), E = o1.useContext(d1), j = E.width, k = E.height, x = w1({
+            center: r,
+            filterZoomEvent: h,
+            onMoveStart: v,
+            onMove: g,
+            onMoveEnd: y,
+            scaleExtent: [
+                l,
+                f
+            ],
+            translateExtent: m,
+            zoom: a
+        }), N = x.mapRef, C = x.transformString;
+        return i1.createElement("g", {
+            ref: N
+        }, i1.createElement("rect", {
+            width: j,
+            height: k,
+            fill: "transparent"
+        }), i1.createElement("g", c1({
+            transform: C,
+            className: "rsm-zoomable-group " + M
+        }, b)));
+    };
+    C1.propTypes = {
+        center: t1.array,
+        zoom: t1.number,
+        minZoom: t1.number,
+        maxZoom: t1.number,
+        translateExtent: t1.arrayOf(t1.array),
+        onMoveStart: t1.func,
+        onMove: t1.func,
+        onMoveEnd: t1.func,
+        className: t1.string
+    };
+    var O1 = function(e) {
+        var t = e.id, r = void 0 === t ? "rsm-sphere" : t, n = e.fill, a = void 0 === n ? "transparent" : n, s = e.stroke, l = void 0 === s ? "currentcolor" : s, p = e.strokeWidth, f = void 0 === p ? 0.5 : p, m = e.className, h = void 0 === m ? "" : m, v = u1(e, [
+            "id",
+            "fill",
+            "stroke",
+            "strokeWidth",
+            "className"
+        ]), g = o1.useContext(d1).path, y = o1.useMemo(function() {
+            return g({
+                type: "Sphere"
+            });
+        }, [
+            g
+        ]);
+        return i1.createElement(o1.Fragment, null, i1.createElement("defs", null, i1.createElement("clipPath", {
+            id: r
+        }, i1.createElement("path", {
+            d: y
+        }))), i1.createElement("path", c1({
+            d: y,
+            fill: a,
+            stroke: l,
+            strokeWidth: f,
+            style: {
+                pointerEvents: "none"
+            },
+            className: "rsm-sphere " + h
+        }, v)));
+    };
+    O1.propTypes = {
+        id: t1.string,
+        fill: t1.string,
+        stroke: t1.string,
+        strokeWidth: t1.number,
+        className: t1.string
+    };
+    var T1 = o1.memo(O1), S1 = function(e14) {
+        var t = e14.coordinates, r = e14.children, n = e14.onMouseEnter, a = e14.onMouseLeave, s = e14.onMouseDown, p = e14.onMouseUp, f = e14.onFocus, m = e14.onBlur, h = e14.style, v = void 0 === h ? {
+        } : h, g = e14.className, y = void 0 === g ? "" : g, M = u1(e14, [
+            "coordinates",
+            "children",
+            "onMouseEnter",
+            "onMouseLeave",
+            "onMouseDown",
+            "onMouseUp",
+            "onFocus",
+            "onBlur",
+            "style",
+            "className"
+        ]), b = o1.useContext(d1).projection, E = o1.useState(!1), j = l1(E, 2), k = j[0], x = j[1], N = o1.useState(!1), w = l1(N, 2), C = w[0], O = w[1], T = b(t), S = l1(T, 2), P = S[0], z = S[1];
+        return i1.createElement("g", c1({
+            transform: "translate(" + P + ", " + z + ")",
+            className: "rsm-marker " + y,
+            onMouseEnter: function(e) {
+                O(!0), n && n(e);
+            },
+            onMouseLeave: function(e) {
+                O(!1), k && x(!1), a && a(e);
+            },
+            onFocus: function(e) {
+                O(!0), f && f(e);
+            },
+            onBlur: function(e) {
+                O(!1), k && x(!1), m && m(e);
+            },
+            onMouseDown: function(e) {
+                x(!0), s && s(e);
+            },
+            onMouseUp: function(e) {
+                x(!1), p && p(e);
+            },
+            style: v[k || C ? k ? "pressed" : "hover" : "default"]
+        }, M), r);
+    };
+    S1.propTypes = {
+        coordinates: t1.array,
+        children: t1.oneOfType([
+            t1.node,
+            t1.arrayOf(t1.node)
+        ]),
+        onMouseEnter: t1.func,
+        onMouseLeave: t1.func,
+        onMouseDown: t1.func,
+        onMouseUp: t1.func,
+        onFocus: t1.func,
+        onBlur: t1.func,
+        style: t1.object,
+        className: t1.string
+    };
+    var P1 = function(e) {
+        var t = e.from, r = void 0 === t ? [
+            0,
+            0
+        ] : t, n = e.to, a = void 0 === n ? [
+            0,
+            0
+        ] : n, s = e.coordinates, l = e.stroke, p = void 0 === l ? "currentcolor" : l, f = e.strokeWidth, m = void 0 === f ? 3 : f, h = e.fill, v = void 0 === h ? "transparent" : h, g = e.className, y = void 0 === g ? "" : g, M = u1(e, [
+            "from",
+            "to",
+            "coordinates",
+            "stroke",
+            "strokeWidth",
+            "fill",
+            "className"
+        ]), b = o1.useContext(d1).path, E = {
+            type: "LineString",
+            coordinates: s || [
+                r,
+                a
+            ]
+        };
+        return i1.createElement("path", c1({
+            d: b(E),
+            className: "rsm-line " + y,
+            stroke: p,
+            strokeWidth: m,
+            fill: v
+        }, M));
+    };
+    P1.propTypes = {
+        from: t1.array,
+        to: t1.array,
+        coordinates: t1.array,
+        stroke: t1.string,
+        strokeWidth: t1.number,
+        fill: t1.string,
+        className: t1.string
+    };
+    var z1 = function(e15) {
+        var t5 = e15.subject, r4 = e15.children, n4 = e15.connectorProps, a3 = e15.dx, s = void 0 === a3 ? 30 : a3, p = e15.dy, f = void 0 === p ? 30 : p, m = e15.curve, h = void 0 === m ? 0 : m, v = e15.className, g = void 0 === v ? "" : v, y = u1(e15, [
+            "subject",
+            "children",
+            "connectorProps",
+            "dx",
+            "dy",
+            "curve",
+            "className"
+        ]), M = (0, o1.useContext(d1).projection)(t5), b = l1(M, 2), E = b[0], j = b[1], k = function() {
+            var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 30, o = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 30, t = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 0.5, r = Array.isArray(t) ? t : [
+                t,
+                t
+            ], n = e / 2 * r[0], a = o / 2 * r[1];
+            return "M0,0 Q" + (-e / 2 - n) + "," + (-o / 2 + a) + " " + -e + "," + -o;
+        }(s, f, h);
+        return i1.createElement("g", c1({
+            transform: "translate(" + (E + s) + ", " + (j + f) + ")",
+            className: "rsm-annotation " + g
+        }, y), i1.createElement("path", c1({
+            d: k,
+            fill: "transparent",
+            stroke: "#000"
+        }, n4)), r4);
+    };
+    z1.propTypes = {
+        subject: t1.array,
+        children: t1.oneOfType([
+            t1.node,
+            t1.arrayOf(t1.node)
+        ]),
+        dx: t1.number,
+        dy: t1.number,
+        curve: t1.number,
+        connectorProps: t1.object,
+        className: t1.string
+    }, e1.Annotation = z1, e1.ComposableMap = h1, e1.Geographies = E1, e1.Geography = k1, e1.Graticule = N1, e1.Line = P1, e1.MapContext = d1, e1.MapProvider = m1, e1.Marker = S1, e1.Sphere = T1, e1.ZoomableGroup = C1, e1.useGeographies = b1, e1.useZoomPan = w1, Object.defineProperty(e1, "__esModule", {
+        value: !0
+    });
+});
+
+},{"react":"4mchR","prop-types":"2bysO","d3-geo":"euFVP","topojson-client":"dArDf","d3-zoom":"7E00u","d3-selection":"hgWtk"}],"2bysO":[function(require,module,exports) {
+var ReactIs = require('react-is');
+// By explicitly using `prop-types` you are opting into new development behavior.
+// http://fb.me/prop-types-in-prod
+var throwOnDirectAccess = true;
+module.exports = require('./factoryWithTypeCheckers')(ReactIs.isElement, throwOnDirectAccess);
+
+},{"react-is":"5KyfE","./factoryWithTypeCheckers":"3o4sw"}],"5KyfE":[function(require,module,exports) {
+'use strict';
+module.exports = require('./cjs/react-is.development.js');
+
+},{"./cjs/react-is.development.js":"dWfYV"}],"dWfYV":[function(require,module,exports) {
+/** @license React v16.13.1
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ 'use strict';
+(function() {
+    // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+    // nor polyfill, then a plain number is used for performance.
+    var hasSymbol = typeof Symbol === 'function' && Symbol.for;
+    var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 60103;
+    var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 60106;
+    var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 60107;
+    var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 60108;
+    var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 60114;
+    var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 60109;
+    var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 60110; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
+    // (unstable) APIs that have been removed. Can we remove the symbols?
+    var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 60111;
+    var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 60111;
+    var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 60112;
+    var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 60113;
+    var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 60120;
+    var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 60115;
+    var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 60116;
+    var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 60121;
+    var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 60117;
+    var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 60118;
+    var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 60119;
+    function isValidElementType(type) {
+        return typeof type === 'string' || typeof type === 'function' || type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
+    }
+    function typeOf(object) {
+        if (typeof object === 'object' && object !== null) {
+            var $$typeof = object.$$typeof;
+            switch($$typeof){
+                case REACT_ELEMENT_TYPE:
+                    var type = object.type;
+                    switch(type){
+                        case REACT_ASYNC_MODE_TYPE:
+                        case REACT_CONCURRENT_MODE_TYPE:
+                        case REACT_FRAGMENT_TYPE:
+                        case REACT_PROFILER_TYPE:
+                        case REACT_STRICT_MODE_TYPE:
+                        case REACT_SUSPENSE_TYPE:
+                            return type;
+                        default:
+                            var $$typeofType = type && type.$$typeof;
+                            switch($$typeofType){
+                                case REACT_CONTEXT_TYPE:
+                                case REACT_FORWARD_REF_TYPE:
+                                case REACT_LAZY_TYPE:
+                                case REACT_MEMO_TYPE:
+                                case REACT_PROVIDER_TYPE:
+                                    return $$typeofType;
+                                default:
+                                    return $$typeof;
+                            }
+                    }
+                case REACT_PORTAL_TYPE:
+                    return $$typeof;
+            }
+        }
+        return undefined;
+    } // AsyncMode is deprecated along with isAsyncMode
+    var AsyncMode = REACT_ASYNC_MODE_TYPE;
+    var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+    var ContextConsumer = REACT_CONTEXT_TYPE;
+    var ContextProvider = REACT_PROVIDER_TYPE;
+    var Element = REACT_ELEMENT_TYPE;
+    var ForwardRef = REACT_FORWARD_REF_TYPE;
+    var Fragment = REACT_FRAGMENT_TYPE;
+    var Lazy = REACT_LAZY_TYPE;
+    var Memo = REACT_MEMO_TYPE;
+    var Portal = REACT_PORTAL_TYPE;
+    var Profiler = REACT_PROFILER_TYPE;
+    var StrictMode = REACT_STRICT_MODE_TYPE;
+    var Suspense = REACT_SUSPENSE_TYPE;
+    var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
+    function isAsyncMode(object) {
+        if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+            hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
+            console['warn']("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.");
+        }
+        return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+    }
+    function isConcurrentMode(object) {
+        return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+    }
+    function isContextConsumer(object) {
+        return typeOf(object) === REACT_CONTEXT_TYPE;
+    }
+    function isContextProvider(object) {
+        return typeOf(object) === REACT_PROVIDER_TYPE;
+    }
+    function isElement(object) {
+        return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+    }
+    function isForwardRef(object) {
+        return typeOf(object) === REACT_FORWARD_REF_TYPE;
+    }
+    function isFragment(object) {
+        return typeOf(object) === REACT_FRAGMENT_TYPE;
+    }
+    function isLazy(object) {
+        return typeOf(object) === REACT_LAZY_TYPE;
+    }
+    function isMemo(object) {
+        return typeOf(object) === REACT_MEMO_TYPE;
+    }
+    function isPortal(object) {
+        return typeOf(object) === REACT_PORTAL_TYPE;
+    }
+    function isProfiler(object) {
+        return typeOf(object) === REACT_PROFILER_TYPE;
+    }
+    function isStrictMode(object) {
+        return typeOf(object) === REACT_STRICT_MODE_TYPE;
+    }
+    function isSuspense(object) {
+        return typeOf(object) === REACT_SUSPENSE_TYPE;
+    }
+    exports.AsyncMode = AsyncMode;
+    exports.ConcurrentMode = ConcurrentMode;
+    exports.ContextConsumer = ContextConsumer;
+    exports.ContextProvider = ContextProvider;
+    exports.Element = Element;
+    exports.ForwardRef = ForwardRef;
+    exports.Fragment = Fragment;
+    exports.Lazy = Lazy;
+    exports.Memo = Memo;
+    exports.Portal = Portal;
+    exports.Profiler = Profiler;
+    exports.StrictMode = StrictMode;
+    exports.Suspense = Suspense;
+    exports.isAsyncMode = isAsyncMode;
+    exports.isConcurrentMode = isConcurrentMode;
+    exports.isContextConsumer = isContextConsumer;
+    exports.isContextProvider = isContextProvider;
+    exports.isElement = isElement;
+    exports.isForwardRef = isForwardRef;
+    exports.isFragment = isFragment;
+    exports.isLazy = isLazy;
+    exports.isMemo = isMemo;
+    exports.isPortal = isPortal;
+    exports.isProfiler = isProfiler;
+    exports.isStrictMode = isStrictMode;
+    exports.isSuspense = isSuspense;
+    exports.isValidElementType = isValidElementType;
+    exports.typeOf = typeOf;
+})();
+
+},{}],"3o4sw":[function(require,module,exports) {
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ 'use strict';
+var ReactIs = require('react-is');
+var assign = require('object-assign');
+var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
+var has = require('./lib/has');
+var checkPropTypes = require('./checkPropTypes');
+var printWarning = function() {
+};
+printWarning = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') console.error(message);
+    try {
+        // --- Welcome to debugging React ---
+        // This error was thrown as a convenience so that you can use this stack
+        // to find the callsite that caused this warning to fire.
+        throw new Error(message);
+    } catch (x) {
+    }
+};
+function emptyFunctionThatReturnsNull() {
+    return null;
+}
+module.exports = function(isValidElement, throwOnDirectAccess) {
+    /* global Symbol */ var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+    var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
+    /**
+   * Returns the iterator method function contained on the iterable object.
+   *
+   * Be sure to invoke the function with the iterable as context:
+   *
+   *     var iteratorFn = getIteratorFn(myIterable);
+   *     if (iteratorFn) {
+   *       var iterator = iteratorFn.call(myIterable);
+   *       ...
+   *     }
+   *
+   * @param {?object} maybeIterable
+   * @return {?function}
+   */ function getIteratorFn(maybeIterable) {
+        var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+        if (typeof iteratorFn === 'function') return iteratorFn;
+    }
+    /**
+   * Collection of methods that allow declaration and validation of props that are
+   * supplied to React components. Example usage:
+   *
+   *   var Props = require('ReactPropTypes');
+   *   var MyArticle = React.createClass({
+   *     propTypes: {
+   *       // An optional string prop named "description".
+   *       description: Props.string,
+   *
+   *       // A required enum prop named "category".
+   *       category: Props.oneOf(['News','Photos']).isRequired,
+   *
+   *       // A prop named "dialog" that requires an instance of Dialog.
+   *       dialog: Props.instanceOf(Dialog).isRequired
+   *     },
+   *     render: function() { ... }
+   *   });
+   *
+   * A more formal specification of how these methods are used:
+   *
+   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
+   *   decl := ReactPropTypes.{type}(.isRequired)?
+   *
+   * Each and every declaration produces a function with the same signature. This
+   * allows the creation of custom validation functions. For example:
+   *
+   *  var MyLink = React.createClass({
+   *    propTypes: {
+   *      // An optional string or URI prop named "href".
+   *      href: function(props, propName, componentName) {
+   *        var propValue = props[propName];
+   *        if (propValue != null && typeof propValue !== 'string' &&
+   *            !(propValue instanceof URI)) {
+   *          return new Error(
+   *            'Expected a string or an URI for ' + propName + ' in ' +
+   *            componentName
+   *          );
+   *        }
+   *      }
+   *    },
+   *    render: function() {...}
+   *  });
+   *
+   * @internal
+   */ var ANONYMOUS = '<<anonymous>>';
+    // Important!
+    // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
+    var ReactPropTypes = {
+        array: createPrimitiveTypeChecker('array'),
+        bigint: createPrimitiveTypeChecker('bigint'),
+        bool: createPrimitiveTypeChecker('boolean'),
+        func: createPrimitiveTypeChecker('function'),
+        number: createPrimitiveTypeChecker('number'),
+        object: createPrimitiveTypeChecker('object'),
+        string: createPrimitiveTypeChecker('string'),
+        symbol: createPrimitiveTypeChecker('symbol'),
+        any: createAnyTypeChecker(),
+        arrayOf: createArrayOfTypeChecker,
+        element: createElementTypeChecker(),
+        elementType: createElementTypeTypeChecker(),
+        instanceOf: createInstanceTypeChecker,
+        node: createNodeChecker(),
+        objectOf: createObjectOfTypeChecker,
+        oneOf: createEnumTypeChecker,
+        oneOfType: createUnionTypeChecker,
+        shape: createShapeTypeChecker,
+        exact: createStrictShapeTypeChecker
+    };
+    /**
+   * inlined Object.is polyfill to avoid requiring consumers ship their own
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+   */ /*eslint-disable no-self-compare*/ function is(x, y) {
+        // SameValue algorithm
+        if (x === y) // Steps 1-5, 7-10
+        // Steps 6.b-6.e: +0 != -0
+        return x !== 0 || 1 / x === 1 / y;
+        else // Step 6.a: NaN == NaN
+        return x !== x && y !== y;
+    }
+    /*eslint-enable no-self-compare*/ /**
+   * We use an Error-like object for backward compatibility as people may call
+   * PropTypes directly and inspect their output. However, we don't use real
+   * Errors anymore. We don't inspect their stack anyway, and creating them
+   * is prohibitively expensive if they are created too often, such as what
+   * happens in oneOfType() for any type before the one that matched.
+   */ function PropTypeError(message, data) {
+        this.message = message;
+        this.data = data && typeof data === 'object' ? data : {
+        };
+        this.stack = '';
+    }
+    // Make `instanceof Error` still work for returned errors.
+    PropTypeError.prototype = Error.prototype;
+    function createChainableTypeChecker(validate) {
+        var manualPropTypeCallCache = {
+        };
+        var manualPropTypeWarningCount = 0;
+        function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+            componentName = componentName || ANONYMOUS;
+            propFullName = propFullName || propName;
+            if (secret !== ReactPropTypesSecret) {
+                if (throwOnDirectAccess) {
+                    // New behavior only for users of `prop-types` package
+                    var err = new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types");
+                    err.name = 'Invariant Violation';
+                    throw err;
+                } else if (typeof console !== 'undefined') {
+                    // Old behavior for people using React.PropTypes
+                    var cacheKey = componentName + ':' + propName;
+                    if (!manualPropTypeCallCache[cacheKey] && // Avoid spamming the console because they are often not actionable except for lib authors
+                    manualPropTypeWarningCount < 3) {
+                        printWarning("You are manually calling a React.PropTypes validation function for the `" + propFullName + '` prop on `' + componentName + '`. This is deprecated ' + 'and will throw in the standalone `prop-types` package. ' + 'You may be seeing this warning due to a third-party PropTypes ' + 'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.');
+                        manualPropTypeCallCache[cacheKey] = true;
+                        manualPropTypeWarningCount++;
+                    }
+                }
+            }
+            if (props[propName] == null) {
+                if (isRequired) {
+                    if (props[propName] === null) return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
+                    return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
+                }
+                return null;
+            } else return validate(props, propName, componentName, location, propFullName);
+        }
+        var chainedCheckType = checkType.bind(null, false);
+        chainedCheckType.isRequired = checkType.bind(null, true);
+        return chainedCheckType;
+    }
+    function createPrimitiveTypeChecker(expectedType) {
+        function validate(props, propName, componentName, location, propFullName, secret) {
+            var propValue = props[propName];
+            var propType = getPropType(propValue);
+            if (propType !== expectedType) {
+                // `propValue` being instance of, say, date/regexp, pass the 'object'
+                // check, but we can offer a more precise error message here rather than
+                // 'of type `object`'.
+                var preciseType = getPreciseType(propValue);
+                return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'), {
+                    expectedType: expectedType
+                });
+            }
+            return null;
+        }
+        return createChainableTypeChecker(validate);
+    }
+    function createAnyTypeChecker() {
+        return createChainableTypeChecker(emptyFunctionThatReturnsNull);
+    }
+    function createArrayOfTypeChecker(typeChecker) {
+        function validate(props, propName, componentName, location, propFullName) {
+            if (typeof typeChecker !== 'function') return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
+            var propValue = props[propName];
+            if (!Array.isArray(propValue)) {
+                var propType = getPropType(propValue);
+                return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
+            }
+            for(var i = 0; i < propValue.length; i++){
+                var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
+                if (error instanceof Error) return error;
+            }
+            return null;
+        }
+        return createChainableTypeChecker(validate);
+    }
+    function createElementTypeChecker() {
+        function validate(props, propName, componentName, location, propFullName) {
+            var propValue = props[propName];
+            if (!isValidElement(propValue)) {
+                var propType = getPropType(propValue);
+                return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
+            }
+            return null;
+        }
+        return createChainableTypeChecker(validate);
+    }
+    function createElementTypeTypeChecker() {
+        function validate(props, propName, componentName, location, propFullName) {
+            var propValue = props[propName];
+            if (!ReactIs.isValidElementType(propValue)) {
+                var propType = getPropType(propValue);
+                return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement type.'));
+            }
+            return null;
+        }
+        return createChainableTypeChecker(validate);
+    }
+    function createInstanceTypeChecker(expectedClass) {
+        function validate(props, propName, componentName, location, propFullName) {
+            if (!(props[propName] instanceof expectedClass)) {
+                var expectedClassName = expectedClass.name || ANONYMOUS;
+                var actualClassName = getClassName(props[propName]);
+                return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
+            }
+            return null;
+        }
+        return createChainableTypeChecker(validate);
+    }
+    function createEnumTypeChecker(expectedValues) {
+        if (!Array.isArray(expectedValues)) {
+            {
+                if (arguments.length > 1) printWarning('Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' + 'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).');
+                else printWarning('Invalid argument supplied to oneOf, expected an array.');
+            }
+            return emptyFunctionThatReturnsNull;
+        }
+        function validate(props, propName, componentName, location, propFullName) {
+            var propValue = props[propName];
+            for(var i = 0; i < expectedValues.length; i++){
+                if (is(propValue, expectedValues[i])) return null;
+            }
+            var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
+                var type = getPreciseType(value);
+                if (type === 'symbol') return String(value);
+                return value;
+            });
+            return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + String(propValue) + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+        }
+        return createChainableTypeChecker(validate);
+    }
+    function createObjectOfTypeChecker(typeChecker) {
+        function validate(props, propName, componentName, location, propFullName) {
+            if (typeof typeChecker !== 'function') return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
+            var propValue = props[propName];
+            var propType = getPropType(propValue);
+            if (propType !== 'object') return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
+            for(var key in propValue)if (has(propValue, key)) {
+                var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+                if (error instanceof Error) return error;
+            }
+            return null;
+        }
+        return createChainableTypeChecker(validate);
+    }
+    function createUnionTypeChecker(arrayOfTypeCheckers) {
+        if (!Array.isArray(arrayOfTypeCheckers)) {
+            printWarning('Invalid argument supplied to oneOfType, expected an instance of array.');
+            return emptyFunctionThatReturnsNull;
+        }
+        for(var i1 = 0; i1 < arrayOfTypeCheckers.length; i1++){
+            var checker = arrayOfTypeCheckers[i1];
+            if (typeof checker !== 'function') {
+                printWarning("Invalid argument supplied to oneOfType. Expected an array of check functions, but received " + getPostfixForTypeWarning(checker) + ' at index ' + i1 + '.');
+                return emptyFunctionThatReturnsNull;
+            }
+        }
+        function validate(props, propName, componentName, location, propFullName) {
+            var expectedTypes = [];
+            for(var i = 0; i < arrayOfTypeCheckers.length; i++){
+                var checker = arrayOfTypeCheckers[i];
+                var checkerResult = checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret);
+                if (checkerResult == null) return null;
+                if (checkerResult.data && has(checkerResult.data, 'expectedType')) expectedTypes.push(checkerResult.data.expectedType);
+            }
+            var expectedTypesMessage = expectedTypes.length > 0 ? ', expected one of type [' + expectedTypes.join(', ') + ']' : '';
+            return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`' + expectedTypesMessage + '.'));
+        }
+        return createChainableTypeChecker(validate);
+    }
+    function createNodeChecker() {
+        function validate(props, propName, componentName, location, propFullName) {
+            if (!isNode(props[propName])) return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
+            return null;
+        }
+        return createChainableTypeChecker(validate);
+    }
+    function invalidValidatorError(componentName, location, propFullName, key, type) {
+        return new PropTypeError((componentName || 'React class') + ': ' + location + ' type `' + propFullName + '.' + key + '` is invalid; ' + 'it must be a function, usually from the `prop-types` package, but received `' + type + '`.');
+    }
+    function createShapeTypeChecker(shapeTypes) {
+        function validate(props, propName, componentName, location, propFullName) {
+            var propValue = props[propName];
+            var propType = getPropType(propValue);
+            if (propType !== 'object') return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+            for(var key in shapeTypes){
+                var checker = shapeTypes[key];
+                if (typeof checker !== 'function') return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
+                var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+                if (error) return error;
+            }
+            return null;
+        }
+        return createChainableTypeChecker(validate);
+    }
+    function createStrictShapeTypeChecker(shapeTypes) {
+        function validate(props, propName, componentName, location, propFullName) {
+            var propValue = props[propName];
+            var propType = getPropType(propValue);
+            if (propType !== 'object') return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+            // We need to check all keys in case some are required but missing from props.
+            var allKeys = assign({
+            }, props[propName], shapeTypes);
+            for(var key in allKeys){
+                var checker = shapeTypes[key];
+                if (has(shapeTypes, key) && typeof checker !== 'function') return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
+                if (!checker) return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' + '\nBad object: ' + JSON.stringify(props[propName], null, '  ') + '\nValid keys: ' + JSON.stringify(Object.keys(shapeTypes), null, '  '));
+                var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+                if (error) return error;
+            }
+            return null;
+        }
+        return createChainableTypeChecker(validate);
+    }
+    function isNode(propValue) {
+        switch(typeof propValue){
+            case 'number':
+            case 'string':
+            case 'undefined':
+                return true;
+            case 'boolean':
+                return !propValue;
+            case 'object':
+                if (Array.isArray(propValue)) return propValue.every(isNode);
+                if (propValue === null || isValidElement(propValue)) return true;
+                var iteratorFn = getIteratorFn(propValue);
+                if (iteratorFn) {
+                    var iterator = iteratorFn.call(propValue);
+                    var step;
+                    if (iteratorFn !== propValue.entries) while(!(step = iterator.next()).done){
+                        if (!isNode(step.value)) return false;
+                    }
+                    else // Iterator will provide entry [k,v] tuples rather than values.
+                    while(!(step = iterator.next()).done){
+                        var entry = step.value;
+                        if (entry) {
+                            if (!isNode(entry[1])) return false;
+                        }
+                    }
+                } else return false;
+                return true;
+            default:
+                return false;
+        }
+    }
+    function isSymbol(propType, propValue) {
+        // Native Symbol.
+        if (propType === 'symbol') return true;
+        // falsy value can't be a Symbol
+        if (!propValue) return false;
+        // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
+        if (propValue['@@toStringTag'] === 'Symbol') return true;
+        // Fallback for non-spec compliant Symbols which are polyfilled.
+        if (typeof Symbol === 'function' && propValue instanceof Symbol) return true;
+        return false;
+    }
+    // Equivalent of `typeof` but with special handling for array and regexp.
+    function getPropType(propValue) {
+        var propType = typeof propValue;
+        if (Array.isArray(propValue)) return 'array';
+        if (propValue instanceof RegExp) // Old webkits (at least until Android 4.0) return 'function' rather than
+        // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
+        // passes PropTypes.object.
+        return 'object';
+        if (isSymbol(propType, propValue)) return 'symbol';
+        return propType;
+    }
+    // This handles more types than `getPropType`. Only used for error messages.
+    // See `createPrimitiveTypeChecker`.
+    function getPreciseType(propValue) {
+        if (typeof propValue === 'undefined' || propValue === null) return '' + propValue;
+        var propType = getPropType(propValue);
+        if (propType === 'object') {
+            if (propValue instanceof Date) return 'date';
+            else if (propValue instanceof RegExp) return 'regexp';
+        }
+        return propType;
+    }
+    // Returns a string that is postfixed to a warning about an invalid type.
+    // For example, "undefined" or "of type array"
+    function getPostfixForTypeWarning(value) {
+        var type = getPreciseType(value);
+        switch(type){
+            case 'array':
+            case 'object':
+                return 'an ' + type;
+            case 'boolean':
+            case 'date':
+            case 'regexp':
+                return 'a ' + type;
+            default:
+                return type;
+        }
+    }
+    // Returns class name of the object, if any.
+    function getClassName(propValue) {
+        if (!propValue.constructor || !propValue.constructor.name) return ANONYMOUS;
+        return propValue.constructor.name;
+    }
+    ReactPropTypes.checkPropTypes = checkPropTypes;
+    ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
+    ReactPropTypes.PropTypes = ReactPropTypes;
+    return ReactPropTypes;
+};
+
+},{"react-is":"5KyfE","object-assign":"iUUFa","./lib/ReactPropTypesSecret":"bQ0BL","./lib/has":"fM5kX","./checkPropTypes":"aGXhS"}],"bQ0BL":[function(require,module,exports) {
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ 'use strict';
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+module.exports = ReactPropTypesSecret;
+
+},{}],"fM5kX":[function(require,module,exports) {
+module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
+
+},{}],"aGXhS":[function(require,module,exports) {
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ 'use strict';
+var printWarning = function() {
+};
+var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
+var loggedTypeFailures = {
+};
+var has = require('./lib/has');
+printWarning = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') console.error(message);
+    try {
+        // --- Welcome to debugging React ---
+        // This error was thrown as a convenience so that you can use this stack
+        // to find the callsite that caused this warning to fire.
+        throw new Error(message);
+    } catch (x) {
+    }
+};
+/**
+ * Assert that the values match with the type specs.
+ * Error messages are memorized and will only be shown once.
+ *
+ * @param {object} typeSpecs Map of name to a ReactPropType
+ * @param {object} values Runtime values that need to be type-checked
+ * @param {string} location e.g. "prop", "context", "child context"
+ * @param {string} componentName Name of the component for error messages.
+ * @param {?Function} getStack Returns the component stack.
+ * @private
+ */ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+    for(var typeSpecName in typeSpecs)if (has(typeSpecs, typeSpecName)) {
+        var error;
+        // Prop type validation may throw. In case they do, we don't want to
+        // fail the render phase where it didn't fail before. So we log it.
+        // After these have been cleaned up, we'll let them throw.
+        try {
+            // This is intentionally an invariant that gets caught. It's the same
+            // behavior as without this statement except with a better message.
+            if (typeof typeSpecs[typeSpecName] !== 'function') {
+                var err = Error((componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' + 'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.' + 'This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.');
+                err.name = 'Invariant Violation';
+                throw err;
+            }
+            error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
+        } catch (ex) {
+            error = ex;
+        }
+        if (error && !(error instanceof Error)) printWarning((componentName || 'React class') + ': type specification of ' + location + ' `' + typeSpecName + '` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a ' + typeof error + '. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).');
+        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+            // Only monitor this failure once because there tends to be a lot of the
+            // same error.
+            loggedTypeFailures[error.message] = true;
+            var stack = getStack ? getStack() : '';
+            printWarning('Failed ' + location + ' type: ' + error.message + (stack != null ? stack : ''));
+        }
+    }
+}
+/**
+ * Resets warning cache when testing.
+ *
+ * @private
+ */ checkPropTypes.resetWarningCache = function() {
+    loggedTypeFailures = {
+    };
+};
+module.exports = checkPropTypes;
+
+},{"./lib/ReactPropTypesSecret":"bQ0BL","./lib/has":"fM5kX"}],"euFVP":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "geoArea", ()=>_areaJsDefault.default
+);
+parcelHelpers.export(exports, "geoBounds", ()=>_boundsJsDefault.default
+);
+parcelHelpers.export(exports, "geoCentroid", ()=>_centroidJsDefault.default
+);
+parcelHelpers.export(exports, "geoCircle", ()=>_circleJsDefault.default
+);
+parcelHelpers.export(exports, "geoClipAntimeridian", ()=>_antimeridianJsDefault.default
+);
+parcelHelpers.export(exports, "geoClipCircle", ()=>_circleJsDefault1.default
+);
+parcelHelpers.export(exports, "geoClipExtent", ()=>_extentJsDefault.default
+) // DEPRECATED! Use d3.geoIdentity().clipExtent(…).
+;
+parcelHelpers.export(exports, "geoClipRectangle", ()=>_rectangleJsDefault.default
+);
+parcelHelpers.export(exports, "geoContains", ()=>_containsJsDefault.default
+);
+parcelHelpers.export(exports, "geoDistance", ()=>_distanceJsDefault.default
+);
+parcelHelpers.export(exports, "geoGraticule", ()=>_graticuleJsDefault.default
+);
+parcelHelpers.export(exports, "geoGraticule10", ()=>_graticuleJs.graticule10
+);
+parcelHelpers.export(exports, "geoInterpolate", ()=>_interpolateJsDefault.default
+);
+parcelHelpers.export(exports, "geoLength", ()=>_lengthJsDefault.default
+);
+parcelHelpers.export(exports, "geoPath", ()=>_indexJsDefault.default
+);
+parcelHelpers.export(exports, "geoAlbers", ()=>_albersJsDefault.default
+);
+parcelHelpers.export(exports, "geoAlbersUsa", ()=>_albersUsaJsDefault.default
+);
+parcelHelpers.export(exports, "geoAzimuthalEqualArea", ()=>_azimuthalEqualAreaJsDefault.default
+);
+parcelHelpers.export(exports, "geoAzimuthalEqualAreaRaw", ()=>_azimuthalEqualAreaJs.azimuthalEqualAreaRaw
+);
+parcelHelpers.export(exports, "geoAzimuthalEquidistant", ()=>_azimuthalEquidistantJsDefault.default
+);
+parcelHelpers.export(exports, "geoAzimuthalEquidistantRaw", ()=>_azimuthalEquidistantJs.azimuthalEquidistantRaw
+);
+parcelHelpers.export(exports, "geoConicConformal", ()=>_conicConformalJsDefault.default
+);
+parcelHelpers.export(exports, "geoConicConformalRaw", ()=>_conicConformalJs.conicConformalRaw
+);
+parcelHelpers.export(exports, "geoConicEqualArea", ()=>_conicEqualAreaJsDefault.default
+);
+parcelHelpers.export(exports, "geoConicEqualAreaRaw", ()=>_conicEqualAreaJs.conicEqualAreaRaw
+);
+parcelHelpers.export(exports, "geoConicEquidistant", ()=>_conicEquidistantJsDefault.default
+);
+parcelHelpers.export(exports, "geoConicEquidistantRaw", ()=>_conicEquidistantJs.conicEquidistantRaw
+);
+parcelHelpers.export(exports, "geoEqualEarth", ()=>_equalEarthJsDefault.default
+);
+parcelHelpers.export(exports, "geoEqualEarthRaw", ()=>_equalEarthJs.equalEarthRaw
+);
+parcelHelpers.export(exports, "geoEquirectangular", ()=>_equirectangularJsDefault.default
+);
+parcelHelpers.export(exports, "geoEquirectangularRaw", ()=>_equirectangularJs.equirectangularRaw
+);
+parcelHelpers.export(exports, "geoGnomonic", ()=>_gnomonicJsDefault.default
+);
+parcelHelpers.export(exports, "geoGnomonicRaw", ()=>_gnomonicJs.gnomonicRaw
+);
+parcelHelpers.export(exports, "geoIdentity", ()=>_identityJsDefault.default
+);
+parcelHelpers.export(exports, "geoProjection", ()=>_indexJsDefault1.default
+);
+parcelHelpers.export(exports, "geoProjectionMutator", ()=>_indexJs1.projectionMutator
+);
+parcelHelpers.export(exports, "geoMercator", ()=>_mercatorJsDefault.default
+);
+parcelHelpers.export(exports, "geoMercatorRaw", ()=>_mercatorJs.mercatorRaw
+);
+parcelHelpers.export(exports, "geoNaturalEarth1", ()=>_naturalEarth1JsDefault.default
+);
+parcelHelpers.export(exports, "geoNaturalEarth1Raw", ()=>_naturalEarth1Js.naturalEarth1Raw
+);
+parcelHelpers.export(exports, "geoOrthographic", ()=>_orthographicJsDefault.default
+);
+parcelHelpers.export(exports, "geoOrthographicRaw", ()=>_orthographicJs.orthographicRaw
+);
+parcelHelpers.export(exports, "geoStereographic", ()=>_stereographicJsDefault.default
+);
+parcelHelpers.export(exports, "geoStereographicRaw", ()=>_stereographicJs.stereographicRaw
+);
+parcelHelpers.export(exports, "geoTransverseMercator", ()=>_transverseMercatorJsDefault.default
+);
+parcelHelpers.export(exports, "geoTransverseMercatorRaw", ()=>_transverseMercatorJs.transverseMercatorRaw
+);
+parcelHelpers.export(exports, "geoRotation", ()=>_rotationJsDefault.default
+);
+parcelHelpers.export(exports, "geoStream", ()=>_streamJsDefault.default
+);
+parcelHelpers.export(exports, "geoTransform", ()=>_transformJsDefault.default
+);
+var _areaJs = require("./area.js");
+var _areaJsDefault = parcelHelpers.interopDefault(_areaJs);
+var _boundsJs = require("./bounds.js");
+var _boundsJsDefault = parcelHelpers.interopDefault(_boundsJs);
+var _centroidJs = require("./centroid.js");
+var _centroidJsDefault = parcelHelpers.interopDefault(_centroidJs);
+var _circleJs = require("./circle.js");
+var _circleJsDefault = parcelHelpers.interopDefault(_circleJs);
+var _antimeridianJs = require("./clip/antimeridian.js");
+var _antimeridianJsDefault = parcelHelpers.interopDefault(_antimeridianJs);
+var _circleJs1 = require("./clip/circle.js");
+var _circleJsDefault1 = parcelHelpers.interopDefault(_circleJs1);
+var _extentJs = require("./clip/extent.js");
+var _extentJsDefault = parcelHelpers.interopDefault(_extentJs);
+var _rectangleJs = require("./clip/rectangle.js");
+var _rectangleJsDefault = parcelHelpers.interopDefault(_rectangleJs);
+var _containsJs = require("./contains.js");
+var _containsJsDefault = parcelHelpers.interopDefault(_containsJs);
+var _distanceJs = require("./distance.js");
+var _distanceJsDefault = parcelHelpers.interopDefault(_distanceJs);
+var _graticuleJs = require("./graticule.js");
+var _graticuleJsDefault = parcelHelpers.interopDefault(_graticuleJs);
+var _interpolateJs = require("./interpolate.js");
+var _interpolateJsDefault = parcelHelpers.interopDefault(_interpolateJs);
+var _lengthJs = require("./length.js");
+var _lengthJsDefault = parcelHelpers.interopDefault(_lengthJs);
+var _indexJs = require("./path/index.js");
+var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
+var _albersJs = require("./projection/albers.js");
+var _albersJsDefault = parcelHelpers.interopDefault(_albersJs);
+var _albersUsaJs = require("./projection/albersUsa.js");
+var _albersUsaJsDefault = parcelHelpers.interopDefault(_albersUsaJs);
+var _azimuthalEqualAreaJs = require("./projection/azimuthalEqualArea.js");
+var _azimuthalEqualAreaJsDefault = parcelHelpers.interopDefault(_azimuthalEqualAreaJs);
+var _azimuthalEquidistantJs = require("./projection/azimuthalEquidistant.js");
+var _azimuthalEquidistantJsDefault = parcelHelpers.interopDefault(_azimuthalEquidistantJs);
+var _conicConformalJs = require("./projection/conicConformal.js");
+var _conicConformalJsDefault = parcelHelpers.interopDefault(_conicConformalJs);
+var _conicEqualAreaJs = require("./projection/conicEqualArea.js");
+var _conicEqualAreaJsDefault = parcelHelpers.interopDefault(_conicEqualAreaJs);
+var _conicEquidistantJs = require("./projection/conicEquidistant.js");
+var _conicEquidistantJsDefault = parcelHelpers.interopDefault(_conicEquidistantJs);
+var _equalEarthJs = require("./projection/equalEarth.js");
+var _equalEarthJsDefault = parcelHelpers.interopDefault(_equalEarthJs);
+var _equirectangularJs = require("./projection/equirectangular.js");
+var _equirectangularJsDefault = parcelHelpers.interopDefault(_equirectangularJs);
+var _gnomonicJs = require("./projection/gnomonic.js");
+var _gnomonicJsDefault = parcelHelpers.interopDefault(_gnomonicJs);
+var _identityJs = require("./projection/identity.js");
+var _identityJsDefault = parcelHelpers.interopDefault(_identityJs);
+var _indexJs1 = require("./projection/index.js");
+var _indexJsDefault1 = parcelHelpers.interopDefault(_indexJs1);
+var _mercatorJs = require("./projection/mercator.js");
+var _mercatorJsDefault = parcelHelpers.interopDefault(_mercatorJs);
+var _naturalEarth1Js = require("./projection/naturalEarth1.js");
+var _naturalEarth1JsDefault = parcelHelpers.interopDefault(_naturalEarth1Js);
+var _orthographicJs = require("./projection/orthographic.js");
+var _orthographicJsDefault = parcelHelpers.interopDefault(_orthographicJs);
+var _stereographicJs = require("./projection/stereographic.js");
+var _stereographicJsDefault = parcelHelpers.interopDefault(_stereographicJs);
+var _transverseMercatorJs = require("./projection/transverseMercator.js");
+var _transverseMercatorJsDefault = parcelHelpers.interopDefault(_transverseMercatorJs);
+var _rotationJs = require("./rotation.js");
+var _rotationJsDefault = parcelHelpers.interopDefault(_rotationJs);
+var _streamJs = require("./stream.js");
+var _streamJsDefault = parcelHelpers.interopDefault(_streamJs);
+var _transformJs = require("./transform.js");
+var _transformJsDefault = parcelHelpers.interopDefault(_transformJs);
+
+},{"./area.js":"cBTzh","./bounds.js":"8IvkG","./centroid.js":"hDVEJ","./circle.js":"5kSQi","./clip/antimeridian.js":"5t4iH","./clip/circle.js":"iIbFI","./clip/extent.js":"g626F","./clip/rectangle.js":"2xswT","./contains.js":"eYBc9","./distance.js":"glEIa","./graticule.js":"71CK6","./interpolate.js":"9aGW3","./length.js":"9Miu7","./path/index.js":"k9P5v","./projection/albers.js":"3Xlta","./projection/albersUsa.js":"YtNMK","./projection/azimuthalEqualArea.js":"7HnSn","./projection/azimuthalEquidistant.js":"ggmAs","./projection/conicConformal.js":"qkL9e","./projection/conicEqualArea.js":"c9BXq","./projection/conicEquidistant.js":"i4E3R","./projection/equalEarth.js":"2iIrI","./projection/equirectangular.js":"6r5uk","./projection/gnomonic.js":"gz9Xc","./projection/identity.js":"ipPmW","./projection/index.js":"i24sF","./projection/mercator.js":"fE71g","./projection/naturalEarth1.js":"gQDpu","./projection/orthographic.js":"3Wbli","./projection/stereographic.js":"hIzPd","./projection/transverseMercator.js":"4SRkZ","./rotation.js":"54Lv8","./stream.js":"jck2Y","./transform.js":"feffG","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cBTzh":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "areaRingSum", ()=>areaRingSum
+);
+parcelHelpers.export(exports, "areaStream", ()=>areaStream
+);
+var _d3Array = require("d3-array");
+var _mathJs = require("./math.js");
+var _noopJs = require("./noop.js");
+var _noopJsDefault = parcelHelpers.interopDefault(_noopJs);
+var _streamJs = require("./stream.js");
+var _streamJsDefault = parcelHelpers.interopDefault(_streamJs);
+var areaRingSum = new _d3Array.Adder();
+// hello?
+var areaSum = new _d3Array.Adder(), lambda00, phi00, lambda0, cosPhi0, sinPhi0;
+var areaStream = {
+    point: _noopJsDefault.default,
+    lineStart: _noopJsDefault.default,
+    lineEnd: _noopJsDefault.default,
+    polygonStart: function() {
+        areaRingSum = new _d3Array.Adder();
+        areaStream.lineStart = areaRingStart;
+        areaStream.lineEnd = areaRingEnd;
+    },
+    polygonEnd: function() {
+        var areaRing = +areaRingSum;
+        areaSum.add(areaRing < 0 ? _mathJs.tau + areaRing : areaRing);
+        this.lineStart = this.lineEnd = this.point = _noopJsDefault.default;
+    },
+    sphere: function() {
+        areaSum.add(_mathJs.tau);
+    }
+};
+function areaRingStart() {
+    areaStream.point = areaPointFirst;
+}
+function areaRingEnd() {
+    areaPoint(lambda00, phi00);
+}
+function areaPointFirst(lambda, phi) {
+    areaStream.point = areaPoint;
+    lambda00 = lambda, phi00 = phi;
+    lambda *= _mathJs.radians, phi *= _mathJs.radians;
+    lambda0 = lambda, cosPhi0 = _mathJs.cos(phi = phi / 2 + _mathJs.quarterPi), sinPhi0 = _mathJs.sin(phi);
+}
+function areaPoint(lambda, phi) {
+    lambda *= _mathJs.radians, phi *= _mathJs.radians;
+    phi = phi / 2 + _mathJs.quarterPi; // half the angular distance from south pole
+    // Spherical excess E for a spherical triangle with vertices: south pole,
+    // previous point, current point.  Uses a formula derived from Cagnoli’s
+    // theorem.  See Todhunter, Spherical Trig. (1871), Sec. 103, Eq. (2).
+    var dLambda = lambda - lambda0, sdLambda = dLambda >= 0 ? 1 : -1, adLambda = sdLambda * dLambda, cosPhi = _mathJs.cos(phi), sinPhi = _mathJs.sin(phi), k = sinPhi0 * sinPhi, u = cosPhi0 * cosPhi + k * _mathJs.cos(adLambda), v = k * sdLambda * _mathJs.sin(adLambda);
+    areaRingSum.add(_mathJs.atan2(v, u));
+    // Advance the previous points.
+    lambda0 = lambda, cosPhi0 = cosPhi, sinPhi0 = sinPhi;
+}
+exports.default = function(object) {
+    areaSum = new _d3Array.Adder();
+    _streamJsDefault.default(object, areaStream);
+    return areaSum * 2;
+};
+
+},{"d3-array":"dclxS","./math.js":"7JyYl","./noop.js":"a5Top","./stream.js":"jck2Y","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dclxS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "bisect", ()=>_bisectJsDefault.default
+);
+parcelHelpers.export(exports, "bisectRight", ()=>_bisectJs.bisectRight
+);
+parcelHelpers.export(exports, "bisectLeft", ()=>_bisectJs.bisectLeft
+);
+parcelHelpers.export(exports, "bisectCenter", ()=>_bisectJs.bisectCenter
+);
+parcelHelpers.export(exports, "ascending", ()=>_ascendingJsDefault.default
+);
+parcelHelpers.export(exports, "bisector", ()=>_bisectorJsDefault.default
+);
+parcelHelpers.export(exports, "count", ()=>_countJsDefault.default
+);
+parcelHelpers.export(exports, "cross", ()=>_crossJsDefault.default
+);
+parcelHelpers.export(exports, "cumsum", ()=>_cumsumJsDefault.default
+);
+parcelHelpers.export(exports, "descending", ()=>_descendingJsDefault.default
+);
+parcelHelpers.export(exports, "deviation", ()=>_deviationJsDefault.default
+);
+parcelHelpers.export(exports, "extent", ()=>_extentJsDefault.default
+);
+parcelHelpers.export(exports, "Adder", ()=>_fsumJs.Adder
+);
+parcelHelpers.export(exports, "fsum", ()=>_fsumJs.fsum
+);
+parcelHelpers.export(exports, "fcumsum", ()=>_fsumJs.fcumsum
+);
+parcelHelpers.export(exports, "group", ()=>_groupJsDefault.default
+);
+parcelHelpers.export(exports, "groups", ()=>_groupJs.groups
+);
+parcelHelpers.export(exports, "index", ()=>_groupJs.index
+);
+parcelHelpers.export(exports, "indexes", ()=>_groupJs.indexes
+);
+parcelHelpers.export(exports, "rollup", ()=>_groupJs.rollup
+);
+parcelHelpers.export(exports, "rollups", ()=>_groupJs.rollups
+);
+parcelHelpers.export(exports, "groupSort", ()=>_groupSortJsDefault.default
+);
+parcelHelpers.export(exports, "bin", ()=>_binJsDefault.default
+) // Deprecated; use bin.
+;
+parcelHelpers.export(exports, "histogram", ()=>_binJsDefault.default
+);
+parcelHelpers.export(exports, "thresholdFreedmanDiaconis", ()=>_freedmanDiaconisJsDefault.default
+);
+parcelHelpers.export(exports, "thresholdScott", ()=>_scottJsDefault.default
+);
+parcelHelpers.export(exports, "thresholdSturges", ()=>_sturgesJsDefault.default
+);
+parcelHelpers.export(exports, "max", ()=>_maxJsDefault.default
+);
+parcelHelpers.export(exports, "maxIndex", ()=>_maxIndexJsDefault.default
+);
+parcelHelpers.export(exports, "mean", ()=>_meanJsDefault.default
+);
+parcelHelpers.export(exports, "median", ()=>_medianJsDefault.default
+);
+parcelHelpers.export(exports, "merge", ()=>_mergeJsDefault.default
+);
+parcelHelpers.export(exports, "min", ()=>_minJsDefault.default
+);
+parcelHelpers.export(exports, "minIndex", ()=>_minIndexJsDefault.default
+);
+parcelHelpers.export(exports, "nice", ()=>_niceJsDefault.default
+);
+parcelHelpers.export(exports, "pairs", ()=>_pairsJsDefault.default
+);
+parcelHelpers.export(exports, "permute", ()=>_permuteJsDefault.default
+);
+parcelHelpers.export(exports, "quantile", ()=>_quantileJsDefault.default
+);
+parcelHelpers.export(exports, "quantileSorted", ()=>_quantileJs.quantileSorted
+);
+parcelHelpers.export(exports, "quickselect", ()=>_quickselectJsDefault.default
+);
+parcelHelpers.export(exports, "range", ()=>_rangeJsDefault.default
+);
+parcelHelpers.export(exports, "least", ()=>_leastJsDefault.default
+);
+parcelHelpers.export(exports, "leastIndex", ()=>_leastIndexJsDefault.default
+);
+parcelHelpers.export(exports, "greatest", ()=>_greatestJsDefault.default
+);
+parcelHelpers.export(exports, "greatestIndex", ()=>_greatestIndexJsDefault.default
+);
+parcelHelpers.export(exports, "scan", ()=>_scanJsDefault.default
+) // Deprecated; use leastIndex.
+;
+parcelHelpers.export(exports, "shuffle", ()=>_shuffleJsDefault.default
+);
+parcelHelpers.export(exports, "shuffler", ()=>_shuffleJs.shuffler
+);
+parcelHelpers.export(exports, "sum", ()=>_sumJsDefault.default
+);
+parcelHelpers.export(exports, "ticks", ()=>_ticksJsDefault.default
+);
+parcelHelpers.export(exports, "tickIncrement", ()=>_ticksJs.tickIncrement
+);
+parcelHelpers.export(exports, "tickStep", ()=>_ticksJs.tickStep
+);
+parcelHelpers.export(exports, "transpose", ()=>_transposeJsDefault.default
+);
+parcelHelpers.export(exports, "variance", ()=>_varianceJsDefault.default
+);
+parcelHelpers.export(exports, "zip", ()=>_zipJsDefault.default
+);
+parcelHelpers.export(exports, "every", ()=>_everyJsDefault.default
+);
+parcelHelpers.export(exports, "some", ()=>_someJsDefault.default
+);
+parcelHelpers.export(exports, "filter", ()=>_filterJsDefault.default
+);
+parcelHelpers.export(exports, "map", ()=>_mapJsDefault.default
+);
+parcelHelpers.export(exports, "reduce", ()=>_reduceJsDefault.default
+);
+parcelHelpers.export(exports, "reverse", ()=>_reverseJsDefault.default
+);
+parcelHelpers.export(exports, "sort", ()=>_sortJsDefault.default
+);
+parcelHelpers.export(exports, "difference", ()=>_differenceJsDefault.default
+);
+parcelHelpers.export(exports, "disjoint", ()=>_disjointJsDefault.default
+);
+parcelHelpers.export(exports, "intersection", ()=>_intersectionJsDefault.default
+);
+parcelHelpers.export(exports, "subset", ()=>_subsetJsDefault.default
+);
+parcelHelpers.export(exports, "superset", ()=>_supersetJsDefault.default
+);
+parcelHelpers.export(exports, "union", ()=>_unionJsDefault.default
+);
+parcelHelpers.export(exports, "InternMap", ()=>_internmap.InternMap
+);
+parcelHelpers.export(exports, "InternSet", ()=>_internmap.InternSet
+);
+var _bisectJs = require("./bisect.js");
+var _bisectJsDefault = parcelHelpers.interopDefault(_bisectJs);
+var _ascendingJs = require("./ascending.js");
+var _ascendingJsDefault = parcelHelpers.interopDefault(_ascendingJs);
+var _bisectorJs = require("./bisector.js");
+var _bisectorJsDefault = parcelHelpers.interopDefault(_bisectorJs);
+var _countJs = require("./count.js");
+var _countJsDefault = parcelHelpers.interopDefault(_countJs);
+var _crossJs = require("./cross.js");
+var _crossJsDefault = parcelHelpers.interopDefault(_crossJs);
+var _cumsumJs = require("./cumsum.js");
+var _cumsumJsDefault = parcelHelpers.interopDefault(_cumsumJs);
+var _descendingJs = require("./descending.js");
+var _descendingJsDefault = parcelHelpers.interopDefault(_descendingJs);
+var _deviationJs = require("./deviation.js");
+var _deviationJsDefault = parcelHelpers.interopDefault(_deviationJs);
+var _extentJs = require("./extent.js");
+var _extentJsDefault = parcelHelpers.interopDefault(_extentJs);
+var _fsumJs = require("./fsum.js");
+var _groupJs = require("./group.js");
+var _groupJsDefault = parcelHelpers.interopDefault(_groupJs);
+var _groupSortJs = require("./groupSort.js");
+var _groupSortJsDefault = parcelHelpers.interopDefault(_groupSortJs);
+var _binJs = require("./bin.js");
+var _binJsDefault = parcelHelpers.interopDefault(_binJs);
+var _freedmanDiaconisJs = require("./threshold/freedmanDiaconis.js");
+var _freedmanDiaconisJsDefault = parcelHelpers.interopDefault(_freedmanDiaconisJs);
+var _scottJs = require("./threshold/scott.js");
+var _scottJsDefault = parcelHelpers.interopDefault(_scottJs);
+var _sturgesJs = require("./threshold/sturges.js");
+var _sturgesJsDefault = parcelHelpers.interopDefault(_sturgesJs);
+var _maxJs = require("./max.js");
+var _maxJsDefault = parcelHelpers.interopDefault(_maxJs);
+var _maxIndexJs = require("./maxIndex.js");
+var _maxIndexJsDefault = parcelHelpers.interopDefault(_maxIndexJs);
+var _meanJs = require("./mean.js");
+var _meanJsDefault = parcelHelpers.interopDefault(_meanJs);
+var _medianJs = require("./median.js");
+var _medianJsDefault = parcelHelpers.interopDefault(_medianJs);
+var _mergeJs = require("./merge.js");
+var _mergeJsDefault = parcelHelpers.interopDefault(_mergeJs);
+var _minJs = require("./min.js");
+var _minJsDefault = parcelHelpers.interopDefault(_minJs);
+var _minIndexJs = require("./minIndex.js");
+var _minIndexJsDefault = parcelHelpers.interopDefault(_minIndexJs);
+var _niceJs = require("./nice.js");
+var _niceJsDefault = parcelHelpers.interopDefault(_niceJs);
+var _pairsJs = require("./pairs.js");
+var _pairsJsDefault = parcelHelpers.interopDefault(_pairsJs);
+var _permuteJs = require("./permute.js");
+var _permuteJsDefault = parcelHelpers.interopDefault(_permuteJs);
+var _quantileJs = require("./quantile.js");
+var _quantileJsDefault = parcelHelpers.interopDefault(_quantileJs);
+var _quickselectJs = require("./quickselect.js");
+var _quickselectJsDefault = parcelHelpers.interopDefault(_quickselectJs);
+var _rangeJs = require("./range.js");
+var _rangeJsDefault = parcelHelpers.interopDefault(_rangeJs);
+var _leastJs = require("./least.js");
+var _leastJsDefault = parcelHelpers.interopDefault(_leastJs);
+var _leastIndexJs = require("./leastIndex.js");
+var _leastIndexJsDefault = parcelHelpers.interopDefault(_leastIndexJs);
+var _greatestJs = require("./greatest.js");
+var _greatestJsDefault = parcelHelpers.interopDefault(_greatestJs);
+var _greatestIndexJs = require("./greatestIndex.js");
+var _greatestIndexJsDefault = parcelHelpers.interopDefault(_greatestIndexJs);
+var _scanJs = require("./scan.js");
+var _scanJsDefault = parcelHelpers.interopDefault(_scanJs);
+var _shuffleJs = require("./shuffle.js");
+var _shuffleJsDefault = parcelHelpers.interopDefault(_shuffleJs);
+var _sumJs = require("./sum.js");
+var _sumJsDefault = parcelHelpers.interopDefault(_sumJs);
+var _ticksJs = require("./ticks.js");
+var _ticksJsDefault = parcelHelpers.interopDefault(_ticksJs);
+var _transposeJs = require("./transpose.js");
+var _transposeJsDefault = parcelHelpers.interopDefault(_transposeJs);
+var _varianceJs = require("./variance.js");
+var _varianceJsDefault = parcelHelpers.interopDefault(_varianceJs);
+var _zipJs = require("./zip.js");
+var _zipJsDefault = parcelHelpers.interopDefault(_zipJs);
+var _everyJs = require("./every.js");
+var _everyJsDefault = parcelHelpers.interopDefault(_everyJs);
+var _someJs = require("./some.js");
+var _someJsDefault = parcelHelpers.interopDefault(_someJs);
+var _filterJs = require("./filter.js");
+var _filterJsDefault = parcelHelpers.interopDefault(_filterJs);
+var _mapJs = require("./map.js");
+var _mapJsDefault = parcelHelpers.interopDefault(_mapJs);
+var _reduceJs = require("./reduce.js");
+var _reduceJsDefault = parcelHelpers.interopDefault(_reduceJs);
+var _reverseJs = require("./reverse.js");
+var _reverseJsDefault = parcelHelpers.interopDefault(_reverseJs);
+var _sortJs = require("./sort.js");
+var _sortJsDefault = parcelHelpers.interopDefault(_sortJs);
+var _differenceJs = require("./difference.js");
+var _differenceJsDefault = parcelHelpers.interopDefault(_differenceJs);
+var _disjointJs = require("./disjoint.js");
+var _disjointJsDefault = parcelHelpers.interopDefault(_disjointJs);
+var _intersectionJs = require("./intersection.js");
+var _intersectionJsDefault = parcelHelpers.interopDefault(_intersectionJs);
+var _subsetJs = require("./subset.js");
+var _subsetJsDefault = parcelHelpers.interopDefault(_subsetJs);
+var _supersetJs = require("./superset.js");
+var _supersetJsDefault = parcelHelpers.interopDefault(_supersetJs);
+var _unionJs = require("./union.js");
+var _unionJsDefault = parcelHelpers.interopDefault(_unionJs);
+var _internmap = require("internmap");
+
+},{"./bisect.js":false,"./ascending.js":false,"./bisector.js":false,"./count.js":false,"./cross.js":false,"./cumsum.js":false,"./descending.js":false,"./deviation.js":false,"./extent.js":false,"./fsum.js":"kNcPo","./group.js":false,"./groupSort.js":false,"./bin.js":false,"./threshold/freedmanDiaconis.js":false,"./threshold/scott.js":false,"./threshold/sturges.js":false,"./max.js":false,"./maxIndex.js":false,"./mean.js":false,"./median.js":false,"./merge.js":"lLqaS","./min.js":false,"./minIndex.js":false,"./nice.js":false,"./pairs.js":false,"./permute.js":false,"./quantile.js":false,"./quickselect.js":false,"./range.js":"aFuRJ","./least.js":false,"./leastIndex.js":false,"./greatest.js":false,"./greatestIndex.js":false,"./scan.js":false,"./shuffle.js":false,"./sum.js":false,"./ticks.js":false,"./transpose.js":false,"./variance.js":false,"./zip.js":false,"./every.js":false,"./some.js":false,"./filter.js":false,"./map.js":false,"./reduce.js":false,"./reverse.js":false,"./sort.js":false,"./difference.js":false,"./disjoint.js":false,"./intersection.js":false,"./subset.js":false,"./superset.js":false,"./union.js":false,"internmap":false,"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kNcPo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+// https://github.com/python/cpython/blob/a74eea238f5baba15797e2e8b570d153bc8690a7/Modules/mathmodule.c#L1423
+parcelHelpers.export(exports, "Adder", ()=>Adder
+);
+parcelHelpers.export(exports, "fsum", ()=>fsum
+);
+parcelHelpers.export(exports, "fcumsum", ()=>fcumsum
+);
+class Adder {
+    constructor(){
+        this._partials = new Float64Array(32);
+        this._n = 0;
+    }
+    add(x) {
+        const p = this._partials;
+        let i = 0;
+        for(let j = 0; j < this._n && j < 32; j++){
+            const y = p[j], hi = x + y, lo = Math.abs(x) < Math.abs(y) ? x - (hi - y) : y - (hi - x);
+            if (lo) p[i++] = lo;
+            x = hi;
+        }
+        p[i] = x;
+        this._n = i + 1;
+        return this;
+    }
+    valueOf() {
+        const p = this._partials;
+        let n = this._n, x, y, lo, hi = 0;
+        if (n > 0) {
+            hi = p[--n];
+            while(n > 0){
+                x = hi;
+                y = p[--n];
+                hi = x + y;
+                lo = y - (hi - x);
+                if (lo) break;
+            }
+            if (n > 0 && (lo < 0 && p[n - 1] < 0 || lo > 0 && p[n - 1] > 0)) {
+                y = lo * 2;
+                x = hi + y;
+                if (y == x - hi) hi = x;
+            }
+        }
+        return hi;
+    }
+}
+function fsum(values, valueof) {
+    const adder = new Adder();
+    if (valueof === undefined) {
+        for (let value of values)if (value = +value) adder.add(value);
+    } else {
+        let index = -1;
+        for (let value of values)if (value = +valueof(value, ++index, values)) adder.add(value);
+    }
+    return +adder;
+}
+function fcumsum(values, valueof) {
+    const adder = new Adder();
+    let index = -1;
+    return Float64Array.from(values, valueof === undefined ? (v)=>adder.add(+v || 0)
+     : (v)=>adder.add(+valueof(v, ++index, values) || 0)
+    );
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lLqaS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function* flatten(arrays) {
+    for (const array of arrays)yield* array;
+}
+function merge(arrays) {
+    return Array.from(flatten(arrays));
+}
+exports.default = merge;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aFuRJ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(start, stop, step) {
+    start = +start, stop = +stop, step = (n = arguments.length) < 2 ? (stop = start, start = 0, 1) : n < 3 ? 1 : +step;
+    var i = -1, n = Math.max(0, Math.ceil((stop - start) / step)) | 0, range = new Array(n);
+    while(++i < n)range[i] = start + i * step;
+    return range;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7JyYl":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "epsilon", ()=>epsilon
+);
+parcelHelpers.export(exports, "epsilon2", ()=>epsilon2
+);
+parcelHelpers.export(exports, "pi", ()=>pi
+);
+parcelHelpers.export(exports, "halfPi", ()=>halfPi
+);
+parcelHelpers.export(exports, "quarterPi", ()=>quarterPi
+);
+parcelHelpers.export(exports, "tau", ()=>tau
+);
+parcelHelpers.export(exports, "degrees", ()=>degrees
+);
+parcelHelpers.export(exports, "radians", ()=>radians
+);
+parcelHelpers.export(exports, "abs", ()=>abs
+);
+parcelHelpers.export(exports, "atan", ()=>atan
+);
+parcelHelpers.export(exports, "atan2", ()=>atan2
+);
+parcelHelpers.export(exports, "cos", ()=>cos
+);
+parcelHelpers.export(exports, "ceil", ()=>ceil
+);
+parcelHelpers.export(exports, "exp", ()=>exp
+);
+parcelHelpers.export(exports, "floor", ()=>floor
+);
+parcelHelpers.export(exports, "hypot", ()=>hypot
+);
+parcelHelpers.export(exports, "log", ()=>log
+);
+parcelHelpers.export(exports, "pow", ()=>pow
+);
+parcelHelpers.export(exports, "sin", ()=>sin
+);
+parcelHelpers.export(exports, "sign", ()=>sign
+);
+parcelHelpers.export(exports, "sqrt", ()=>sqrt
+);
+parcelHelpers.export(exports, "tan", ()=>tan
+);
+parcelHelpers.export(exports, "acos", ()=>acos
+);
+parcelHelpers.export(exports, "asin", ()=>asin
+);
+parcelHelpers.export(exports, "haversin", ()=>haversin
+);
+var epsilon = 0.000001;
+var epsilon2 = 0.000000000001;
+var pi = Math.PI;
+var halfPi = pi / 2;
+var quarterPi = pi / 4;
+var tau = pi * 2;
+var degrees = 180 / pi;
+var radians = pi / 180;
+var abs = Math.abs;
+var atan = Math.atan;
+var atan2 = Math.atan2;
+var cos = Math.cos;
+var ceil = Math.ceil;
+var exp = Math.exp;
+var floor = Math.floor;
+var hypot = Math.hypot;
+var log = Math.log;
+var pow = Math.pow;
+var sin = Math.sin;
+var sign = Math.sign || function(x) {
+    return x > 0 ? 1 : x < 0 ? -1 : 0;
+};
+var sqrt = Math.sqrt;
+var tan = Math.tan;
+function acos(x) {
+    return x > 1 ? 0 : x < -1 ? pi : Math.acos(x);
+}
+function asin(x) {
+    return x > 1 ? halfPi : x < -1 ? -halfPi : Math.asin(x);
+}
+function haversin(x) {
+    return (x = sin(x / 2)) * x;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"a5Top":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function noop() {
+}
+exports.default = noop;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jck2Y":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function streamGeometry(geometry, stream) {
+    if (geometry && streamGeometryType.hasOwnProperty(geometry.type)) streamGeometryType[geometry.type](geometry, stream);
+}
+var streamObjectType = {
+    Feature: function(object, stream) {
+        streamGeometry(object.geometry, stream);
+    },
+    FeatureCollection: function(object, stream) {
+        var features = object.features, i = -1, n = features.length;
+        while(++i < n)streamGeometry(features[i].geometry, stream);
+    }
+};
+var streamGeometryType = {
+    Sphere: function(object, stream) {
+        stream.sphere();
+    },
+    Point: function(object, stream) {
+        object = object.coordinates;
+        stream.point(object[0], object[1], object[2]);
+    },
+    MultiPoint: function(object, stream) {
+        var coordinates = object.coordinates, i = -1, n = coordinates.length;
+        while(++i < n)object = coordinates[i], stream.point(object[0], object[1], object[2]);
+    },
+    LineString: function(object, stream) {
+        streamLine(object.coordinates, stream, 0);
+    },
+    MultiLineString: function(object, stream) {
+        var coordinates = object.coordinates, i = -1, n = coordinates.length;
+        while(++i < n)streamLine(coordinates[i], stream, 0);
+    },
+    Polygon: function(object, stream) {
+        streamPolygon(object.coordinates, stream);
+    },
+    MultiPolygon: function(object, stream) {
+        var coordinates = object.coordinates, i = -1, n = coordinates.length;
+        while(++i < n)streamPolygon(coordinates[i], stream);
+    },
+    GeometryCollection: function(object, stream) {
+        var geometries = object.geometries, i = -1, n = geometries.length;
+        while(++i < n)streamGeometry(geometries[i], stream);
+    }
+};
+function streamLine(coordinates, stream, closed) {
+    var i = -1, n = coordinates.length - closed, coordinate;
+    stream.lineStart();
+    while(++i < n)coordinate = coordinates[i], stream.point(coordinate[0], coordinate[1], coordinate[2]);
+    stream.lineEnd();
+}
+function streamPolygon(coordinates, stream) {
+    var i = -1, n = coordinates.length;
+    stream.polygonStart();
+    while(++i < n)streamLine(coordinates[i], stream, 1);
+    stream.polygonEnd();
+}
+exports.default = function(object, stream) {
+    if (object && streamObjectType.hasOwnProperty(object.type)) streamObjectType[object.type](object, stream);
+    else streamGeometry(object, stream);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8IvkG":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Array = require("d3-array");
+var _areaJs = require("./area.js");
+var _cartesianJs = require("./cartesian.js");
+var _mathJs = require("./math.js");
+var _streamJs = require("./stream.js");
+var _streamJsDefault = parcelHelpers.interopDefault(_streamJs);
+var lambda0, phi0, lambda1, phi1, lambda2, lambda00, phi00, p0, deltaSum, ranges, range;
+var boundsStream = {
+    point: boundsPoint,
+    lineStart: boundsLineStart,
+    lineEnd: boundsLineEnd,
+    polygonStart: function() {
+        boundsStream.point = boundsRingPoint;
+        boundsStream.lineStart = boundsRingStart;
+        boundsStream.lineEnd = boundsRingEnd;
+        deltaSum = new _d3Array.Adder();
+        _areaJs.areaStream.polygonStart();
+    },
+    polygonEnd: function() {
+        _areaJs.areaStream.polygonEnd();
+        boundsStream.point = boundsPoint;
+        boundsStream.lineStart = boundsLineStart;
+        boundsStream.lineEnd = boundsLineEnd;
+        if (_areaJs.areaRingSum < 0) lambda0 = -(lambda1 = 180), phi0 = -(phi1 = 90);
+        else if (deltaSum > _mathJs.epsilon) phi1 = 90;
+        else if (deltaSum < -_mathJs.epsilon) phi0 = -90;
+        range[0] = lambda0, range[1] = lambda1;
+    },
+    sphere: function() {
+        lambda0 = -(lambda1 = 180), phi0 = -(phi1 = 90);
+    }
+};
+function boundsPoint(lambda, phi) {
+    ranges.push(range = [
+        lambda0 = lambda,
+        lambda1 = lambda
+    ]);
+    if (phi < phi0) phi0 = phi;
+    if (phi > phi1) phi1 = phi;
+}
+function linePoint(lambda, phi) {
+    var p = _cartesianJs.cartesian([
+        lambda * _mathJs.radians,
+        phi * _mathJs.radians
+    ]);
+    if (p0) {
+        var normal = _cartesianJs.cartesianCross(p0, p), equatorial = [
+            normal[1],
+            -normal[0],
+            0
+        ], inflection = _cartesianJs.cartesianCross(equatorial, normal);
+        _cartesianJs.cartesianNormalizeInPlace(inflection);
+        inflection = _cartesianJs.spherical(inflection);
+        var delta = lambda - lambda2, sign = delta > 0 ? 1 : -1, lambdai = inflection[0] * _mathJs.degrees * sign, phii, antimeridian = _mathJs.abs(delta) > 180;
+        if (antimeridian ^ (sign * lambda2 < lambdai && lambdai < sign * lambda)) {
+            phii = inflection[1] * _mathJs.degrees;
+            if (phii > phi1) phi1 = phii;
+        } else if (lambdai = (lambdai + 360) % 360 - 180, antimeridian ^ (sign * lambda2 < lambdai && lambdai < sign * lambda)) {
+            phii = -inflection[1] * _mathJs.degrees;
+            if (phii < phi0) phi0 = phii;
+        } else {
+            if (phi < phi0) phi0 = phi;
+            if (phi > phi1) phi1 = phi;
+        }
+        if (antimeridian) {
+            if (lambda < lambda2) {
+                if (angle(lambda0, lambda) > angle(lambda0, lambda1)) lambda1 = lambda;
+            } else if (angle(lambda, lambda1) > angle(lambda0, lambda1)) lambda0 = lambda;
+        } else if (lambda1 >= lambda0) {
+            if (lambda < lambda0) lambda0 = lambda;
+            if (lambda > lambda1) lambda1 = lambda;
+        } else {
+            if (lambda > lambda2) {
+                if (angle(lambda0, lambda) > angle(lambda0, lambda1)) lambda1 = lambda;
+            } else if (angle(lambda, lambda1) > angle(lambda0, lambda1)) lambda0 = lambda;
+        }
+    } else ranges.push(range = [
+        lambda0 = lambda,
+        lambda1 = lambda
+    ]);
+    if (phi < phi0) phi0 = phi;
+    if (phi > phi1) phi1 = phi;
+    p0 = p, lambda2 = lambda;
+}
+function boundsLineStart() {
+    boundsStream.point = linePoint;
+}
+function boundsLineEnd() {
+    range[0] = lambda0, range[1] = lambda1;
+    boundsStream.point = boundsPoint;
+    p0 = null;
+}
+function boundsRingPoint(lambda, phi) {
+    if (p0) {
+        var delta = lambda - lambda2;
+        deltaSum.add(_mathJs.abs(delta) > 180 ? delta + (delta > 0 ? 360 : -360) : delta);
+    } else lambda00 = lambda, phi00 = phi;
+    _areaJs.areaStream.point(lambda, phi);
+    linePoint(lambda, phi);
+}
+function boundsRingStart() {
+    _areaJs.areaStream.lineStart();
+}
+function boundsRingEnd() {
+    boundsRingPoint(lambda00, phi00);
+    _areaJs.areaStream.lineEnd();
+    if (_mathJs.abs(deltaSum) > _mathJs.epsilon) lambda0 = -(lambda1 = 180);
+    range[0] = lambda0, range[1] = lambda1;
+    p0 = null;
+}
+// Finds the left-right distance between two longitudes.
+// This is almost the same as (lambda1 - lambda0 + 360°) % 360°, except that we want
+// the distance between ±180° to be 360°.
+function angle(lambda01, lambda11) {
+    return (lambda11 -= lambda01) < 0 ? lambda11 + 360 : lambda11;
+}
+function rangeCompare(a, b) {
+    return a[0] - b[0];
+}
+function rangeContains(range1, x) {
+    return range1[0] <= range1[1] ? range1[0] <= x && x <= range1[1] : x < range1[0] || range1[1] < x;
+}
+exports.default = function(feature) {
+    var i, n, a, b, merged, deltaMax, delta;
+    phi1 = lambda1 = -(lambda0 = phi0 = Infinity);
+    ranges = [];
+    _streamJsDefault.default(feature, boundsStream);
+    // First, sort ranges by their minimum longitudes.
+    if (n = ranges.length) {
+        ranges.sort(rangeCompare);
+        // Then, merge any ranges that overlap.
+        for(i = 1, a = ranges[0], merged = [
+            a
+        ]; i < n; ++i){
+            b = ranges[i];
+            if (rangeContains(a, b[0]) || rangeContains(a, b[1])) {
+                if (angle(a[0], b[1]) > angle(a[0], a[1])) a[1] = b[1];
+                if (angle(b[0], a[1]) > angle(a[0], a[1])) a[0] = b[0];
+            } else merged.push(a = b);
+        }
+        // Finally, find the largest gap between the merged ranges.
+        // The final bounding box will be the inverse of this gap.
+        for(deltaMax = -Infinity, n = merged.length - 1, i = 0, a = merged[n]; i <= n; a = b, ++i){
+            b = merged[i];
+            if ((delta = angle(a[1], b[0])) > deltaMax) deltaMax = delta, lambda0 = b[0], lambda1 = a[1];
+        }
+    }
+    ranges = range = null;
+    return lambda0 === Infinity || phi0 === Infinity ? [
+        [
+            NaN,
+            NaN
+        ],
+        [
+            NaN,
+            NaN
+        ]
+    ] : [
+        [
+            lambda0,
+            phi0
+        ],
+        [
+            lambda1,
+            phi1
+        ]
+    ];
+};
+
+},{"d3-array":"dclxS","./area.js":"cBTzh","./cartesian.js":"evaJG","./math.js":"7JyYl","./stream.js":"jck2Y","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"evaJG":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "spherical", ()=>spherical
+);
+parcelHelpers.export(exports, "cartesian", ()=>cartesian
+);
+parcelHelpers.export(exports, "cartesianDot", ()=>cartesianDot
+);
+parcelHelpers.export(exports, "cartesianCross", ()=>cartesianCross
+);
+// TODO return a
+parcelHelpers.export(exports, "cartesianAddInPlace", ()=>cartesianAddInPlace
+);
+parcelHelpers.export(exports, "cartesianScale", ()=>cartesianScale
+);
+// TODO return d
+parcelHelpers.export(exports, "cartesianNormalizeInPlace", ()=>cartesianNormalizeInPlace
+);
+var _mathJs = require("./math.js");
+function spherical(cartesian1) {
+    return [
+        _mathJs.atan2(cartesian1[1], cartesian1[0]),
+        _mathJs.asin(cartesian1[2])
+    ];
+}
+function cartesian(spherical1) {
+    var lambda = spherical1[0], phi = spherical1[1], cosPhi = _mathJs.cos(phi);
+    return [
+        cosPhi * _mathJs.cos(lambda),
+        cosPhi * _mathJs.sin(lambda),
+        _mathJs.sin(phi)
+    ];
+}
+function cartesianDot(a, b) {
+    return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+}
+function cartesianCross(a, b) {
+    return [
+        a[1] * b[2] - a[2] * b[1],
+        a[2] * b[0] - a[0] * b[2],
+        a[0] * b[1] - a[1] * b[0]
+    ];
+}
+function cartesianAddInPlace(a, b) {
+    a[0] += b[0], a[1] += b[1], a[2] += b[2];
+}
+function cartesianScale(vector, k) {
+    return [
+        vector[0] * k,
+        vector[1] * k,
+        vector[2] * k
+    ];
+}
+function cartesianNormalizeInPlace(d) {
+    var l = _mathJs.sqrt(d[0] * d[0] + d[1] * d[1] + d[2] * d[2]);
+    d[0] /= l, d[1] /= l, d[2] /= l;
+}
+
+},{"./math.js":"7JyYl","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hDVEJ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Array = require("d3-array");
+var _mathJs = require("./math.js");
+var _noopJs = require("./noop.js");
+var _noopJsDefault = parcelHelpers.interopDefault(_noopJs);
+var _streamJs = require("./stream.js");
+var _streamJsDefault = parcelHelpers.interopDefault(_streamJs);
+var W0, W1, X0, Y0, Z0, X1, Y1, Z1, X2, Y2, Z2, lambda00, phi00, x0, y0, z0; // previous point
+var centroidStream = {
+    sphere: _noopJsDefault.default,
+    point: centroidPoint,
+    lineStart: centroidLineStart,
+    lineEnd: centroidLineEnd,
+    polygonStart: function() {
+        centroidStream.lineStart = centroidRingStart;
+        centroidStream.lineEnd = centroidRingEnd;
+    },
+    polygonEnd: function() {
+        centroidStream.lineStart = centroidLineStart;
+        centroidStream.lineEnd = centroidLineEnd;
+    }
+};
+// Arithmetic mean of Cartesian vectors.
+function centroidPoint(lambda, phi) {
+    lambda *= _mathJs.radians, phi *= _mathJs.radians;
+    var cosPhi = _mathJs.cos(phi);
+    centroidPointCartesian(cosPhi * _mathJs.cos(lambda), cosPhi * _mathJs.sin(lambda), _mathJs.sin(phi));
+}
+function centroidPointCartesian(x, y, z) {
+    ++W0;
+    X0 += (x - X0) / W0;
+    Y0 += (y - Y0) / W0;
+    Z0 += (z - Z0) / W0;
+}
+function centroidLineStart() {
+    centroidStream.point = centroidLinePointFirst;
+}
+function centroidLinePointFirst(lambda, phi) {
+    lambda *= _mathJs.radians, phi *= _mathJs.radians;
+    var cosPhi = _mathJs.cos(phi);
+    x0 = cosPhi * _mathJs.cos(lambda);
+    y0 = cosPhi * _mathJs.sin(lambda);
+    z0 = _mathJs.sin(phi);
+    centroidStream.point = centroidLinePoint;
+    centroidPointCartesian(x0, y0, z0);
+}
+function centroidLinePoint(lambda, phi) {
+    lambda *= _mathJs.radians, phi *= _mathJs.radians;
+    var cosPhi = _mathJs.cos(phi), x = cosPhi * _mathJs.cos(lambda), y = cosPhi * _mathJs.sin(lambda), z = _mathJs.sin(phi), w = _mathJs.atan2(_mathJs.sqrt((w = y0 * z - z0 * y) * w + (w = z0 * x - x0 * z) * w + (w = x0 * y - y0 * x) * w), x0 * x + y0 * y + z0 * z);
+    W1 += w;
+    X1 += w * (x0 + (x0 = x));
+    Y1 += w * (y0 + (y0 = y));
+    Z1 += w * (z0 + (z0 = z));
+    centroidPointCartesian(x0, y0, z0);
+}
+function centroidLineEnd() {
+    centroidStream.point = centroidPoint;
+}
+// See J. E. Brock, The Inertia Tensor for a Spherical Triangle,
+// J. Applied Mechanics 42, 239 (1975).
+function centroidRingStart() {
+    centroidStream.point = centroidRingPointFirst;
+}
+function centroidRingEnd() {
+    centroidRingPoint(lambda00, phi00);
+    centroidStream.point = centroidPoint;
+}
+function centroidRingPointFirst(lambda, phi) {
+    lambda00 = lambda, phi00 = phi;
+    lambda *= _mathJs.radians, phi *= _mathJs.radians;
+    centroidStream.point = centroidRingPoint;
+    var cosPhi = _mathJs.cos(phi);
+    x0 = cosPhi * _mathJs.cos(lambda);
+    y0 = cosPhi * _mathJs.sin(lambda);
+    z0 = _mathJs.sin(phi);
+    centroidPointCartesian(x0, y0, z0);
+}
+function centroidRingPoint(lambda, phi) {
+    lambda *= _mathJs.radians, phi *= _mathJs.radians;
+    var cosPhi = _mathJs.cos(phi), x = cosPhi * _mathJs.cos(lambda), y = cosPhi * _mathJs.sin(lambda), z = _mathJs.sin(phi), cx = y0 * z - z0 * y, cy = z0 * x - x0 * z, cz = x0 * y - y0 * x, m = _mathJs.hypot(cx, cy, cz), w = _mathJs.asin(m), v = m && -w / m; // area weight multiplier
+    X2.add(v * cx);
+    Y2.add(v * cy);
+    Z2.add(v * cz);
+    W1 += w;
+    X1 += w * (x0 + (x0 = x));
+    Y1 += w * (y0 + (y0 = y));
+    Z1 += w * (z0 + (z0 = z));
+    centroidPointCartesian(x0, y0, z0);
+}
+exports.default = function(object) {
+    W0 = W1 = X0 = Y0 = Z0 = X1 = Y1 = Z1 = 0;
+    X2 = new _d3Array.Adder();
+    Y2 = new _d3Array.Adder();
+    Z2 = new _d3Array.Adder();
+    _streamJsDefault.default(object, centroidStream);
+    var x = +X2, y = +Y2, z = +Z2, m = _mathJs.hypot(x, y, z);
+    // If the area-weighted ccentroid is undefined, fall back to length-weighted ccentroid.
+    if (m < _mathJs.epsilon2) {
+        x = X1, y = Y1, z = Z1;
+        // If the feature has zero length, fall back to arithmetic mean of point vectors.
+        if (W1 < _mathJs.epsilon) x = X0, y = Y0, z = Z0;
+        m = _mathJs.hypot(x, y, z);
+        // If the feature still has an undefined ccentroid, then return.
+        if (m < _mathJs.epsilon2) return [
+            NaN,
+            NaN
+        ];
+    }
+    return [
+        _mathJs.atan2(y, x) * _mathJs.degrees,
+        _mathJs.asin(z / m) * _mathJs.degrees
+    ];
+};
+
+},{"d3-array":"dclxS","./math.js":"7JyYl","./noop.js":"a5Top","./stream.js":"jck2Y","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5kSQi":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+// Generates a circle centered at [0°, 0°], with a given radius and precision.
+parcelHelpers.export(exports, "circleStream", ()=>circleStream
+);
+var _cartesianJs = require("./cartesian.js");
+var _constantJs = require("./constant.js");
+var _constantJsDefault = parcelHelpers.interopDefault(_constantJs);
+var _mathJs = require("./math.js");
+var _rotationJs = require("./rotation.js");
+function circleStream(stream, radius, delta, direction, t0, t1) {
+    if (!delta) return;
+    var cosRadius = _mathJs.cos(radius), sinRadius = _mathJs.sin(radius), step = direction * delta;
+    if (t0 == null) {
+        t0 = radius + direction * _mathJs.tau;
+        t1 = radius - step / 2;
+    } else {
+        t0 = circleRadius(cosRadius, t0);
+        t1 = circleRadius(cosRadius, t1);
+        if (direction > 0 ? t0 < t1 : t0 > t1) t0 += direction * _mathJs.tau;
+    }
+    for(var point, t = t0; direction > 0 ? t > t1 : t < t1; t -= step){
+        point = _cartesianJs.spherical([
+            cosRadius,
+            -sinRadius * _mathJs.cos(t),
+            -sinRadius * _mathJs.sin(t)
+        ]);
+        stream.point(point[0], point[1]);
+    }
+}
+// Returns the signed angle of a cartesian point relative to [cosRadius, 0, 0].
+function circleRadius(cosRadius, point) {
+    point = _cartesianJs.cartesian(point), point[0] -= cosRadius;
+    _cartesianJs.cartesianNormalizeInPlace(point);
+    var radius = _mathJs.acos(-point[1]);
+    return ((-point[2] < 0 ? -radius : radius) + _mathJs.tau - _mathJs.epsilon) % _mathJs.tau;
+}
+exports.default = function() {
+    var center = _constantJsDefault.default([
+        0,
+        0
+    ]), radius = _constantJsDefault.default(90), precision = _constantJsDefault.default(6), ring, rotate, stream = {
+        point: point
+    };
+    function point(x, y) {
+        ring.push(x = rotate(x, y));
+        x[0] *= _mathJs.degrees, x[1] *= _mathJs.degrees;
+    }
+    function circle() {
+        var c = center.apply(this, arguments), r = radius.apply(this, arguments) * _mathJs.radians, p = precision.apply(this, arguments) * _mathJs.radians;
+        ring = [];
+        rotate = _rotationJs.rotateRadians(-c[0] * _mathJs.radians, -c[1] * _mathJs.radians, 0).invert;
+        circleStream(stream, r, p, 1);
+        c = {
+            type: "Polygon",
+            coordinates: [
+                ring
+            ]
+        };
+        ring = rotate = null;
+        return c;
+    }
+    circle.center = function(_) {
+        return arguments.length ? (center = typeof _ === "function" ? _ : _constantJsDefault.default([
+            +_[0],
+            +_[1]
+        ]), circle) : center;
+    };
+    circle.radius = function(_) {
+        return arguments.length ? (radius = typeof _ === "function" ? _ : _constantJsDefault.default(+_), circle) : radius;
+    };
+    circle.precision = function(_) {
+        return arguments.length ? (precision = typeof _ === "function" ? _ : _constantJsDefault.default(+_), circle) : precision;
+    };
+    return circle;
+};
+
+},{"./cartesian.js":"evaJG","./constant.js":"1mMcT","./math.js":"7JyYl","./rotation.js":"54Lv8","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1mMcT":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(x) {
+    return function() {
+        return x;
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"54Lv8":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "rotateRadians", ()=>rotateRadians
+);
+var _composeJs = require("./compose.js");
+var _composeJsDefault = parcelHelpers.interopDefault(_composeJs);
+var _mathJs = require("./math.js");
+function rotationIdentity(lambda, phi) {
+    return [
+        _mathJs.abs(lambda) > _mathJs.pi ? lambda + Math.round(-lambda / _mathJs.tau) * _mathJs.tau : lambda,
+        phi
+    ];
+}
+rotationIdentity.invert = rotationIdentity;
+function rotateRadians(deltaLambda, deltaPhi, deltaGamma) {
+    return (deltaLambda %= _mathJs.tau) ? deltaPhi || deltaGamma ? _composeJsDefault.default(rotationLambda(deltaLambda), rotationPhiGamma(deltaPhi, deltaGamma)) : rotationLambda(deltaLambda) : deltaPhi || deltaGamma ? rotationPhiGamma(deltaPhi, deltaGamma) : rotationIdentity;
+}
+function forwardRotationLambda(deltaLambda) {
+    return function(lambda, phi) {
+        return lambda += deltaLambda, [
+            lambda > _mathJs.pi ? lambda - _mathJs.tau : lambda < -_mathJs.pi ? lambda + _mathJs.tau : lambda,
+            phi
+        ];
+    };
+}
+function rotationLambda(deltaLambda) {
+    var rotation = forwardRotationLambda(deltaLambda);
+    rotation.invert = forwardRotationLambda(-deltaLambda);
+    return rotation;
+}
+function rotationPhiGamma(deltaPhi, deltaGamma) {
+    var cosDeltaPhi = _mathJs.cos(deltaPhi), sinDeltaPhi = _mathJs.sin(deltaPhi), cosDeltaGamma = _mathJs.cos(deltaGamma), sinDeltaGamma = _mathJs.sin(deltaGamma);
+    function rotation(lambda, phi) {
+        var cosPhi = _mathJs.cos(phi), x = _mathJs.cos(lambda) * cosPhi, y = _mathJs.sin(lambda) * cosPhi, z = _mathJs.sin(phi), k = z * cosDeltaPhi + x * sinDeltaPhi;
+        return [
+            _mathJs.atan2(y * cosDeltaGamma - k * sinDeltaGamma, x * cosDeltaPhi - z * sinDeltaPhi),
+            _mathJs.asin(k * cosDeltaGamma + y * sinDeltaGamma)
+        ];
+    }
+    rotation.invert = function(lambda, phi) {
+        var cosPhi = _mathJs.cos(phi), x = _mathJs.cos(lambda) * cosPhi, y = _mathJs.sin(lambda) * cosPhi, z = _mathJs.sin(phi), k = z * cosDeltaGamma - y * sinDeltaGamma;
+        return [
+            _mathJs.atan2(y * cosDeltaGamma + z * sinDeltaGamma, x * cosDeltaPhi + k * sinDeltaPhi),
+            _mathJs.asin(k * cosDeltaPhi - x * sinDeltaPhi)
+        ];
+    };
+    return rotation;
+}
+exports.default = function(rotate) {
+    rotate = rotateRadians(rotate[0] * _mathJs.radians, rotate[1] * _mathJs.radians, rotate.length > 2 ? rotate[2] * _mathJs.radians : 0);
+    function forward(coordinates) {
+        coordinates = rotate(coordinates[0] * _mathJs.radians, coordinates[1] * _mathJs.radians);
+        return coordinates[0] *= _mathJs.degrees, coordinates[1] *= _mathJs.degrees, coordinates;
+    }
+    forward.invert = function(coordinates) {
+        coordinates = rotate.invert(coordinates[0] * _mathJs.radians, coordinates[1] * _mathJs.radians);
+        return coordinates[0] *= _mathJs.degrees, coordinates[1] *= _mathJs.degrees, coordinates;
+    };
+    return forward;
+};
+
+},{"./compose.js":"hx08x","./math.js":"7JyYl","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hx08x":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(a, b) {
+    function compose(x, y) {
+        return x = a(x, y), b(x[0], x[1]);
+    }
+    if (a.invert && b.invert) compose.invert = function(x, y) {
+        return x = b.invert(x, y), x && a.invert(x[0], x[1]);
+    };
+    return compose;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5t4iH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _indexJs = require("./index.js");
+var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
+var _mathJs = require("../math.js");
+exports.default = _indexJsDefault.default(function() {
+    return true;
+}, clipAntimeridianLine, clipAntimeridianInterpolate, [
+    -_mathJs.pi,
+    -_mathJs.halfPi
+]);
+// Takes a line and cuts into visible segments. Return values: 0 - there were
+// intersections or the line was empty; 1 - no intersections; 2 - there were
+// intersections, and the first and last segments should be rejoined.
+function clipAntimeridianLine(stream) {
+    var lambda0 = NaN, phi0 = NaN, sign0 = NaN, clean; // no intersections
+    return {
+        lineStart: function() {
+            stream.lineStart();
+            clean = 1;
+        },
+        point: function(lambda1, phi1) {
+            var sign1 = lambda1 > 0 ? _mathJs.pi : -_mathJs.pi, delta = _mathJs.abs(lambda1 - lambda0);
+            if (_mathJs.abs(delta - _mathJs.pi) < _mathJs.epsilon) {
+                stream.point(lambda0, phi0 = (phi0 + phi1) / 2 > 0 ? _mathJs.halfPi : -_mathJs.halfPi);
+                stream.point(sign0, phi0);
+                stream.lineEnd();
+                stream.lineStart();
+                stream.point(sign1, phi0);
+                stream.point(lambda1, phi0);
+                clean = 0;
+            } else if (sign0 !== sign1 && delta >= _mathJs.pi) {
+                if (_mathJs.abs(lambda0 - sign0) < _mathJs.epsilon) lambda0 -= sign0 * _mathJs.epsilon; // handle degeneracies
+                if (_mathJs.abs(lambda1 - sign1) < _mathJs.epsilon) lambda1 -= sign1 * _mathJs.epsilon;
+                phi0 = clipAntimeridianIntersect(lambda0, phi0, lambda1, phi1);
+                stream.point(sign0, phi0);
+                stream.lineEnd();
+                stream.lineStart();
+                stream.point(sign1, phi0);
+                clean = 0;
+            }
+            stream.point(lambda0 = lambda1, phi0 = phi1);
+            sign0 = sign1;
+        },
+        lineEnd: function() {
+            stream.lineEnd();
+            lambda0 = phi0 = NaN;
+        },
+        clean: function() {
+            return 2 - clean; // if intersections, rejoin first and last segments
+        }
+    };
+}
+function clipAntimeridianIntersect(lambda0, phi0, lambda1, phi1) {
+    var cosPhi0, cosPhi1, sinLambda0Lambda1 = _mathJs.sin(lambda0 - lambda1);
+    return _mathJs.abs(sinLambda0Lambda1) > _mathJs.epsilon ? _mathJs.atan((_mathJs.sin(phi0) * (cosPhi1 = _mathJs.cos(phi1)) * _mathJs.sin(lambda1) - _mathJs.sin(phi1) * (cosPhi0 = _mathJs.cos(phi0)) * _mathJs.sin(lambda0)) / (cosPhi0 * cosPhi1 * sinLambda0Lambda1)) : (phi0 + phi1) / 2;
+}
+function clipAntimeridianInterpolate(from, to, direction, stream) {
+    var phi;
+    if (from == null) {
+        phi = direction * _mathJs.halfPi;
+        stream.point(-_mathJs.pi, phi);
+        stream.point(0, phi);
+        stream.point(_mathJs.pi, phi);
+        stream.point(_mathJs.pi, 0);
+        stream.point(_mathJs.pi, -phi);
+        stream.point(0, -phi);
+        stream.point(-_mathJs.pi, -phi);
+        stream.point(-_mathJs.pi, 0);
+        stream.point(-_mathJs.pi, phi);
+    } else if (_mathJs.abs(from[0] - to[0]) > _mathJs.epsilon) {
+        var lambda = from[0] < to[0] ? _mathJs.pi : -_mathJs.pi;
+        phi = direction * lambda / 2;
+        stream.point(-lambda, phi);
+        stream.point(0, phi);
+        stream.point(lambda, phi);
+    } else stream.point(to[0], to[1]);
+}
+
+},{"./index.js":"fwcyD","../math.js":"7JyYl","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fwcyD":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _bufferJs = require("./buffer.js");
+var _bufferJsDefault = parcelHelpers.interopDefault(_bufferJs);
+var _rejoinJs = require("./rejoin.js");
+var _rejoinJsDefault = parcelHelpers.interopDefault(_rejoinJs);
+var _mathJs = require("../math.js");
+var _polygonContainsJs = require("../polygonContains.js");
+var _polygonContainsJsDefault = parcelHelpers.interopDefault(_polygonContainsJs);
+var _d3Array = require("d3-array");
+exports.default = function(pointVisible, clipLine, interpolate, start) {
+    return function(sink) {
+        var line = clipLine(sink), ringBuffer = _bufferJsDefault.default(), ringSink = clipLine(ringBuffer), polygonStarted = false, polygon, segments, ring;
+        var clip = {
+            point: point1,
+            lineStart: lineStart,
+            lineEnd: lineEnd,
+            polygonStart: function() {
+                clip.point = pointRing;
+                clip.lineStart = ringStart;
+                clip.lineEnd = ringEnd;
+                segments = [];
+                polygon = [];
+            },
+            polygonEnd: function() {
+                clip.point = point1;
+                clip.lineStart = lineStart;
+                clip.lineEnd = lineEnd;
+                segments = _d3Array.merge(segments);
+                var startInside = _polygonContainsJsDefault.default(polygon, start);
+                if (segments.length) {
+                    if (!polygonStarted) sink.polygonStart(), polygonStarted = true;
+                    _rejoinJsDefault.default(segments, compareIntersection, startInside, interpolate, sink);
+                } else if (startInside) {
+                    if (!polygonStarted) sink.polygonStart(), polygonStarted = true;
+                    sink.lineStart();
+                    interpolate(null, null, 1, sink);
+                    sink.lineEnd();
+                }
+                if (polygonStarted) sink.polygonEnd(), polygonStarted = false;
+                segments = polygon = null;
+            },
+            sphere: function() {
+                sink.polygonStart();
+                sink.lineStart();
+                interpolate(null, null, 1, sink);
+                sink.lineEnd();
+                sink.polygonEnd();
+            }
+        };
+        function point1(lambda, phi) {
+            if (pointVisible(lambda, phi)) sink.point(lambda, phi);
+        }
+        function pointLine(lambda, phi) {
+            line.point(lambda, phi);
+        }
+        function lineStart() {
+            clip.point = pointLine;
+            line.lineStart();
+        }
+        function lineEnd() {
+            clip.point = point1;
+            line.lineEnd();
+        }
+        function pointRing(lambda, phi) {
+            ring.push([
+                lambda,
+                phi
+            ]);
+            ringSink.point(lambda, phi);
+        }
+        function ringStart() {
+            ringSink.lineStart();
+            ring = [];
+        }
+        function ringEnd() {
+            pointRing(ring[0][0], ring[0][1]);
+            ringSink.lineEnd();
+            var clean = ringSink.clean(), ringSegments = ringBuffer.result(), i, n = ringSegments.length, m, segment, point;
+            ring.pop();
+            polygon.push(ring);
+            ring = null;
+            if (!n) return;
+            // No intersections.
+            if (clean & 1) {
+                segment = ringSegments[0];
+                if ((m = segment.length - 1) > 0) {
+                    if (!polygonStarted) sink.polygonStart(), polygonStarted = true;
+                    sink.lineStart();
+                    for(i = 0; i < m; ++i)sink.point((point = segment[i])[0], point[1]);
+                    sink.lineEnd();
+                }
+                return;
+            }
+            // Rejoin connected segments.
+            // TODO reuse ringBuffer.rejoin()?
+            if (n > 1 && clean & 2) ringSegments.push(ringSegments.pop().concat(ringSegments.shift()));
+            segments.push(ringSegments.filter(validSegment));
+        }
+        return clip;
+    };
+};
+function validSegment(segment) {
+    return segment.length > 1;
+}
+// Intersections are sorted along the clip edge. For both antimeridian cutting
+// and circle clipping, the same comparison is used.
+function compareIntersection(a, b) {
+    return ((a = a.x)[0] < 0 ? a[1] - _mathJs.halfPi - _mathJs.epsilon : _mathJs.halfPi - a[1]) - ((b = b.x)[0] < 0 ? b[1] - _mathJs.halfPi - _mathJs.epsilon : _mathJs.halfPi - b[1]);
+}
+
+},{"./buffer.js":"1YOxa","./rejoin.js":"a6HiF","../math.js":"7JyYl","../polygonContains.js":"FktDW","d3-array":"dclxS","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1YOxa":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _noopJs = require("../noop.js");
+var _noopJsDefault = parcelHelpers.interopDefault(_noopJs);
+exports.default = function() {
+    var lines = [], line;
+    return {
+        point: function(x, y, m) {
+            line.push([
+                x,
+                y,
+                m
+            ]);
+        },
+        lineStart: function() {
+            lines.push(line = []);
+        },
+        lineEnd: _noopJsDefault.default,
+        rejoin: function() {
+            if (lines.length > 1) lines.push(lines.pop().concat(lines.shift()));
+        },
+        result: function() {
+            var result = lines;
+            lines = [];
+            line = null;
+            return result;
+        }
+    };
+};
+
+},{"../noop.js":"a5Top","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"a6HiF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _pointEqualJs = require("../pointEqual.js");
+var _pointEqualJsDefault = parcelHelpers.interopDefault(_pointEqualJs);
+var _mathJs = require("../math.js");
+function Intersection(point, points, other, entry) {
+    this.x = point;
+    this.z = points;
+    this.o = other; // another intersection
+    this.e = entry; // is an entry?
+    this.v = false; // visited
+    this.n = this.p = null; // next & previous
+}
+exports.default = function(segments, compareIntersection, startInside, interpolate, stream) {
+    var subject = [], clip = [], i, n1;
+    segments.forEach(function(segment) {
+        if ((n = segment.length - 1) <= 0) return;
+        var n, p0 = segment[0], p1 = segment[n], x;
+        if (_pointEqualJsDefault.default(p0, p1)) {
+            if (!p0[2] && !p1[2]) {
+                stream.lineStart();
+                for(i = 0; i < n; ++i)stream.point((p0 = segment[i])[0], p0[1]);
+                stream.lineEnd();
+                return;
+            }
+            // handle degenerate cases by moving the point
+            p1[0] += 2 * _mathJs.epsilon;
+        }
+        subject.push(x = new Intersection(p0, segment, null, true));
+        clip.push(x.o = new Intersection(p0, null, x, false));
+        subject.push(x = new Intersection(p1, segment, null, false));
+        clip.push(x.o = new Intersection(p1, null, x, true));
+    });
+    if (!subject.length) return;
+    clip.sort(compareIntersection);
+    link(subject);
+    link(clip);
+    for(i = 0, n1 = clip.length; i < n1; ++i)clip[i].e = startInside = !startInside;
+    var start = subject[0], points, point;
+    while(true){
+        // Find first unvisited intersection.
+        var current = start, isSubject = true;
+        while(current.v)if ((current = current.n) === start) return;
+        points = current.z;
+        stream.lineStart();
+        do {
+            current.v = current.o.v = true;
+            if (current.e) {
+                if (isSubject) for(i = 0, n1 = points.length; i < n1; ++i)stream.point((point = points[i])[0], point[1]);
+                else interpolate(current.x, current.n.x, 1, stream);
+                current = current.n;
+            } else {
+                if (isSubject) {
+                    points = current.p.z;
+                    for(i = points.length - 1; i >= 0; --i)stream.point((point = points[i])[0], point[1]);
+                } else interpolate(current.x, current.p.x, -1, stream);
+                current = current.p;
+            }
+            current = current.o;
+            points = current.z;
+            isSubject = !isSubject;
+        }while (!current.v)
+        stream.lineEnd();
+    }
+};
+function link(array) {
+    if (!(n = array.length)) return;
+    var n, i = 0, a = array[0], b;
+    while(++i < n){
+        a.n = b = array[i];
+        b.p = a;
+        a = b;
+    }
+    a.n = b = array[0];
+    b.p = a;
+}
+
+},{"../pointEqual.js":"kT0x8","../math.js":"7JyYl","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kT0x8":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _mathJs = require("./math.js");
+exports.default = function(a, b) {
+    return _mathJs.abs(a[0] - b[0]) < _mathJs.epsilon && _mathJs.abs(a[1] - b[1]) < _mathJs.epsilon;
+};
+
+},{"./math.js":"7JyYl","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"FktDW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Array = require("d3-array");
+var _cartesianJs = require("./cartesian.js");
+var _mathJs = require("./math.js");
+function longitude(point) {
+    if (_mathJs.abs(point[0]) <= _mathJs.pi) return point[0];
+    else return _mathJs.sign(point[0]) * ((_mathJs.abs(point[0]) + _mathJs.pi) % _mathJs.tau - _mathJs.pi);
+}
+exports.default = function(polygon, point) {
+    var lambda = longitude(point), phi = point[1], sinPhi = _mathJs.sin(phi), normal = [
+        _mathJs.sin(lambda),
+        -_mathJs.cos(lambda),
+        0
+    ], angle = 0, winding = 0;
+    var sum = new _d3Array.Adder();
+    if (sinPhi === 1) phi = _mathJs.halfPi + _mathJs.epsilon;
+    else if (sinPhi === -1) phi = -_mathJs.halfPi - _mathJs.epsilon;
+    for(var i = 0, n = polygon.length; i < n; ++i){
+        if (!(m = (ring = polygon[i]).length)) continue;
+        var ring, m, point0 = ring[m - 1], lambda0 = longitude(point0), phi0 = point0[1] / 2 + _mathJs.quarterPi, sinPhi0 = _mathJs.sin(phi0), cosPhi0 = _mathJs.cos(phi0);
+        for(var j = 0; j < m; ++j, lambda0 = lambda1, sinPhi0 = sinPhi1, cosPhi0 = cosPhi1, point0 = point1){
+            var point1 = ring[j], lambda1 = longitude(point1), phi1 = point1[1] / 2 + _mathJs.quarterPi, sinPhi1 = _mathJs.sin(phi1), cosPhi1 = _mathJs.cos(phi1), delta = lambda1 - lambda0, sign = delta >= 0 ? 1 : -1, absDelta = sign * delta, antimeridian = absDelta > _mathJs.pi, k = sinPhi0 * sinPhi1;
+            sum.add(_mathJs.atan2(k * sign * _mathJs.sin(absDelta), cosPhi0 * cosPhi1 + k * _mathJs.cos(absDelta)));
+            angle += antimeridian ? delta + sign * _mathJs.tau : delta;
+            // Are the longitudes either side of the point’s meridian (lambda),
+            // and are the latitudes smaller than the parallel (phi)?
+            if (antimeridian ^ lambda0 >= lambda ^ lambda1 >= lambda) {
+                var arc = _cartesianJs.cartesianCross(_cartesianJs.cartesian(point0), _cartesianJs.cartesian(point1));
+                _cartesianJs.cartesianNormalizeInPlace(arc);
+                var intersection = _cartesianJs.cartesianCross(normal, arc);
+                _cartesianJs.cartesianNormalizeInPlace(intersection);
+                var phiArc = (antimeridian ^ delta >= 0 ? -1 : 1) * _mathJs.asin(intersection[2]);
+                if (phi > phiArc || phi === phiArc && (arc[0] || arc[1])) winding += antimeridian ^ delta >= 0 ? 1 : -1;
+            }
+        }
+    }
+    // First, determine whether the South pole is inside or outside:
+    //
+    // It is inside if:
+    // * the polygon winds around it in a clockwise direction.
+    // * the polygon does not (cumulatively) wind around it, but has a negative
+    //   (counter-clockwise) area.
+    //
+    // Second, count the (signed) number of times a segment crosses a lambda
+    // from the point to the South pole.  If it is zero, then the point is the
+    // same side as the South pole.
+    return (angle < -_mathJs.epsilon || angle < _mathJs.epsilon && sum < -_mathJs.epsilon2) ^ winding & 1;
+};
+
+},{"d3-array":"dclxS","./cartesian.js":"evaJG","./math.js":"7JyYl","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"iIbFI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _cartesianJs = require("../cartesian.js");
+var _circleJs = require("../circle.js");
+var _mathJs = require("../math.js");
+var _pointEqualJs = require("../pointEqual.js");
+var _pointEqualJsDefault = parcelHelpers.interopDefault(_pointEqualJs);
+var _indexJs = require("./index.js");
+var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
+exports.default = function(radius) {
+    var cr = _mathJs.cos(radius), delta1 = 6 * _mathJs.radians, smallRadius = cr > 0, notHemisphere = _mathJs.abs(cr) > _mathJs.epsilon; // TODO optimise for this common case
+    function interpolate(from, to, direction, stream) {
+        _circleJs.circleStream(stream, radius, delta1, direction, from, to);
+    }
+    function visible(lambda, phi) {
+        return _mathJs.cos(lambda) * _mathJs.cos(phi) > cr;
+    }
+    // Takes a line and cuts into visible segments. Return values used for polygon
+    // clipping: 0 - there were intersections or the line was empty; 1 - no
+    // intersections 2 - there were intersections, and the first and last segments
+    // should be rejoined.
+    function clipLine(stream) {
+        var point0, c0, v0, v00, clean; // no intersections
+        return {
+            lineStart: function() {
+                v00 = v0 = false;
+                clean = 1;
+            },
+            point: function(lambda, phi) {
+                var point1 = [
+                    lambda,
+                    phi
+                ], point2, v = visible(lambda, phi), c = smallRadius ? v ? 0 : code1(lambda, phi) : v ? code1(lambda + (lambda < 0 ? _mathJs.pi : -_mathJs.pi), phi) : 0;
+                if (!point0 && (v00 = v0 = v)) stream.lineStart();
+                if (v !== v0) {
+                    point2 = intersect(point0, point1);
+                    if (!point2 || _pointEqualJsDefault.default(point0, point2) || _pointEqualJsDefault.default(point1, point2)) point1[2] = 1;
+                }
+                if (v !== v0) {
+                    clean = 0;
+                    if (v) {
+                        // outside going in
+                        stream.lineStart();
+                        point2 = intersect(point1, point0);
+                        stream.point(point2[0], point2[1]);
+                    } else {
+                        // inside going out
+                        point2 = intersect(point0, point1);
+                        stream.point(point2[0], point2[1], 2);
+                        stream.lineEnd();
+                    }
+                    point0 = point2;
+                } else if (notHemisphere && point0 && smallRadius ^ v) {
+                    var t;
+                    // If the codes for two points are different, or are both zero,
+                    // and there this segment intersects with the small circle.
+                    if (!(c & c0) && (t = intersect(point1, point0, true))) {
+                        clean = 0;
+                        if (smallRadius) {
+                            stream.lineStart();
+                            stream.point(t[0][0], t[0][1]);
+                            stream.point(t[1][0], t[1][1]);
+                            stream.lineEnd();
+                        } else {
+                            stream.point(t[1][0], t[1][1]);
+                            stream.lineEnd();
+                            stream.lineStart();
+                            stream.point(t[0][0], t[0][1], 3);
+                        }
+                    }
+                }
+                if (v && (!point0 || !_pointEqualJsDefault.default(point0, point1))) stream.point(point1[0], point1[1]);
+                point0 = point1, v0 = v, c0 = c;
+            },
+            lineEnd: function() {
+                if (v0) stream.lineEnd();
+                point0 = null;
+            },
+            // Rejoin first and last segments if there were intersections and the first
+            // and last points were visible.
+            clean: function() {
+                return clean | (v00 && v0) << 1;
+            }
+        };
+    }
+    // Intersects the great circle between a and b with the clip circle.
+    function intersect(a, b, two) {
+        var pa = _cartesianJs.cartesian(a), pb = _cartesianJs.cartesian(b);
+        // We have two planes, n1.p = d1 and n2.p = d2.
+        // Find intersection line p(t) = c1 n1 + c2 n2 + t (n1 ⨯ n2).
+        var n1 = [
+            1,
+            0,
+            0
+        ], n2 = _cartesianJs.cartesianCross(pa, pb), n2n2 = _cartesianJs.cartesianDot(n2, n2), n1n2 = n2[0], determinant = n2n2 - n1n2 * n1n2;
+        // Two polar points.
+        if (!determinant) return !two && a;
+        var c1 = cr * n2n2 / determinant, c2 = -cr * n1n2 / determinant, n1xn2 = _cartesianJs.cartesianCross(n1, n2), A = _cartesianJs.cartesianScale(n1, c1), B = _cartesianJs.cartesianScale(n2, c2);
+        _cartesianJs.cartesianAddInPlace(A, B);
+        // Solve |p(t)|^2 = 1.
+        var u = n1xn2, w = _cartesianJs.cartesianDot(A, u), uu = _cartesianJs.cartesianDot(u, u), t2 = w * w - uu * (_cartesianJs.cartesianDot(A, A) - 1);
+        if (t2 < 0) return;
+        var t = _mathJs.sqrt(t2), q = _cartesianJs.cartesianScale(u, (-w - t) / uu);
+        _cartesianJs.cartesianAddInPlace(q, A);
+        q = _cartesianJs.spherical(q);
+        if (!two) return q;
+        // Two intersection points.
+        var lambda0 = a[0], lambda1 = b[0], phi0 = a[1], phi1 = b[1], z;
+        if (lambda1 < lambda0) z = lambda0, lambda0 = lambda1, lambda1 = z;
+        var delta = lambda1 - lambda0, polar = _mathJs.abs(delta - _mathJs.pi) < _mathJs.epsilon, meridian = polar || delta < _mathJs.epsilon;
+        if (!polar && phi1 < phi0) z = phi0, phi0 = phi1, phi1 = z;
+        // Check that the first point is between a and b.
+        if (meridian ? polar ? phi0 + phi1 > 0 ^ q[1] < (_mathJs.abs(q[0] - lambda0) < _mathJs.epsilon ? phi0 : phi1) : phi0 <= q[1] && q[1] <= phi1 : delta > _mathJs.pi ^ (lambda0 <= q[0] && q[0] <= lambda1)) {
+            var q1 = _cartesianJs.cartesianScale(u, (-w + t) / uu);
+            _cartesianJs.cartesianAddInPlace(q1, A);
+            return [
+                q,
+                _cartesianJs.spherical(q1)
+            ];
+        }
+    }
+    // Generates a 4-bit vector representing the location of a point relative to
+    // the small circle's bounding box.
+    function code1(lambda, phi) {
+        var r = smallRadius ? radius : _mathJs.pi - radius, code = 0;
+        if (lambda < -r) code |= 1; // left
+        else if (lambda > r) code |= 2; // right
+        if (phi < -r) code |= 4; // below
+        else if (phi > r) code |= 8; // above
+        return code;
+    }
+    return _indexJsDefault.default(visible, clipLine, interpolate, smallRadius ? [
+        0,
+        -radius
+    ] : [
+        -_mathJs.pi,
+        radius - _mathJs.pi
+    ]);
+};
+
+},{"../cartesian.js":"evaJG","../circle.js":"5kSQi","../math.js":"7JyYl","../pointEqual.js":"kT0x8","./index.js":"fwcyD","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"g626F":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _rectangleJs = require("./rectangle.js");
+var _rectangleJsDefault = parcelHelpers.interopDefault(_rectangleJs);
+exports.default = function() {
+    var x0 = 0, y0 = 0, x1 = 960, y1 = 500, cache, cacheStream, clip;
+    return clip = {
+        stream: function(stream) {
+            return cache && cacheStream === stream ? cache : cache = _rectangleJsDefault.default(x0, y0, x1, y1)(cacheStream = stream);
+        },
+        extent: function(_) {
+            return arguments.length ? (x0 = +_[0][0], y0 = +_[0][1], x1 = +_[1][0], y1 = +_[1][1], cache = cacheStream = null, clip) : [
+                [
+                    x0,
+                    y0
+                ],
+                [
+                    x1,
+                    y1
+                ]
+            ];
+        }
+    };
+};
+
+},{"./rectangle.js":"2xswT","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2xswT":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _mathJs = require("../math.js");
+var _bufferJs = require("./buffer.js");
+var _bufferJsDefault = parcelHelpers.interopDefault(_bufferJs);
+var _lineJs = require("./line.js");
+var _lineJsDefault = parcelHelpers.interopDefault(_lineJs);
+var _rejoinJs = require("./rejoin.js");
+var _rejoinJsDefault = parcelHelpers.interopDefault(_rejoinJs);
+var _d3Array = require("d3-array");
+var clipMax = 1000000000, clipMin = -clipMax;
+function clipRectangle(x0, y0, x1, y1) {
+    function visible1(x, y) {
+        return x0 <= x && x <= x1 && y0 <= y && y <= y1;
+    }
+    function interpolate(from, to, direction, stream) {
+        var a = 0, a1 = 0;
+        if (from == null || (a = corner(from, direction)) !== (a1 = corner(to, direction)) || comparePoint(from, to) < 0 ^ direction > 0) do stream.point(a === 0 || a === 3 ? x0 : x1, a > 1 ? y1 : y0);
+        while ((a = (a + direction + 4) % 4) !== a1)
+        else stream.point(to[0], to[1]);
+    }
+    function corner(p, direction) {
+        return _mathJs.abs(p[0] - x0) < _mathJs.epsilon ? direction > 0 ? 0 : 3 : _mathJs.abs(p[0] - x1) < _mathJs.epsilon ? direction > 0 ? 2 : 1 : _mathJs.abs(p[1] - y0) < _mathJs.epsilon ? direction > 0 ? 1 : 0 : direction > 0 ? 3 : 2; // abs(p[1] - y1) < epsilon
+    }
+    function compareIntersection(a, b) {
+        return comparePoint(a.x, b.x);
+    }
+    function comparePoint(a, b) {
+        var ca = corner(a, 1), cb = corner(b, 1);
+        return ca !== cb ? ca - cb : ca === 0 ? b[1] - a[1] : ca === 1 ? a[0] - b[0] : ca === 2 ? a[1] - b[1] : b[0] - a[0];
+    }
+    return function(stream) {
+        var activeStream = stream, bufferStream = _bufferJsDefault.default(), segments, polygon, ring1, x__, y__, v__, x_, y_, v_, first, clean;
+        var clipStream = {
+            point: point1,
+            lineStart: lineStart,
+            lineEnd: lineEnd,
+            polygonStart: polygonStart,
+            polygonEnd: polygonEnd
+        };
+        function point1(x, y) {
+            if (visible1(x, y)) activeStream.point(x, y);
+        }
+        function polygonInside() {
+            var winding = 0;
+            for(var i = 0, n = polygon.length; i < n; ++i)for(var ring = polygon[i], j = 1, m = ring.length, point = ring[0], a0, a1, b0 = point[0], b1 = point[1]; j < m; ++j){
+                a0 = b0, a1 = b1, point = ring[j], b0 = point[0], b1 = point[1];
+                if (a1 <= y1) {
+                    if (b1 > y1 && (b0 - a0) * (y1 - a1) > (b1 - a1) * (x0 - a0)) ++winding;
+                } else if (b1 <= y1 && (b0 - a0) * (y1 - a1) < (b1 - a1) * (x0 - a0)) --winding;
+            }
+            return winding;
+        }
+        // Buffer geometry within a polygon and then clip it en masse.
+        function polygonStart() {
+            activeStream = bufferStream, segments = [], polygon = [], clean = true;
+        }
+        function polygonEnd() {
+            var startInside = polygonInside(), cleanInside = clean && startInside, visible = (segments = _d3Array.merge(segments)).length;
+            if (cleanInside || visible) {
+                stream.polygonStart();
+                if (cleanInside) {
+                    stream.lineStart();
+                    interpolate(null, null, 1, stream);
+                    stream.lineEnd();
+                }
+                if (visible) _rejoinJsDefault.default(segments, compareIntersection, startInside, interpolate, stream);
+                stream.polygonEnd();
+            }
+            activeStream = stream, segments = polygon = ring1 = null;
+        }
+        function lineStart() {
+            clipStream.point = linePoint;
+            if (polygon) polygon.push(ring1 = []);
+            first = true;
+            v_ = false;
+            x_ = y_ = NaN;
+        }
+        // TODO rather than special-case polygons, simply handle them separately.
+        // Ideally, coincident intersection points should be jittered to avoid
+        // clipping issues.
+        function lineEnd() {
+            if (segments) {
+                linePoint(x__, y__);
+                if (v__ && v_) bufferStream.rejoin();
+                segments.push(bufferStream.result());
+            }
+            clipStream.point = point1;
+            if (v_) activeStream.lineEnd();
+        }
+        function linePoint(x, y) {
+            var v = visible1(x, y);
+            if (polygon) ring1.push([
+                x,
+                y
+            ]);
+            if (first) {
+                x__ = x, y__ = y, v__ = v;
+                first = false;
+                if (v) {
+                    activeStream.lineStart();
+                    activeStream.point(x, y);
+                }
+            } else if (v && v_) activeStream.point(x, y);
+            else {
+                var a = [
+                    x_ = Math.max(clipMin, Math.min(clipMax, x_)),
+                    y_ = Math.max(clipMin, Math.min(clipMax, y_))
+                ], b = [
+                    x = Math.max(clipMin, Math.min(clipMax, x)),
+                    y = Math.max(clipMin, Math.min(clipMax, y))
+                ];
+                if (_lineJsDefault.default(a, b, x0, y0, x1, y1)) {
+                    if (!v_) {
+                        activeStream.lineStart();
+                        activeStream.point(a[0], a[1]);
+                    }
+                    activeStream.point(b[0], b[1]);
+                    if (!v) activeStream.lineEnd();
+                    clean = false;
+                } else if (v) {
+                    activeStream.lineStart();
+                    activeStream.point(x, y);
+                    clean = false;
+                }
+            }
+            x_ = x, y_ = y, v_ = v;
+        }
+        return clipStream;
+    };
+}
+exports.default = clipRectangle;
+
+},{"../math.js":"7JyYl","./buffer.js":"1YOxa","./line.js":"7KlnJ","./rejoin.js":"a6HiF","d3-array":"dclxS","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7KlnJ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(a, b, x0, y0, x1, y1) {
+    var ax = a[0], ay = a[1], bx = b[0], by = b[1], t0 = 0, t1 = 1, dx = bx - ax, dy = by - ay, r;
+    r = x0 - ax;
+    if (!dx && r > 0) return;
+    r /= dx;
+    if (dx < 0) {
+        if (r < t0) return;
+        if (r < t1) t1 = r;
+    } else if (dx > 0) {
+        if (r > t1) return;
+        if (r > t0) t0 = r;
+    }
+    r = x1 - ax;
+    if (!dx && r < 0) return;
+    r /= dx;
+    if (dx < 0) {
+        if (r > t1) return;
+        if (r > t0) t0 = r;
+    } else if (dx > 0) {
+        if (r < t0) return;
+        if (r < t1) t1 = r;
+    }
+    r = y0 - ay;
+    if (!dy && r > 0) return;
+    r /= dy;
+    if (dy < 0) {
+        if (r < t0) return;
+        if (r < t1) t1 = r;
+    } else if (dy > 0) {
+        if (r > t1) return;
+        if (r > t0) t0 = r;
+    }
+    r = y1 - ay;
+    if (!dy && r < 0) return;
+    r /= dy;
+    if (dy < 0) {
+        if (r > t1) return;
+        if (r > t0) t0 = r;
+    } else if (dy > 0) {
+        if (r < t0) return;
+        if (r < t1) t1 = r;
+    }
+    if (t0 > 0) a[0] = ax + t0 * dx, a[1] = ay + t0 * dy;
+    if (t1 < 1) b[0] = ax + t1 * dx, b[1] = ay + t1 * dy;
+    return true;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"eYBc9":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _polygonContainsJs = require("./polygonContains.js");
+var _polygonContainsJsDefault = parcelHelpers.interopDefault(_polygonContainsJs);
+var _distanceJs = require("./distance.js");
+var _distanceJsDefault = parcelHelpers.interopDefault(_distanceJs);
+var _mathJs = require("./math.js");
+var containsObjectType = {
+    Feature: function(object, point) {
+        return containsGeometry(object.geometry, point);
+    },
+    FeatureCollection: function(object, point) {
+        var features = object.features, i = -1, n = features.length;
+        while(++i < n)if (containsGeometry(features[i].geometry, point)) return true;
+        return false;
+    }
+};
+var containsGeometryType = {
+    Sphere: function() {
+        return true;
+    },
+    Point: function(object, point) {
+        return containsPoint(object.coordinates, point);
+    },
+    MultiPoint: function(object, point) {
+        var coordinates = object.coordinates, i = -1, n = coordinates.length;
+        while(++i < n)if (containsPoint(coordinates[i], point)) return true;
+        return false;
+    },
+    LineString: function(object, point) {
+        return containsLine(object.coordinates, point);
+    },
+    MultiLineString: function(object, point) {
+        var coordinates = object.coordinates, i = -1, n = coordinates.length;
+        while(++i < n)if (containsLine(coordinates[i], point)) return true;
+        return false;
+    },
+    Polygon: function(object, point) {
+        return containsPolygon(object.coordinates, point);
+    },
+    MultiPolygon: function(object, point) {
+        var coordinates = object.coordinates, i = -1, n = coordinates.length;
+        while(++i < n)if (containsPolygon(coordinates[i], point)) return true;
+        return false;
+    },
+    GeometryCollection: function(object, point) {
+        var geometries = object.geometries, i = -1, n = geometries.length;
+        while(++i < n)if (containsGeometry(geometries[i], point)) return true;
+        return false;
+    }
+};
+function containsGeometry(geometry, point) {
+    return geometry && containsGeometryType.hasOwnProperty(geometry.type) ? containsGeometryType[geometry.type](geometry, point) : false;
+}
+function containsPoint(coordinates, point) {
+    return _distanceJsDefault.default(coordinates, point) === 0;
+}
+function containsLine(coordinates, point) {
+    var ao, bo, ab;
+    for(var i = 0, n = coordinates.length; i < n; i++){
+        bo = _distanceJsDefault.default(coordinates[i], point);
+        if (bo === 0) return true;
+        if (i > 0) {
+            ab = _distanceJsDefault.default(coordinates[i], coordinates[i - 1]);
+            if (ab > 0 && ao <= ab && bo <= ab && (ao + bo - ab) * (1 - Math.pow((ao - bo) / ab, 2)) < _mathJs.epsilon2 * ab) return true;
+        }
+        ao = bo;
+    }
+    return false;
+}
+function containsPolygon(coordinates, point) {
+    return !!_polygonContainsJsDefault.default(coordinates.map(ringRadians), pointRadians(point));
+}
+function ringRadians(ring) {
+    return ring = ring.map(pointRadians), ring.pop(), ring;
+}
+function pointRadians(point) {
+    return [
+        point[0] * _mathJs.radians,
+        point[1] * _mathJs.radians
+    ];
+}
+exports.default = function(object, point) {
+    return (object && containsObjectType.hasOwnProperty(object.type) ? containsObjectType[object.type] : containsGeometry)(object, point);
+};
+
+},{"./polygonContains.js":"FktDW","./distance.js":"glEIa","./math.js":"7JyYl","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"glEIa":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _lengthJs = require("./length.js");
+var _lengthJsDefault = parcelHelpers.interopDefault(_lengthJs);
+var coordinates = [
+    null,
+    null
+], object = {
+    type: "LineString",
+    coordinates: coordinates
+};
+exports.default = function(a, b) {
+    coordinates[0] = a;
+    coordinates[1] = b;
+    return _lengthJsDefault.default(object);
+};
+
+},{"./length.js":"9Miu7","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"9Miu7":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Array = require("d3-array");
+var _mathJs = require("./math.js");
+var _noopJs = require("./noop.js");
+var _noopJsDefault = parcelHelpers.interopDefault(_noopJs);
+var _streamJs = require("./stream.js");
+var _streamJsDefault = parcelHelpers.interopDefault(_streamJs);
+var lengthSum, lambda0, sinPhi0, cosPhi0;
+var lengthStream = {
+    sphere: _noopJsDefault.default,
+    point: _noopJsDefault.default,
+    lineStart: lengthLineStart,
+    lineEnd: _noopJsDefault.default,
+    polygonStart: _noopJsDefault.default,
+    polygonEnd: _noopJsDefault.default
+};
+function lengthLineStart() {
+    lengthStream.point = lengthPointFirst;
+    lengthStream.lineEnd = lengthLineEnd;
+}
+function lengthLineEnd() {
+    lengthStream.point = lengthStream.lineEnd = _noopJsDefault.default;
+}
+function lengthPointFirst(lambda, phi) {
+    lambda *= _mathJs.radians, phi *= _mathJs.radians;
+    lambda0 = lambda, sinPhi0 = _mathJs.sin(phi), cosPhi0 = _mathJs.cos(phi);
+    lengthStream.point = lengthPoint;
+}
+function lengthPoint(lambda, phi) {
+    lambda *= _mathJs.radians, phi *= _mathJs.radians;
+    var sinPhi = _mathJs.sin(phi), cosPhi = _mathJs.cos(phi), delta = _mathJs.abs(lambda - lambda0), cosDelta = _mathJs.cos(delta), sinDelta = _mathJs.sin(delta), x = cosPhi * sinDelta, y = cosPhi0 * sinPhi - sinPhi0 * cosPhi * cosDelta, z = sinPhi0 * sinPhi + cosPhi0 * cosPhi * cosDelta;
+    lengthSum.add(_mathJs.atan2(_mathJs.sqrt(x * x + y * y), z));
+    lambda0 = lambda, sinPhi0 = sinPhi, cosPhi0 = cosPhi;
+}
+exports.default = function(object) {
+    lengthSum = new _d3Array.Adder();
+    _streamJsDefault.default(object, lengthStream);
+    return +lengthSum;
+};
+
+},{"d3-array":"dclxS","./math.js":"7JyYl","./noop.js":"a5Top","./stream.js":"jck2Y","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"71CK6":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "graticule10", ()=>graticule10
+);
+var _d3Array = require("d3-array");
+var _mathJs = require("./math.js");
+function graticuleX(y0, y1, dy) {
+    var y2 = _d3Array.range(y0, y1 - _mathJs.epsilon, dy).concat(y1);
+    return function(x) {
+        return y2.map(function(y) {
+            return [
+                x,
+                y
+            ];
+        });
+    };
+}
+function graticuleY(x0, x1, dx) {
+    var x2 = _d3Array.range(x0, x1 - _mathJs.epsilon, dx).concat(x1);
+    return function(y) {
+        return x2.map(function(x) {
+            return [
+                x,
+                y
+            ];
+        });
+    };
+}
+function graticule() {
+    var x1, x0, X1, X0, y1, y0, Y1, Y0, dx = 10, dy = dx, DX = 90, DY = 360, x3, y3, X, Y, precision = 2.5;
+    function graticule1() {
+        return {
+            type: "MultiLineString",
+            coordinates: lines()
+        };
+    }
+    function lines() {
+        return _d3Array.range(_mathJs.ceil(X0 / DX) * DX, X1, DX).map(X).concat(_d3Array.range(_mathJs.ceil(Y0 / DY) * DY, Y1, DY).map(Y)).concat(_d3Array.range(_mathJs.ceil(x0 / dx) * dx, x1, dx).filter(function(x) {
+            return _mathJs.abs(x % DX) > _mathJs.epsilon;
+        }).map(x3)).concat(_d3Array.range(_mathJs.ceil(y0 / dy) * dy, y1, dy).filter(function(y) {
+            return _mathJs.abs(y % DY) > _mathJs.epsilon;
+        }).map(y3));
+    }
+    graticule1.lines = function() {
+        return lines().map(function(coordinates) {
+            return {
+                type: "LineString",
+                coordinates: coordinates
+            };
+        });
+    };
+    graticule1.outline = function() {
+        return {
+            type: "Polygon",
+            coordinates: [
+                X(X0).concat(Y(Y1).slice(1), X(X1).reverse().slice(1), Y(Y0).reverse().slice(1))
+            ]
+        };
+    };
+    graticule1.extent = function(_) {
+        if (!arguments.length) return graticule1.extentMinor();
+        return graticule1.extentMajor(_).extentMinor(_);
+    };
+    graticule1.extentMajor = function(_) {
+        if (!arguments.length) return [
+            [
+                X0,
+                Y0
+            ],
+            [
+                X1,
+                Y1
+            ]
+        ];
+        X0 = +_[0][0], X1 = +_[1][0];
+        Y0 = +_[0][1], Y1 = +_[1][1];
+        if (X0 > X1) _ = X0, X0 = X1, X1 = _;
+        if (Y0 > Y1) _ = Y0, Y0 = Y1, Y1 = _;
+        return graticule1.precision(precision);
+    };
+    graticule1.extentMinor = function(_) {
+        if (!arguments.length) return [
+            [
+                x0,
+                y0
+            ],
+            [
+                x1,
+                y1
+            ]
+        ];
+        x0 = +_[0][0], x1 = +_[1][0];
+        y0 = +_[0][1], y1 = +_[1][1];
+        if (x0 > x1) _ = x0, x0 = x1, x1 = _;
+        if (y0 > y1) _ = y0, y0 = y1, y1 = _;
+        return graticule1.precision(precision);
+    };
+    graticule1.step = function(_) {
+        if (!arguments.length) return graticule1.stepMinor();
+        return graticule1.stepMajor(_).stepMinor(_);
+    };
+    graticule1.stepMajor = function(_) {
+        if (!arguments.length) return [
+            DX,
+            DY
+        ];
+        DX = +_[0], DY = +_[1];
+        return graticule1;
+    };
+    graticule1.stepMinor = function(_) {
+        if (!arguments.length) return [
+            dx,
+            dy
+        ];
+        dx = +_[0], dy = +_[1];
+        return graticule1;
+    };
+    graticule1.precision = function(_) {
+        if (!arguments.length) return precision;
+        precision = +_;
+        x3 = graticuleX(y0, y1, 90);
+        y3 = graticuleY(x0, x1, precision);
+        X = graticuleX(Y0, Y1, 90);
+        Y = graticuleY(X0, X1, precision);
+        return graticule1;
+    };
+    return graticule1.extentMajor([
+        [
+            -180,
+            -90 + _mathJs.epsilon
+        ],
+        [
+            180,
+            90 - _mathJs.epsilon
+        ]
+    ]).extentMinor([
+        [
+            -180,
+            -80 - _mathJs.epsilon
+        ],
+        [
+            180,
+            80 + _mathJs.epsilon
+        ]
+    ]);
+}
+exports.default = graticule;
+function graticule10() {
+    return graticule()();
+}
+
+},{"d3-array":"dclxS","./math.js":"7JyYl","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"9aGW3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _mathJs = require("./math.js");
+exports.default = function(a, b) {
+    var x0 = a[0] * _mathJs.radians, y0 = a[1] * _mathJs.radians, x1 = b[0] * _mathJs.radians, y1 = b[1] * _mathJs.radians, cy0 = _mathJs.cos(y0), sy0 = _mathJs.sin(y0), cy1 = _mathJs.cos(y1), sy1 = _mathJs.sin(y1), kx0 = cy0 * _mathJs.cos(x0), ky0 = cy0 * _mathJs.sin(x0), kx1 = cy1 * _mathJs.cos(x1), ky1 = cy1 * _mathJs.sin(x1), d = 2 * _mathJs.asin(_mathJs.sqrt(_mathJs.haversin(y1 - y0) + cy0 * cy1 * _mathJs.haversin(x1 - x0))), k = _mathJs.sin(d);
+    var interpolate = d ? function(t) {
+        var B = _mathJs.sin(t *= d) / k, A = _mathJs.sin(d - t) / k, x = A * kx0 + B * kx1, y = A * ky0 + B * ky1, z = A * sy0 + B * sy1;
+        return [
+            _mathJs.atan2(y, x) * _mathJs.degrees,
+            _mathJs.atan2(z, _mathJs.sqrt(x * x + y * y)) * _mathJs.degrees
+        ];
+    } : function() {
+        return [
+            x0 * _mathJs.degrees,
+            y0 * _mathJs.degrees
+        ];
+    };
+    interpolate.distance = d;
+    return interpolate;
+};
+
+},{"./math.js":"7JyYl","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"k9P5v":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _identityJs = require("../identity.js");
+var _identityJsDefault = parcelHelpers.interopDefault(_identityJs);
+var _streamJs = require("../stream.js");
+var _streamJsDefault = parcelHelpers.interopDefault(_streamJs);
+var _areaJs = require("./area.js");
+var _areaJsDefault = parcelHelpers.interopDefault(_areaJs);
+var _boundsJs = require("./bounds.js");
+var _boundsJsDefault = parcelHelpers.interopDefault(_boundsJs);
+var _centroidJs = require("./centroid.js");
+var _centroidJsDefault = parcelHelpers.interopDefault(_centroidJs);
+var _contextJs = require("./context.js");
+var _contextJsDefault = parcelHelpers.interopDefault(_contextJs);
+var _measureJs = require("./measure.js");
+var _measureJsDefault = parcelHelpers.interopDefault(_measureJs);
+var _stringJs = require("./string.js");
+var _stringJsDefault = parcelHelpers.interopDefault(_stringJs);
+exports.default = function(projection, context) {
+    var pointRadius = 4.5, projectionStream, contextStream;
+    function path(object) {
+        if (object) {
+            if (typeof pointRadius === "function") contextStream.pointRadius(+pointRadius.apply(this, arguments));
+            _streamJsDefault.default(object, projectionStream(contextStream));
+        }
+        return contextStream.result();
+    }
+    path.area = function(object) {
+        _streamJsDefault.default(object, projectionStream(_areaJsDefault.default));
+        return _areaJsDefault.default.result();
+    };
+    path.measure = function(object) {
+        _streamJsDefault.default(object, projectionStream(_measureJsDefault.default));
+        return _measureJsDefault.default.result();
+    };
+    path.bounds = function(object) {
+        _streamJsDefault.default(object, projectionStream(_boundsJsDefault.default));
+        return _boundsJsDefault.default.result();
+    };
+    path.centroid = function(object) {
+        _streamJsDefault.default(object, projectionStream(_centroidJsDefault.default));
+        return _centroidJsDefault.default.result();
+    };
+    path.projection = function(_) {
+        return arguments.length ? (projectionStream = _ == null ? (projection = null, _identityJsDefault.default) : (projection = _).stream, path) : projection;
+    };
+    path.context = function(_) {
+        if (!arguments.length) return context;
+        contextStream = _ == null ? (context = null, new _stringJsDefault.default) : new _contextJsDefault.default(context = _);
+        if (typeof pointRadius !== "function") contextStream.pointRadius(pointRadius);
+        return path;
+    };
+    path.pointRadius = function(_) {
+        if (!arguments.length) return pointRadius;
+        pointRadius = typeof _ === "function" ? _ : (contextStream.pointRadius(+_), +_);
+        return path;
+    };
+    return path.projection(projection).context(context);
+};
+
+},{"../identity.js":"kdbfP","../stream.js":"jck2Y","./area.js":"dU6mN","./bounds.js":"bA46O","./centroid.js":"22OCM","./context.js":"g2MCo","./measure.js":"fzRy5","./string.js":"9KApP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kdbfP":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = (x)=>x
+;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dU6mN":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Array = require("d3-array");
+var _mathJs = require("../math.js");
+var _noopJs = require("../noop.js");
+var _noopJsDefault = parcelHelpers.interopDefault(_noopJs);
+var areaSum = new _d3Array.Adder(), areaRingSum = new _d3Array.Adder(), x00, y00, x0, y0;
+var areaStream = {
+    point: _noopJsDefault.default,
+    lineStart: _noopJsDefault.default,
+    lineEnd: _noopJsDefault.default,
+    polygonStart: function() {
+        areaStream.lineStart = areaRingStart;
+        areaStream.lineEnd = areaRingEnd;
+    },
+    polygonEnd: function() {
+        areaStream.lineStart = areaStream.lineEnd = areaStream.point = _noopJsDefault.default;
+        areaSum.add(_mathJs.abs(areaRingSum));
+        areaRingSum = new _d3Array.Adder();
+    },
+    result: function() {
+        var area = areaSum / 2;
+        areaSum = new _d3Array.Adder();
+        return area;
+    }
+};
+function areaRingStart() {
+    areaStream.point = areaPointFirst;
+}
+function areaPointFirst(x, y) {
+    areaStream.point = areaPoint;
+    x00 = x0 = x, y00 = y0 = y;
+}
+function areaPoint(x, y) {
+    areaRingSum.add(y0 * x - x0 * y);
+    x0 = x, y0 = y;
+}
+function areaRingEnd() {
+    areaPoint(x00, y00);
+}
+exports.default = areaStream;
+
+},{"d3-array":"dclxS","../math.js":"7JyYl","../noop.js":"a5Top","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"bA46O":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _noopJs = require("../noop.js");
+var _noopJsDefault = parcelHelpers.interopDefault(_noopJs);
+var x0 = Infinity, y0 = x0, x1 = -x0, y1 = x1;
+var boundsStream = {
+    point: boundsPoint,
+    lineStart: _noopJsDefault.default,
+    lineEnd: _noopJsDefault.default,
+    polygonStart: _noopJsDefault.default,
+    polygonEnd: _noopJsDefault.default,
+    result: function() {
+        var bounds = [
+            [
+                x0,
+                y0
+            ],
+            [
+                x1,
+                y1
+            ]
+        ];
+        x1 = y1 = -(y0 = x0 = Infinity);
+        return bounds;
+    }
+};
+function boundsPoint(x, y) {
+    if (x < x0) x0 = x;
+    if (x > x1) x1 = x;
+    if (y < y0) y0 = y;
+    if (y > y1) y1 = y;
+}
+exports.default = boundsStream;
+
+},{"../noop.js":"a5Top","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"22OCM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _mathJs = require("../math.js");
+// TODO Enforce positive area for exterior, negative area for interior?
+var X0 = 0, Y0 = 0, Z0 = 0, X1 = 0, Y1 = 0, Z1 = 0, X2 = 0, Y2 = 0, Z2 = 0, x00, y00, x0, y0;
+var centroidStream = {
+    point: centroidPoint,
+    lineStart: centroidLineStart,
+    lineEnd: centroidLineEnd,
+    polygonStart: function() {
+        centroidStream.lineStart = centroidRingStart;
+        centroidStream.lineEnd = centroidRingEnd;
+    },
+    polygonEnd: function() {
+        centroidStream.point = centroidPoint;
+        centroidStream.lineStart = centroidLineStart;
+        centroidStream.lineEnd = centroidLineEnd;
+    },
+    result: function() {
+        var centroid = Z2 ? [
+            X2 / Z2,
+            Y2 / Z2
+        ] : Z1 ? [
+            X1 / Z1,
+            Y1 / Z1
+        ] : Z0 ? [
+            X0 / Z0,
+            Y0 / Z0
+        ] : [
+            NaN,
+            NaN
+        ];
+        X0 = Y0 = Z0 = X1 = Y1 = Z1 = X2 = Y2 = Z2 = 0;
+        return centroid;
+    }
+};
+function centroidPoint(x, y) {
+    X0 += x;
+    Y0 += y;
+    ++Z0;
+}
+function centroidLineStart() {
+    centroidStream.point = centroidPointFirstLine;
+}
+function centroidPointFirstLine(x, y) {
+    centroidStream.point = centroidPointLine;
+    centroidPoint(x0 = x, y0 = y);
+}
+function centroidPointLine(x, y) {
+    var dx = x - x0, dy = y - y0, z = _mathJs.sqrt(dx * dx + dy * dy);
+    X1 += z * (x0 + x) / 2;
+    Y1 += z * (y0 + y) / 2;
+    Z1 += z;
+    centroidPoint(x0 = x, y0 = y);
+}
+function centroidLineEnd() {
+    centroidStream.point = centroidPoint;
+}
+function centroidRingStart() {
+    centroidStream.point = centroidPointFirstRing;
+}
+function centroidRingEnd() {
+    centroidPointRing(x00, y00);
+}
+function centroidPointFirstRing(x, y) {
+    centroidStream.point = centroidPointRing;
+    centroidPoint(x00 = x0 = x, y00 = y0 = y);
+}
+function centroidPointRing(x, y) {
+    var dx = x - x0, dy = y - y0, z = _mathJs.sqrt(dx * dx + dy * dy);
+    X1 += z * (x0 + x) / 2;
+    Y1 += z * (y0 + y) / 2;
+    Z1 += z;
+    z = y0 * x - x0 * y;
+    X2 += z * (x0 + x);
+    Y2 += z * (y0 + y);
+    Z2 += z * 3;
+    centroidPoint(x0 = x, y0 = y);
+}
+exports.default = centroidStream;
+
+},{"../math.js":"7JyYl","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"g2MCo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _mathJs = require("../math.js");
+var _noopJs = require("../noop.js");
+var _noopJsDefault = parcelHelpers.interopDefault(_noopJs);
+function PathContext(context) {
+    this._context = context;
+}
+exports.default = PathContext;
+PathContext.prototype = {
+    _radius: 4.5,
+    pointRadius: function(_) {
+        return this._radius = _, this;
+    },
+    polygonStart: function() {
+        this._line = 0;
+    },
+    polygonEnd: function() {
+        this._line = NaN;
+    },
+    lineStart: function() {
+        this._point = 0;
+    },
+    lineEnd: function() {
+        if (this._line === 0) this._context.closePath();
+        this._point = NaN;
+    },
+    point: function(x, y) {
+        switch(this._point){
+            case 0:
+                this._context.moveTo(x, y);
+                this._point = 1;
+                break;
+            case 1:
+                this._context.lineTo(x, y);
+                break;
+            default:
+                this._context.moveTo(x + this._radius, y);
+                this._context.arc(x, y, this._radius, 0, _mathJs.tau);
+                break;
+        }
+    },
+    result: _noopJsDefault.default
+};
+
+},{"../math.js":"7JyYl","../noop.js":"a5Top","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fzRy5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Array = require("d3-array");
+var _mathJs = require("../math.js");
+var _noopJs = require("../noop.js");
+var _noopJsDefault = parcelHelpers.interopDefault(_noopJs);
+var lengthSum = new _d3Array.Adder(), lengthRing, x00, y00, x0, y0;
+var lengthStream = {
+    point: _noopJsDefault.default,
+    lineStart: function() {
+        lengthStream.point = lengthPointFirst;
+    },
+    lineEnd: function() {
+        if (lengthRing) lengthPoint(x00, y00);
+        lengthStream.point = _noopJsDefault.default;
+    },
+    polygonStart: function() {
+        lengthRing = true;
+    },
+    polygonEnd: function() {
+        lengthRing = null;
+    },
+    result: function() {
+        var length = +lengthSum;
+        lengthSum = new _d3Array.Adder();
+        return length;
+    }
+};
+function lengthPointFirst(x, y) {
+    lengthStream.point = lengthPoint;
+    x00 = x0 = x, y00 = y0 = y;
+}
+function lengthPoint(x, y) {
+    x0 -= x, y0 -= y;
+    lengthSum.add(_mathJs.sqrt(x0 * x0 + y0 * y0));
+    x0 = x, y0 = y;
+}
+exports.default = lengthStream;
+
+},{"d3-array":"dclxS","../math.js":"7JyYl","../noop.js":"a5Top","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"9KApP":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function PathString() {
+    this._string = [];
+}
+exports.default = PathString;
+PathString.prototype = {
+    _radius: 4.5,
+    _circle: circle(4.5),
+    pointRadius: function(_) {
+        if ((_ = +_) !== this._radius) this._radius = _, this._circle = null;
+        return this;
+    },
+    polygonStart: function() {
+        this._line = 0;
+    },
+    polygonEnd: function() {
+        this._line = NaN;
+    },
+    lineStart: function() {
+        this._point = 0;
+    },
+    lineEnd: function() {
+        if (this._line === 0) this._string.push("Z");
+        this._point = NaN;
+    },
+    point: function(x, y) {
+        switch(this._point){
+            case 0:
+                this._string.push("M", x, ",", y);
+                this._point = 1;
+                break;
+            case 1:
+                this._string.push("L", x, ",", y);
+                break;
+            default:
+                if (this._circle == null) this._circle = circle(this._radius);
+                this._string.push("M", x, ",", y, this._circle);
+                break;
+        }
+    },
+    result: function() {
+        if (this._string.length) {
+            var result = this._string.join("");
+            this._string = [];
+            return result;
+        } else return null;
+    }
+};
+function circle(radius) {
+    return "m0," + radius + "a" + radius + "," + radius + " 0 1,1 0," + -2 * radius + "a" + radius + "," + radius + " 0 1,1 0," + 2 * radius + "z";
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3Xlta":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _conicEqualAreaJs = require("./conicEqualArea.js");
+var _conicEqualAreaJsDefault = parcelHelpers.interopDefault(_conicEqualAreaJs);
+exports.default = function() {
+    return _conicEqualAreaJsDefault.default().parallels([
+        29.5,
+        45.5
+    ]).scale(1070).translate([
+        480,
+        250
+    ]).rotate([
+        96,
+        0
+    ]).center([
+        -0.6,
+        38.7
+    ]);
+};
+
+},{"./conicEqualArea.js":"c9BXq","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"c9BXq":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "conicEqualAreaRaw", ()=>conicEqualAreaRaw
+);
+var _mathJs = require("../math.js");
+var _conicJs = require("./conic.js");
+var _cylindricalEqualAreaJs = require("./cylindricalEqualArea.js");
+function conicEqualAreaRaw(y0, y1) {
+    var sy0 = _mathJs.sin(y0), n = (sy0 + _mathJs.sin(y1)) / 2;
+    // Are the parallels symmetrical around the Equator?
+    if (_mathJs.abs(n) < _mathJs.epsilon) return _cylindricalEqualAreaJs.cylindricalEqualAreaRaw(y0);
+    var c = 1 + sy0 * (2 * n - sy0), r0 = _mathJs.sqrt(c) / n;
+    function project(x, y) {
+        var r = _mathJs.sqrt(c - 2 * n * _mathJs.sin(y)) / n;
+        return [
+            r * _mathJs.sin(x *= n),
+            r0 - r * _mathJs.cos(x)
+        ];
+    }
+    project.invert = function(x, y) {
+        var r0y = r0 - y, l = _mathJs.atan2(x, _mathJs.abs(r0y)) * _mathJs.sign(r0y);
+        if (r0y * n < 0) l -= _mathJs.pi * _mathJs.sign(x) * _mathJs.sign(r0y);
+        return [
+            l / n,
+            _mathJs.asin((c - (x * x + r0y * r0y) * n * n) / (2 * n))
+        ];
+    };
+    return project;
+}
+exports.default = function() {
+    return _conicJs.conicProjection(conicEqualAreaRaw).scale(155.424).center([
+        0,
+        33.6442
+    ]);
+};
+
+},{"../math.js":"7JyYl","./conic.js":"hA53y","./cylindricalEqualArea.js":"2kWMW","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hA53y":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "conicProjection", ()=>conicProjection
+);
+var _mathJs = require("../math.js");
+var _indexJs = require("./index.js");
+function conicProjection(projectAt) {
+    var phi0 = 0, phi1 = _mathJs.pi / 3, m = _indexJs.projectionMutator(projectAt), p = m(phi0, phi1);
+    p.parallels = function(_) {
+        return arguments.length ? m(phi0 = _[0] * _mathJs.radians, phi1 = _[1] * _mathJs.radians) : [
+            phi0 * _mathJs.degrees,
+            phi1 * _mathJs.degrees
+        ];
+    };
+    return p;
+}
+
+},{"../math.js":"7JyYl","./index.js":"i24sF","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"i24sF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "projectionMutator", ()=>projectionMutator
+);
+var _antimeridianJs = require("../clip/antimeridian.js");
+var _antimeridianJsDefault = parcelHelpers.interopDefault(_antimeridianJs);
+var _circleJs = require("../clip/circle.js");
+var _circleJsDefault = parcelHelpers.interopDefault(_circleJs);
+var _rectangleJs = require("../clip/rectangle.js");
+var _rectangleJsDefault = parcelHelpers.interopDefault(_rectangleJs);
+var _composeJs = require("../compose.js");
+var _composeJsDefault = parcelHelpers.interopDefault(_composeJs);
+var _identityJs = require("../identity.js");
+var _identityJsDefault = parcelHelpers.interopDefault(_identityJs);
+var _mathJs = require("../math.js");
+var _rotationJs = require("../rotation.js");
+var _transformJs = require("../transform.js");
+var _fitJs = require("./fit.js");
+var _resampleJs = require("./resample.js");
+var _resampleJsDefault = parcelHelpers.interopDefault(_resampleJs);
+var transformRadians = _transformJs.transformer({
+    point: function(x, y) {
+        this.stream.point(x * _mathJs.radians, y * _mathJs.radians);
+    }
+});
+function transformRotate(rotate) {
+    return _transformJs.transformer({
+        point: function(x, y) {
+            var r = rotate(x, y);
+            return this.stream.point(r[0], r[1]);
+        }
+    });
+}
+function scaleTranslate(k, dx, dy, sx, sy) {
+    function transform(x, y) {
+        x *= sx;
+        y *= sy;
+        return [
+            dx + k * x,
+            dy - k * y
+        ];
+    }
+    transform.invert = function(x, y) {
+        return [
+            (x - dx) / k * sx,
+            (dy - y) / k * sy
+        ];
+    };
+    return transform;
+}
+function scaleTranslateRotate(k, dx, dy, sx, sy, alpha) {
+    if (!alpha) return scaleTranslate(k, dx, dy, sx, sy);
+    var cosAlpha = _mathJs.cos(alpha), sinAlpha = _mathJs.sin(alpha), a = cosAlpha * k, b = sinAlpha * k, ai = cosAlpha / k, bi = sinAlpha / k, ci = (sinAlpha * dy - cosAlpha * dx) / k, fi = (sinAlpha * dx + cosAlpha * dy) / k;
+    function transform(x, y) {
+        x *= sx;
+        y *= sy;
+        return [
+            a * x - b * y + dx,
+            dy - b * x - a * y
+        ];
+    }
+    transform.invert = function(x, y) {
+        return [
+            sx * (ai * x - bi * y + ci),
+            sy * (fi - bi * x - ai * y)
+        ];
+    };
+    return transform;
+}
+function projection(project) {
+    return projectionMutator(function() {
+        return project;
+    })();
+}
+exports.default = projection;
+function projectionMutator(projectAt) {
+    var project, k = 150, x = 480, y = 250, lambda = 0, phi = 0, deltaLambda = 0, deltaPhi = 0, deltaGamma = 0, rotate, alpha = 0, sx = 1, sy = 1, theta = null, preclip = _antimeridianJsDefault.default, x0 = null, y0, x1, y1, postclip = _identityJsDefault.default, delta2 = 0.5, projectResample, projectTransform, projectRotateTransform, cache, cacheStream;
+    function projection1(point) {
+        return projectRotateTransform(point[0] * _mathJs.radians, point[1] * _mathJs.radians);
+    }
+    function invert(point) {
+        point = projectRotateTransform.invert(point[0], point[1]);
+        return point && [
+            point[0] * _mathJs.degrees,
+            point[1] * _mathJs.degrees
+        ];
+    }
+    projection1.stream = function(stream) {
+        return cache && cacheStream === stream ? cache : cache = transformRadians(transformRotate(rotate)(preclip(projectResample(postclip(cacheStream = stream)))));
+    };
+    projection1.preclip = function(_) {
+        return arguments.length ? (preclip = _, theta = undefined, reset()) : preclip;
+    };
+    projection1.postclip = function(_) {
+        return arguments.length ? (postclip = _, x0 = y0 = x1 = y1 = null, reset()) : postclip;
+    };
+    projection1.clipAngle = function(_) {
+        return arguments.length ? (preclip = +_ ? _circleJsDefault.default(theta = _ * _mathJs.radians) : (theta = null, _antimeridianJsDefault.default), reset()) : theta * _mathJs.degrees;
+    };
+    projection1.clipExtent = function(_) {
+        return arguments.length ? (postclip = _ == null ? (x0 = y0 = x1 = y1 = null, _identityJsDefault.default) : _rectangleJsDefault.default(x0 = +_[0][0], y0 = +_[0][1], x1 = +_[1][0], y1 = +_[1][1]), reset()) : x0 == null ? null : [
+            [
+                x0,
+                y0
+            ],
+            [
+                x1,
+                y1
+            ]
+        ];
+    };
+    projection1.scale = function(_) {
+        return arguments.length ? (k = +_, recenter()) : k;
+    };
+    projection1.translate = function(_) {
+        return arguments.length ? (x = +_[0], y = +_[1], recenter()) : [
+            x,
+            y
+        ];
+    };
+    projection1.center = function(_) {
+        return arguments.length ? (lambda = _[0] % 360 * _mathJs.radians, phi = _[1] % 360 * _mathJs.radians, recenter()) : [
+            lambda * _mathJs.degrees,
+            phi * _mathJs.degrees
+        ];
+    };
+    projection1.rotate = function(_) {
+        return arguments.length ? (deltaLambda = _[0] % 360 * _mathJs.radians, deltaPhi = _[1] % 360 * _mathJs.radians, deltaGamma = _.length > 2 ? _[2] % 360 * _mathJs.radians : 0, recenter()) : [
+            deltaLambda * _mathJs.degrees,
+            deltaPhi * _mathJs.degrees,
+            deltaGamma * _mathJs.degrees
+        ];
+    };
+    projection1.angle = function(_) {
+        return arguments.length ? (alpha = _ % 360 * _mathJs.radians, recenter()) : alpha * _mathJs.degrees;
+    };
+    projection1.reflectX = function(_) {
+        return arguments.length ? (sx = _ ? -1 : 1, recenter()) : sx < 0;
+    };
+    projection1.reflectY = function(_) {
+        return arguments.length ? (sy = _ ? -1 : 1, recenter()) : sy < 0;
+    };
+    projection1.precision = function(_) {
+        return arguments.length ? (projectResample = _resampleJsDefault.default(projectTransform, delta2 = _ * _), reset()) : _mathJs.sqrt(delta2);
+    };
+    projection1.fitExtent = function(extent, object) {
+        return _fitJs.fitExtent(projection1, extent, object);
+    };
+    projection1.fitSize = function(size, object) {
+        return _fitJs.fitSize(projection1, size, object);
+    };
+    projection1.fitWidth = function(width, object) {
+        return _fitJs.fitWidth(projection1, width, object);
+    };
+    projection1.fitHeight = function(height, object) {
+        return _fitJs.fitHeight(projection1, height, object);
+    };
+    function recenter() {
+        var center = scaleTranslateRotate(k, 0, 0, sx, sy, alpha).apply(null, project(lambda, phi)), transform = scaleTranslateRotate(k, x - center[0], y - center[1], sx, sy, alpha);
+        rotate = _rotationJs.rotateRadians(deltaLambda, deltaPhi, deltaGamma);
+        projectTransform = _composeJsDefault.default(project, transform);
+        projectRotateTransform = _composeJsDefault.default(rotate, projectTransform);
+        projectResample = _resampleJsDefault.default(projectTransform, delta2);
+        return reset();
+    }
+    function reset() {
+        cache = cacheStream = null;
+        return projection1;
+    }
+    return function() {
+        project = projectAt.apply(this, arguments);
+        projection1.invert = project.invert && invert;
+        return recenter();
+    };
+}
+
+},{"../clip/antimeridian.js":"5t4iH","../clip/circle.js":"iIbFI","../clip/rectangle.js":"2xswT","../compose.js":"hx08x","../identity.js":"kdbfP","../math.js":"7JyYl","../rotation.js":"54Lv8","../transform.js":"feffG","./fit.js":"4as5X","./resample.js":"6CVBg","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"feffG":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "transformer", ()=>transformer
+);
+exports.default = function(methods) {
+    return {
+        stream: transformer(methods)
+    };
+};
+function transformer(methods) {
+    return function(stream) {
+        var s = new TransformStream;
+        for(var key in methods)s[key] = methods[key];
+        s.stream = stream;
+        return s;
+    };
+}
+function TransformStream() {
+}
+TransformStream.prototype = {
+    constructor: TransformStream,
+    point: function(x, y) {
+        this.stream.point(x, y);
+    },
+    sphere: function() {
+        this.stream.sphere();
+    },
+    lineStart: function() {
+        this.stream.lineStart();
+    },
+    lineEnd: function() {
+        this.stream.lineEnd();
+    },
+    polygonStart: function() {
+        this.stream.polygonStart();
+    },
+    polygonEnd: function() {
+        this.stream.polygonEnd();
+    }
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4as5X":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "fitExtent", ()=>fitExtent
+);
+parcelHelpers.export(exports, "fitSize", ()=>fitSize
+);
+parcelHelpers.export(exports, "fitWidth", ()=>fitWidth
+);
+parcelHelpers.export(exports, "fitHeight", ()=>fitHeight
+);
+var _streamJs = require("../stream.js");
+var _streamJsDefault = parcelHelpers.interopDefault(_streamJs);
+var _boundsJs = require("../path/bounds.js");
+var _boundsJsDefault = parcelHelpers.interopDefault(_boundsJs);
+function fit(projection, fitBounds, object) {
+    var clip = projection.clipExtent && projection.clipExtent();
+    projection.scale(150).translate([
+        0,
+        0
+    ]);
+    if (clip != null) projection.clipExtent(null);
+    _streamJsDefault.default(object, projection.stream(_boundsJsDefault.default));
+    fitBounds(_boundsJsDefault.default.result());
+    if (clip != null) projection.clipExtent(clip);
+    return projection;
+}
+function fitExtent(projection, extent, object) {
+    return fit(projection, function(b) {
+        var w = extent[1][0] - extent[0][0], h = extent[1][1] - extent[0][1], k = Math.min(w / (b[1][0] - b[0][0]), h / (b[1][1] - b[0][1])), x = +extent[0][0] + (w - k * (b[1][0] + b[0][0])) / 2, y = +extent[0][1] + (h - k * (b[1][1] + b[0][1])) / 2;
+        projection.scale(150 * k).translate([
+            x,
+            y
+        ]);
+    }, object);
+}
+function fitSize(projection, size, object) {
+    return fitExtent(projection, [
+        [
+            0,
+            0
+        ],
+        size
+    ], object);
+}
+function fitWidth(projection, width, object) {
+    return fit(projection, function(b) {
+        var w = +width, k = w / (b[1][0] - b[0][0]), x = (w - k * (b[1][0] + b[0][0])) / 2, y = -k * b[0][1];
+        projection.scale(150 * k).translate([
+            x,
+            y
+        ]);
+    }, object);
+}
+function fitHeight(projection, height, object) {
+    return fit(projection, function(b) {
+        var h = +height, k = h / (b[1][1] - b[0][1]), x = -k * b[0][0], y = (h - k * (b[1][1] + b[0][1])) / 2;
+        projection.scale(150 * k).translate([
+            x,
+            y
+        ]);
+    }, object);
+}
+
+},{"../stream.js":"jck2Y","../path/bounds.js":"bA46O","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6CVBg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _cartesianJs = require("../cartesian.js");
+var _mathJs = require("../math.js");
+var _transformJs = require("../transform.js");
+var maxDepth = 16, cosMinDistance = _mathJs.cos(30 * _mathJs.radians); // cos(minimum angular distance)
+exports.default = function(project, delta2) {
+    return +delta2 ? resample(project, delta2) : resampleNone(project);
+};
+function resampleNone(project) {
+    return _transformJs.transformer({
+        point: function(x, y) {
+            x = project(x, y);
+            this.stream.point(x[0], x[1]);
+        }
+    });
+}
+function resample(project, delta2) {
+    function resampleLineTo(x0, y0, lambda0, a0, b0, c0, x1, y1, lambda1, a1, b1, c1, depth, stream) {
+        var dx = x1 - x0, dy = y1 - y0, d2 = dx * dx + dy * dy;
+        if (d2 > 4 * delta2 && depth--) {
+            var a = a0 + a1, b = b0 + b1, c = c0 + c1, m = _mathJs.sqrt(a * a + b * b + c * c), phi2 = _mathJs.asin(c /= m), lambda2 = _mathJs.abs(_mathJs.abs(c) - 1) < _mathJs.epsilon || _mathJs.abs(lambda0 - lambda1) < _mathJs.epsilon ? (lambda0 + lambda1) / 2 : _mathJs.atan2(b, a), p = project(lambda2, phi2), x2 = p[0], y2 = p[1], dx2 = x2 - x0, dy2 = y2 - y0, dz = dy * dx2 - dx * dy2;
+            if (dz * dz / d2 > delta2 // perpendicular projected distance
+             || _mathJs.abs((dx * dx2 + dy * dy2) / d2 - 0.5) > 0.3 // midpoint close to an end
+             || a0 * a1 + b0 * b1 + c0 * c1 < cosMinDistance) {
+                resampleLineTo(x0, y0, lambda0, a0, b0, c0, x2, y2, lambda2, a /= m, b /= m, c, depth, stream);
+                stream.point(x2, y2);
+                resampleLineTo(x2, y2, lambda2, a, b, c, x1, y1, lambda1, a1, b1, c1, depth, stream);
+            }
+        }
+    }
+    return function(stream) {
+        var lambda00, x00, y00, a00, b00, c00, lambda0, x0, y0, a0, b0, c0; // previous point
+        var resampleStream = {
+            point: point,
+            lineStart: lineStart,
+            lineEnd: lineEnd,
+            polygonStart: function() {
+                stream.polygonStart();
+                resampleStream.lineStart = ringStart;
+            },
+            polygonEnd: function() {
+                stream.polygonEnd();
+                resampleStream.lineStart = lineStart;
+            }
+        };
+        function point(x, y) {
+            x = project(x, y);
+            stream.point(x[0], x[1]);
+        }
+        function lineStart() {
+            x0 = NaN;
+            resampleStream.point = linePoint;
+            stream.lineStart();
+        }
+        function linePoint(lambda, phi) {
+            var c = _cartesianJs.cartesian([
+                lambda,
+                phi
+            ]), p = project(lambda, phi);
+            resampleLineTo(x0, y0, lambda0, a0, b0, c0, x0 = p[0], y0 = p[1], lambda0 = lambda, a0 = c[0], b0 = c[1], c0 = c[2], maxDepth, stream);
+            stream.point(x0, y0);
+        }
+        function lineEnd() {
+            resampleStream.point = point;
+            stream.lineEnd();
+        }
+        function ringStart() {
+            lineStart();
+            resampleStream.point = ringPoint;
+            resampleStream.lineEnd = ringEnd;
+        }
+        function ringPoint(lambda, phi) {
+            linePoint(lambda00 = lambda, phi), x00 = x0, y00 = y0, a00 = a0, b00 = b0, c00 = c0;
+            resampleStream.point = linePoint;
+        }
+        function ringEnd() {
+            resampleLineTo(x0, y0, lambda0, a0, b0, c0, x00, y00, lambda00, a00, b00, c00, maxDepth, stream);
+            resampleStream.lineEnd = lineEnd;
+            lineEnd();
+        }
+        return resampleStream;
+    };
+}
+
+},{"../cartesian.js":"evaJG","../math.js":"7JyYl","../transform.js":"feffG","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2kWMW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "cylindricalEqualAreaRaw", ()=>cylindricalEqualAreaRaw
+);
+var _mathJs = require("../math.js");
+function cylindricalEqualAreaRaw(phi0) {
+    var cosPhi0 = _mathJs.cos(phi0);
+    function forward(lambda, phi) {
+        return [
+            lambda * cosPhi0,
+            _mathJs.sin(phi) / cosPhi0
+        ];
+    }
+    forward.invert = function(x, y) {
+        return [
+            x / cosPhi0,
+            _mathJs.asin(y * cosPhi0)
+        ];
+    };
+    return forward;
+}
+
+},{"../math.js":"7JyYl","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"YtNMK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _mathJs = require("../math.js");
+var _albersJs = require("./albers.js");
+var _albersJsDefault = parcelHelpers.interopDefault(_albersJs);
+var _conicEqualAreaJs = require("./conicEqualArea.js");
+var _conicEqualAreaJsDefault = parcelHelpers.interopDefault(_conicEqualAreaJs);
+var _fitJs = require("./fit.js");
+// The projections must have mutually exclusive clip regions on the sphere,
+// as this will avoid emitting interleaving lines and polygons.
+function multiplex(streams) {
+    var n = streams.length;
+    return {
+        point: function(x, y) {
+            var i = -1;
+            while(++i < n)streams[i].point(x, y);
+        },
+        sphere: function() {
+            var i = -1;
+            while(++i < n)streams[i].sphere();
+        },
+        lineStart: function() {
+            var i = -1;
+            while(++i < n)streams[i].lineStart();
+        },
+        lineEnd: function() {
+            var i = -1;
+            while(++i < n)streams[i].lineEnd();
+        },
+        polygonStart: function() {
+            var i = -1;
+            while(++i < n)streams[i].polygonStart();
+        },
+        polygonEnd: function() {
+            var i = -1;
+            while(++i < n)streams[i].polygonEnd();
+        }
+    };
+}
+exports.default = function() {
+    var cache, cacheStream, lower48 = _albersJsDefault.default(), lower48Point, alaska = _conicEqualAreaJsDefault.default().rotate([
+        154,
+        0
+    ]).center([
+        -2,
+        58.5
+    ]).parallels([
+        55,
+        65
+    ]), alaskaPoint, hawaii = _conicEqualAreaJsDefault.default().rotate([
+        157,
+        0
+    ]).center([
+        -3,
+        19.9
+    ]).parallels([
+        8,
+        18
+    ]), hawaiiPoint, point, pointStream = {
+        point: function(x, y) {
+            point = [
+                x,
+                y
+            ];
+        }
+    };
+    function albersUsa(coordinates) {
+        var x = coordinates[0], y = coordinates[1];
+        return point = null, (lower48Point.point(x, y), point) || (alaskaPoint.point(x, y), point) || (hawaiiPoint.point(x, y), point);
+    }
+    albersUsa.invert = function(coordinates) {
+        var k = lower48.scale(), t = lower48.translate(), x = (coordinates[0] - t[0]) / k, y = (coordinates[1] - t[1]) / k;
+        return (y >= 0.12 && y < 0.234 && x >= -0.425 && x < -0.214 ? alaska : y >= 0.166 && y < 0.234 && x >= -0.214 && x < -0.115 ? hawaii : lower48).invert(coordinates);
+    };
+    albersUsa.stream = function(stream) {
+        return cache && cacheStream === stream ? cache : cache = multiplex([
+            lower48.stream(cacheStream = stream),
+            alaska.stream(stream),
+            hawaii.stream(stream)
+        ]);
+    };
+    albersUsa.precision = function(_) {
+        if (!arguments.length) return lower48.precision();
+        lower48.precision(_), alaska.precision(_), hawaii.precision(_);
+        return reset();
+    };
+    albersUsa.scale = function(_) {
+        if (!arguments.length) return lower48.scale();
+        lower48.scale(_), alaska.scale(_ * 0.35), hawaii.scale(_);
+        return albersUsa.translate(lower48.translate());
+    };
+    albersUsa.translate = function(_) {
+        if (!arguments.length) return lower48.translate();
+        var k = lower48.scale(), x = +_[0], y = +_[1];
+        lower48Point = lower48.translate(_).clipExtent([
+            [
+                x - 0.455 * k,
+                y - 0.238 * k
+            ],
+            [
+                x + 0.455 * k,
+                y + 0.238 * k
+            ]
+        ]).stream(pointStream);
+        alaskaPoint = alaska.translate([
+            x - 0.307 * k,
+            y + 0.201 * k
+        ]).clipExtent([
+            [
+                x - 0.425 * k + _mathJs.epsilon,
+                y + 0.12 * k + _mathJs.epsilon
+            ],
+            [
+                x - 0.214 * k - _mathJs.epsilon,
+                y + 0.234 * k - _mathJs.epsilon
+            ]
+        ]).stream(pointStream);
+        hawaiiPoint = hawaii.translate([
+            x - 0.205 * k,
+            y + 0.212 * k
+        ]).clipExtent([
+            [
+                x - 0.214 * k + _mathJs.epsilon,
+                y + 0.166 * k + _mathJs.epsilon
+            ],
+            [
+                x - 0.115 * k - _mathJs.epsilon,
+                y + 0.234 * k - _mathJs.epsilon
+            ]
+        ]).stream(pointStream);
+        return reset();
+    };
+    albersUsa.fitExtent = function(extent, object) {
+        return _fitJs.fitExtent(albersUsa, extent, object);
+    };
+    albersUsa.fitSize = function(size, object) {
+        return _fitJs.fitSize(albersUsa, size, object);
+    };
+    albersUsa.fitWidth = function(width, object) {
+        return _fitJs.fitWidth(albersUsa, width, object);
+    };
+    albersUsa.fitHeight = function(height, object) {
+        return _fitJs.fitHeight(albersUsa, height, object);
+    };
+    function reset() {
+        cache = cacheStream = null;
+        return albersUsa;
+    }
+    return albersUsa.scale(1070);
+};
+
+},{"../math.js":"7JyYl","./albers.js":"3Xlta","./conicEqualArea.js":"c9BXq","./fit.js":"4as5X","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7HnSn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "azimuthalEqualAreaRaw", ()=>azimuthalEqualAreaRaw
+);
+var _mathJs = require("../math.js");
+var _azimuthalJs = require("./azimuthal.js");
+var _indexJs = require("./index.js");
+var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
+var azimuthalEqualAreaRaw = _azimuthalJs.azimuthalRaw(function(cxcy) {
+    return _mathJs.sqrt(2 / (1 + cxcy));
+});
+azimuthalEqualAreaRaw.invert = _azimuthalJs.azimuthalInvert(function(z) {
+    return 2 * _mathJs.asin(z / 2);
+});
+exports.default = function() {
+    return _indexJsDefault.default(azimuthalEqualAreaRaw).scale(124.75).clipAngle(179.999);
+};
+
+},{"../math.js":"7JyYl","./azimuthal.js":"cX4Jq","./index.js":"i24sF","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cX4Jq":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "azimuthalRaw", ()=>azimuthalRaw
+);
+parcelHelpers.export(exports, "azimuthalInvert", ()=>azimuthalInvert
+);
+var _mathJs = require("../math.js");
+function azimuthalRaw(scale) {
+    return function(x, y) {
+        var cx = _mathJs.cos(x), cy = _mathJs.cos(y), k = scale(cx * cy);
+        if (k === Infinity) return [
+            2,
+            0
+        ];
+        return [
+            k * cy * _mathJs.sin(x),
+            k * _mathJs.sin(y)
+        ];
+    };
+}
+function azimuthalInvert(angle) {
+    return function(x, y) {
+        var z = _mathJs.sqrt(x * x + y * y), c = angle(z), sc = _mathJs.sin(c), cc = _mathJs.cos(c);
+        return [
+            _mathJs.atan2(x * sc, z * cc),
+            _mathJs.asin(z && y * sc / z)
+        ];
+    };
+}
+
+},{"../math.js":"7JyYl","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ggmAs":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "azimuthalEquidistantRaw", ()=>azimuthalEquidistantRaw
+);
+var _mathJs = require("../math.js");
+var _azimuthalJs = require("./azimuthal.js");
+var _indexJs = require("./index.js");
+var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
+var azimuthalEquidistantRaw = _azimuthalJs.azimuthalRaw(function(c) {
+    return (c = _mathJs.acos(c)) && c / _mathJs.sin(c);
+});
+azimuthalEquidistantRaw.invert = _azimuthalJs.azimuthalInvert(function(z) {
+    return z;
+});
+exports.default = function() {
+    return _indexJsDefault.default(azimuthalEquidistantRaw).scale(79.4188).clipAngle(179.999);
+};
+
+},{"../math.js":"7JyYl","./azimuthal.js":"cX4Jq","./index.js":"i24sF","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"qkL9e":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "conicConformalRaw", ()=>conicConformalRaw
+);
+var _mathJs = require("../math.js");
+var _conicJs = require("./conic.js");
+var _mercatorJs = require("./mercator.js");
+function tany(y) {
+    return _mathJs.tan((_mathJs.halfPi + y) / 2);
+}
+function conicConformalRaw(y0, y1) {
+    var cy0 = _mathJs.cos(y0), n = y0 === y1 ? _mathJs.sin(y0) : _mathJs.log(cy0 / _mathJs.cos(y1)) / _mathJs.log(tany(y1) / tany(y0)), f = cy0 * _mathJs.pow(tany(y0), n) / n;
+    if (!n) return _mercatorJs.mercatorRaw;
+    function project(x, y) {
+        if (f > 0) {
+            if (y < -_mathJs.halfPi + _mathJs.epsilon) y = -_mathJs.halfPi + _mathJs.epsilon;
+        } else if (y > _mathJs.halfPi - _mathJs.epsilon) y = _mathJs.halfPi - _mathJs.epsilon;
+        var r = f / _mathJs.pow(tany(y), n);
+        return [
+            r * _mathJs.sin(n * x),
+            f - r * _mathJs.cos(n * x)
+        ];
+    }
+    project.invert = function(x, y) {
+        var fy = f - y, r = _mathJs.sign(n) * _mathJs.sqrt(x * x + fy * fy), l = _mathJs.atan2(x, _mathJs.abs(fy)) * _mathJs.sign(fy);
+        if (fy * n < 0) l -= _mathJs.pi * _mathJs.sign(x) * _mathJs.sign(fy);
+        return [
+            l / n,
+            2 * _mathJs.atan(_mathJs.pow(f / r, 1 / n)) - _mathJs.halfPi
+        ];
+    };
+    return project;
+}
+exports.default = function() {
+    return _conicJs.conicProjection(conicConformalRaw).scale(109.5).parallels([
+        30,
+        30
+    ]);
+};
+
+},{"../math.js":"7JyYl","./conic.js":"hA53y","./mercator.js":"fE71g","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fE71g":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "mercatorRaw", ()=>mercatorRaw
+);
+parcelHelpers.export(exports, "mercatorProjection", ()=>mercatorProjection
+);
+var _mathJs = require("../math.js");
+var _rotationJs = require("../rotation.js");
+var _rotationJsDefault = parcelHelpers.interopDefault(_rotationJs);
+var _indexJs = require("./index.js");
+var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
+function mercatorRaw(lambda, phi) {
+    return [
+        lambda,
+        _mathJs.log(_mathJs.tan((_mathJs.halfPi + phi) / 2))
+    ];
+}
+mercatorRaw.invert = function(x, y) {
+    return [
+        x,
+        2 * _mathJs.atan(_mathJs.exp(y)) - _mathJs.halfPi
+    ];
+};
+exports.default = function() {
+    return mercatorProjection(mercatorRaw).scale(961 / _mathJs.tau);
+};
+function mercatorProjection(project) {
+    var m = _indexJsDefault.default(project), center = m.center, scale = m.scale, translate = m.translate, clipExtent = m.clipExtent, x0 = null, y0, x1, y1; // clip extent
+    m.scale = function(_) {
+        return arguments.length ? (scale(_), reclip()) : scale();
+    };
+    m.translate = function(_) {
+        return arguments.length ? (translate(_), reclip()) : translate();
+    };
+    m.center = function(_) {
+        return arguments.length ? (center(_), reclip()) : center();
+    };
+    m.clipExtent = function(_) {
+        return arguments.length ? (_ == null ? x0 = y0 = x1 = y1 = null : (x0 = +_[0][0], y0 = +_[0][1], x1 = +_[1][0], y1 = +_[1][1]), reclip()) : x0 == null ? null : [
+            [
+                x0,
+                y0
+            ],
+            [
+                x1,
+                y1
+            ]
+        ];
+    };
+    function reclip() {
+        var k = _mathJs.pi * scale(), t = m(_rotationJsDefault.default(m.rotate()).invert([
+            0,
+            0
+        ]));
+        return clipExtent(x0 == null ? [
+            [
+                t[0] - k,
+                t[1] - k
+            ],
+            [
+                t[0] + k,
+                t[1] + k
+            ]
+        ] : project === mercatorRaw ? [
+            [
+                Math.max(t[0] - k, x0),
+                y0
+            ],
+            [
+                Math.min(t[0] + k, x1),
+                y1
+            ]
+        ] : [
+            [
+                x0,
+                Math.max(t[1] - k, y0)
+            ],
+            [
+                x1,
+                Math.min(t[1] + k, y1)
+            ]
+        ]);
+    }
+    return reclip();
+}
+
+},{"../math.js":"7JyYl","../rotation.js":"54Lv8","./index.js":"i24sF","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"i4E3R":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "conicEquidistantRaw", ()=>conicEquidistantRaw
+);
+var _mathJs = require("../math.js");
+var _conicJs = require("./conic.js");
+var _equirectangularJs = require("./equirectangular.js");
+function conicEquidistantRaw(y0, y1) {
+    var cy0 = _mathJs.cos(y0), n = y0 === y1 ? _mathJs.sin(y0) : (cy0 - _mathJs.cos(y1)) / (y1 - y0), g = cy0 / n + y0;
+    if (_mathJs.abs(n) < _mathJs.epsilon) return _equirectangularJs.equirectangularRaw;
+    function project(x, y) {
+        var gy = g - y, nx = n * x;
+        return [
+            gy * _mathJs.sin(nx),
+            g - gy * _mathJs.cos(nx)
+        ];
+    }
+    project.invert = function(x, y) {
+        var gy = g - y, l = _mathJs.atan2(x, _mathJs.abs(gy)) * _mathJs.sign(gy);
+        if (gy * n < 0) l -= _mathJs.pi * _mathJs.sign(x) * _mathJs.sign(gy);
+        return [
+            l / n,
+            g - _mathJs.sign(n) * _mathJs.sqrt(x * x + gy * gy)
+        ];
+    };
+    return project;
+}
+exports.default = function() {
+    return _conicJs.conicProjection(conicEquidistantRaw).scale(131.154).center([
+        0,
+        13.9389
+    ]);
+};
+
+},{"../math.js":"7JyYl","./conic.js":"hA53y","./equirectangular.js":"6r5uk","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6r5uk":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "equirectangularRaw", ()=>equirectangularRaw
+);
+var _indexJs = require("./index.js");
+var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
+function equirectangularRaw(lambda, phi) {
+    return [
+        lambda,
+        phi
+    ];
+}
+equirectangularRaw.invert = equirectangularRaw;
+exports.default = function() {
+    return _indexJsDefault.default(equirectangularRaw).scale(152.63);
+};
+
+},{"./index.js":"i24sF","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2iIrI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "equalEarthRaw", ()=>equalEarthRaw
+);
+var _indexJs = require("./index.js");
+var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
+var _mathJs = require("../math.js");
+var A1 = 1.340264, A2 = -0.081106, A3 = 0.000893, A4 = 0.003796, M = _mathJs.sqrt(3) / 2, iterations = 12;
+function equalEarthRaw(lambda, phi) {
+    var l = _mathJs.asin(M * _mathJs.sin(phi)), l2 = l * l, l6 = l2 * l2 * l2;
+    return [
+        lambda * _mathJs.cos(l) / (M * (A1 + 3 * A2 * l2 + l6 * (7 * A3 + 9 * A4 * l2))),
+        l * (A1 + A2 * l2 + l6 * (A3 + A4 * l2))
+    ];
+}
+equalEarthRaw.invert = function(x, y) {
+    var l = y, l2 = l * l, l6 = l2 * l2 * l2;
+    for(var i = 0, delta, fy, fpy; i < iterations; ++i){
+        fy = l * (A1 + A2 * l2 + l6 * (A3 + A4 * l2)) - y;
+        fpy = A1 + 3 * A2 * l2 + l6 * (7 * A3 + 9 * A4 * l2);
+        l -= delta = fy / fpy, l2 = l * l, l6 = l2 * l2 * l2;
+        if (_mathJs.abs(delta) < _mathJs.epsilon2) break;
+    }
+    return [
+        M * x * (A1 + 3 * A2 * l2 + l6 * (7 * A3 + 9 * A4 * l2)) / _mathJs.cos(l),
+        _mathJs.asin(_mathJs.sin(l) / M)
+    ];
+};
+exports.default = function() {
+    return _indexJsDefault.default(equalEarthRaw).scale(177.158);
+};
+
+},{"./index.js":"i24sF","../math.js":"7JyYl","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gz9Xc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "gnomonicRaw", ()=>gnomonicRaw
+);
+var _mathJs = require("../math.js");
+var _azimuthalJs = require("./azimuthal.js");
+var _indexJs = require("./index.js");
+var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
+function gnomonicRaw(x, y) {
+    var cy = _mathJs.cos(y), k = _mathJs.cos(x) * cy;
+    return [
+        cy * _mathJs.sin(x) / k,
+        _mathJs.sin(y) / k
+    ];
+}
+gnomonicRaw.invert = _azimuthalJs.azimuthalInvert(_mathJs.atan);
+exports.default = function() {
+    return _indexJsDefault.default(gnomonicRaw).scale(144.049).clipAngle(60);
+};
+
+},{"../math.js":"7JyYl","./azimuthal.js":"cX4Jq","./index.js":"i24sF","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ipPmW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _rectangleJs = require("../clip/rectangle.js");
+var _rectangleJsDefault = parcelHelpers.interopDefault(_rectangleJs);
+var _identityJs = require("../identity.js");
+var _identityJsDefault = parcelHelpers.interopDefault(_identityJs);
+var _transformJs = require("../transform.js");
+var _fitJs = require("./fit.js");
+var _mathJs = require("../math.js");
+exports.default = function() {
+    var k = 1, tx = 0, ty = 0, sx = 1, sy = 1, alpha = 0, ca, sa, x0 = null, y0, x1, y1, kx = 1, ky = 1, transform = _transformJs.transformer({
+        point: function(x, y) {
+            var p = projection([
+                x,
+                y
+            ]);
+            this.stream.point(p[0], p[1]);
+        }
+    }), postclip = _identityJsDefault.default, cache, cacheStream;
+    function reset() {
+        kx = k * sx;
+        ky = k * sy;
+        cache = cacheStream = null;
+        return projection;
+    }
+    function projection(p) {
+        var x = p[0] * kx, y = p[1] * ky;
+        if (alpha) {
+            var t = y * ca - x * sa;
+            x = x * ca + y * sa;
+            y = t;
+        }
+        return [
+            x + tx,
+            y + ty
+        ];
+    }
+    projection.invert = function(p) {
+        var x = p[0] - tx, y = p[1] - ty;
+        if (alpha) {
+            var t = y * ca + x * sa;
+            x = x * ca - y * sa;
+            y = t;
+        }
+        return [
+            x / kx,
+            y / ky
+        ];
+    };
+    projection.stream = function(stream) {
+        return cache && cacheStream === stream ? cache : cache = transform(postclip(cacheStream = stream));
+    };
+    projection.postclip = function(_) {
+        return arguments.length ? (postclip = _, x0 = y0 = x1 = y1 = null, reset()) : postclip;
+    };
+    projection.clipExtent = function(_) {
+        return arguments.length ? (postclip = _ == null ? (x0 = y0 = x1 = y1 = null, _identityJsDefault.default) : _rectangleJsDefault.default(x0 = +_[0][0], y0 = +_[0][1], x1 = +_[1][0], y1 = +_[1][1]), reset()) : x0 == null ? null : [
+            [
+                x0,
+                y0
+            ],
+            [
+                x1,
+                y1
+            ]
+        ];
+    };
+    projection.scale = function(_) {
+        return arguments.length ? (k = +_, reset()) : k;
+    };
+    projection.translate = function(_) {
+        return arguments.length ? (tx = +_[0], ty = +_[1], reset()) : [
+            tx,
+            ty
+        ];
+    };
+    projection.angle = function(_) {
+        return arguments.length ? (alpha = _ % 360 * _mathJs.radians, sa = _mathJs.sin(alpha), ca = _mathJs.cos(alpha), reset()) : alpha * _mathJs.degrees;
+    };
+    projection.reflectX = function(_) {
+        return arguments.length ? (sx = _ ? -1 : 1, reset()) : sx < 0;
+    };
+    projection.reflectY = function(_) {
+        return arguments.length ? (sy = _ ? -1 : 1, reset()) : sy < 0;
+    };
+    projection.fitExtent = function(extent, object) {
+        return _fitJs.fitExtent(projection, extent, object);
+    };
+    projection.fitSize = function(size, object) {
+        return _fitJs.fitSize(projection, size, object);
+    };
+    projection.fitWidth = function(width, object) {
+        return _fitJs.fitWidth(projection, width, object);
+    };
+    projection.fitHeight = function(height, object) {
+        return _fitJs.fitHeight(projection, height, object);
+    };
+    return projection;
+};
+
+},{"../clip/rectangle.js":"2xswT","../identity.js":"kdbfP","../transform.js":"feffG","./fit.js":"4as5X","../math.js":"7JyYl","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gQDpu":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "naturalEarth1Raw", ()=>naturalEarth1Raw
+);
+var _indexJs = require("./index.js");
+var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
+var _mathJs = require("../math.js");
+function naturalEarth1Raw(lambda, phi) {
+    var phi2 = phi * phi, phi4 = phi2 * phi2;
+    return [
+        lambda * (0.8707 - 0.131979 * phi2 + phi4 * (-0.013791 + phi4 * (0.003971 * phi2 - 0.001529 * phi4))),
+        phi * (1.007226 + phi2 * (0.015085 + phi4 * (-0.044475 + 0.028874 * phi2 - 0.005916 * phi4)))
+    ];
+}
+naturalEarth1Raw.invert = function(x, y) {
+    var phi = y, i = 25, delta;
+    do {
+        var phi2 = phi * phi, phi4 = phi2 * phi2;
+        phi -= delta = (phi * (1.007226 + phi2 * (0.015085 + phi4 * (-0.044475 + 0.028874 * phi2 - 0.005916 * phi4))) - y) / (1.007226 + phi2 * (0.045255 + phi4 * (-0.311325 + 0.259866 * phi2 - 0.005916 * 11 * phi4)));
+    }while (_mathJs.abs(delta) > _mathJs.epsilon && --i > 0)
+    return [
+        x / (0.8707 + (phi2 = phi * phi) * (-0.131979 + phi2 * (-0.013791 + phi2 * phi2 * phi2 * (0.003971 - 0.001529 * phi2)))),
+        phi
+    ];
+};
+exports.default = function() {
+    return _indexJsDefault.default(naturalEarth1Raw).scale(175.295);
+};
+
+},{"./index.js":"i24sF","../math.js":"7JyYl","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3Wbli":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "orthographicRaw", ()=>orthographicRaw
+);
+var _mathJs = require("../math.js");
+var _azimuthalJs = require("./azimuthal.js");
+var _indexJs = require("./index.js");
+var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
+function orthographicRaw(x, y) {
+    return [
+        _mathJs.cos(y) * _mathJs.sin(x),
+        _mathJs.sin(y)
+    ];
+}
+orthographicRaw.invert = _azimuthalJs.azimuthalInvert(_mathJs.asin);
+exports.default = function() {
+    return _indexJsDefault.default(orthographicRaw).scale(249.5).clipAngle(90 + _mathJs.epsilon);
+};
+
+},{"../math.js":"7JyYl","./azimuthal.js":"cX4Jq","./index.js":"i24sF","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hIzPd":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "stereographicRaw", ()=>stereographicRaw
+);
+var _mathJs = require("../math.js");
+var _azimuthalJs = require("./azimuthal.js");
+var _indexJs = require("./index.js");
+var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
+function stereographicRaw(x, y) {
+    var cy = _mathJs.cos(y), k = 1 + _mathJs.cos(x) * cy;
+    return [
+        cy * _mathJs.sin(x) / k,
+        _mathJs.sin(y) / k
+    ];
+}
+stereographicRaw.invert = _azimuthalJs.azimuthalInvert(function(z) {
+    return 2 * _mathJs.atan(z);
+});
+exports.default = function() {
+    return _indexJsDefault.default(stereographicRaw).scale(250).clipAngle(142);
+};
+
+},{"../math.js":"7JyYl","./azimuthal.js":"cX4Jq","./index.js":"i24sF","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4SRkZ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "transverseMercatorRaw", ()=>transverseMercatorRaw
+);
+var _mathJs = require("../math.js");
+var _mercatorJs = require("./mercator.js");
+function transverseMercatorRaw(lambda, phi) {
+    return [
+        _mathJs.log(_mathJs.tan((_mathJs.halfPi + phi) / 2)),
+        -lambda
+    ];
+}
+transverseMercatorRaw.invert = function(x, y) {
+    return [
+        -y,
+        2 * _mathJs.atan(_mathJs.exp(x)) - _mathJs.halfPi
+    ];
+};
+exports.default = function() {
+    var m = _mercatorJs.mercatorProjection(transverseMercatorRaw), center = m.center, rotate = m.rotate;
+    m.center = function(_) {
+        return arguments.length ? center([
+            -_[1],
+            _[0]
+        ]) : (_ = center(), [
+            _[1],
+            -_[0]
+        ]);
+    };
+    m.rotate = function(_) {
+        return arguments.length ? rotate([
+            _[0],
+            _[1],
+            _.length > 2 ? _[2] + 90 : 90
+        ]) : (_ = rotate(), [
+            _[0],
+            _[1],
+            _[2] - 90
+        ]);
+    };
+    return rotate([
+        0,
+        0,
+        90
+    ]).scale(159.155);
+};
+
+},{"../math.js":"7JyYl","./mercator.js":"fE71g","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dArDf":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "bbox", ()=>_bboxJsDefault.default
+);
+parcelHelpers.export(exports, "feature", ()=>_featureJsDefault.default
+);
+parcelHelpers.export(exports, "mesh", ()=>_meshJsDefault.default
+);
+parcelHelpers.export(exports, "meshArcs", ()=>_meshJs.meshArcs
+);
+parcelHelpers.export(exports, "merge", ()=>_mergeJsDefault.default
+);
+parcelHelpers.export(exports, "mergeArcs", ()=>_mergeJs.mergeArcs
+);
+parcelHelpers.export(exports, "neighbors", ()=>_neighborsJsDefault.default
+);
+parcelHelpers.export(exports, "quantize", ()=>_quantizeJsDefault.default
+);
+parcelHelpers.export(exports, "transform", ()=>_transformJsDefault.default
+);
+parcelHelpers.export(exports, "untransform", ()=>_untransformJsDefault.default
+);
+var _bboxJs = require("./bbox.js");
+var _bboxJsDefault = parcelHelpers.interopDefault(_bboxJs);
+var _featureJs = require("./feature.js");
+var _featureJsDefault = parcelHelpers.interopDefault(_featureJs);
+var _meshJs = require("./mesh.js");
+var _meshJsDefault = parcelHelpers.interopDefault(_meshJs);
+var _mergeJs = require("./merge.js");
+var _mergeJsDefault = parcelHelpers.interopDefault(_mergeJs);
+var _neighborsJs = require("./neighbors.js");
+var _neighborsJsDefault = parcelHelpers.interopDefault(_neighborsJs);
+var _quantizeJs = require("./quantize.js");
+var _quantizeJsDefault = parcelHelpers.interopDefault(_quantizeJs);
+var _transformJs = require("./transform.js");
+var _transformJsDefault = parcelHelpers.interopDefault(_transformJs);
+var _untransformJs = require("./untransform.js");
+var _untransformJsDefault = parcelHelpers.interopDefault(_untransformJs);
+
+},{"./bbox.js":"1oy1b","./feature.js":"6f9ml","./mesh.js":"1wvts","./merge.js":"i0R6x","./neighbors.js":"hn7Jm","./quantize.js":"dwhkn","./transform.js":"3WBxE","./untransform.js":"214h8","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1oy1b":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _transformJs = require("./transform.js");
+var _transformJsDefault = parcelHelpers.interopDefault(_transformJs);
+exports.default = function(topology) {
+    var t = _transformJsDefault.default(topology.transform), key, x0 = Infinity, y0 = x0, x1 = -x0, y1 = -x0;
+    function bboxPoint(p) {
+        p = t(p);
+        if (p[0] < x0) x0 = p[0];
+        if (p[0] > x1) x1 = p[0];
+        if (p[1] < y0) y0 = p[1];
+        if (p[1] > y1) y1 = p[1];
+    }
+    function bboxGeometry(o) {
+        switch(o.type){
+            case "GeometryCollection":
+                o.geometries.forEach(bboxGeometry);
+                break;
+            case "Point":
+                bboxPoint(o.coordinates);
+                break;
+            case "MultiPoint":
+                o.coordinates.forEach(bboxPoint);
+                break;
+        }
+    }
+    topology.arcs.forEach(function(arc) {
+        var i = -1, n = arc.length, p;
+        while(++i < n){
+            p = t(arc[i], i);
+            if (p[0] < x0) x0 = p[0];
+            if (p[0] > x1) x1 = p[0];
+            if (p[1] < y0) y0 = p[1];
+            if (p[1] > y1) y1 = p[1];
+        }
+    });
+    for(key in topology.objects)bboxGeometry(topology.objects[key]);
+    return [
+        x0,
+        y0,
+        x1,
+        y1
+    ];
+};
+
+},{"./transform.js":"3WBxE","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3WBxE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _identityJs = require("./identity.js");
+var _identityJsDefault = parcelHelpers.interopDefault(_identityJs);
+exports.default = function(transform) {
+    if (transform == null) return _identityJsDefault.default;
+    var x0, y0, kx = transform.scale[0], ky = transform.scale[1], dx = transform.translate[0], dy = transform.translate[1];
+    return function(input, i) {
+        if (!i) x0 = y0 = 0;
+        var j = 2, n = input.length, output = new Array(n);
+        output[0] = (x0 += input[0]) * kx + dx;
+        output[1] = (y0 += input[1]) * ky + dy;
+        while(j < n)output[j] = input[j], ++j;
+        return output;
+    };
+};
+
+},{"./identity.js":"1j8ma","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1j8ma":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(x) {
+    return x;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6f9ml":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "object", ()=>object
+);
+var _reverseJs = require("./reverse.js");
+var _reverseJsDefault = parcelHelpers.interopDefault(_reverseJs);
+var _transformJs = require("./transform.js");
+var _transformJsDefault = parcelHelpers.interopDefault(_transformJs);
+exports.default = function(topology, o1) {
+    if (typeof o1 === "string") o1 = topology.objects[o1];
+    return o1.type === "GeometryCollection" ? {
+        type: "FeatureCollection",
+        features: o1.geometries.map(function(o) {
+            return feature(topology, o);
+        })
+    } : feature(topology, o1);
+};
+function feature(topology, o) {
+    var id = o.id, bbox = o.bbox, properties = o.properties == null ? {
+    } : o.properties, geometry = object(topology, o);
+    return id == null && bbox == null ? {
+        type: "Feature",
+        properties: properties,
+        geometry: geometry
+    } : bbox == null ? {
+        type: "Feature",
+        id: id,
+        properties: properties,
+        geometry: geometry
+    } : {
+        type: "Feature",
+        id: id,
+        bbox: bbox,
+        properties: properties,
+        geometry: geometry
+    };
+}
+function object(topology, o2) {
+    var transformPoint = _transformJsDefault.default(topology.transform), arcs1 = topology.arcs;
+    function arc(i, points) {
+        if (points.length) points.pop();
+        for(var a = arcs1[i < 0 ? ~i : i], k = 0, n = a.length; k < n; ++k)points.push(transformPoint(a[k], k));
+        if (i < 0) _reverseJsDefault.default(points, n);
+    }
+    function point(p) {
+        return transformPoint(p);
+    }
+    function line(arcs) {
+        var points = [];
+        for(var i = 0, n = arcs.length; i < n; ++i)arc(arcs[i], points);
+        if (points.length < 2) points.push(points[0]); // This should never happen per the specification.
+        return points;
+    }
+    function ring(arcs) {
+        var points = line(arcs);
+        while(points.length < 4)points.push(points[0]); // This may happen if an arc has only two points.
+        return points;
+    }
+    function polygon(arcs) {
+        return arcs.map(ring);
+    }
+    function geometry(o) {
+        var type = o.type, coordinates;
+        switch(type){
+            case "GeometryCollection":
+                return {
+                    type: type,
+                    geometries: o.geometries.map(geometry)
+                };
+            case "Point":
+                coordinates = point(o.coordinates);
+                break;
+            case "MultiPoint":
+                coordinates = o.coordinates.map(point);
+                break;
+            case "LineString":
+                coordinates = line(o.arcs);
+                break;
+            case "MultiLineString":
+                coordinates = o.arcs.map(line);
+                break;
+            case "Polygon":
+                coordinates = polygon(o.arcs);
+                break;
+            case "MultiPolygon":
+                coordinates = o.arcs.map(polygon);
+                break;
+            default:
+                return null;
+        }
+        return {
+            type: type,
+            coordinates: coordinates
+        };
+    }
+    return geometry(o2);
+}
+
+},{"./reverse.js":"ayIvy","./transform.js":"3WBxE","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ayIvy":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(array, n) {
+    var t, j = array.length, i = j - n;
+    while(i < --j)t = array[i], array[i++] = array[j], array[j] = t;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1wvts":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "meshArcs", ()=>meshArcs
+);
+var _featureJs = require("./feature.js");
+var _stitchJs = require("./stitch.js");
+var _stitchJsDefault = parcelHelpers.interopDefault(_stitchJs);
+exports.default = function(topology) {
+    return _featureJs.object(topology, meshArcs.apply(this, arguments));
+};
+function meshArcs(topology, object, filter) {
+    var arcs, i, n;
+    if (arguments.length > 1) arcs = extractArcs(topology, object, filter);
+    else for(i = 0, arcs = new Array(n = topology.arcs.length); i < n; ++i)arcs[i] = i;
+    return {
+        type: "MultiLineString",
+        arcs: _stitchJsDefault.default(topology, arcs)
+    };
+}
+function extractArcs(topology, object, filter) {
+    var arcs1 = [], geomsByArc = [], geom;
+    function extract0(i) {
+        var j = i < 0 ? ~i : i;
+        (geomsByArc[j] || (geomsByArc[j] = [])).push({
+            i: i,
+            g: geom
+        });
+    }
+    function extract1(arcs) {
+        arcs.forEach(extract0);
+    }
+    function extract2(arcs) {
+        arcs.forEach(extract1);
+    }
+    function extract3(arcs) {
+        arcs.forEach(extract2);
+    }
+    function geometry(o) {
+        switch(geom = o, o.type){
+            case "GeometryCollection":
+                o.geometries.forEach(geometry);
+                break;
+            case "LineString":
+                extract1(o.arcs);
+                break;
+            case "MultiLineString":
+            case "Polygon":
+                extract2(o.arcs);
+                break;
+            case "MultiPolygon":
+                extract3(o.arcs);
+                break;
+        }
+    }
+    geometry(object);
+    geomsByArc.forEach(filter == null ? function(geoms) {
+        arcs1.push(geoms[0].i);
+    } : function(geoms) {
+        if (filter(geoms[0].g, geoms[geoms.length - 1].g)) arcs1.push(geoms[0].i);
+    });
+    return arcs1;
+}
+
+},{"./feature.js":"6f9ml","./stitch.js":"hz1RZ","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hz1RZ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(topology, arcs) {
+    var stitchedArcs = {
+    }, fragmentByStart1 = {
+    }, fragmentByEnd1 = {
+    }, fragments = [], emptyIndex = -1;
+    // Stitch empty arcs first, since they may be subsumed by other arcs.
+    arcs.forEach(function(i, j) {
+        var arc = topology.arcs[i < 0 ? ~i : i], t;
+        if (arc.length < 3 && !arc[1][0] && !arc[1][1]) t = arcs[++emptyIndex], arcs[emptyIndex] = i, arcs[j] = t;
+    });
+    arcs.forEach(function(i) {
+        var e = ends(i), start = e[0], end = e[1], f, g;
+        if (f = fragmentByEnd1[start]) {
+            delete fragmentByEnd1[f.end];
+            f.push(i);
+            f.end = end;
+            if (g = fragmentByStart1[end]) {
+                delete fragmentByStart1[g.start];
+                var fg = g === f ? f : f.concat(g);
+                fragmentByStart1[fg.start = f.start] = fragmentByEnd1[fg.end = g.end] = fg;
+            } else fragmentByStart1[f.start] = fragmentByEnd1[f.end] = f;
+        } else if (f = fragmentByStart1[end]) {
+            delete fragmentByStart1[f.start];
+            f.unshift(i);
+            f.start = start;
+            if (g = fragmentByEnd1[start]) {
+                delete fragmentByEnd1[g.end];
+                var gf = g === f ? f : g.concat(f);
+                fragmentByStart1[gf.start = g.start] = fragmentByEnd1[gf.end = f.end] = gf;
+            } else fragmentByStart1[f.start] = fragmentByEnd1[f.end] = f;
+        } else {
+            f = [
+                i
+            ];
+            fragmentByStart1[f.start = start] = fragmentByEnd1[f.end = end] = f;
+        }
+    });
+    function ends(i) {
+        var arc = topology.arcs[i < 0 ? ~i : i], p0 = arc[0], p1;
+        if (topology.transform) p1 = [
+            0,
+            0
+        ], arc.forEach(function(dp) {
+            p1[0] += dp[0], p1[1] += dp[1];
+        });
+        else p1 = arc[arc.length - 1];
+        return i < 0 ? [
+            p1,
+            p0
+        ] : [
+            p0,
+            p1
+        ];
+    }
+    function flush(fragmentByEnd, fragmentByStart) {
+        for(var k in fragmentByEnd){
+            var f = fragmentByEnd[k];
+            delete fragmentByStart[f.start];
+            delete f.start;
+            delete f.end;
+            f.forEach(function(i) {
+                stitchedArcs[i < 0 ? ~i : i] = 1;
+            });
+            fragments.push(f);
+        }
+    }
+    flush(fragmentByEnd1, fragmentByStart1);
+    flush(fragmentByStart1, fragmentByEnd1);
+    arcs.forEach(function(i) {
+        if (!stitchedArcs[i < 0 ? ~i : i]) fragments.push([
+            i
+        ]);
+    });
+    return fragments;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"i0R6x":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "mergeArcs", ()=>mergeArcs
+);
+var _featureJs = require("./feature.js");
+var _stitchJs = require("./stitch.js");
+var _stitchJsDefault = parcelHelpers.interopDefault(_stitchJs);
+function planarRingArea(ring) {
+    var i = -1, n = ring.length, a, b = ring[n - 1], area = 0;
+    while(++i < n)a = b, b = ring[i], area += a[0] * b[1] - a[1] * b[0];
+    return Math.abs(area); // Note: doubled area!
+}
+exports.default = function(topology) {
+    return _featureJs.object(topology, mergeArcs.apply(this, arguments));
+};
+function mergeArcs(topology, objects) {
+    var polygonsByArc = {
+    }, polygons1 = [], groups = [];
+    objects.forEach(geometry);
+    function geometry(o) {
+        switch(o.type){
+            case "GeometryCollection":
+                o.geometries.forEach(geometry);
+                break;
+            case "Polygon":
+                extract(o.arcs);
+                break;
+            case "MultiPolygon":
+                o.arcs.forEach(extract);
+                break;
+        }
+    }
+    function extract(polygon) {
+        polygon.forEach(function(ring) {
+            ring.forEach(function(arc) {
+                (polygonsByArc[arc = arc < 0 ? ~arc : arc] || (polygonsByArc[arc] = [])).push(polygon);
+            });
+        });
+        polygons1.push(polygon);
+    }
+    function area(ring) {
+        return planarRingArea(_featureJs.object(topology, {
+            type: "Polygon",
+            arcs: [
+                ring
+            ]
+        }).coordinates[0]);
+    }
+    polygons1.forEach(function(polygon1) {
+        if (!polygon1._) {
+            var group = [], neighbors = [
+                polygon1
+            ];
+            polygon1._ = 1;
+            groups.push(group);
+            while(polygon1 = neighbors.pop()){
+                group.push(polygon1);
+                polygon1.forEach(function(ring) {
+                    ring.forEach(function(arc) {
+                        polygonsByArc[arc < 0 ? ~arc : arc].forEach(function(polygon) {
+                            if (!polygon._) {
+                                polygon._ = 1;
+                                neighbors.push(polygon);
+                            }
+                        });
+                    });
+                });
+            }
+        }
+    });
+    polygons1.forEach(function(polygon) {
+        delete polygon._;
+    });
+    return {
+        type: "MultiPolygon",
+        arcs: groups.map(function(polygons) {
+            var arcs = [], n;
+            // Extract the exterior (unique) arcs.
+            polygons.forEach(function(polygon) {
+                polygon.forEach(function(ring) {
+                    ring.forEach(function(arc) {
+                        if (polygonsByArc[arc < 0 ? ~arc : arc].length < 2) arcs.push(arc);
+                    });
+                });
+            });
+            // Stitch the arcs into one or more rings.
+            arcs = _stitchJsDefault.default(topology, arcs);
+            // If more than one ring is returned,
+            // at most one of these rings can be the exterior;
+            // choose the one with the greatest absolute area.
+            if ((n = arcs.length) > 1) {
+                for(var i = 1, k = area(arcs[0]), ki, t; i < n; ++i)if ((ki = area(arcs[i])) > k) t = arcs[0], arcs[0] = arcs[i], arcs[i] = t, k = ki;
+            }
+            return arcs;
+        }).filter(function(arcs) {
+            return arcs.length > 0;
+        })
+    };
+}
+
+},{"./feature.js":"6f9ml","./stitch.js":"hz1RZ","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hn7Jm":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _bisectJs = require("./bisect.js");
+var _bisectJsDefault = parcelHelpers.interopDefault(_bisectJs);
+exports.default = function(objects) {
+    var indexesByArc = {
+    }, neighbors = objects.map(function() {
+        return [];
+    });
+    function line(arcs, i) {
+        arcs.forEach(function(a) {
+            if (a < 0) a = ~a;
+            var o = indexesByArc[a];
+            if (o) o.push(i);
+            else indexesByArc[a] = [
+                i
+            ];
+        });
+    }
+    function polygon(arcs, i) {
+        arcs.forEach(function(arc) {
+            line(arc, i);
+        });
+    }
+    function geometry(o1, i) {
+        if (o1.type === "GeometryCollection") o1.geometries.forEach(function(o) {
+            geometry(o, i);
+        });
+        else if (o1.type in geometryType) geometryType[o1.type](o1.arcs, i);
+    }
+    var geometryType = {
+        LineString: line,
+        MultiLineString: polygon,
+        Polygon: polygon,
+        MultiPolygon: function(arcs, i) {
+            arcs.forEach(function(arc) {
+                polygon(arc, i);
+            });
+        }
+    };
+    objects.forEach(geometry);
+    for(var i1 in indexesByArc){
+        for(var indexes = indexesByArc[i1], m = indexes.length, j = 0; j < m; ++j)for(var k = j + 1; k < m; ++k){
+            var ij = indexes[j], ik = indexes[k], n;
+            if ((n = neighbors[ij])[i1 = _bisectJsDefault.default(n, ik)] !== ik) n.splice(i1, 0, ik);
+            if ((n = neighbors[ik])[i1 = _bisectJsDefault.default(n, ij)] !== ij) n.splice(i1, 0, ij);
+        }
+    }
+    return neighbors;
+};
+
+},{"./bisect.js":"htLk5","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"htLk5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(a, x) {
+    var lo = 0, hi = a.length;
+    while(lo < hi){
+        var mid = lo + hi >>> 1;
+        if (a[mid] < x) lo = mid + 1;
+        else hi = mid;
+    }
+    return lo;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dwhkn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _bboxJs = require("./bbox.js");
+var _bboxJsDefault = parcelHelpers.interopDefault(_bboxJs);
+var _untransformJs = require("./untransform.js");
+var _untransformJsDefault = parcelHelpers.interopDefault(_untransformJs);
+exports.default = function(topology, transform) {
+    if (topology.transform) throw new Error("already quantized");
+    if (!transform || !transform.scale) {
+        if (!((n = Math.floor(transform)) >= 2)) throw new Error("n must be ≥2");
+        box = topology.bbox || _bboxJsDefault.default(topology);
+        var x0 = box[0], y0 = box[1], x1 = box[2], y1 = box[3], n;
+        transform = {
+            scale: [
+                x1 - x0 ? (x1 - x0) / (n - 1) : 1,
+                y1 - y0 ? (y1 - y0) / (n - 1) : 1
+            ],
+            translate: [
+                x0,
+                y0
+            ]
+        };
+    } else box = topology.bbox;
+    var t = _untransformJsDefault.default(transform), box, key, inputs = topology.objects, outputs = {
+    };
+    function quantizePoint(point) {
+        return t(point);
+    }
+    function quantizeGeometry(input) {
+        var output;
+        switch(input.type){
+            case "GeometryCollection":
+                output = {
+                    type: "GeometryCollection",
+                    geometries: input.geometries.map(quantizeGeometry)
+                };
+                break;
+            case "Point":
+                output = {
+                    type: "Point",
+                    coordinates: quantizePoint(input.coordinates)
+                };
+                break;
+            case "MultiPoint":
+                output = {
+                    type: "MultiPoint",
+                    coordinates: input.coordinates.map(quantizePoint)
+                };
+                break;
+            default:
+                return input;
+        }
+        if (input.id != null) output.id = input.id;
+        if (input.bbox != null) output.bbox = input.bbox;
+        if (input.properties != null) output.properties = input.properties;
+        return output;
+    }
+    function quantizeArc(input) {
+        var i = 0, j = 1, n = input.length, p, output = new Array(n); // pessimistic
+        output[0] = t(input[0], 0);
+        while(++i < n)if ((p = t(input[i], i))[0] || p[1]) output[j++] = p; // non-coincident points
+        if (j === 1) output[j++] = [
+            0,
+            0
+        ]; // an arc must have at least two points
+        output.length = j;
+        return output;
+    }
+    for(key in inputs)outputs[key] = quantizeGeometry(inputs[key]);
+    return {
+        type: "Topology",
+        bbox: box,
+        transform: transform,
+        objects: outputs,
+        arcs: topology.arcs.map(quantizeArc)
+    };
+};
+
+},{"./bbox.js":"1oy1b","./untransform.js":"214h8","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"214h8":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _identityJs = require("./identity.js");
+var _identityJsDefault = parcelHelpers.interopDefault(_identityJs);
+exports.default = function(transform) {
+    if (transform == null) return _identityJsDefault.default;
+    var x0, y0, kx = transform.scale[0], ky = transform.scale[1], dx = transform.translate[0], dy = transform.translate[1];
+    return function(input, i) {
+        if (!i) x0 = y0 = 0;
+        var j = 2, n = input.length, output = new Array(n), x1 = Math.round((input[0] - dx) / kx), y1 = Math.round((input[1] - dy) / ky);
+        output[0] = x1 - x0, x0 = x1;
+        output[1] = y1 - y0, y0 = y1;
+        while(j < n)output[j] = input[j], ++j;
+        return output;
+    };
+};
+
+},{"./identity.js":"1j8ma","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7E00u":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "zoom", ()=>_zoomJsDefault.default
+);
+parcelHelpers.export(exports, "zoomTransform", ()=>_transformJsDefault.default
+);
+parcelHelpers.export(exports, "zoomIdentity", ()=>_transformJs.identity
+);
+var _zoomJs = require("./zoom.js");
+var _zoomJsDefault = parcelHelpers.interopDefault(_zoomJs);
+var _transformJs = require("./transform.js");
+var _transformJsDefault = parcelHelpers.interopDefault(_transformJs);
+
+},{"./zoom.js":"lIHvw","./transform.js":"aPs4a","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lIHvw":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Dispatch = require("d3-dispatch");
+var _d3Drag = require("d3-drag");
+var _d3Interpolate = require("d3-interpolate");
+var _d3Selection = require("d3-selection");
+var _d3Transition = require("d3-transition");
+var _constantJs = require("./constant.js");
+var _constantJsDefault = parcelHelpers.interopDefault(_constantJs);
+var _eventJs = require("./event.js");
+var _eventJsDefault = parcelHelpers.interopDefault(_eventJs);
+var _transformJs = require("./transform.js");
+var _noeventJs = require("./noevent.js");
+var _noeventJsDefault = parcelHelpers.interopDefault(_noeventJs);
+// Ignore right-click, since that should open the context menu.
+// except for pinch-to-zoom, which is sent as a wheel+ctrlKey event
+function defaultFilter(event) {
+    return (!event.ctrlKey || event.type === 'wheel') && !event.button;
+}
+function defaultExtent() {
+    var e = this;
+    if (e instanceof SVGElement) {
+        e = e.ownerSVGElement || e;
+        if (e.hasAttribute("viewBox")) {
+            e = e.viewBox.baseVal;
+            return [
+                [
+                    e.x,
+                    e.y
+                ],
+                [
+                    e.x + e.width,
+                    e.y + e.height
+                ]
+            ];
+        }
+        return [
+            [
+                0,
+                0
+            ],
+            [
+                e.width.baseVal.value,
+                e.height.baseVal.value
+            ]
+        ];
+    }
+    return [
+        [
+            0,
+            0
+        ],
+        [
+            e.clientWidth,
+            e.clientHeight
+        ]
+    ];
+}
+function defaultTransform() {
+    return this.__zoom || _transformJs.identity;
+}
+function defaultWheelDelta(event) {
+    return -event.deltaY * (event.deltaMode === 1 ? 0.05 : event.deltaMode ? 1 : 0.002) * (event.ctrlKey ? 10 : 1);
+}
+function defaultTouchable() {
+    return navigator.maxTouchPoints || "ontouchstart" in this;
+}
+function defaultConstrain(transform, extent, translateExtent) {
+    var dx0 = transform.invertX(extent[0][0]) - translateExtent[0][0], dx1 = transform.invertX(extent[1][0]) - translateExtent[1][0], dy0 = transform.invertY(extent[0][1]) - translateExtent[0][1], dy1 = transform.invertY(extent[1][1]) - translateExtent[1][1];
+    return transform.translate(dx1 > dx0 ? (dx0 + dx1) / 2 : Math.min(0, dx0) || Math.max(0, dx1), dy1 > dy0 ? (dy0 + dy1) / 2 : Math.min(0, dy0) || Math.max(0, dy1));
+}
+exports.default = function() {
+    var filter = defaultFilter, extent1 = defaultExtent, constrain = defaultConstrain, wheelDelta = defaultWheelDelta, touchable = defaultTouchable, scaleExtent = [
+        0,
+        Infinity
+    ], translateExtent = [
+        [
+            -Infinity,
+            -Infinity
+        ],
+        [
+            Infinity,
+            Infinity
+        ]
+    ], duration = 250, interpolate = _d3Interpolate.interpolateZoom, listeners = _d3Dispatch.dispatch("start", "zoom", "end"), touchstarting, touchfirst, touchending, touchDelay = 500, wheelDelay = 150, clickDistance2 = 0, tapDistance = 10;
+    function zoom(selection) {
+        selection.property("__zoom", defaultTransform).on("wheel.zoom", wheeled).on("mousedown.zoom", mousedowned).on("dblclick.zoom", dblclicked).filter(touchable).on("touchstart.zoom", touchstarted).on("touchmove.zoom", touchmoved).on("touchend.zoom touchcancel.zoom", touchended).style("-webkit-tap-highlight-color", "rgba(0,0,0,0)");
+    }
+    zoom.transform = function(collection, transform, point, event) {
+        var selection = collection.selection ? collection.selection() : collection;
+        selection.property("__zoom", defaultTransform);
+        if (collection !== selection) schedule(collection, transform, point, event);
+        else selection.interrupt().each(function() {
+            gesture(this, arguments).event(event).start().zoom(null, typeof transform === "function" ? transform.apply(this, arguments) : transform).end();
+        });
+    };
+    zoom.scaleBy = function(selection, k, p, event) {
+        zoom.scaleTo(selection, function() {
+            var k0 = this.__zoom.k, k1 = typeof k === "function" ? k.apply(this, arguments) : k;
+            return k0 * k1;
+        }, p, event);
+    };
+    zoom.scaleTo = function(selection, k, p, event) {
+        zoom.transform(selection, function() {
+            var e = extent1.apply(this, arguments), t0 = this.__zoom, p0 = p == null ? centroid(e) : typeof p === "function" ? p.apply(this, arguments) : p, p1 = t0.invert(p0), k1 = typeof k === "function" ? k.apply(this, arguments) : k;
+            return constrain(translate(scale(t0, k1), p0, p1), e, translateExtent);
+        }, p, event);
+    };
+    zoom.translateBy = function(selection, x, y, event) {
+        zoom.transform(selection, function() {
+            return constrain(this.__zoom.translate(typeof x === "function" ? x.apply(this, arguments) : x, typeof y === "function" ? y.apply(this, arguments) : y), extent1.apply(this, arguments), translateExtent);
+        }, null, event);
+    };
+    zoom.translateTo = function(selection, x, y, p, event) {
+        zoom.transform(selection, function() {
+            var e = extent1.apply(this, arguments), t = this.__zoom, p0 = p == null ? centroid(e) : typeof p === "function" ? p.apply(this, arguments) : p;
+            return constrain(_transformJs.identity.translate(p0[0], p0[1]).scale(t.k).translate(typeof x === "function" ? -x.apply(this, arguments) : -x, typeof y === "function" ? -y.apply(this, arguments) : -y), e, translateExtent);
+        }, p, event);
+    };
+    function scale(transform, k) {
+        k = Math.max(scaleExtent[0], Math.min(scaleExtent[1], k));
+        return k === transform.k ? transform : new _transformJs.Transform(k, transform.x, transform.y);
+    }
+    function translate(transform, p0, p1) {
+        var x = p0[0] - p1[0] * transform.k, y = p0[1] - p1[1] * transform.k;
+        return x === transform.x && y === transform.y ? transform : new _transformJs.Transform(transform.k, x, y);
+    }
+    function centroid(extent) {
+        return [
+            (+extent[0][0] + +extent[1][0]) / 2,
+            (+extent[0][1] + +extent[1][1]) / 2
+        ];
+    }
+    function schedule(transition, transform, point, event) {
+        transition.on("start.zoom", function() {
+            gesture(this, arguments).event(event).start();
+        }).on("interrupt.zoom end.zoom", function() {
+            gesture(this, arguments).event(event).end();
+        }).tween("zoom", function() {
+            var that = this, args = arguments, g = gesture(that, args).event(event), e = extent1.apply(that, args), p = point == null ? centroid(e) : typeof point === "function" ? point.apply(that, args) : point, w = Math.max(e[1][0] - e[0][0], e[1][1] - e[0][1]), a = that.__zoom, b = typeof transform === "function" ? transform.apply(that, args) : transform, i = interpolate(a.invert(p).concat(w / a.k), b.invert(p).concat(w / b.k));
+            return function(t) {
+                if (t === 1) t = b; // Avoid rounding error on end.
+                else {
+                    var l = i(t), k = w / l[2];
+                    t = new _transformJs.Transform(k, p[0] - l[0] * k, p[1] - l[1] * k);
+                }
+                g.zoom(null, t);
+            };
+        });
+    }
+    function gesture(that, args, clean) {
+        return !clean && that.__zooming || new Gesture(that, args);
+    }
+    function Gesture(that, args) {
+        this.that = that;
+        this.args = args;
+        this.active = 0;
+        this.sourceEvent = null;
+        this.extent = extent1.apply(that, args);
+        this.taps = 0;
+    }
+    Gesture.prototype = {
+        event: function(event) {
+            if (event) this.sourceEvent = event;
+            return this;
+        },
+        start: function() {
+            if (++this.active === 1) {
+                this.that.__zooming = this;
+                this.emit("start");
+            }
+            return this;
+        },
+        zoom: function(key, transform) {
+            if (this.mouse && key !== "mouse") this.mouse[1] = transform.invert(this.mouse[0]);
+            if (this.touch0 && key !== "touch") this.touch0[1] = transform.invert(this.touch0[0]);
+            if (this.touch1 && key !== "touch") this.touch1[1] = transform.invert(this.touch1[0]);
+            this.that.__zoom = transform;
+            this.emit("zoom");
+            return this;
+        },
+        end: function() {
+            if (--this.active === 0) {
+                delete this.that.__zooming;
+                this.emit("end");
+            }
+            return this;
+        },
+        emit: function(type) {
+            var d = _d3Selection.select(this.that).datum();
+            listeners.call(type, this.that, new _eventJsDefault.default(type, {
+                sourceEvent: this.sourceEvent,
+                target: zoom,
+                type,
+                transform: this.that.__zoom,
+                dispatch: listeners
+            }), d);
+        }
+    };
+    function wheeled(event, ...args) {
+        if (!filter.apply(this, arguments)) return;
+        var g = gesture(this, args).event(event), t = this.__zoom, k = Math.max(scaleExtent[0], Math.min(scaleExtent[1], t.k * Math.pow(2, wheelDelta.apply(this, arguments)))), p = _d3Selection.pointer(event);
+        // If the mouse is in the same location as before, reuse it.
+        // If there were recent wheel events, reset the wheel idle timeout.
+        if (g.wheel) {
+            if (g.mouse[0][0] !== p[0] || g.mouse[0][1] !== p[1]) g.mouse[1] = t.invert(g.mouse[0] = p);
+            clearTimeout(g.wheel);
+        } else if (t.k === k) return;
+        else {
+            g.mouse = [
+                p,
+                t.invert(p)
+            ];
+            _d3Transition.interrupt(this);
+            g.start();
+        }
+        _noeventJsDefault.default(event);
+        g.wheel = setTimeout(wheelidled, wheelDelay);
+        g.zoom("mouse", constrain(translate(scale(t, k), g.mouse[0], g.mouse[1]), g.extent, translateExtent));
+        function wheelidled() {
+            g.wheel = null;
+            g.end();
+        }
+    }
+    function mousedowned(event1, ...args) {
+        if (touchending || !filter.apply(this, arguments)) return;
+        var g = gesture(this, args, true).event(event1), v = _d3Selection.select(event1.view).on("mousemove.zoom", mousemoved, true).on("mouseup.zoom", mouseupped, true), p = _d3Selection.pointer(event1, currentTarget), currentTarget = event1.currentTarget, x0 = event1.clientX, y0 = event1.clientY;
+        _d3Drag.dragDisable(event1.view);
+        _noeventJs.nopropagation(event1);
+        g.mouse = [
+            p,
+            this.__zoom.invert(p)
+        ];
+        _d3Transition.interrupt(this);
+        g.start();
+        function mousemoved(event) {
+            _noeventJsDefault.default(event);
+            if (!g.moved) {
+                var dx = event.clientX - x0, dy = event.clientY - y0;
+                g.moved = dx * dx + dy * dy > clickDistance2;
+            }
+            g.event(event).zoom("mouse", constrain(translate(g.that.__zoom, g.mouse[0] = _d3Selection.pointer(event, currentTarget), g.mouse[1]), g.extent, translateExtent));
+        }
+        function mouseupped(event) {
+            v.on("mousemove.zoom mouseup.zoom", null);
+            _d3Drag.dragEnable(event.view, g.moved);
+            _noeventJsDefault.default(event);
+            g.event(event).end();
+        }
+    }
+    function dblclicked(event, ...args) {
+        if (!filter.apply(this, arguments)) return;
+        var t0 = this.__zoom, p0 = _d3Selection.pointer(event.changedTouches ? event.changedTouches[0] : event, this), p1 = t0.invert(p0), k1 = t0.k * (event.shiftKey ? 0.5 : 2), t1 = constrain(translate(scale(t0, k1), p0, p1), extent1.apply(this, args), translateExtent);
+        _noeventJsDefault.default(event);
+        if (duration > 0) _d3Selection.select(this).transition().duration(duration).call(schedule, t1, p0, event);
+        else _d3Selection.select(this).call(zoom.transform, t1, p0, event);
+    }
+    function touchstarted(event, ...args) {
+        if (!filter.apply(this, arguments)) return;
+        var touches = event.touches, n = touches.length, g = gesture(this, args, event.changedTouches.length === n).event(event), started, i, t, p;
+        _noeventJs.nopropagation(event);
+        for(i = 0; i < n; ++i){
+            t = touches[i], p = _d3Selection.pointer(t, this);
+            p = [
+                p,
+                this.__zoom.invert(p),
+                t.identifier
+            ];
+            if (!g.touch0) g.touch0 = p, started = true, g.taps = 1 + !!touchstarting;
+            else if (!g.touch1 && g.touch0[2] !== p[2]) g.touch1 = p, g.taps = 0;
+        }
+        if (touchstarting) touchstarting = clearTimeout(touchstarting);
+        if (started) {
+            if (g.taps < 2) touchfirst = p[0], touchstarting = setTimeout(function() {
+                touchstarting = null;
+            }, touchDelay);
+            _d3Transition.interrupt(this);
+            g.start();
+        }
+    }
+    function touchmoved(event, ...args) {
+        if (!this.__zooming) return;
+        var g = gesture(this, args).event(event), touches = event.changedTouches, n = touches.length, i, t, p, l;
+        _noeventJsDefault.default(event);
+        for(i = 0; i < n; ++i){
+            t = touches[i], p = _d3Selection.pointer(t, this);
+            if (g.touch0 && g.touch0[2] === t.identifier) g.touch0[0] = p;
+            else if (g.touch1 && g.touch1[2] === t.identifier) g.touch1[0] = p;
+        }
+        t = g.that.__zoom;
+        if (g.touch1) {
+            var p0 = g.touch0[0], l0 = g.touch0[1], p1 = g.touch1[0], l1 = g.touch1[1], dp = (dp = p1[0] - p0[0]) * dp + (dp = p1[1] - p0[1]) * dp, dl = (dl = l1[0] - l0[0]) * dl + (dl = l1[1] - l0[1]) * dl;
+            t = scale(t, Math.sqrt(dp / dl));
+            p = [
+                (p0[0] + p1[0]) / 2,
+                (p0[1] + p1[1]) / 2
+            ];
+            l = [
+                (l0[0] + l1[0]) / 2,
+                (l0[1] + l1[1]) / 2
+            ];
+        } else if (g.touch0) p = g.touch0[0], l = g.touch0[1];
+        else return;
+        g.zoom("touch", constrain(translate(t, p, l), g.extent, translateExtent));
+    }
+    function touchended(event, ...args) {
+        if (!this.__zooming) return;
+        var g = gesture(this, args).event(event), touches = event.changedTouches, n = touches.length, i, t;
+        _noeventJs.nopropagation(event);
+        if (touchending) clearTimeout(touchending);
+        touchending = setTimeout(function() {
+            touchending = null;
+        }, touchDelay);
+        for(i = 0; i < n; ++i){
+            t = touches[i];
+            if (g.touch0 && g.touch0[2] === t.identifier) delete g.touch0;
+            else if (g.touch1 && g.touch1[2] === t.identifier) delete g.touch1;
+        }
+        if (g.touch1 && !g.touch0) g.touch0 = g.touch1, delete g.touch1;
+        if (g.touch0) g.touch0[1] = this.__zoom.invert(g.touch0[0]);
+        else {
+            g.end();
+            // If this was a dbltap, reroute to the (optional) dblclick.zoom handler.
+            if (g.taps === 2) {
+                t = _d3Selection.pointer(t, this);
+                if (Math.hypot(touchfirst[0] - t[0], touchfirst[1] - t[1]) < tapDistance) {
+                    var p = _d3Selection.select(this).on("dblclick.zoom");
+                    if (p) p.apply(this, arguments);
+                }
+            }
+        }
+    }
+    zoom.wheelDelta = function(_) {
+        return arguments.length ? (wheelDelta = typeof _ === "function" ? _ : _constantJsDefault.default(+_), zoom) : wheelDelta;
+    };
+    zoom.filter = function(_) {
+        return arguments.length ? (filter = typeof _ === "function" ? _ : _constantJsDefault.default(!!_), zoom) : filter;
+    };
+    zoom.touchable = function(_) {
+        return arguments.length ? (touchable = typeof _ === "function" ? _ : _constantJsDefault.default(!!_), zoom) : touchable;
+    };
+    zoom.extent = function(_) {
+        return arguments.length ? (extent1 = typeof _ === "function" ? _ : _constantJsDefault.default([
+            [
+                +_[0][0],
+                +_[0][1]
+            ],
+            [
+                +_[1][0],
+                +_[1][1]
+            ]
+        ]), zoom) : extent1;
+    };
+    zoom.scaleExtent = function(_) {
+        return arguments.length ? (scaleExtent[0] = +_[0], scaleExtent[1] = +_[1], zoom) : [
+            scaleExtent[0],
+            scaleExtent[1]
+        ];
+    };
+    zoom.translateExtent = function(_) {
+        return arguments.length ? (translateExtent[0][0] = +_[0][0], translateExtent[1][0] = +_[1][0], translateExtent[0][1] = +_[0][1], translateExtent[1][1] = +_[1][1], zoom) : [
+            [
+                translateExtent[0][0],
+                translateExtent[0][1]
+            ],
+            [
+                translateExtent[1][0],
+                translateExtent[1][1]
+            ]
+        ];
+    };
+    zoom.constrain = function(_) {
+        return arguments.length ? (constrain = _, zoom) : constrain;
+    };
+    zoom.duration = function(_) {
+        return arguments.length ? (duration = +_, zoom) : duration;
+    };
+    zoom.interpolate = function(_) {
+        return arguments.length ? (interpolate = _, zoom) : interpolate;
+    };
+    zoom.on = function() {
+        var value = listeners.on.apply(listeners, arguments);
+        return value === listeners ? zoom : value;
+    };
+    zoom.clickDistance = function(_) {
+        return arguments.length ? (clickDistance2 = (_ = +_) * _, zoom) : Math.sqrt(clickDistance2);
+    };
+    zoom.tapDistance = function(_) {
+        return arguments.length ? (tapDistance = +_, zoom) : tapDistance;
+    };
+    return zoom;
+};
+
+},{"d3-dispatch":"9d2te","d3-drag":"dKCUo","d3-interpolate":"e7XwA","d3-selection":"hgWtk","d3-transition":"cRYyR","./constant.js":"5Itz2","./event.js":"bMq36","./transform.js":"aPs4a","./noevent.js":"cgyVb","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"9d2te":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "dispatch", ()=>_dispatchJsDefault.default
+);
+var _dispatchJs = require("./dispatch.js");
+var _dispatchJsDefault = parcelHelpers.interopDefault(_dispatchJs);
+
+},{"./dispatch.js":"fEgH3","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fEgH3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var noop = {
+    value: ()=>{
+    }
+};
+function dispatch() {
+    for(var i = 0, n = arguments.length, _ = {
+    }, t; i < n; ++i){
+        if (!(t = arguments[i] + "") || t in _ || /[\s.]/.test(t)) throw new Error("illegal type: " + t);
+        _[t] = [];
+    }
+    return new Dispatch(_);
+}
+function Dispatch(_) {
+    this._ = _;
+}
+function parseTypenames(typenames, types) {
+    return typenames.trim().split(/^|\s+/).map(function(t) {
+        var name = "", i = t.indexOf(".");
+        if (i >= 0) name = t.slice(i + 1), t = t.slice(0, i);
+        if (t && !types.hasOwnProperty(t)) throw new Error("unknown type: " + t);
+        return {
+            type: t,
+            name: name
+        };
+    });
+}
+Dispatch.prototype = dispatch.prototype = {
+    constructor: Dispatch,
+    on: function(typename, callback) {
+        var _ = this._, T = parseTypenames(typename + "", _), t, i = -1, n = T.length;
+        // If no callback was specified, return the callback of the given type and name.
+        if (arguments.length < 2) {
+            while(++i < n)if ((t = (typename = T[i]).type) && (t = get(_[t], typename.name))) return t;
+            return;
+        }
+        // If a type was specified, set the callback for the given type and name.
+        // Otherwise, if a null callback was specified, remove callbacks of the given name.
+        if (callback != null && typeof callback !== "function") throw new Error("invalid callback: " + callback);
+        while(++i < n){
+            if (t = (typename = T[i]).type) _[t] = set(_[t], typename.name, callback);
+            else if (callback == null) for(t in _)_[t] = set(_[t], typename.name, null);
+        }
+        return this;
+    },
+    copy: function() {
+        var copy = {
+        }, _ = this._;
+        for(var t in _)copy[t] = _[t].slice();
+        return new Dispatch(copy);
+    },
+    call: function(type, that) {
+        if ((n = arguments.length - 2) > 0) for(var args = new Array(n), i = 0, n, t; i < n; ++i)args[i] = arguments[i + 2];
+        if (!this._.hasOwnProperty(type)) throw new Error("unknown type: " + type);
+        for(t = this._[type], i = 0, n = t.length; i < n; ++i)t[i].value.apply(that, args);
+    },
+    apply: function(type, that, args) {
+        if (!this._.hasOwnProperty(type)) throw new Error("unknown type: " + type);
+        for(var t = this._[type], i = 0, n = t.length; i < n; ++i)t[i].value.apply(that, args);
+    }
+};
+function get(type, name) {
+    for(var i = 0, n = type.length, c; i < n; ++i){
+        if ((c = type[i]).name === name) return c.value;
+    }
+}
+function set(type, name, callback) {
+    for(var i = 0, n = type.length; i < n; ++i)if (type[i].name === name) {
+        type[i] = noop, type = type.slice(0, i).concat(type.slice(i + 1));
+        break;
+    }
+    if (callback != null) type.push({
+        name: name,
+        value: callback
+    });
+    return type;
+}
+exports.default = dispatch;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dKCUo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "drag", ()=>_dragJsDefault.default
+);
+parcelHelpers.export(exports, "dragDisable", ()=>_nodragJsDefault.default
+);
+parcelHelpers.export(exports, "dragEnable", ()=>_nodragJs.yesdrag
+);
+var _dragJs = require("./drag.js");
+var _dragJsDefault = parcelHelpers.interopDefault(_dragJs);
+var _nodragJs = require("./nodrag.js");
+var _nodragJsDefault = parcelHelpers.interopDefault(_nodragJs);
+
+},{"./drag.js":false,"./nodrag.js":"1WTbI","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1WTbI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "yesdrag", ()=>yesdrag
+);
+var _d3Selection = require("d3-selection");
+var _noeventJs = require("./noevent.js");
+var _noeventJsDefault = parcelHelpers.interopDefault(_noeventJs);
+exports.default = function(view) {
+    var root = view.document.documentElement, selection = _d3Selection.select(view).on("dragstart.drag", _noeventJsDefault.default, true);
+    if ("onselectstart" in root) selection.on("selectstart.drag", _noeventJsDefault.default, true);
+    else {
+        root.__noselect = root.style.MozUserSelect;
+        root.style.MozUserSelect = "none";
+    }
+};
+function yesdrag(view, noclick) {
+    var root = view.document.documentElement, selection = _d3Selection.select(view).on("dragstart.drag", null);
+    if (noclick) {
+        selection.on("click.drag", _noeventJsDefault.default, true);
+        setTimeout(function() {
+            selection.on("click.drag", null);
+        }, 0);
+    }
+    if ("onselectstart" in root) selection.on("selectstart.drag", null);
+    else {
+        root.style.MozUserSelect = root.__noselect;
+        delete root.__noselect;
+    }
+}
+
+},{"d3-selection":"hgWtk","./noevent.js":"hhrgp","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hgWtk":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "create", ()=>_createJsDefault.default
+);
+parcelHelpers.export(exports, "creator", ()=>_creatorJsDefault.default
+);
+parcelHelpers.export(exports, "local", ()=>_localJsDefault.default
+);
+parcelHelpers.export(exports, "matcher", ()=>_matcherJsDefault.default
+);
+parcelHelpers.export(exports, "namespace", ()=>_namespaceJsDefault.default
+);
+parcelHelpers.export(exports, "namespaces", ()=>_namespacesJsDefault.default
+);
+parcelHelpers.export(exports, "pointer", ()=>_pointerJsDefault.default
+);
+parcelHelpers.export(exports, "pointers", ()=>_pointersJsDefault.default
+);
+parcelHelpers.export(exports, "select", ()=>_selectJsDefault.default
+);
+parcelHelpers.export(exports, "selectAll", ()=>_selectAllJsDefault.default
+);
+parcelHelpers.export(exports, "selection", ()=>_indexJsDefault.default
+);
+parcelHelpers.export(exports, "selector", ()=>_selectorJsDefault.default
+);
+parcelHelpers.export(exports, "selectorAll", ()=>_selectorAllJsDefault.default
+);
+parcelHelpers.export(exports, "style", ()=>_styleJs.styleValue
+);
+parcelHelpers.export(exports, "window", ()=>_windowJsDefault.default
+);
+var _createJs = require("./create.js");
+var _createJsDefault = parcelHelpers.interopDefault(_createJs);
+var _creatorJs = require("./creator.js");
+var _creatorJsDefault = parcelHelpers.interopDefault(_creatorJs);
+var _localJs = require("./local.js");
+var _localJsDefault = parcelHelpers.interopDefault(_localJs);
+var _matcherJs = require("./matcher.js");
+var _matcherJsDefault = parcelHelpers.interopDefault(_matcherJs);
+var _namespaceJs = require("./namespace.js");
+var _namespaceJsDefault = parcelHelpers.interopDefault(_namespaceJs);
+var _namespacesJs = require("./namespaces.js");
+var _namespacesJsDefault = parcelHelpers.interopDefault(_namespacesJs);
+var _pointerJs = require("./pointer.js");
+var _pointerJsDefault = parcelHelpers.interopDefault(_pointerJs);
+var _pointersJs = require("./pointers.js");
+var _pointersJsDefault = parcelHelpers.interopDefault(_pointersJs);
+var _selectJs = require("./select.js");
+var _selectJsDefault = parcelHelpers.interopDefault(_selectJs);
+var _selectAllJs = require("./selectAll.js");
+var _selectAllJsDefault = parcelHelpers.interopDefault(_selectAllJs);
+var _indexJs = require("./selection/index.js");
+var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
+var _selectorJs = require("./selector.js");
+var _selectorJsDefault = parcelHelpers.interopDefault(_selectorJs);
+var _selectorAllJs = require("./selectorAll.js");
+var _selectorAllJsDefault = parcelHelpers.interopDefault(_selectorAllJs);
+var _styleJs = require("./selection/style.js");
+var _windowJs = require("./window.js");
+var _windowJsDefault = parcelHelpers.interopDefault(_windowJs);
+
+},{"./create.js":"luWz7","./creator.js":"hzFln","./local.js":"85ofP","./matcher.js":"5hMoc","./namespace.js":"k6t5I","./namespaces.js":"jlwhh","./pointer.js":"lRJOw","./pointers.js":"4HqJY","./select.js":"g0UZK","./selectAll.js":"lhfgm","./selection/index.js":"f38xv","./selector.js":"e9mWc","./selectorAll.js":"6FR5I","./selection/style.js":"lVr8f","./window.js":"c51LV","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"luWz7":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _creatorJs = require("./creator.js");
+var _creatorJsDefault = parcelHelpers.interopDefault(_creatorJs);
+var _selectJs = require("./select.js");
+var _selectJsDefault = parcelHelpers.interopDefault(_selectJs);
+exports.default = function(name) {
+    return _selectJsDefault.default(_creatorJsDefault.default(name).call(document.documentElement));
+};
+
+},{"./creator.js":"hzFln","./select.js":"g0UZK","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hzFln":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _namespaceJs = require("./namespace.js");
+var _namespaceJsDefault = parcelHelpers.interopDefault(_namespaceJs);
+var _namespacesJs = require("./namespaces.js");
+function creatorInherit(name) {
+    return function() {
+        var document = this.ownerDocument, uri = this.namespaceURI;
+        return uri === _namespacesJs.xhtml && document.documentElement.namespaceURI === _namespacesJs.xhtml ? document.createElement(name) : document.createElementNS(uri, name);
+    };
+}
+function creatorFixed(fullname) {
+    return function() {
+        return this.ownerDocument.createElementNS(fullname.space, fullname.local);
+    };
+}
+exports.default = function(name) {
+    var fullname = _namespaceJsDefault.default(name);
+    return (fullname.local ? creatorFixed : creatorInherit)(fullname);
+};
+
+},{"./namespace.js":"k6t5I","./namespaces.js":"jlwhh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"k6t5I":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _namespacesJs = require("./namespaces.js");
+var _namespacesJsDefault = parcelHelpers.interopDefault(_namespacesJs);
+exports.default = function(name) {
+    var prefix = name += "", i = prefix.indexOf(":");
+    if (i >= 0 && (prefix = name.slice(0, i)) !== "xmlns") name = name.slice(i + 1);
+    return _namespacesJsDefault.default.hasOwnProperty(prefix) ? {
+        space: _namespacesJsDefault.default[prefix],
+        local: name
+    } : name; // eslint-disable-line no-prototype-builtins
+};
+
+},{"./namespaces.js":"jlwhh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jlwhh":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "xhtml", ()=>xhtml
+);
+var xhtml = "http://www.w3.org/1999/xhtml";
+exports.default = {
+    svg: "http://www.w3.org/2000/svg",
+    xhtml: xhtml,
+    xlink: "http://www.w3.org/1999/xlink",
+    xml: "http://www.w3.org/XML/1998/namespace",
+    xmlns: "http://www.w3.org/2000/xmlns/"
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"g0UZK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _indexJs = require("./selection/index.js");
+exports.default = function(selector) {
+    return typeof selector === "string" ? new _indexJs.Selection([
+        [
+            document.querySelector(selector)
+        ]
+    ], [
+        document.documentElement
+    ]) : new _indexJs.Selection([
+        [
+            selector
+        ]
+    ], _indexJs.root);
+};
+
+},{"./selection/index.js":"f38xv","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"f38xv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "root", ()=>root
+);
+parcelHelpers.export(exports, "Selection", ()=>Selection
+);
+var _selectJs = require("./select.js");
+var _selectJsDefault = parcelHelpers.interopDefault(_selectJs);
+var _selectAllJs = require("./selectAll.js");
+var _selectAllJsDefault = parcelHelpers.interopDefault(_selectAllJs);
+var _selectChildJs = require("./selectChild.js");
+var _selectChildJsDefault = parcelHelpers.interopDefault(_selectChildJs);
+var _selectChildrenJs = require("./selectChildren.js");
+var _selectChildrenJsDefault = parcelHelpers.interopDefault(_selectChildrenJs);
+var _filterJs = require("./filter.js");
+var _filterJsDefault = parcelHelpers.interopDefault(_filterJs);
+var _dataJs = require("./data.js");
+var _dataJsDefault = parcelHelpers.interopDefault(_dataJs);
+var _enterJs = require("./enter.js");
+var _enterJsDefault = parcelHelpers.interopDefault(_enterJs);
+var _exitJs = require("./exit.js");
+var _exitJsDefault = parcelHelpers.interopDefault(_exitJs);
+var _joinJs = require("./join.js");
+var _joinJsDefault = parcelHelpers.interopDefault(_joinJs);
+var _mergeJs = require("./merge.js");
+var _mergeJsDefault = parcelHelpers.interopDefault(_mergeJs);
+var _orderJs = require("./order.js");
+var _orderJsDefault = parcelHelpers.interopDefault(_orderJs);
+var _sortJs = require("./sort.js");
+var _sortJsDefault = parcelHelpers.interopDefault(_sortJs);
+var _callJs = require("./call.js");
+var _callJsDefault = parcelHelpers.interopDefault(_callJs);
+var _nodesJs = require("./nodes.js");
+var _nodesJsDefault = parcelHelpers.interopDefault(_nodesJs);
+var _nodeJs = require("./node.js");
+var _nodeJsDefault = parcelHelpers.interopDefault(_nodeJs);
+var _sizeJs = require("./size.js");
+var _sizeJsDefault = parcelHelpers.interopDefault(_sizeJs);
+var _emptyJs = require("./empty.js");
+var _emptyJsDefault = parcelHelpers.interopDefault(_emptyJs);
+var _eachJs = require("./each.js");
+var _eachJsDefault = parcelHelpers.interopDefault(_eachJs);
+var _attrJs = require("./attr.js");
+var _attrJsDefault = parcelHelpers.interopDefault(_attrJs);
+var _styleJs = require("./style.js");
+var _styleJsDefault = parcelHelpers.interopDefault(_styleJs);
+var _propertyJs = require("./property.js");
+var _propertyJsDefault = parcelHelpers.interopDefault(_propertyJs);
+var _classedJs = require("./classed.js");
+var _classedJsDefault = parcelHelpers.interopDefault(_classedJs);
+var _textJs = require("./text.js");
+var _textJsDefault = parcelHelpers.interopDefault(_textJs);
+var _htmlJs = require("./html.js");
+var _htmlJsDefault = parcelHelpers.interopDefault(_htmlJs);
+var _raiseJs = require("./raise.js");
+var _raiseJsDefault = parcelHelpers.interopDefault(_raiseJs);
+var _lowerJs = require("./lower.js");
+var _lowerJsDefault = parcelHelpers.interopDefault(_lowerJs);
+var _appendJs = require("./append.js");
+var _appendJsDefault = parcelHelpers.interopDefault(_appendJs);
+var _insertJs = require("./insert.js");
+var _insertJsDefault = parcelHelpers.interopDefault(_insertJs);
+var _removeJs = require("./remove.js");
+var _removeJsDefault = parcelHelpers.interopDefault(_removeJs);
+var _cloneJs = require("./clone.js");
+var _cloneJsDefault = parcelHelpers.interopDefault(_cloneJs);
+var _datumJs = require("./datum.js");
+var _datumJsDefault = parcelHelpers.interopDefault(_datumJs);
+var _onJs = require("./on.js");
+var _onJsDefault = parcelHelpers.interopDefault(_onJs);
+var _dispatchJs = require("./dispatch.js");
+var _dispatchJsDefault = parcelHelpers.interopDefault(_dispatchJs);
+var _iteratorJs = require("./iterator.js");
+var _iteratorJsDefault = parcelHelpers.interopDefault(_iteratorJs);
+var root = [
+    null
+];
+function Selection(groups, parents) {
+    this._groups = groups;
+    this._parents = parents;
+}
+function selection() {
+    return new Selection([
+        [
+            document.documentElement
+        ]
+    ], root);
+}
+function selection_selection() {
+    return this;
+}
+Selection.prototype = selection.prototype = {
+    constructor: Selection,
+    select: _selectJsDefault.default,
+    selectAll: _selectAllJsDefault.default,
+    selectChild: _selectChildJsDefault.default,
+    selectChildren: _selectChildrenJsDefault.default,
+    filter: _filterJsDefault.default,
+    data: _dataJsDefault.default,
+    enter: _enterJsDefault.default,
+    exit: _exitJsDefault.default,
+    join: _joinJsDefault.default,
+    merge: _mergeJsDefault.default,
+    selection: selection_selection,
+    order: _orderJsDefault.default,
+    sort: _sortJsDefault.default,
+    call: _callJsDefault.default,
+    nodes: _nodesJsDefault.default,
+    node: _nodeJsDefault.default,
+    size: _sizeJsDefault.default,
+    empty: _emptyJsDefault.default,
+    each: _eachJsDefault.default,
+    attr: _attrJsDefault.default,
+    style: _styleJsDefault.default,
+    property: _propertyJsDefault.default,
+    classed: _classedJsDefault.default,
+    text: _textJsDefault.default,
+    html: _htmlJsDefault.default,
+    raise: _raiseJsDefault.default,
+    lower: _lowerJsDefault.default,
+    append: _appendJsDefault.default,
+    insert: _insertJsDefault.default,
+    remove: _removeJsDefault.default,
+    clone: _cloneJsDefault.default,
+    datum: _datumJsDefault.default,
+    on: _onJsDefault.default,
+    dispatch: _dispatchJsDefault.default,
+    [Symbol.iterator]: _iteratorJsDefault.default
+};
+exports.default = selection;
+
+},{"./select.js":"1jbDi","./selectAll.js":"cGFzy","./selectChild.js":"8DwO9","./selectChildren.js":"dHwnc","./filter.js":"79RzA","./data.js":"4ZVP3","./enter.js":"iCNmI","./exit.js":"8hgeS","./join.js":"4nZM4","./merge.js":"2Dn1o","./order.js":"g79rT","./sort.js":"6sxcI","./call.js":"jtSbo","./nodes.js":"56G5R","./node.js":"kRhWy","./size.js":"26GBx","./empty.js":"2pmiA","./each.js":"50lbW","./attr.js":"aUlJ3","./style.js":"lVr8f","./property.js":"49sSE","./classed.js":"6VMaw","./text.js":"ch5qt","./html.js":"jyrYS","./raise.js":"aWlYS","./lower.js":"43Imn","./append.js":"62Ily","./insert.js":"4D2zc","./remove.js":"ezirt","./clone.js":"ERvNe","./datum.js":"cElUS","./on.js":"6sHag","./dispatch.js":"eo73B","./iterator.js":"6AbO6","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1jbDi":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _indexJs = require("./index.js");
+var _selectorJs = require("../selector.js");
+var _selectorJsDefault = parcelHelpers.interopDefault(_selectorJs);
+exports.default = function(select) {
+    if (typeof select !== "function") select = _selectorJsDefault.default(select);
+    for(var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j){
+        for(var group = groups[j], n = group.length, subgroup = subgroups[j] = new Array(n), node, subnode, i = 0; i < n; ++i)if ((node = group[i]) && (subnode = select.call(node, node.__data__, i, group))) {
+            if ("__data__" in node) subnode.__data__ = node.__data__;
+            subgroup[i] = subnode;
+        }
+    }
+    return new _indexJs.Selection(subgroups, this._parents);
+};
+
+},{"./index.js":"f38xv","../selector.js":"e9mWc","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"e9mWc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function none() {
+}
+exports.default = function(selector) {
+    return selector == null ? none : function() {
+        return this.querySelector(selector);
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cGFzy":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _indexJs = require("./index.js");
+var _arrayJs = require("../array.js");
+var _arrayJsDefault = parcelHelpers.interopDefault(_arrayJs);
+var _selectorAllJs = require("../selectorAll.js");
+var _selectorAllJsDefault = parcelHelpers.interopDefault(_selectorAllJs);
+function arrayAll(select) {
+    return function() {
+        var group = select.apply(this, arguments);
+        return group == null ? [] : _arrayJsDefault.default(group);
+    };
+}
+exports.default = function(select) {
+    if (typeof select === "function") select = arrayAll(select);
+    else select = _selectorAllJsDefault.default(select);
+    for(var groups = this._groups, m = groups.length, subgroups = [], parents = [], j = 0; j < m; ++j){
+        for(var group = groups[j], n = group.length, node, i = 0; i < n; ++i)if (node = group[i]) {
+            subgroups.push(select.call(node, node.__data__, i, group));
+            parents.push(node);
+        }
+    }
+    return new _indexJs.Selection(subgroups, parents);
+};
+
+},{"./index.js":"f38xv","../array.js":"cirh5","../selectorAll.js":"6FR5I","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cirh5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(x) {
+    return typeof x === "object" && "length" in x ? x // Array, TypedArray, NodeList, array-like
+     : Array.from(x); // Map, Set, iterable, string, or anything else
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6FR5I":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function empty() {
+    return [];
+}
+exports.default = function(selector) {
+    return selector == null ? empty : function() {
+        return this.querySelectorAll(selector);
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8DwO9":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _matcherJs = require("../matcher.js");
+var find = Array.prototype.find;
+function childFind(match) {
+    return function() {
+        return find.call(this.children, match);
+    };
+}
+function childFirst() {
+    return this.firstElementChild;
+}
+exports.default = function(match) {
+    return this.select(match == null ? childFirst : childFind(typeof match === "function" ? match : _matcherJs.childMatcher(match)));
+};
+
+},{"../matcher.js":"5hMoc","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5hMoc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "childMatcher", ()=>childMatcher
+);
+exports.default = function(selector) {
+    return function() {
+        return this.matches(selector);
+    };
+};
+function childMatcher(selector) {
+    return function(node) {
+        return node.matches(selector);
+    };
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dHwnc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _matcherJs = require("../matcher.js");
+var filter = Array.prototype.filter;
+function children() {
+    return this.children;
+}
+function childrenFilter(match) {
+    return function() {
+        return filter.call(this.children, match);
+    };
+}
+exports.default = function(match) {
+    return this.selectAll(match == null ? children : childrenFilter(typeof match === "function" ? match : _matcherJs.childMatcher(match)));
+};
+
+},{"../matcher.js":"5hMoc","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"79RzA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _indexJs = require("./index.js");
+var _matcherJs = require("../matcher.js");
+var _matcherJsDefault = parcelHelpers.interopDefault(_matcherJs);
+exports.default = function(match) {
+    if (typeof match !== "function") match = _matcherJsDefault.default(match);
+    for(var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j){
+        for(var group = groups[j], n = group.length, subgroup = subgroups[j] = [], node, i = 0; i < n; ++i)if ((node = group[i]) && match.call(node, node.__data__, i, group)) subgroup.push(node);
+    }
+    return new _indexJs.Selection(subgroups, this._parents);
+};
+
+},{"./index.js":"f38xv","../matcher.js":"5hMoc","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4ZVP3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _indexJs = require("./index.js");
+var _enterJs = require("./enter.js");
+var _arrayJs = require("../array.js");
+var _arrayJsDefault = parcelHelpers.interopDefault(_arrayJs);
+var _constantJs = require("../constant.js");
+var _constantJsDefault = parcelHelpers.interopDefault(_constantJs);
+function bindIndex(parent, group, enter, update, exit, data) {
+    var i = 0, node, groupLength = group.length, dataLength = data.length;
+    // Put any non-null nodes that fit into update.
+    // Put any null nodes into enter.
+    // Put any remaining data into enter.
+    for(; i < dataLength; ++i)if (node = group[i]) {
+        node.__data__ = data[i];
+        update[i] = node;
+    } else enter[i] = new _enterJs.EnterNode(parent, data[i]);
+    // Put any non-null nodes that don’t fit into exit.
+    for(; i < groupLength; ++i)if (node = group[i]) exit[i] = node;
+}
+function bindKey(parent, group, enter, update, exit, data, key) {
+    var i, node, nodeByKeyValue = new Map, groupLength = group.length, dataLength = data.length, keyValues = new Array(groupLength), keyValue;
+    // Compute the key for each node.
+    // If multiple nodes have the same key, the duplicates are added to exit.
+    for(i = 0; i < groupLength; ++i)if (node = group[i]) {
+        keyValues[i] = keyValue = key.call(node, node.__data__, i, group) + "";
+        if (nodeByKeyValue.has(keyValue)) exit[i] = node;
+        else nodeByKeyValue.set(keyValue, node);
+    }
+    // Compute the key for each datum.
+    // If there a node associated with this key, join and add it to update.
+    // If there is not (or the key is a duplicate), add it to enter.
+    for(i = 0; i < dataLength; ++i){
+        keyValue = key.call(parent, data[i], i, data) + "";
+        if (node = nodeByKeyValue.get(keyValue)) {
+            update[i] = node;
+            node.__data__ = data[i];
+            nodeByKeyValue.delete(keyValue);
+        } else enter[i] = new _enterJs.EnterNode(parent, data[i]);
+    }
+    // Add any remaining nodes that were not bound to data to exit.
+    for(i = 0; i < groupLength; ++i)if ((node = group[i]) && nodeByKeyValue.get(keyValues[i]) === node) exit[i] = node;
+}
+function datum(node) {
+    return node.__data__;
+}
+exports.default = function(value, key) {
+    if (!arguments.length) return Array.from(this, datum);
+    var bind = key ? bindKey : bindIndex, parents = this._parents, groups = this._groups;
+    if (typeof value !== "function") value = _constantJsDefault.default(value);
+    for(var m = groups.length, update = new Array(m), enter = new Array(m), exit = new Array(m), j = 0; j < m; ++j){
+        var parent = parents[j], group = groups[j], groupLength = group.length, data = _arrayJsDefault.default(value.call(parent, parent && parent.__data__, j, parents)), dataLength = data.length, enterGroup = enter[j] = new Array(dataLength), updateGroup = update[j] = new Array(dataLength), exitGroup = exit[j] = new Array(groupLength);
+        bind(parent, group, enterGroup, updateGroup, exitGroup, data, key);
+        // Now connect the enter nodes to their following update node, such that
+        // appendChild can insert the materialized enter node before this node,
+        // rather than at the end of the parent node.
+        for(var i0 = 0, i1 = 0, previous, next; i0 < dataLength; ++i0)if (previous = enterGroup[i0]) {
+            if (i0 >= i1) i1 = i0 + 1;
+            while(!(next = updateGroup[i1]) && ++i1 < dataLength);
+            previous._next = next || null;
+        }
+    }
+    update = new _indexJs.Selection(update, parents);
+    update._enter = enter;
+    update._exit = exit;
+    return update;
+};
+
+},{"./index.js":"f38xv","./enter.js":"iCNmI","../array.js":"cirh5","../constant.js":"2yBTe","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"iCNmI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "EnterNode", ()=>EnterNode
+);
+var _sparseJs = require("./sparse.js");
+var _sparseJsDefault = parcelHelpers.interopDefault(_sparseJs);
+var _indexJs = require("./index.js");
+exports.default = function() {
+    return new _indexJs.Selection(this._enter || this._groups.map(_sparseJsDefault.default), this._parents);
+};
+function EnterNode(parent, datum) {
+    this.ownerDocument = parent.ownerDocument;
+    this.namespaceURI = parent.namespaceURI;
+    this._next = null;
+    this._parent = parent;
+    this.__data__ = datum;
+}
+EnterNode.prototype = {
+    constructor: EnterNode,
+    appendChild: function(child) {
+        return this._parent.insertBefore(child, this._next);
+    },
+    insertBefore: function(child, next) {
+        return this._parent.insertBefore(child, next);
+    },
+    querySelector: function(selector) {
+        return this._parent.querySelector(selector);
+    },
+    querySelectorAll: function(selector) {
+        return this._parent.querySelectorAll(selector);
+    }
+};
+
+},{"./sparse.js":"bkLEG","./index.js":"f38xv","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"bkLEG":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(update) {
+    return new Array(update.length);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2yBTe":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(x) {
+    return function() {
+        return x;
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8hgeS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _sparseJs = require("./sparse.js");
+var _sparseJsDefault = parcelHelpers.interopDefault(_sparseJs);
+var _indexJs = require("./index.js");
+exports.default = function() {
+    return new _indexJs.Selection(this._exit || this._groups.map(_sparseJsDefault.default), this._parents);
+};
+
+},{"./sparse.js":"bkLEG","./index.js":"f38xv","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4nZM4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(onenter, onupdate, onexit) {
+    var enter = this.enter(), update = this, exit = this.exit();
+    enter = typeof onenter === "function" ? onenter(enter) : enter.append(onenter + "");
+    if (onupdate != null) update = onupdate(update);
+    if (onexit == null) exit.remove();
+    else onexit(exit);
+    return enter && update ? enter.merge(update).order() : update;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2Dn1o":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _indexJs = require("./index.js");
+exports.default = function(selection) {
+    if (!(selection instanceof _indexJs.Selection)) throw new Error("invalid merge");
+    for(var groups0 = this._groups, groups1 = selection._groups, m0 = groups0.length, m1 = groups1.length, m = Math.min(m0, m1), merges = new Array(m0), j = 0; j < m; ++j){
+        for(var group0 = groups0[j], group1 = groups1[j], n = group0.length, merge = merges[j] = new Array(n), node, i = 0; i < n; ++i)if (node = group0[i] || group1[i]) merge[i] = node;
+    }
+    for(; j < m0; ++j)merges[j] = groups0[j];
+    return new _indexJs.Selection(merges, this._parents);
+};
+
+},{"./index.js":"f38xv","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"g79rT":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function() {
+    for(var groups = this._groups, j = -1, m = groups.length; ++j < m;){
+        for(var group = groups[j], i = group.length - 1, next = group[i], node; --i >= 0;)if (node = group[i]) {
+            if (next && node.compareDocumentPosition(next) ^ 4) next.parentNode.insertBefore(node, next);
+            next = node;
+        }
+    }
+    return this;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6sxcI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _indexJs = require("./index.js");
+exports.default = function(compare) {
+    if (!compare) compare = ascending;
+    function compareNode(a, b) {
+        return a && b ? compare(a.__data__, b.__data__) : !a - !b;
+    }
+    for(var groups = this._groups, m = groups.length, sortgroups = new Array(m), j = 0; j < m; ++j){
+        for(var group = groups[j], n = group.length, sortgroup = sortgroups[j] = new Array(n), node, i = 0; i < n; ++i)if (node = group[i]) sortgroup[i] = node;
+        sortgroup.sort(compareNode);
+    }
+    return new _indexJs.Selection(sortgroups, this._parents).order();
+};
+function ascending(a, b) {
+    return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
+}
+
+},{"./index.js":"f38xv","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jtSbo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function() {
+    var callback = arguments[0];
+    arguments[0] = this;
+    callback.apply(null, arguments);
+    return this;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"56G5R":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function() {
+    return Array.from(this);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kRhWy":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function() {
+    for(var groups = this._groups, j = 0, m = groups.length; j < m; ++j)for(var group = groups[j], i = 0, n = group.length; i < n; ++i){
+        var node = group[i];
+        if (node) return node;
+    }
+    return null;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"26GBx":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function() {
+    let size = 0;
+    for (const node of this)++size; // eslint-disable-line no-unused-vars
+    return size;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2pmiA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function() {
+    return !this.node();
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"50lbW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(callback) {
+    for(var groups = this._groups, j = 0, m = groups.length; j < m; ++j){
+        for(var group = groups[j], i = 0, n = group.length, node; i < n; ++i)if (node = group[i]) callback.call(node, node.__data__, i, group);
+    }
+    return this;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aUlJ3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _namespaceJs = require("../namespace.js");
+var _namespaceJsDefault = parcelHelpers.interopDefault(_namespaceJs);
+function attrRemove(name) {
+    return function() {
+        this.removeAttribute(name);
+    };
+}
+function attrRemoveNS(fullname) {
+    return function() {
+        this.removeAttributeNS(fullname.space, fullname.local);
+    };
+}
+function attrConstant(name, value) {
+    return function() {
+        this.setAttribute(name, value);
+    };
+}
+function attrConstantNS(fullname, value) {
+    return function() {
+        this.setAttributeNS(fullname.space, fullname.local, value);
+    };
+}
+function attrFunction(name, value) {
+    return function() {
+        var v = value.apply(this, arguments);
+        if (v == null) this.removeAttribute(name);
+        else this.setAttribute(name, v);
+    };
+}
+function attrFunctionNS(fullname, value) {
+    return function() {
+        var v = value.apply(this, arguments);
+        if (v == null) this.removeAttributeNS(fullname.space, fullname.local);
+        else this.setAttributeNS(fullname.space, fullname.local, v);
+    };
+}
+exports.default = function(name, value) {
+    var fullname = _namespaceJsDefault.default(name);
+    if (arguments.length < 2) {
+        var node = this.node();
+        return fullname.local ? node.getAttributeNS(fullname.space, fullname.local) : node.getAttribute(fullname);
+    }
+    return this.each((value == null ? fullname.local ? attrRemoveNS : attrRemove : typeof value === "function" ? fullname.local ? attrFunctionNS : attrFunction : fullname.local ? attrConstantNS : attrConstant)(fullname, value));
+};
+
+},{"../namespace.js":"k6t5I","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lVr8f":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "styleValue", ()=>styleValue
+);
+var _windowJs = require("../window.js");
+var _windowJsDefault = parcelHelpers.interopDefault(_windowJs);
+function styleRemove(name) {
+    return function() {
+        this.style.removeProperty(name);
+    };
+}
+function styleConstant(name, value, priority) {
+    return function() {
+        this.style.setProperty(name, value, priority);
+    };
+}
+function styleFunction(name, value, priority) {
+    return function() {
+        var v = value.apply(this, arguments);
+        if (v == null) this.style.removeProperty(name);
+        else this.style.setProperty(name, v, priority);
+    };
+}
+exports.default = function(name, value, priority) {
+    return arguments.length > 1 ? this.each((value == null ? styleRemove : typeof value === "function" ? styleFunction : styleConstant)(name, value, priority == null ? "" : priority)) : styleValue(this.node(), name);
+};
+function styleValue(node, name) {
+    return node.style.getPropertyValue(name) || _windowJsDefault.default(node).getComputedStyle(node, null).getPropertyValue(name);
+}
+
+},{"../window.js":"c51LV","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"c51LV":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(node) {
+    return node.ownerDocument && node.ownerDocument.defaultView || node.document && node || node.defaultView; // node is a Document
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"49sSE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function propertyRemove(name) {
+    return function() {
+        delete this[name];
+    };
+}
+function propertyConstant(name, value) {
+    return function() {
+        this[name] = value;
+    };
+}
+function propertyFunction(name, value) {
+    return function() {
+        var v = value.apply(this, arguments);
+        if (v == null) delete this[name];
+        else this[name] = v;
+    };
+}
+exports.default = function(name, value) {
+    return arguments.length > 1 ? this.each((value == null ? propertyRemove : typeof value === "function" ? propertyFunction : propertyConstant)(name, value)) : this.node()[name];
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6VMaw":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function classArray(string) {
+    return string.trim().split(/^|\s+/);
+}
+function classList(node) {
+    return node.classList || new ClassList(node);
+}
+function ClassList(node) {
+    this._node = node;
+    this._names = classArray(node.getAttribute("class") || "");
+}
+ClassList.prototype = {
+    add: function(name) {
+        var i = this._names.indexOf(name);
+        if (i < 0) {
+            this._names.push(name);
+            this._node.setAttribute("class", this._names.join(" "));
+        }
+    },
+    remove: function(name) {
+        var i = this._names.indexOf(name);
+        if (i >= 0) {
+            this._names.splice(i, 1);
+            this._node.setAttribute("class", this._names.join(" "));
+        }
+    },
+    contains: function(name) {
+        return this._names.indexOf(name) >= 0;
+    }
+};
+function classedAdd(node, names) {
+    var list = classList(node), i = -1, n = names.length;
+    while(++i < n)list.add(names[i]);
+}
+function classedRemove(node, names) {
+    var list = classList(node), i = -1, n = names.length;
+    while(++i < n)list.remove(names[i]);
+}
+function classedTrue(names) {
+    return function() {
+        classedAdd(this, names);
+    };
+}
+function classedFalse(names) {
+    return function() {
+        classedRemove(this, names);
+    };
+}
+function classedFunction(names, value) {
+    return function() {
+        (value.apply(this, arguments) ? classedAdd : classedRemove)(this, names);
+    };
+}
+exports.default = function(name, value) {
+    var names = classArray(name + "");
+    if (arguments.length < 2) {
+        var list = classList(this.node()), i = -1, n = names.length;
+        while(++i < n)if (!list.contains(names[i])) return false;
+        return true;
+    }
+    return this.each((typeof value === "function" ? classedFunction : value ? classedTrue : classedFalse)(names, value));
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ch5qt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function textRemove() {
+    this.textContent = "";
+}
+function textConstant(value) {
+    return function() {
+        this.textContent = value;
+    };
+}
+function textFunction(value) {
+    return function() {
+        var v = value.apply(this, arguments);
+        this.textContent = v == null ? "" : v;
+    };
+}
+exports.default = function(value) {
+    return arguments.length ? this.each(value == null ? textRemove : (typeof value === "function" ? textFunction : textConstant)(value)) : this.node().textContent;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jyrYS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function htmlRemove() {
+    this.innerHTML = "";
+}
+function htmlConstant(value) {
+    return function() {
+        this.innerHTML = value;
+    };
+}
+function htmlFunction(value) {
+    return function() {
+        var v = value.apply(this, arguments);
+        this.innerHTML = v == null ? "" : v;
+    };
+}
+exports.default = function(value) {
+    return arguments.length ? this.each(value == null ? htmlRemove : (typeof value === "function" ? htmlFunction : htmlConstant)(value)) : this.node().innerHTML;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aWlYS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function raise() {
+    if (this.nextSibling) this.parentNode.appendChild(this);
+}
+exports.default = function() {
+    return this.each(raise);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"43Imn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function lower() {
+    if (this.previousSibling) this.parentNode.insertBefore(this, this.parentNode.firstChild);
+}
+exports.default = function() {
+    return this.each(lower);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"62Ily":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _creatorJs = require("../creator.js");
+var _creatorJsDefault = parcelHelpers.interopDefault(_creatorJs);
+exports.default = function(name) {
+    var create = typeof name === "function" ? name : _creatorJsDefault.default(name);
+    return this.select(function() {
+        return this.appendChild(create.apply(this, arguments));
+    });
+};
+
+},{"../creator.js":"hzFln","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4D2zc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _creatorJs = require("../creator.js");
+var _creatorJsDefault = parcelHelpers.interopDefault(_creatorJs);
+var _selectorJs = require("../selector.js");
+var _selectorJsDefault = parcelHelpers.interopDefault(_selectorJs);
+function constantNull() {
+    return null;
+}
+exports.default = function(name, before) {
+    var create = typeof name === "function" ? name : _creatorJsDefault.default(name), select = before == null ? constantNull : typeof before === "function" ? before : _selectorJsDefault.default(before);
+    return this.select(function() {
+        return this.insertBefore(create.apply(this, arguments), select.apply(this, arguments) || null);
+    });
+};
+
+},{"../creator.js":"hzFln","../selector.js":"e9mWc","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ezirt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function remove() {
+    var parent = this.parentNode;
+    if (parent) parent.removeChild(this);
+}
+exports.default = function() {
+    return this.each(remove);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ERvNe":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function selection_cloneShallow() {
+    var clone = this.cloneNode(false), parent = this.parentNode;
+    return parent ? parent.insertBefore(clone, this.nextSibling) : clone;
+}
+function selection_cloneDeep() {
+    var clone = this.cloneNode(true), parent = this.parentNode;
+    return parent ? parent.insertBefore(clone, this.nextSibling) : clone;
+}
+exports.default = function(deep) {
+    return this.select(deep ? selection_cloneDeep : selection_cloneShallow);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cElUS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(value) {
+    return arguments.length ? this.property("__data__", value) : this.node().__data__;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6sHag":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function contextListener(listener) {
+    return function(event) {
+        listener.call(this, event, this.__data__);
+    };
+}
+function parseTypenames(typenames) {
+    return typenames.trim().split(/^|\s+/).map(function(t) {
+        var name = "", i = t.indexOf(".");
+        if (i >= 0) name = t.slice(i + 1), t = t.slice(0, i);
+        return {
+            type: t,
+            name: name
+        };
+    });
+}
+function onRemove(typename) {
+    return function() {
+        var on = this.__on;
+        if (!on) return;
+        for(var j = 0, i = -1, m = on.length, o; j < m; ++j)if (o = on[j], (!typename.type || o.type === typename.type) && o.name === typename.name) this.removeEventListener(o.type, o.listener, o.options);
+        else on[++i] = o;
+        if (++i) on.length = i;
+        else delete this.__on;
+    };
+}
+function onAdd(typename, value, options) {
+    return function() {
+        var on = this.__on, o, listener = contextListener(value);
+        if (on) {
+            for(var j = 0, m = on.length; j < m; ++j)if ((o = on[j]).type === typename.type && o.name === typename.name) {
+                this.removeEventListener(o.type, o.listener, o.options);
+                this.addEventListener(o.type, o.listener = listener, o.options = options);
+                o.value = value;
+                return;
+            }
+        }
+        this.addEventListener(typename.type, listener, options);
+        o = {
+            type: typename.type,
+            name: typename.name,
+            value: value,
+            listener: listener,
+            options: options
+        };
+        if (!on) this.__on = [
+            o
+        ];
+        else on.push(o);
+    };
+}
+exports.default = function(typename, value, options) {
+    var typenames = parseTypenames(typename + ""), i, n = typenames.length, t;
+    if (arguments.length < 2) {
+        var on = this.node().__on;
+        if (on) for(var j = 0, m = on.length, o; j < m; ++j)for(i = 0, o = on[j]; i < n; ++i){
+            if ((t = typenames[i]).type === o.type && t.name === o.name) return o.value;
+        }
+        return;
+    }
+    on = value ? onAdd : onRemove;
+    for(i = 0; i < n; ++i)this.each(on(typenames[i], value, options));
+    return this;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"eo73B":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _windowJs = require("../window.js");
+var _windowJsDefault = parcelHelpers.interopDefault(_windowJs);
+function dispatchEvent(node, type, params) {
+    var window = _windowJsDefault.default(node), event = window.CustomEvent;
+    if (typeof event === "function") event = new event(type, params);
+    else {
+        event = window.document.createEvent("Event");
+        if (params) event.initEvent(type, params.bubbles, params.cancelable), event.detail = params.detail;
+        else event.initEvent(type, false, false);
+    }
+    node.dispatchEvent(event);
+}
+function dispatchConstant(type, params) {
+    return function() {
+        return dispatchEvent(this, type, params);
+    };
+}
+function dispatchFunction(type, params) {
+    return function() {
+        return dispatchEvent(this, type, params.apply(this, arguments));
+    };
+}
+exports.default = function(type, params) {
+    return this.each((typeof params === "function" ? dispatchFunction : dispatchConstant)(type, params));
+};
+
+},{"../window.js":"c51LV","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6AbO6":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function*() {
+    for(var groups = this._groups, j = 0, m = groups.length; j < m; ++j){
+        for(var group = groups[j], i = 0, n = group.length, node; i < n; ++i)if (node = group[i]) yield node;
+    }
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"85ofP":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var nextId = 0;
+function local() {
+    return new Local;
+}
+exports.default = local;
+function Local() {
+    this._ = "@" + (++nextId).toString(36);
+}
+Local.prototype = local.prototype = {
+    constructor: Local,
+    get: function(node) {
+        var id = this._;
+        while(!(id in node))if (!(node = node.parentNode)) return;
+        return node[id];
+    },
+    set: function(node, value) {
+        return node[this._] = value;
+    },
+    remove: function(node) {
+        return this._ in node && delete node[this._];
+    },
+    toString: function() {
+        return this._;
+    }
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lRJOw":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _sourceEventJs = require("./sourceEvent.js");
+var _sourceEventJsDefault = parcelHelpers.interopDefault(_sourceEventJs);
+exports.default = function(event, node) {
+    event = _sourceEventJsDefault.default(event);
+    if (node === undefined) node = event.currentTarget;
+    if (node) {
+        var svg = node.ownerSVGElement || node;
+        if (svg.createSVGPoint) {
+            var point = svg.createSVGPoint();
+            point.x = event.clientX, point.y = event.clientY;
+            point = point.matrixTransform(node.getScreenCTM().inverse());
+            return [
+                point.x,
+                point.y
+            ];
+        }
+        if (node.getBoundingClientRect) {
+            var rect = node.getBoundingClientRect();
+            return [
+                event.clientX - rect.left - node.clientLeft,
+                event.clientY - rect.top - node.clientTop
+            ];
+        }
+    }
+    return [
+        event.pageX,
+        event.pageY
+    ];
+};
+
+},{"./sourceEvent.js":"3beDu","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3beDu":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(event) {
+    let sourceEvent;
+    while(sourceEvent = event.sourceEvent)event = sourceEvent;
+    return event;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4HqJY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _pointerJs = require("./pointer.js");
+var _pointerJsDefault = parcelHelpers.interopDefault(_pointerJs);
+var _sourceEventJs = require("./sourceEvent.js");
+var _sourceEventJsDefault = parcelHelpers.interopDefault(_sourceEventJs);
+exports.default = function(events, node) {
+    if (events.target) {
+        events = _sourceEventJsDefault.default(events);
+        if (node === undefined) node = events.currentTarget;
+        events = events.touches || [
+            events
+        ];
+    }
+    return Array.from(events, (event)=>_pointerJsDefault.default(event, node)
+    );
+};
+
+},{"./pointer.js":"lRJOw","./sourceEvent.js":"3beDu","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lhfgm":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _arrayJs = require("./array.js");
+var _arrayJsDefault = parcelHelpers.interopDefault(_arrayJs);
+var _indexJs = require("./selection/index.js");
+exports.default = function(selector) {
+    return typeof selector === "string" ? new _indexJs.Selection([
+        document.querySelectorAll(selector)
+    ], [
+        document.documentElement
+    ]) : new _indexJs.Selection([
+        selector == null ? [] : _arrayJsDefault.default(selector)
+    ], _indexJs.root);
+};
+
+},{"./array.js":"cirh5","./selection/index.js":"f38xv","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hhrgp":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "nopropagation", ()=>nopropagation
+);
+function nopropagation(event) {
+    event.stopImmediatePropagation();
+}
+exports.default = function(event) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"e7XwA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "interpolate", ()=>_valueJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateArray", ()=>_arrayJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateBasis", ()=>_basisJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateBasisClosed", ()=>_basisClosedJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateDate", ()=>_dateJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateDiscrete", ()=>_discreteJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateHue", ()=>_hueJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateNumber", ()=>_numberJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateNumberArray", ()=>_numberArrayJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateObject", ()=>_objectJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateRound", ()=>_roundJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateString", ()=>_stringJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateTransformCss", ()=>_indexJs.interpolateTransformCss
+);
+parcelHelpers.export(exports, "interpolateTransformSvg", ()=>_indexJs.interpolateTransformSvg
+);
+parcelHelpers.export(exports, "interpolateZoom", ()=>_zoomJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateRgb", ()=>_rgbJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateRgbBasis", ()=>_rgbJs.rgbBasis
+);
+parcelHelpers.export(exports, "interpolateRgbBasisClosed", ()=>_rgbJs.rgbBasisClosed
+);
+parcelHelpers.export(exports, "interpolateHsl", ()=>_hslJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateHslLong", ()=>_hslJs.hslLong
+);
+parcelHelpers.export(exports, "interpolateLab", ()=>_labJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateHcl", ()=>_hclJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateHclLong", ()=>_hclJs.hclLong
+);
+parcelHelpers.export(exports, "interpolateCubehelix", ()=>_cubehelixJsDefault.default
+);
+parcelHelpers.export(exports, "interpolateCubehelixLong", ()=>_cubehelixJs.cubehelixLong
+);
+parcelHelpers.export(exports, "piecewise", ()=>_piecewiseJsDefault.default
+);
+parcelHelpers.export(exports, "quantize", ()=>_quantizeJsDefault.default
+);
+var _valueJs = require("./value.js");
+var _valueJsDefault = parcelHelpers.interopDefault(_valueJs);
+var _arrayJs = require("./array.js");
+var _arrayJsDefault = parcelHelpers.interopDefault(_arrayJs);
+var _basisJs = require("./basis.js");
+var _basisJsDefault = parcelHelpers.interopDefault(_basisJs);
+var _basisClosedJs = require("./basisClosed.js");
+var _basisClosedJsDefault = parcelHelpers.interopDefault(_basisClosedJs);
+var _dateJs = require("./date.js");
+var _dateJsDefault = parcelHelpers.interopDefault(_dateJs);
+var _discreteJs = require("./discrete.js");
+var _discreteJsDefault = parcelHelpers.interopDefault(_discreteJs);
+var _hueJs = require("./hue.js");
+var _hueJsDefault = parcelHelpers.interopDefault(_hueJs);
+var _numberJs = require("./number.js");
+var _numberJsDefault = parcelHelpers.interopDefault(_numberJs);
+var _numberArrayJs = require("./numberArray.js");
+var _numberArrayJsDefault = parcelHelpers.interopDefault(_numberArrayJs);
+var _objectJs = require("./object.js");
+var _objectJsDefault = parcelHelpers.interopDefault(_objectJs);
+var _roundJs = require("./round.js");
+var _roundJsDefault = parcelHelpers.interopDefault(_roundJs);
+var _stringJs = require("./string.js");
+var _stringJsDefault = parcelHelpers.interopDefault(_stringJs);
+var _indexJs = require("./transform/index.js");
+var _zoomJs = require("./zoom.js");
+var _zoomJsDefault = parcelHelpers.interopDefault(_zoomJs);
+var _rgbJs = require("./rgb.js");
+var _rgbJsDefault = parcelHelpers.interopDefault(_rgbJs);
+var _hslJs = require("./hsl.js");
+var _hslJsDefault = parcelHelpers.interopDefault(_hslJs);
+var _labJs = require("./lab.js");
+var _labJsDefault = parcelHelpers.interopDefault(_labJs);
+var _hclJs = require("./hcl.js");
+var _hclJsDefault = parcelHelpers.interopDefault(_hclJs);
+var _cubehelixJs = require("./cubehelix.js");
+var _cubehelixJsDefault = parcelHelpers.interopDefault(_cubehelixJs);
+var _piecewiseJs = require("./piecewise.js");
+var _piecewiseJsDefault = parcelHelpers.interopDefault(_piecewiseJs);
+var _quantizeJs = require("./quantize.js");
+var _quantizeJsDefault = parcelHelpers.interopDefault(_quantizeJs);
+
+},{"./value.js":false,"./array.js":false,"./basis.js":"1DJ3x","./basisClosed.js":"d28oA","./date.js":false,"./discrete.js":false,"./hue.js":false,"./number.js":"igEfY","./numberArray.js":false,"./object.js":false,"./round.js":false,"./string.js":"hmd3K","./transform/index.js":"etDRQ","./zoom.js":"HiDI0","./rgb.js":"9bAoa","./hsl.js":false,"./lab.js":false,"./hcl.js":false,"./cubehelix.js":false,"./piecewise.js":false,"./quantize.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1DJ3x":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "basis", ()=>basis
+);
+function basis(t1, v0, v1, v2, v3) {
+    var t2 = t1 * t1, t3 = t2 * t1;
+    return ((1 - 3 * t1 + 3 * t2 - t3) * v0 + (4 - 6 * t2 + 3 * t3) * v1 + (1 + 3 * t1 + 3 * t2 - 3 * t3) * v2 + t3 * v3) / 6;
+}
+exports.default = function(values) {
+    var n = values.length - 1;
+    return function(t) {
+        var i = t <= 0 ? t = 0 : t >= 1 ? (t = 1, n - 1) : Math.floor(t * n), v1 = values[i], v2 = values[i + 1], v0 = i > 0 ? values[i - 1] : 2 * v1 - v2, v3 = i < n - 1 ? values[i + 2] : 2 * v2 - v1;
+        return basis((t - i / n) * n, v0, v1, v2, v3);
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"d28oA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _basisJs = require("./basis.js");
+exports.default = function(values) {
+    var n = values.length;
+    return function(t) {
+        var i = Math.floor(((t %= 1) < 0 ? ++t : t) * n), v0 = values[(i + n - 1) % n], v1 = values[i % n], v2 = values[(i + 1) % n], v3 = values[(i + 2) % n];
+        return _basisJs.basis((t - i / n) * n, v0, v1, v2, v3);
+    };
+};
+
+},{"./basis.js":"1DJ3x","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"igEfY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(a, b) {
+    return a = +a, b = +b, function(t) {
+        return a * (1 - t) + b * t;
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hmd3K":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _numberJs = require("./number.js");
+var _numberJsDefault = parcelHelpers.interopDefault(_numberJs);
+var reA = /[-+]?(?:\d+\.?\d*|\.?\d+)(?:[eE][-+]?\d+)?/g, reB = new RegExp(reA.source, "g");
+function zero(b) {
+    return function() {
+        return b;
+    };
+}
+function one(b) {
+    return function(t) {
+        return b(t) + "";
+    };
+}
+exports.default = function(a, b) {
+    var bi = reA.lastIndex = reB.lastIndex = 0, am, bm, bs, i1 = -1, s = [], q = []; // number interpolators
+    // Coerce inputs to strings.
+    a = a + "", b = b + "";
+    // Interpolate pairs of numbers in a & b.
+    while((am = reA.exec(a)) && (bm = reB.exec(b))){
+        if ((bs = bm.index) > bi) {
+            bs = b.slice(bi, bs);
+            if (s[i1]) s[i1] += bs; // coalesce with previous string
+            else s[++i1] = bs;
+        }
+        if ((am = am[0]) === (bm = bm[0])) {
+            if (s[i1]) s[i1] += bm; // coalesce with previous string
+            else s[++i1] = bm;
+        } else {
+            s[++i1] = null;
+            q.push({
+                i: i1,
+                x: _numberJsDefault.default(am, bm)
+            });
+        }
+        bi = reB.lastIndex;
+    }
+    // Add remains of b.
+    if (bi < b.length) {
+        bs = b.slice(bi);
+        if (s[i1]) s[i1] += bs; // coalesce with previous string
+        else s[++i1] = bs;
+    }
+    // Special optimization for only a single match.
+    // Otherwise, interpolate each of the numbers and rejoin the string.
+    return s.length < 2 ? q[0] ? one(q[0].x) : zero(b) : (b = q.length, function(t) {
+        for(var i = 0, o; i < b; ++i)s[(o = q[i]).i] = o.x(t);
+        return s.join("");
+    });
+};
+
+},{"./number.js":"igEfY","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"etDRQ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "interpolateTransformCss", ()=>interpolateTransformCss
+);
+parcelHelpers.export(exports, "interpolateTransformSvg", ()=>interpolateTransformSvg
+);
+var _numberJs = require("../number.js");
+var _numberJsDefault = parcelHelpers.interopDefault(_numberJs);
+var _parseJs = require("./parse.js");
+function interpolateTransform(parse, pxComma, pxParen, degParen) {
+    function pop(s) {
+        return s.length ? s.pop() + " " : "";
+    }
+    function translate(xa, ya, xb, yb, s, q) {
+        if (xa !== xb || ya !== yb) {
+            var i = s.push("translate(", null, pxComma, null, pxParen);
+            q.push({
+                i: i - 4,
+                x: _numberJsDefault.default(xa, xb)
+            }, {
+                i: i - 2,
+                x: _numberJsDefault.default(ya, yb)
+            });
+        } else if (xb || yb) s.push("translate(" + xb + pxComma + yb + pxParen);
+    }
+    function rotate(a, b, s, q) {
+        if (a !== b) {
+            if (a - b > 180) b += 360;
+            else if (b - a > 180) a += 360; // shortest path
+            q.push({
+                i: s.push(pop(s) + "rotate(", null, degParen) - 2,
+                x: _numberJsDefault.default(a, b)
+            });
+        } else if (b) s.push(pop(s) + "rotate(" + b + degParen);
+    }
+    function skewX(a, b, s, q) {
+        if (a !== b) q.push({
+            i: s.push(pop(s) + "skewX(", null, degParen) - 2,
+            x: _numberJsDefault.default(a, b)
+        });
+        else if (b) s.push(pop(s) + "skewX(" + b + degParen);
+    }
+    function scale(xa, ya, xb, yb, s, q) {
+        if (xa !== xb || ya !== yb) {
+            var i = s.push(pop(s) + "scale(", null, ",", null, ")");
+            q.push({
+                i: i - 4,
+                x: _numberJsDefault.default(xa, xb)
+            }, {
+                i: i - 2,
+                x: _numberJsDefault.default(ya, yb)
+            });
+        } else if (xb !== 1 || yb !== 1) s.push(pop(s) + "scale(" + xb + "," + yb + ")");
+    }
+    return function(a, b) {
+        var s = [], q = []; // number interpolators
+        a = parse(a), b = parse(b);
+        translate(a.translateX, a.translateY, b.translateX, b.translateY, s, q);
+        rotate(a.rotate, b.rotate, s, q);
+        skewX(a.skewX, b.skewX, s, q);
+        scale(a.scaleX, a.scaleY, b.scaleX, b.scaleY, s, q);
+        a = b = null; // gc
+        return function(t) {
+            var i = -1, n = q.length, o;
+            while(++i < n)s[(o = q[i]).i] = o.x(t);
+            return s.join("");
+        };
+    };
+}
+var interpolateTransformCss = interpolateTransform(_parseJs.parseCss, "px, ", "px)", "deg)");
+var interpolateTransformSvg = interpolateTransform(_parseJs.parseSvg, ", ", ")", ")");
+
+},{"../number.js":"igEfY","./parse.js":"TQc0q","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"TQc0q":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/* eslint-disable no-undef */ parcelHelpers.export(exports, "parseCss", ()=>parseCss
+);
+parcelHelpers.export(exports, "parseSvg", ()=>parseSvg
+);
+var _decomposeJs = require("./decompose.js");
+var _decomposeJsDefault = parcelHelpers.interopDefault(_decomposeJs);
+var svgNode;
+function parseCss(value) {
+    const m = new (typeof DOMMatrix === "function" ? DOMMatrix : WebKitCSSMatrix)(value + "");
+    return m.isIdentity ? _decomposeJs.identity : _decomposeJsDefault.default(m.a, m.b, m.c, m.d, m.e, m.f);
+}
+function parseSvg(value) {
+    if (value == null) return _decomposeJs.identity;
+    if (!svgNode) svgNode = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    svgNode.setAttribute("transform", value);
+    if (!(value = svgNode.transform.baseVal.consolidate())) return _decomposeJs.identity;
+    value = value.matrix;
+    return _decomposeJsDefault.default(value.a, value.b, value.c, value.d, value.e, value.f);
+}
+
+},{"./decompose.js":"CTixW","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"CTixW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "identity", ()=>identity
+);
+var degrees = 180 / Math.PI;
+var identity = {
+    translateX: 0,
+    translateY: 0,
+    rotate: 0,
+    skewX: 0,
+    scaleX: 1,
+    scaleY: 1
+};
+exports.default = function(a, b, c, d, e, f) {
+    var scaleX, scaleY, skewX;
+    if (scaleX = Math.sqrt(a * a + b * b)) a /= scaleX, b /= scaleX;
+    if (skewX = a * c + b * d) c -= a * skewX, d -= b * skewX;
+    if (scaleY = Math.sqrt(c * c + d * d)) c /= scaleY, d /= scaleY, skewX /= scaleY;
+    if (a * d < b * c) a = -a, b = -b, skewX = -skewX, scaleX = -scaleX;
+    return {
+        translateX: e,
+        translateY: f,
+        rotate: Math.atan2(b, a) * degrees,
+        skewX: Math.atan(skewX) * degrees,
+        scaleX: scaleX,
+        scaleY: scaleY
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"HiDI0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var epsilon2 = 0.000000000001;
+function cosh(x) {
+    return ((x = Math.exp(x)) + 1 / x) / 2;
+}
+function sinh(x) {
+    return ((x = Math.exp(x)) - 1 / x) / 2;
+}
+function tanh(x) {
+    return ((x = Math.exp(2 * x)) - 1) / (x + 1);
+}
+exports.default = (function zoomRho(rho, rho2, rho4) {
+    // p0 = [ux0, uy0, w0]
+    // p1 = [ux1, uy1, w1]
+    function zoom(p0, p1) {
+        var ux0 = p0[0], uy0 = p0[1], w0 = p0[2], ux1 = p1[0], uy1 = p1[1], w1 = p1[2], dx = ux1 - ux0, dy = uy1 - uy0, d2 = dx * dx + dy * dy, i, S;
+        // Special case for u0 ≅ u1.
+        if (d2 < epsilon2) {
+            S = Math.log(w1 / w0) / rho;
+            i = function(t) {
+                return [
+                    ux0 + t * dx,
+                    uy0 + t * dy,
+                    w0 * Math.exp(rho * t * S)
+                ];
+            };
+        } else {
+            var d1 = Math.sqrt(d2), b0 = (w1 * w1 - w0 * w0 + rho4 * d2) / (2 * w0 * rho2 * d1), b1 = (w1 * w1 - w0 * w0 - rho4 * d2) / (2 * w1 * rho2 * d1), r0 = Math.log(Math.sqrt(b0 * b0 + 1) - b0), r1 = Math.log(Math.sqrt(b1 * b1 + 1) - b1);
+            S = (r1 - r0) / rho;
+            i = function(t) {
+                var s = t * S, coshr0 = cosh(r0), u = w0 / (rho2 * d1) * (coshr0 * tanh(rho * s + r0) - sinh(r0));
+                return [
+                    ux0 + u * dx,
+                    uy0 + u * dy,
+                    w0 * coshr0 / cosh(rho * s + r0)
+                ];
+            };
+        }
+        i.duration = S * 1000 * rho / Math.SQRT2;
+        return i;
+    }
+    zoom.rho = function(_) {
+        var _1 = Math.max(0.001, +_), _2 = _1 * _1, _4 = _2 * _2;
+        return zoomRho(_1, _2, _4);
+    };
+    return zoom;
+})(Math.SQRT2, 2, 4);
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"9bAoa":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "rgbBasis", ()=>rgbBasis
+);
+parcelHelpers.export(exports, "rgbBasisClosed", ()=>rgbBasisClosed
+);
+var _d3Color = require("d3-color");
+var _basisJs = require("./basis.js");
+var _basisJsDefault = parcelHelpers.interopDefault(_basisJs);
+var _basisClosedJs = require("./basisClosed.js");
+var _basisClosedJsDefault = parcelHelpers.interopDefault(_basisClosedJs);
+var _colorJs = require("./color.js");
+var _colorJsDefault = parcelHelpers.interopDefault(_colorJs);
+exports.default = (function rgbGamma(y) {
+    var color = _colorJs.gamma(y);
+    function rgb(start, end) {
+        var r = color((start = _d3Color.rgb(start)).r, (end = _d3Color.rgb(end)).r), g = color(start.g, end.g), b = color(start.b, end.b), opacity = _colorJsDefault.default(start.opacity, end.opacity);
+        return function(t) {
+            start.r = r(t);
+            start.g = g(t);
+            start.b = b(t);
+            start.opacity = opacity(t);
+            return start + "";
+        };
+    }
+    rgb.gamma = rgbGamma;
+    return rgb;
+})(1);
+function rgbSpline(spline) {
+    return function(colors) {
+        var n = colors.length, r = new Array(n), g = new Array(n), b = new Array(n), i, color;
+        for(i = 0; i < n; ++i){
+            color = _d3Color.rgb(colors[i]);
+            r[i] = color.r || 0;
+            g[i] = color.g || 0;
+            b[i] = color.b || 0;
+        }
+        r = spline(r);
+        g = spline(g);
+        b = spline(b);
+        color.opacity = 1;
+        return function(t) {
+            color.r = r(t);
+            color.g = g(t);
+            color.b = b(t);
+            return color + "";
+        };
+    };
+}
+var rgbBasis = rgbSpline(_basisJsDefault.default);
+var rgbBasisClosed = rgbSpline(_basisClosedJsDefault.default);
+
+},{"d3-color":"ap3Jg","./basis.js":"1DJ3x","./basisClosed.js":"d28oA","./color.js":"8Wcc3","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ap3Jg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "color", ()=>_colorJsDefault.default
+);
+parcelHelpers.export(exports, "rgb", ()=>_colorJs.rgb
+);
+parcelHelpers.export(exports, "hsl", ()=>_colorJs.hsl
+);
+parcelHelpers.export(exports, "lab", ()=>_labJsDefault.default
+);
+parcelHelpers.export(exports, "hcl", ()=>_labJs.hcl
+);
+parcelHelpers.export(exports, "lch", ()=>_labJs.lch
+);
+parcelHelpers.export(exports, "gray", ()=>_labJs.gray
+);
+parcelHelpers.export(exports, "cubehelix", ()=>_cubehelixJsDefault.default
+);
+var _colorJs = require("./color.js");
+var _colorJsDefault = parcelHelpers.interopDefault(_colorJs);
+var _labJs = require("./lab.js");
+var _labJsDefault = parcelHelpers.interopDefault(_labJs);
+var _cubehelixJs = require("./cubehelix.js");
+var _cubehelixJsDefault = parcelHelpers.interopDefault(_cubehelixJs);
+
+},{"./color.js":"hAUDV","./lab.js":false,"./cubehelix.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hAUDV":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Color", ()=>Color
+);
+parcelHelpers.export(exports, "darker", ()=>darker
+);
+parcelHelpers.export(exports, "brighter", ()=>brighter
+);
+parcelHelpers.export(exports, "rgbConvert", ()=>rgbConvert
+);
+parcelHelpers.export(exports, "rgb", ()=>rgb
+);
+parcelHelpers.export(exports, "Rgb", ()=>Rgb
+);
+parcelHelpers.export(exports, "hslConvert", ()=>hslConvert
+);
+parcelHelpers.export(exports, "hsl", ()=>hsl
+);
+var _defineJs = require("./define.js");
+var _defineJsDefault = parcelHelpers.interopDefault(_defineJs);
+function Color() {
+}
+var darker = 0.7;
+var brighter = 1 / darker;
+var reI = "\\s*([+-]?\\d+)\\s*", reN = "\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)\\s*", reP = "\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)%\\s*", reHex = /^#([0-9a-f]{3,8})$/, reRgbInteger = new RegExp("^rgb\\(" + [
+    reI,
+    reI,
+    reI
+] + "\\)$"), reRgbPercent = new RegExp("^rgb\\(" + [
+    reP,
+    reP,
+    reP
+] + "\\)$"), reRgbaInteger = new RegExp("^rgba\\(" + [
+    reI,
+    reI,
+    reI,
+    reN
+] + "\\)$"), reRgbaPercent = new RegExp("^rgba\\(" + [
+    reP,
+    reP,
+    reP,
+    reN
+] + "\\)$"), reHslPercent = new RegExp("^hsl\\(" + [
+    reN,
+    reP,
+    reP
+] + "\\)$"), reHslaPercent = new RegExp("^hsla\\(" + [
+    reN,
+    reP,
+    reP,
+    reN
+] + "\\)$");
+var named = {
+    aliceblue: 15792383,
+    antiquewhite: 16444375,
+    aqua: 65535,
+    aquamarine: 8388564,
+    azure: 15794175,
+    beige: 16119260,
+    bisque: 16770244,
+    black: 0,
+    blanchedalmond: 16772045,
+    blue: 255,
+    blueviolet: 9055202,
+    brown: 10824234,
+    burlywood: 14596231,
+    cadetblue: 6266528,
+    chartreuse: 8388352,
+    chocolate: 13789470,
+    coral: 16744272,
+    cornflowerblue: 6591981,
+    cornsilk: 16775388,
+    crimson: 14423100,
+    cyan: 65535,
+    darkblue: 139,
+    darkcyan: 35723,
+    darkgoldenrod: 12092939,
+    darkgray: 11119017,
+    darkgreen: 25600,
+    darkgrey: 11119017,
+    darkkhaki: 12433259,
+    darkmagenta: 9109643,
+    darkolivegreen: 5597999,
+    darkorange: 16747520,
+    darkorchid: 10040012,
+    darkred: 9109504,
+    darksalmon: 15308410,
+    darkseagreen: 9419919,
+    darkslateblue: 4734347,
+    darkslategray: 3100495,
+    darkslategrey: 3100495,
+    darkturquoise: 52945,
+    darkviolet: 9699539,
+    deeppink: 16716947,
+    deepskyblue: 49151,
+    dimgray: 6908265,
+    dimgrey: 6908265,
+    dodgerblue: 2003199,
+    firebrick: 11674146,
+    floralwhite: 16775920,
+    forestgreen: 2263842,
+    fuchsia: 16711935,
+    gainsboro: 14474460,
+    ghostwhite: 16316671,
+    gold: 16766720,
+    goldenrod: 14329120,
+    gray: 8421504,
+    green: 32768,
+    greenyellow: 11403055,
+    grey: 8421504,
+    honeydew: 15794160,
+    hotpink: 16738740,
+    indianred: 13458524,
+    indigo: 4915330,
+    ivory: 16777200,
+    khaki: 15787660,
+    lavender: 15132410,
+    lavenderblush: 16773365,
+    lawngreen: 8190976,
+    lemonchiffon: 16775885,
+    lightblue: 11393254,
+    lightcoral: 15761536,
+    lightcyan: 14745599,
+    lightgoldenrodyellow: 16448210,
+    lightgray: 13882323,
+    lightgreen: 9498256,
+    lightgrey: 13882323,
+    lightpink: 16758465,
+    lightsalmon: 16752762,
+    lightseagreen: 2142890,
+    lightskyblue: 8900346,
+    lightslategray: 7833753,
+    lightslategrey: 7833753,
+    lightsteelblue: 11584734,
+    lightyellow: 16777184,
+    lime: 65280,
+    limegreen: 3329330,
+    linen: 16445670,
+    magenta: 16711935,
+    maroon: 8388608,
+    mediumaquamarine: 6737322,
+    mediumblue: 205,
+    mediumorchid: 12211667,
+    mediumpurple: 9662683,
+    mediumseagreen: 3978097,
+    mediumslateblue: 8087790,
+    mediumspringgreen: 64154,
+    mediumturquoise: 4772300,
+    mediumvioletred: 13047173,
+    midnightblue: 1644912,
+    mintcream: 16121850,
+    mistyrose: 16770273,
+    moccasin: 16770229,
+    navajowhite: 16768685,
+    navy: 128,
+    oldlace: 16643558,
+    olive: 8421376,
+    olivedrab: 7048739,
+    orange: 16753920,
+    orangered: 16729344,
+    orchid: 14315734,
+    palegoldenrod: 15657130,
+    palegreen: 10025880,
+    paleturquoise: 11529966,
+    palevioletred: 14381203,
+    papayawhip: 16773077,
+    peachpuff: 16767673,
+    peru: 13468991,
+    pink: 16761035,
+    plum: 14524637,
+    powderblue: 11591910,
+    purple: 8388736,
+    rebeccapurple: 6697881,
+    red: 16711680,
+    rosybrown: 12357519,
+    royalblue: 4286945,
+    saddlebrown: 9127187,
+    salmon: 16416882,
+    sandybrown: 16032864,
+    seagreen: 3050327,
+    seashell: 16774638,
+    sienna: 10506797,
+    silver: 12632256,
+    skyblue: 8900331,
+    slateblue: 6970061,
+    slategray: 7372944,
+    slategrey: 7372944,
+    snow: 16775930,
+    springgreen: 65407,
+    steelblue: 4620980,
+    tan: 13808780,
+    teal: 32896,
+    thistle: 14204888,
+    tomato: 16737095,
+    turquoise: 4251856,
+    violet: 15631086,
+    wheat: 16113331,
+    white: 16777215,
+    whitesmoke: 16119285,
+    yellow: 16776960,
+    yellowgreen: 10145074
+};
+_defineJsDefault.default(Color, color, {
+    copy: function(channels) {
+        return Object.assign(new this.constructor, this, channels);
+    },
+    displayable: function() {
+        return this.rgb().displayable();
+    },
+    hex: color_formatHex,
+    formatHex: color_formatHex,
+    formatHsl: color_formatHsl,
+    formatRgb: color_formatRgb,
+    toString: color_formatRgb
+});
+function color_formatHex() {
+    return this.rgb().formatHex();
+}
+function color_formatHsl() {
+    return hslConvert(this).formatHsl();
+}
+function color_formatRgb() {
+    return this.rgb().formatRgb();
+}
+function color(format) {
+    var m, l;
+    format = (format + "").trim().toLowerCase();
+    return (m = reHex.exec(format)) ? (l = m[1].length, m = parseInt(m[1], 16), l === 6 ? rgbn(m) // #ff0000
+     : l === 3 ? new Rgb(m >> 8 & 15 | m >> 4 & 240, m >> 4 & 15 | m & 240, (m & 15) << 4 | m & 15, 1) // #f00
+     : l === 8 ? rgba(m >> 24 & 255, m >> 16 & 255, m >> 8 & 255, (m & 255) / 255) // #ff000000
+     : l === 4 ? rgba(m >> 12 & 15 | m >> 8 & 240, m >> 8 & 15 | m >> 4 & 240, m >> 4 & 15 | m & 240, ((m & 15) << 4 | m & 15) / 255) // #f000
+     : null) : (m = reRgbInteger.exec(format)) ? new Rgb(m[1], m[2], m[3], 1) // rgb(255, 0, 0)
+     : (m = reRgbPercent.exec(format)) ? new Rgb(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, 1) // rgb(100%, 0%, 0%)
+     : (m = reRgbaInteger.exec(format)) ? rgba(m[1], m[2], m[3], m[4]) // rgba(255, 0, 0, 1)
+     : (m = reRgbaPercent.exec(format)) ? rgba(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, m[4]) // rgb(100%, 0%, 0%, 1)
+     : (m = reHslPercent.exec(format)) ? hsla(m[1], m[2] / 100, m[3] / 100, 1) // hsl(120, 50%, 50%)
+     : (m = reHslaPercent.exec(format)) ? hsla(m[1], m[2] / 100, m[3] / 100, m[4]) // hsla(120, 50%, 50%, 1)
+     : named.hasOwnProperty(format) ? rgbn(named[format]) // eslint-disable-line no-prototype-builtins
+     : format === "transparent" ? new Rgb(NaN, NaN, NaN, 0) : null;
+}
+exports.default = color;
+function rgbn(n) {
+    return new Rgb(n >> 16 & 255, n >> 8 & 255, n & 255, 1);
+}
+function rgba(r, g, b, a) {
+    if (a <= 0) r = g = b = NaN;
+    return new Rgb(r, g, b, a);
+}
+function rgbConvert(o) {
+    if (!(o instanceof Color)) o = color(o);
+    if (!o) return new Rgb;
+    o = o.rgb();
+    return new Rgb(o.r, o.g, o.b, o.opacity);
+}
+function rgb(r, g, b, opacity) {
+    return arguments.length === 1 ? rgbConvert(r) : new Rgb(r, g, b, opacity == null ? 1 : opacity);
+}
+function Rgb(r, g, b, opacity) {
+    this.r = +r;
+    this.g = +g;
+    this.b = +b;
+    this.opacity = +opacity;
+}
+_defineJsDefault.default(Rgb, rgb, _defineJs.extend(Color, {
+    brighter: function(k) {
+        k = k == null ? brighter : Math.pow(brighter, k);
+        return new Rgb(this.r * k, this.g * k, this.b * k, this.opacity);
+    },
+    darker: function(k) {
+        k = k == null ? darker : Math.pow(darker, k);
+        return new Rgb(this.r * k, this.g * k, this.b * k, this.opacity);
+    },
+    rgb: function() {
+        return this;
+    },
+    displayable: function() {
+        return -0.5 <= this.r && this.r < 255.5 && -0.5 <= this.g && this.g < 255.5 && -0.5 <= this.b && this.b < 255.5 && 0 <= this.opacity && this.opacity <= 1;
+    },
+    hex: rgb_formatHex,
+    formatHex: rgb_formatHex,
+    formatRgb: rgb_formatRgb,
+    toString: rgb_formatRgb
+}));
+function rgb_formatHex() {
+    return "#" + hex(this.r) + hex(this.g) + hex(this.b);
+}
+function rgb_formatRgb() {
+    var a = this.opacity;
+    a = isNaN(a) ? 1 : Math.max(0, Math.min(1, a));
+    return (a === 1 ? "rgb(" : "rgba(") + Math.max(0, Math.min(255, Math.round(this.r) || 0)) + ", " + Math.max(0, Math.min(255, Math.round(this.g) || 0)) + ", " + Math.max(0, Math.min(255, Math.round(this.b) || 0)) + (a === 1 ? ")" : ", " + a + ")");
+}
+function hex(value) {
+    value = Math.max(0, Math.min(255, Math.round(value) || 0));
+    return (value < 16 ? "0" : "") + value.toString(16);
+}
+function hsla(h, s, l, a) {
+    if (a <= 0) h = s = l = NaN;
+    else if (l <= 0 || l >= 1) h = s = NaN;
+    else if (s <= 0) h = NaN;
+    return new Hsl(h, s, l, a);
+}
+function hslConvert(o) {
+    if (o instanceof Hsl) return new Hsl(o.h, o.s, o.l, o.opacity);
+    if (!(o instanceof Color)) o = color(o);
+    if (!o) return new Hsl;
+    if (o instanceof Hsl) return o;
+    o = o.rgb();
+    var r = o.r / 255, g = o.g / 255, b = o.b / 255, min = Math.min(r, g, b), max = Math.max(r, g, b), h = NaN, s = max - min, l = (max + min) / 2;
+    if (s) {
+        if (r === max) h = (g - b) / s + (g < b) * 6;
+        else if (g === max) h = (b - r) / s + 2;
+        else h = (r - g) / s + 4;
+        s /= l < 0.5 ? max + min : 2 - max - min;
+        h *= 60;
+    } else s = l > 0 && l < 1 ? 0 : h;
+    return new Hsl(h, s, l, o.opacity);
+}
+function hsl(h, s, l, opacity) {
+    return arguments.length === 1 ? hslConvert(h) : new Hsl(h, s, l, opacity == null ? 1 : opacity);
+}
+function Hsl(h, s, l, opacity) {
+    this.h = +h;
+    this.s = +s;
+    this.l = +l;
+    this.opacity = +opacity;
+}
+_defineJsDefault.default(Hsl, hsl, _defineJs.extend(Color, {
+    brighter: function(k) {
+        k = k == null ? brighter : Math.pow(brighter, k);
+        return new Hsl(this.h, this.s, this.l * k, this.opacity);
+    },
+    darker: function(k) {
+        k = k == null ? darker : Math.pow(darker, k);
+        return new Hsl(this.h, this.s, this.l * k, this.opacity);
+    },
+    rgb: function() {
+        var h = this.h % 360 + (this.h < 0) * 360, s = isNaN(h) || isNaN(this.s) ? 0 : this.s, l = this.l, m2 = l + (l < 0.5 ? l : 1 - l) * s, m1 = 2 * l - m2;
+        return new Rgb(hsl2rgb(h >= 240 ? h - 240 : h + 120, m1, m2), hsl2rgb(h, m1, m2), hsl2rgb(h < 120 ? h + 240 : h - 120, m1, m2), this.opacity);
+    },
+    displayable: function() {
+        return (0 <= this.s && this.s <= 1 || isNaN(this.s)) && 0 <= this.l && this.l <= 1 && 0 <= this.opacity && this.opacity <= 1;
+    },
+    formatHsl: function() {
+        var a = this.opacity;
+        a = isNaN(a) ? 1 : Math.max(0, Math.min(1, a));
+        return (a === 1 ? "hsl(" : "hsla(") + (this.h || 0) + ", " + (this.s || 0) * 100 + "%, " + (this.l || 0) * 100 + "%" + (a === 1 ? ")" : ", " + a + ")");
+    }
+}));
+/* From FvD 13.37, CSS Color Module Level 3 */ function hsl2rgb(h, m1, m2) {
+    return (h < 60 ? m1 + (m2 - m1) * h / 60 : h < 180 ? m2 : h < 240 ? m1 + (m2 - m1) * (240 - h) / 60 : m1) * 255;
+}
+
+},{"./define.js":"5yZbK","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5yZbK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "extend", ()=>extend
+);
+exports.default = function(constructor, factory, prototype) {
+    constructor.prototype = factory.prototype = prototype;
+    prototype.constructor = constructor;
+};
+function extend(parent, definition) {
+    var prototype = Object.create(parent.prototype);
+    for(var key in definition)prototype[key] = definition[key];
+    return prototype;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8Wcc3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "hue", ()=>hue
+);
+parcelHelpers.export(exports, "gamma", ()=>gamma
+);
+var _constantJs = require("./constant.js");
+var _constantJsDefault = parcelHelpers.interopDefault(_constantJs);
+function linear(a, d) {
+    return function(t) {
+        return a + t * d;
+    };
+}
+function exponential(a, b, y) {
+    return a = Math.pow(a, y), b = Math.pow(b, y) - a, y = 1 / y, function(t) {
+        return Math.pow(a + t * b, y);
+    };
+}
+function hue(a, b) {
+    var d = b - a;
+    return d ? linear(a, d > 180 || d < -180 ? d - 360 * Math.round(d / 360) : d) : _constantJsDefault.default(isNaN(a) ? b : a);
+}
+function gamma(y) {
+    return (y = +y) === 1 ? nogamma : function(a, b) {
+        return b - a ? exponential(a, b, y) : _constantJsDefault.default(isNaN(a) ? b : a);
+    };
+}
+function nogamma(a, b) {
+    var d = b - a;
+    return d ? linear(a, d) : _constantJsDefault.default(isNaN(a) ? b : a);
+}
+exports.default = nogamma;
+
+},{"./constant.js":"hWtul","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hWtul":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = (x)=>()=>x
+;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cRYyR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "transition", ()=>_indexJsDefault.default
+);
+parcelHelpers.export(exports, "active", ()=>_activeJsDefault.default
+);
+parcelHelpers.export(exports, "interrupt", ()=>_interruptJsDefault.default
+);
+var _indexJs = require("./selection/index.js");
+var _indexJs1 = require("./transition/index.js");
+var _indexJsDefault = parcelHelpers.interopDefault(_indexJs1);
+var _activeJs = require("./active.js");
+var _activeJsDefault = parcelHelpers.interopDefault(_activeJs);
+var _interruptJs = require("./interrupt.js");
+var _interruptJsDefault = parcelHelpers.interopDefault(_interruptJs);
+
+},{"./selection/index.js":"gNdN5","./transition/index.js":"18i1e","./active.js":"e5Mev","./interrupt.js":"d4VjA","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gNdN5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _d3Selection = require("d3-selection");
+var _interruptJs = require("./interrupt.js");
+var _interruptJsDefault = parcelHelpers.interopDefault(_interruptJs);
+var _transitionJs = require("./transition.js");
+var _transitionJsDefault = parcelHelpers.interopDefault(_transitionJs);
+_d3Selection.selection.prototype.interrupt = _interruptJsDefault.default;
+_d3Selection.selection.prototype.transition = _transitionJsDefault.default;
+
+},{"d3-selection":"hgWtk","./interrupt.js":"hoP2s","./transition.js":"7r67v","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hoP2s":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _interruptJs = require("../interrupt.js");
+var _interruptJsDefault = parcelHelpers.interopDefault(_interruptJs);
+exports.default = function(name) {
+    return this.each(function() {
+        _interruptJsDefault.default(this, name);
+    });
+};
+
+},{"../interrupt.js":"d4VjA","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"d4VjA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _scheduleJs = require("./transition/schedule.js");
+exports.default = function(node, name) {
+    var schedules = node.__transition, schedule, active, empty = true, i;
+    if (!schedules) return;
+    name = name == null ? null : name + "";
+    for(i in schedules){
+        if ((schedule = schedules[i]).name !== name) {
+            empty = false;
+            continue;
+        }
+        active = schedule.state > _scheduleJs.STARTING && schedule.state < _scheduleJs.ENDING;
+        schedule.state = _scheduleJs.ENDED;
+        schedule.timer.stop();
+        schedule.on.call(active ? "interrupt" : "cancel", node, node.__data__, schedule.index, schedule.group);
+        delete schedules[i];
+    }
+    if (empty) delete node.__transition;
+};
+
+},{"./transition/schedule.js":"dTpjR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dTpjR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "CREATED", ()=>CREATED
+);
+parcelHelpers.export(exports, "SCHEDULED", ()=>SCHEDULED
+);
+parcelHelpers.export(exports, "STARTING", ()=>STARTING
+);
+parcelHelpers.export(exports, "STARTED", ()=>STARTED
+);
+parcelHelpers.export(exports, "RUNNING", ()=>RUNNING
+);
+parcelHelpers.export(exports, "ENDING", ()=>ENDING
+);
+parcelHelpers.export(exports, "ENDED", ()=>ENDED
+);
+parcelHelpers.export(exports, "init", ()=>init
+);
+parcelHelpers.export(exports, "set", ()=>set
+);
+parcelHelpers.export(exports, "get", ()=>get
+);
+var _d3Dispatch = require("d3-dispatch");
+var _d3Timer = require("d3-timer");
+var emptyOn = _d3Dispatch.dispatch("start", "end", "cancel", "interrupt");
+var emptyTween = [];
+var CREATED = 0;
+var SCHEDULED = 1;
+var STARTING = 2;
+var STARTED = 3;
+var RUNNING = 4;
+var ENDING = 5;
+var ENDED = 6;
+exports.default = function(node, name, id, index, group, timing) {
+    var schedules = node.__transition;
+    if (!schedules) node.__transition = {
+    };
+    else if (id in schedules) return;
+    create(node, id, {
+        name: name,
+        index: index,
+        group: group,
+        on: emptyOn,
+        tween: emptyTween,
+        time: timing.time,
+        delay: timing.delay,
+        duration: timing.duration,
+        ease: timing.ease,
+        timer: null,
+        state: CREATED
+    });
+};
+function init(node, id) {
+    var schedule = get(node, id);
+    if (schedule.state > CREATED) throw new Error("too late; already scheduled");
+    return schedule;
+}
+function set(node, id) {
+    var schedule = get(node, id);
+    if (schedule.state > STARTED) throw new Error("too late; already running");
+    return schedule;
+}
+function get(node, id) {
+    var schedule = node.__transition;
+    if (!schedule || !(schedule = schedule[id])) throw new Error("transition not found");
+    return schedule;
+}
+function create(node, id, self) {
+    var schedules = node.__transition, tween;
+    // Initialize the self timer when the transition is created.
+    // Note the actual delay is not known until the first callback!
+    schedules[id] = self;
+    self.timer = _d3Timer.timer(schedule, 0, self.time);
+    function schedule(elapsed) {
+        self.state = SCHEDULED;
+        self.timer.restart(start, self.delay, self.time);
+        // If the elapsed delay is less than our first sleep, start immediately.
+        if (self.delay <= elapsed) start(elapsed - self.delay);
+    }
+    function start(elapsed) {
+        var i, j, n, o;
+        // If the state is not SCHEDULED, then we previously errored on start.
+        if (self.state !== SCHEDULED) return stop();
+        for(i in schedules){
+            o = schedules[i];
+            if (o.name !== self.name) continue;
+            // While this element already has a starting transition during this frame,
+            // defer starting an interrupting transition until that transition has a
+            // chance to tick (and possibly end); see d3/d3-transition#54!
+            if (o.state === STARTED) return _d3Timer.timeout(start);
+            // Interrupt the active transition, if any.
+            if (o.state === RUNNING) {
+                o.state = ENDED;
+                o.timer.stop();
+                o.on.call("interrupt", node, node.__data__, o.index, o.group);
+                delete schedules[i];
+            } else if (+i < id) {
+                o.state = ENDED;
+                o.timer.stop();
+                o.on.call("cancel", node, node.__data__, o.index, o.group);
+                delete schedules[i];
+            }
+        }
+        // Defer the first tick to end of the current frame; see d3/d3#1576.
+        // Note the transition may be canceled after start and before the first tick!
+        // Note this must be scheduled before the start event; see d3/d3-transition#16!
+        // Assuming this is successful, subsequent callbacks go straight to tick.
+        _d3Timer.timeout(function() {
+            if (self.state === STARTED) {
+                self.state = RUNNING;
+                self.timer.restart(tick, self.delay, self.time);
+                tick(elapsed);
+            }
+        });
+        // Dispatch the start event.
+        // Note this must be done before the tween are initialized.
+        self.state = STARTING;
+        self.on.call("start", node, node.__data__, self.index, self.group);
+        if (self.state !== STARTING) return; // interrupted
+        self.state = STARTED;
+        // Initialize the tween, deleting null tween.
+        tween = new Array(n = self.tween.length);
+        for(i = 0, j = -1; i < n; ++i)if (o = self.tween[i].value.call(node, node.__data__, self.index, self.group)) tween[++j] = o;
+        tween.length = j + 1;
+    }
+    function tick(elapsed) {
+        var t = elapsed < self.duration ? self.ease.call(null, elapsed / self.duration) : (self.timer.restart(stop), self.state = ENDING, 1), i = -1, n = tween.length;
+        while(++i < n)tween[i].call(node, t);
+        // Dispatch the end event.
+        if (self.state === ENDING) {
+            self.on.call("end", node, node.__data__, self.index, self.group);
+            stop();
+        }
+    }
+    function stop() {
+        self.state = ENDED;
+        self.timer.stop();
+        delete schedules[id];
+        for(var i in schedules)return; // eslint-disable-line no-unused-vars
+        delete node.__transition;
+    }
+}
+
+},{"d3-dispatch":"9d2te","d3-timer":"82ygz","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"82ygz":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "now", ()=>_timerJs.now
+);
+parcelHelpers.export(exports, "timer", ()=>_timerJs.timer
+);
+parcelHelpers.export(exports, "timerFlush", ()=>_timerJs.timerFlush
+);
+parcelHelpers.export(exports, "timeout", ()=>_timeoutJsDefault.default
+);
+parcelHelpers.export(exports, "interval", ()=>_intervalJsDefault.default
+);
+var _timerJs = require("./timer.js");
+var _timeoutJs = require("./timeout.js");
+var _timeoutJsDefault = parcelHelpers.interopDefault(_timeoutJs);
+var _intervalJs = require("./interval.js");
+var _intervalJsDefault = parcelHelpers.interopDefault(_intervalJs);
+
+},{"./timer.js":"e5Yqg","./timeout.js":"iPlus","./interval.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"e5Yqg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "now", ()=>now
+);
+parcelHelpers.export(exports, "Timer", ()=>Timer
+);
+parcelHelpers.export(exports, "timer", ()=>timer
+);
+parcelHelpers.export(exports, "timerFlush", ()=>timerFlush
+);
+var frame = 0, timeout = 0, interval = 0, pokeDelay = 1000, taskHead, taskTail, clockLast = 0, clockNow = 0, clockSkew = 0, clock = typeof performance === "object" && performance.now ? performance : Date, setFrame = typeof window === "object" && window.requestAnimationFrame ? window.requestAnimationFrame.bind(window) : function(f) {
+    setTimeout(f, 17);
+};
+function now() {
+    return clockNow || (setFrame(clearNow), clockNow = clock.now() + clockSkew);
+}
+function clearNow() {
+    clockNow = 0;
+}
+function Timer() {
+    this._call = this._time = this._next = null;
+}
+Timer.prototype = timer.prototype = {
+    constructor: Timer,
+    restart: function(callback, delay, time) {
+        if (typeof callback !== "function") throw new TypeError("callback is not a function");
+        time = (time == null ? now() : +time) + (delay == null ? 0 : +delay);
+        if (!this._next && taskTail !== this) {
+            if (taskTail) taskTail._next = this;
+            else taskHead = this;
+            taskTail = this;
+        }
+        this._call = callback;
+        this._time = time;
+        sleep();
+    },
+    stop: function() {
+        if (this._call) {
+            this._call = null;
+            this._time = Infinity;
+            sleep();
+        }
+    }
+};
+function timer(callback, delay, time) {
+    var t = new Timer;
+    t.restart(callback, delay, time);
+    return t;
+}
+function timerFlush() {
+    now(); // Get the current time, if not already set.
+    ++frame; // Pretend we’ve set an alarm, if we haven’t already.
+    var t = taskHead, e;
+    while(t){
+        if ((e = clockNow - t._time) >= 0) t._call.call(null, e);
+        t = t._next;
+    }
+    --frame;
+}
+function wake() {
+    clockNow = (clockLast = clock.now()) + clockSkew;
+    frame = timeout = 0;
+    try {
+        timerFlush();
+    } finally{
+        frame = 0;
+        nap();
+        clockNow = 0;
+    }
+}
+function poke() {
+    var now1 = clock.now(), delay = now1 - clockLast;
+    if (delay > pokeDelay) clockSkew -= delay, clockLast = now1;
+}
+function nap() {
+    var t0, t1 = taskHead, t2, time = Infinity;
+    while(t1)if (t1._call) {
+        if (time > t1._time) time = t1._time;
+        t0 = t1, t1 = t1._next;
+    } else {
+        t2 = t1._next, t1._next = null;
+        t1 = t0 ? t0._next = t2 : taskHead = t2;
+    }
+    taskTail = t0;
+    sleep(time);
+}
+function sleep(time) {
+    if (frame) return; // Soonest alarm already set, or will be.
+    if (timeout) timeout = clearTimeout(timeout);
+    var delay = time - clockNow; // Strictly less than if we recomputed clockNow.
+    if (delay > 24) {
+        if (time < Infinity) timeout = setTimeout(wake, time - clock.now() - clockSkew);
+        if (interval) interval = clearInterval(interval);
+    } else {
+        if (!interval) clockLast = clock.now(), interval = setInterval(poke, pokeDelay);
+        frame = 1, setFrame(wake);
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"iPlus":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _timerJs = require("./timer.js");
+exports.default = function(callback, delay, time) {
+    var t = new _timerJs.Timer;
+    delay = delay == null ? 0 : +delay;
+    t.restart((elapsed)=>{
+        t.stop();
+        callback(elapsed + delay);
+    }, delay, time);
+    return t;
+};
+
+},{"./timer.js":"e5Yqg","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7r67v":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _indexJs = require("../transition/index.js");
+var _scheduleJs = require("../transition/schedule.js");
+var _scheduleJsDefault = parcelHelpers.interopDefault(_scheduleJs);
+var _d3Ease = require("d3-ease");
+var _d3Timer = require("d3-timer");
+var defaultTiming = {
+    time: null,
+    delay: 0,
+    duration: 250,
+    ease: _d3Ease.easeCubicInOut
+};
+function inherit(node, id) {
+    var timing;
+    while(!(timing = node.__transition) || !(timing = timing[id])){
+        if (!(node = node.parentNode)) throw new Error(`transition ${id} not found`);
+    }
+    return timing;
+}
+exports.default = function(name) {
+    var id, timing;
+    if (name instanceof _indexJs.Transition) id = name._id, name = name._name;
+    else id = _indexJs.newId(), (timing = defaultTiming).time = _d3Timer.now(), name = name == null ? null : name + "";
+    for(var groups = this._groups, m = groups.length, j = 0; j < m; ++j){
+        for(var group = groups[j], n = group.length, node, i = 0; i < n; ++i)if (node = group[i]) _scheduleJsDefault.default(node, name, id, i, group, timing || inherit(node, id));
+    }
+    return new _indexJs.Transition(groups, this._parents, name, id);
+};
+
+},{"../transition/index.js":"18i1e","../transition/schedule.js":"dTpjR","d3-ease":"elZFc","d3-timer":"82ygz","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"18i1e":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Transition", ()=>Transition
+);
+parcelHelpers.export(exports, "newId", ()=>newId
+);
+var _d3Selection = require("d3-selection");
+var _attrJs = require("./attr.js");
+var _attrJsDefault = parcelHelpers.interopDefault(_attrJs);
+var _attrTweenJs = require("./attrTween.js");
+var _attrTweenJsDefault = parcelHelpers.interopDefault(_attrTweenJs);
+var _delayJs = require("./delay.js");
+var _delayJsDefault = parcelHelpers.interopDefault(_delayJs);
+var _durationJs = require("./duration.js");
+var _durationJsDefault = parcelHelpers.interopDefault(_durationJs);
+var _easeJs = require("./ease.js");
+var _easeJsDefault = parcelHelpers.interopDefault(_easeJs);
+var _easeVaryingJs = require("./easeVarying.js");
+var _easeVaryingJsDefault = parcelHelpers.interopDefault(_easeVaryingJs);
+var _filterJs = require("./filter.js");
+var _filterJsDefault = parcelHelpers.interopDefault(_filterJs);
+var _mergeJs = require("./merge.js");
+var _mergeJsDefault = parcelHelpers.interopDefault(_mergeJs);
+var _onJs = require("./on.js");
+var _onJsDefault = parcelHelpers.interopDefault(_onJs);
+var _removeJs = require("./remove.js");
+var _removeJsDefault = parcelHelpers.interopDefault(_removeJs);
+var _selectJs = require("./select.js");
+var _selectJsDefault = parcelHelpers.interopDefault(_selectJs);
+var _selectAllJs = require("./selectAll.js");
+var _selectAllJsDefault = parcelHelpers.interopDefault(_selectAllJs);
+var _selectionJs = require("./selection.js");
+var _selectionJsDefault = parcelHelpers.interopDefault(_selectionJs);
+var _styleJs = require("./style.js");
+var _styleJsDefault = parcelHelpers.interopDefault(_styleJs);
+var _styleTweenJs = require("./styleTween.js");
+var _styleTweenJsDefault = parcelHelpers.interopDefault(_styleTweenJs);
+var _textJs = require("./text.js");
+var _textJsDefault = parcelHelpers.interopDefault(_textJs);
+var _textTweenJs = require("./textTween.js");
+var _textTweenJsDefault = parcelHelpers.interopDefault(_textTweenJs);
+var _transitionJs = require("./transition.js");
+var _transitionJsDefault = parcelHelpers.interopDefault(_transitionJs);
+var _tweenJs = require("./tween.js");
+var _tweenJsDefault = parcelHelpers.interopDefault(_tweenJs);
+var _endJs = require("./end.js");
+var _endJsDefault = parcelHelpers.interopDefault(_endJs);
+var id = 0;
+function Transition(groups, parents, name, id1) {
+    this._groups = groups;
+    this._parents = parents;
+    this._name = name;
+    this._id = id1;
+}
+function transition(name) {
+    return _d3Selection.selection().transition(name);
+}
+exports.default = transition;
+function newId() {
+    return ++id;
+}
+var selection_prototype = _d3Selection.selection.prototype;
+Transition.prototype = transition.prototype = {
+    constructor: Transition,
+    select: _selectJsDefault.default,
+    selectAll: _selectAllJsDefault.default,
+    filter: _filterJsDefault.default,
+    merge: _mergeJsDefault.default,
+    selection: _selectionJsDefault.default,
+    transition: _transitionJsDefault.default,
+    call: selection_prototype.call,
+    nodes: selection_prototype.nodes,
+    node: selection_prototype.node,
+    size: selection_prototype.size,
+    empty: selection_prototype.empty,
+    each: selection_prototype.each,
+    on: _onJsDefault.default,
+    attr: _attrJsDefault.default,
+    attrTween: _attrTweenJsDefault.default,
+    style: _styleJsDefault.default,
+    styleTween: _styleTweenJsDefault.default,
+    text: _textJsDefault.default,
+    textTween: _textTweenJsDefault.default,
+    remove: _removeJsDefault.default,
+    tween: _tweenJsDefault.default,
+    delay: _delayJsDefault.default,
+    duration: _durationJsDefault.default,
+    ease: _easeJsDefault.default,
+    easeVarying: _easeVaryingJsDefault.default,
+    end: _endJsDefault.default,
+    [Symbol.iterator]: selection_prototype[Symbol.iterator]
+};
+
+},{"d3-selection":"hgWtk","./attr.js":"a88nM","./attrTween.js":"4rwV3","./delay.js":"zwknt","./duration.js":"fXFoC","./ease.js":"d7SOb","./easeVarying.js":"6ms9d","./filter.js":"koiOg","./merge.js":"66rfJ","./on.js":"2whzO","./remove.js":"jdITm","./select.js":"fZfF3","./selectAll.js":"lJAHb","./selection.js":"a9rwa","./style.js":"8dHzR","./styleTween.js":"8Kz8d","./text.js":"hhhZ2","./textTween.js":"ezXKs","./transition.js":"eIPZ1","./tween.js":"8L0br","./end.js":"bGIdi","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"a88nM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Interpolate = require("d3-interpolate");
+var _d3Selection = require("d3-selection");
+var _tweenJs = require("./tween.js");
+var _interpolateJs = require("./interpolate.js");
+var _interpolateJsDefault = parcelHelpers.interopDefault(_interpolateJs);
+function attrRemove(name) {
+    return function() {
+        this.removeAttribute(name);
+    };
+}
+function attrRemoveNS(fullname) {
+    return function() {
+        this.removeAttributeNS(fullname.space, fullname.local);
+    };
+}
+function attrConstant(name, interpolate, value1) {
+    var string00, string1 = value1 + "", interpolate0;
+    return function() {
+        var string0 = this.getAttribute(name);
+        return string0 === string1 ? null : string0 === string00 ? interpolate0 : interpolate0 = interpolate(string00 = string0, value1);
+    };
+}
+function attrConstantNS(fullname, interpolate, value1) {
+    var string00, string1 = value1 + "", interpolate0;
+    return function() {
+        var string0 = this.getAttributeNS(fullname.space, fullname.local);
+        return string0 === string1 ? null : string0 === string00 ? interpolate0 : interpolate0 = interpolate(string00 = string0, value1);
+    };
+}
+function attrFunction(name, interpolate, value) {
+    var string00, string10, interpolate0;
+    return function() {
+        var string0, value1 = value(this), string1;
+        if (value1 == null) return void this.removeAttribute(name);
+        string0 = this.getAttribute(name);
+        string1 = value1 + "";
+        return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : (string10 = string1, interpolate0 = interpolate(string00 = string0, value1));
+    };
+}
+function attrFunctionNS(fullname, interpolate, value) {
+    var string00, string10, interpolate0;
+    return function() {
+        var string0, value1 = value(this), string1;
+        if (value1 == null) return void this.removeAttributeNS(fullname.space, fullname.local);
+        string0 = this.getAttributeNS(fullname.space, fullname.local);
+        string1 = value1 + "";
+        return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : (string10 = string1, interpolate0 = interpolate(string00 = string0, value1));
+    };
+}
+exports.default = function(name, value) {
+    var fullname = _d3Selection.namespace(name), i = fullname === "transform" ? _d3Interpolate.interpolateTransformSvg : _interpolateJsDefault.default;
+    return this.attrTween(name, typeof value === "function" ? (fullname.local ? attrFunctionNS : attrFunction)(fullname, i, _tweenJs.tweenValue(this, "attr." + name, value)) : value == null ? (fullname.local ? attrRemoveNS : attrRemove)(fullname) : (fullname.local ? attrConstantNS : attrConstant)(fullname, i, value));
+};
+
+},{"d3-interpolate":"e7XwA","d3-selection":"hgWtk","./tween.js":"8L0br","./interpolate.js":"1aR0B","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8L0br":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "tweenValue", ()=>tweenValue
+);
+var _scheduleJs = require("./schedule.js");
+function tweenRemove(id, name) {
+    var tween0, tween1;
+    return function() {
+        var schedule = _scheduleJs.set(this, id), tween = schedule.tween;
+        // If this node shared tween with the previous node,
+        // just assign the updated shared tween and we’re done!
+        // Otherwise, copy-on-write.
+        if (tween !== tween0) {
+            tween1 = tween0 = tween;
+            for(var i = 0, n = tween1.length; i < n; ++i)if (tween1[i].name === name) {
+                tween1 = tween1.slice();
+                tween1.splice(i, 1);
+                break;
+            }
+        }
+        schedule.tween = tween1;
+    };
+}
+function tweenFunction(id, name, value) {
+    var tween0, tween1;
+    if (typeof value !== "function") throw new Error;
+    return function() {
+        var schedule = _scheduleJs.set(this, id), tween = schedule.tween;
+        // If this node shared tween with the previous node,
+        // just assign the updated shared tween and we’re done!
+        // Otherwise, copy-on-write.
+        if (tween !== tween0) {
+            tween1 = (tween0 = tween).slice();
+            for(var t = {
+                name: name,
+                value: value
+            }, i = 0, n = tween1.length; i < n; ++i)if (tween1[i].name === name) {
+                tween1[i] = t;
+                break;
+            }
+            if (i === n) tween1.push(t);
+        }
+        schedule.tween = tween1;
+    };
+}
+exports.default = function(name, value) {
+    var id = this._id;
+    name += "";
+    if (arguments.length < 2) {
+        var tween = _scheduleJs.get(this.node(), id).tween;
+        for(var i = 0, n = tween.length, t; i < n; ++i){
+            if ((t = tween[i]).name === name) return t.value;
+        }
+        return null;
+    }
+    return this.each((value == null ? tweenRemove : tweenFunction)(id, name, value));
+};
+function tweenValue(transition, name, value) {
+    var id = transition._id;
+    transition.each(function() {
+        var schedule = _scheduleJs.set(this, id);
+        (schedule.value || (schedule.value = {
+        }))[name] = value.apply(this, arguments);
+    });
+    return function(node) {
+        return _scheduleJs.get(node, id).value[name];
+    };
+}
+
+},{"./schedule.js":"dTpjR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1aR0B":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Color = require("d3-color");
+var _d3Interpolate = require("d3-interpolate");
+exports.default = function(a, b) {
+    var c;
+    return (typeof b === "number" ? _d3Interpolate.interpolateNumber : b instanceof _d3Color.color ? _d3Interpolate.interpolateRgb : (c = _d3Color.color(b)) ? (b = c, _d3Interpolate.interpolateRgb) : _d3Interpolate.interpolateString)(a, b);
+};
+
+},{"d3-color":"ap3Jg","d3-interpolate":"e7XwA","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4rwV3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Selection = require("d3-selection");
+function attrInterpolate(name, i) {
+    return function(t) {
+        this.setAttribute(name, i.call(this, t));
+    };
+}
+function attrInterpolateNS(fullname, i) {
+    return function(t) {
+        this.setAttributeNS(fullname.space, fullname.local, i.call(this, t));
+    };
+}
+function attrTweenNS(fullname, value) {
+    var t0, i0;
+    function tween() {
+        var i = value.apply(this, arguments);
+        if (i !== i0) t0 = (i0 = i) && attrInterpolateNS(fullname, i);
+        return t0;
+    }
+    tween._value = value;
+    return tween;
+}
+function attrTween(name, value) {
+    var t0, i0;
+    function tween() {
+        var i = value.apply(this, arguments);
+        if (i !== i0) t0 = (i0 = i) && attrInterpolate(name, i);
+        return t0;
+    }
+    tween._value = value;
+    return tween;
+}
+exports.default = function(name, value) {
+    var key = "attr." + name;
+    if (arguments.length < 2) return (key = this.tween(key)) && key._value;
+    if (value == null) return this.tween(key, null);
+    if (typeof value !== "function") throw new Error;
+    var fullname = _d3Selection.namespace(name);
+    return this.tween(key, (fullname.local ? attrTweenNS : attrTween)(fullname, value));
+};
+
+},{"d3-selection":"hgWtk","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"zwknt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _scheduleJs = require("./schedule.js");
+function delayFunction(id, value) {
+    return function() {
+        _scheduleJs.init(this, id).delay = +value.apply(this, arguments);
+    };
+}
+function delayConstant(id, value) {
+    return value = +value, function() {
+        _scheduleJs.init(this, id).delay = value;
+    };
+}
+exports.default = function(value) {
+    var id = this._id;
+    return arguments.length ? this.each((typeof value === "function" ? delayFunction : delayConstant)(id, value)) : _scheduleJs.get(this.node(), id).delay;
+};
+
+},{"./schedule.js":"dTpjR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fXFoC":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _scheduleJs = require("./schedule.js");
+function durationFunction(id, value) {
+    return function() {
+        _scheduleJs.set(this, id).duration = +value.apply(this, arguments);
+    };
+}
+function durationConstant(id, value) {
+    return value = +value, function() {
+        _scheduleJs.set(this, id).duration = value;
+    };
+}
+exports.default = function(value) {
+    var id = this._id;
+    return arguments.length ? this.each((typeof value === "function" ? durationFunction : durationConstant)(id, value)) : _scheduleJs.get(this.node(), id).duration;
+};
+
+},{"./schedule.js":"dTpjR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"d7SOb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _scheduleJs = require("./schedule.js");
+function easeConstant(id, value) {
+    if (typeof value !== "function") throw new Error;
+    return function() {
+        _scheduleJs.set(this, id).ease = value;
+    };
+}
+exports.default = function(value) {
+    var id = this._id;
+    return arguments.length ? this.each(easeConstant(id, value)) : _scheduleJs.get(this.node(), id).ease;
+};
+
+},{"./schedule.js":"dTpjR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6ms9d":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _scheduleJs = require("./schedule.js");
+function easeVarying(id, value) {
+    return function() {
+        var v = value.apply(this, arguments);
+        if (typeof v !== "function") throw new Error;
+        _scheduleJs.set(this, id).ease = v;
+    };
+}
+exports.default = function(value) {
+    if (typeof value !== "function") throw new Error;
+    return this.each(easeVarying(this._id, value));
+};
+
+},{"./schedule.js":"dTpjR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"koiOg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Selection = require("d3-selection");
+var _indexJs = require("./index.js");
+exports.default = function(match) {
+    if (typeof match !== "function") match = _d3Selection.matcher(match);
+    for(var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j){
+        for(var group = groups[j], n = group.length, subgroup = subgroups[j] = [], node, i = 0; i < n; ++i)if ((node = group[i]) && match.call(node, node.__data__, i, group)) subgroup.push(node);
+    }
+    return new _indexJs.Transition(subgroups, this._parents, this._name, this._id);
+};
+
+},{"d3-selection":"hgWtk","./index.js":"18i1e","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"66rfJ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _indexJs = require("./index.js");
+exports.default = function(transition) {
+    if (transition._id !== this._id) throw new Error;
+    for(var groups0 = this._groups, groups1 = transition._groups, m0 = groups0.length, m1 = groups1.length, m = Math.min(m0, m1), merges = new Array(m0), j = 0; j < m; ++j){
+        for(var group0 = groups0[j], group1 = groups1[j], n = group0.length, merge = merges[j] = new Array(n), node, i = 0; i < n; ++i)if (node = group0[i] || group1[i]) merge[i] = node;
+    }
+    for(; j < m0; ++j)merges[j] = groups0[j];
+    return new _indexJs.Transition(merges, this._parents, this._name, this._id);
+};
+
+},{"./index.js":"18i1e","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2whzO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _scheduleJs = require("./schedule.js");
+function start(name) {
+    return (name + "").trim().split(/^|\s+/).every(function(t) {
+        var i = t.indexOf(".");
+        if (i >= 0) t = t.slice(0, i);
+        return !t || t === "start";
+    });
+}
+function onFunction(id, name, listener) {
+    var on0, on1, sit = start(name) ? _scheduleJs.init : _scheduleJs.set;
+    return function() {
+        var schedule = sit(this, id), on = schedule.on;
+        // If this node shared a dispatch with the previous node,
+        // just assign the updated shared dispatch and we’re done!
+        // Otherwise, copy-on-write.
+        if (on !== on0) (on1 = (on0 = on).copy()).on(name, listener);
+        schedule.on = on1;
+    };
+}
+exports.default = function(name, listener) {
+    var id = this._id;
+    return arguments.length < 2 ? _scheduleJs.get(this.node(), id).on.on(name) : this.each(onFunction(id, name, listener));
+};
+
+},{"./schedule.js":"dTpjR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jdITm":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function removeFunction(id) {
+    return function() {
+        var parent = this.parentNode;
+        for(var i in this.__transition)if (+i !== id) return;
+        if (parent) parent.removeChild(this);
+    };
+}
+exports.default = function() {
+    return this.on("end.remove", removeFunction(this._id));
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fZfF3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Selection = require("d3-selection");
+var _indexJs = require("./index.js");
+var _scheduleJs = require("./schedule.js");
+var _scheduleJsDefault = parcelHelpers.interopDefault(_scheduleJs);
+exports.default = function(select) {
+    var name = this._name, id = this._id;
+    if (typeof select !== "function") select = _d3Selection.selector(select);
+    for(var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j){
+        for(var group = groups[j], n = group.length, subgroup = subgroups[j] = new Array(n), node, subnode, i = 0; i < n; ++i)if ((node = group[i]) && (subnode = select.call(node, node.__data__, i, group))) {
+            if ("__data__" in node) subnode.__data__ = node.__data__;
+            subgroup[i] = subnode;
+            _scheduleJsDefault.default(subgroup[i], name, id, i, subgroup, _scheduleJs.get(node, id));
+        }
+    }
+    return new _indexJs.Transition(subgroups, this._parents, name, id);
+};
+
+},{"d3-selection":"hgWtk","./index.js":"18i1e","./schedule.js":"dTpjR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lJAHb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Selection = require("d3-selection");
+var _indexJs = require("./index.js");
+var _scheduleJs = require("./schedule.js");
+var _scheduleJsDefault = parcelHelpers.interopDefault(_scheduleJs);
+exports.default = function(select) {
+    var name = this._name, id = this._id;
+    if (typeof select !== "function") select = _d3Selection.selectorAll(select);
+    for(var groups = this._groups, m = groups.length, subgroups = [], parents = [], j = 0; j < m; ++j){
+        for(var group = groups[j], n = group.length, node, i = 0; i < n; ++i)if (node = group[i]) {
+            for(var children = select.call(node, node.__data__, i, group), child, inherit = _scheduleJs.get(node, id), k = 0, l = children.length; k < l; ++k)if (child = children[k]) _scheduleJsDefault.default(child, name, id, k, children, inherit);
+            subgroups.push(children);
+            parents.push(node);
+        }
+    }
+    return new _indexJs.Transition(subgroups, parents, name, id);
+};
+
+},{"d3-selection":"hgWtk","./index.js":"18i1e","./schedule.js":"dTpjR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"a9rwa":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Selection = require("d3-selection");
+var Selection = _d3Selection.selection.prototype.constructor;
+exports.default = function() {
+    return new Selection(this._groups, this._parents);
+};
+
+},{"d3-selection":"hgWtk","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8dHzR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Interpolate = require("d3-interpolate");
+var _d3Selection = require("d3-selection");
+var _scheduleJs = require("./schedule.js");
+var _tweenJs = require("./tween.js");
+var _interpolateJs = require("./interpolate.js");
+var _interpolateJsDefault = parcelHelpers.interopDefault(_interpolateJs);
+function styleNull(name, interpolate) {
+    var string00, string10, interpolate0;
+    return function() {
+        var string0 = _d3Selection.style(this, name), string1 = (this.style.removeProperty(name), _d3Selection.style(this, name));
+        return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : interpolate0 = interpolate(string00 = string0, string10 = string1);
+    };
+}
+function styleRemove(name) {
+    return function() {
+        this.style.removeProperty(name);
+    };
+}
+function styleConstant(name, interpolate, value1) {
+    var string00, string1 = value1 + "", interpolate0;
+    return function() {
+        var string0 = _d3Selection.style(this, name);
+        return string0 === string1 ? null : string0 === string00 ? interpolate0 : interpolate0 = interpolate(string00 = string0, value1);
+    };
+}
+function styleFunction(name, interpolate, value) {
+    var string00, string10, interpolate0;
+    return function() {
+        var string0 = _d3Selection.style(this, name), value1 = value(this), string1 = value1 + "";
+        if (value1 == null) string1 = value1 = (this.style.removeProperty(name), _d3Selection.style(this, name));
+        return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : (string10 = string1, interpolate0 = interpolate(string00 = string0, value1));
+    };
+}
+function styleMaybeRemove(id, name) {
+    var on0, on1, listener0, key = "style." + name, event = "end." + key, remove;
+    return function() {
+        var schedule = _scheduleJs.set(this, id), on = schedule.on, listener = schedule.value[key] == null ? remove || (remove = styleRemove(name)) : undefined;
+        // If this node shared a dispatch with the previous node,
+        // just assign the updated shared dispatch and we’re done!
+        // Otherwise, copy-on-write.
+        if (on !== on0 || listener0 !== listener) (on1 = (on0 = on).copy()).on(event, listener0 = listener);
+        schedule.on = on1;
+    };
+}
+exports.default = function(name, value, priority) {
+    var i = (name += "") === "transform" ? _d3Interpolate.interpolateTransformCss : _interpolateJsDefault.default;
+    return value == null ? this.styleTween(name, styleNull(name, i)).on("end.style." + name, styleRemove(name)) : typeof value === "function" ? this.styleTween(name, styleFunction(name, i, _tweenJs.tweenValue(this, "style." + name, value))).each(styleMaybeRemove(this._id, name)) : this.styleTween(name, styleConstant(name, i, value), priority).on("end.style." + name, null);
+};
+
+},{"d3-interpolate":"e7XwA","d3-selection":"hgWtk","./schedule.js":"dTpjR","./tween.js":"8L0br","./interpolate.js":"1aR0B","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8Kz8d":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function styleInterpolate(name, i, priority) {
+    return function(t) {
+        this.style.setProperty(name, i.call(this, t), priority);
+    };
+}
+function styleTween(name, value, priority) {
+    var t, i0;
+    function tween() {
+        var i = value.apply(this, arguments);
+        if (i !== i0) t = (i0 = i) && styleInterpolate(name, i, priority);
+        return t;
+    }
+    tween._value = value;
+    return tween;
+}
+exports.default = function(name, value, priority) {
+    var key = "style." + (name += "");
+    if (arguments.length < 2) return (key = this.tween(key)) && key._value;
+    if (value == null) return this.tween(key, null);
+    if (typeof value !== "function") throw new Error;
+    return this.tween(key, styleTween(name, value, priority == null ? "" : priority));
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hhhZ2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _tweenJs = require("./tween.js");
+function textConstant(value) {
+    return function() {
+        this.textContent = value;
+    };
+}
+function textFunction(value) {
+    return function() {
+        var value1 = value(this);
+        this.textContent = value1 == null ? "" : value1;
+    };
+}
+exports.default = function(value) {
+    return this.tween("text", typeof value === "function" ? textFunction(_tweenJs.tweenValue(this, "text", value)) : textConstant(value == null ? "" : value + ""));
+};
+
+},{"./tween.js":"8L0br","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ezXKs":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function textInterpolate(i) {
+    return function(t) {
+        this.textContent = i.call(this, t);
+    };
+}
+function textTween(value) {
+    var t0, i0;
+    function tween() {
+        var i = value.apply(this, arguments);
+        if (i !== i0) t0 = (i0 = i) && textInterpolate(i);
+        return t0;
+    }
+    tween._value = value;
+    return tween;
+}
+exports.default = function(value) {
+    var key = "text";
+    if (arguments.length < 1) return (key = this.tween(key)) && key._value;
+    if (value == null) return this.tween(key, null);
+    if (typeof value !== "function") throw new Error;
+    return this.tween(key, textTween(value));
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"eIPZ1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _indexJs = require("./index.js");
+var _scheduleJs = require("./schedule.js");
+var _scheduleJsDefault = parcelHelpers.interopDefault(_scheduleJs);
+exports.default = function() {
+    var name = this._name, id0 = this._id, id1 = _indexJs.newId();
+    for(var groups = this._groups, m = groups.length, j = 0; j < m; ++j){
+        for(var group = groups[j], n = group.length, node, i = 0; i < n; ++i)if (node = group[i]) {
+            var inherit = _scheduleJs.get(node, id0);
+            _scheduleJsDefault.default(node, name, id1, i, group, {
+                time: inherit.time + inherit.delay + inherit.duration,
+                delay: 0,
+                duration: inherit.duration,
+                ease: inherit.ease
+            });
+        }
+    }
+    return new _indexJs.Transition(groups, this._parents, name, id1);
+};
+
+},{"./index.js":"18i1e","./schedule.js":"dTpjR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"bGIdi":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _scheduleJs = require("./schedule.js");
+exports.default = function() {
+    var on0, on1, that = this, id = that._id, size = that.size();
+    return new Promise(function(resolve, reject) {
+        var cancel = {
+            value: reject
+        }, end = {
+            value: function() {
+                if (--size === 0) resolve();
+            }
+        };
+        that.each(function() {
+            var schedule = _scheduleJs.set(this, id), on = schedule.on;
+            // If this node shared a dispatch with the previous node,
+            // just assign the updated shared dispatch and we’re done!
+            // Otherwise, copy-on-write.
+            if (on !== on0) {
+                on1 = (on0 = on).copy();
+                on1._.cancel.push(cancel);
+                on1._.interrupt.push(cancel);
+                on1._.end.push(end);
+            }
+            schedule.on = on1;
+        });
+        // The selection was empty, resolve end immediately
+        if (size === 0) resolve();
+    });
+};
+
+},{"./schedule.js":"dTpjR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"elZFc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "easeLinear", ()=>_linearJs.linear
+);
+parcelHelpers.export(exports, "easeQuad", ()=>_quadJs.quadInOut
+);
+parcelHelpers.export(exports, "easeQuadIn", ()=>_quadJs.quadIn
+);
+parcelHelpers.export(exports, "easeQuadOut", ()=>_quadJs.quadOut
+);
+parcelHelpers.export(exports, "easeQuadInOut", ()=>_quadJs.quadInOut
+);
+parcelHelpers.export(exports, "easeCubic", ()=>_cubicJs.cubicInOut
+);
+parcelHelpers.export(exports, "easeCubicIn", ()=>_cubicJs.cubicIn
+);
+parcelHelpers.export(exports, "easeCubicOut", ()=>_cubicJs.cubicOut
+);
+parcelHelpers.export(exports, "easeCubicInOut", ()=>_cubicJs.cubicInOut
+);
+parcelHelpers.export(exports, "easePoly", ()=>_polyJs.polyInOut
+);
+parcelHelpers.export(exports, "easePolyIn", ()=>_polyJs.polyIn
+);
+parcelHelpers.export(exports, "easePolyOut", ()=>_polyJs.polyOut
+);
+parcelHelpers.export(exports, "easePolyInOut", ()=>_polyJs.polyInOut
+);
+parcelHelpers.export(exports, "easeSin", ()=>_sinJs.sinInOut
+);
+parcelHelpers.export(exports, "easeSinIn", ()=>_sinJs.sinIn
+);
+parcelHelpers.export(exports, "easeSinOut", ()=>_sinJs.sinOut
+);
+parcelHelpers.export(exports, "easeSinInOut", ()=>_sinJs.sinInOut
+);
+parcelHelpers.export(exports, "easeExp", ()=>_expJs.expInOut
+);
+parcelHelpers.export(exports, "easeExpIn", ()=>_expJs.expIn
+);
+parcelHelpers.export(exports, "easeExpOut", ()=>_expJs.expOut
+);
+parcelHelpers.export(exports, "easeExpInOut", ()=>_expJs.expInOut
+);
+parcelHelpers.export(exports, "easeCircle", ()=>_circleJs.circleInOut
+);
+parcelHelpers.export(exports, "easeCircleIn", ()=>_circleJs.circleIn
+);
+parcelHelpers.export(exports, "easeCircleOut", ()=>_circleJs.circleOut
+);
+parcelHelpers.export(exports, "easeCircleInOut", ()=>_circleJs.circleInOut
+);
+parcelHelpers.export(exports, "easeBounce", ()=>_bounceJs.bounceOut
+);
+parcelHelpers.export(exports, "easeBounceIn", ()=>_bounceJs.bounceIn
+);
+parcelHelpers.export(exports, "easeBounceOut", ()=>_bounceJs.bounceOut
+);
+parcelHelpers.export(exports, "easeBounceInOut", ()=>_bounceJs.bounceInOut
+);
+parcelHelpers.export(exports, "easeBack", ()=>_backJs.backInOut
+);
+parcelHelpers.export(exports, "easeBackIn", ()=>_backJs.backIn
+);
+parcelHelpers.export(exports, "easeBackOut", ()=>_backJs.backOut
+);
+parcelHelpers.export(exports, "easeBackInOut", ()=>_backJs.backInOut
+);
+parcelHelpers.export(exports, "easeElastic", ()=>_elasticJs.elasticOut
+);
+parcelHelpers.export(exports, "easeElasticIn", ()=>_elasticJs.elasticIn
+);
+parcelHelpers.export(exports, "easeElasticOut", ()=>_elasticJs.elasticOut
+);
+parcelHelpers.export(exports, "easeElasticInOut", ()=>_elasticJs.elasticInOut
+);
+var _linearJs = require("./linear.js");
+var _quadJs = require("./quad.js");
+var _cubicJs = require("./cubic.js");
+var _polyJs = require("./poly.js");
+var _sinJs = require("./sin.js");
+var _expJs = require("./exp.js");
+var _circleJs = require("./circle.js");
+var _bounceJs = require("./bounce.js");
+var _backJs = require("./back.js");
+var _elasticJs = require("./elastic.js");
+
+},{"./linear.js":false,"./quad.js":false,"./cubic.js":"aZIHk","./poly.js":false,"./sin.js":false,"./exp.js":false,"./circle.js":false,"./bounce.js":false,"./back.js":false,"./elastic.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aZIHk":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "cubicIn", ()=>cubicIn
+);
+parcelHelpers.export(exports, "cubicOut", ()=>cubicOut
+);
+parcelHelpers.export(exports, "cubicInOut", ()=>cubicInOut
+);
+function cubicIn(t) {
+    return t * t * t;
+}
+function cubicOut(t) {
+    return --t * t * t + 1;
+}
+function cubicInOut(t) {
+    return ((t *= 2) <= 1 ? t * t * t : (t -= 2) * t * t + 2) / 2;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"e5Mev":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _indexJs = require("./transition/index.js");
+var _scheduleJs = require("./transition/schedule.js");
+var root = [
+    null
+];
+exports.default = function(node, name) {
+    var schedules = node.__transition, schedule, i;
+    if (schedules) {
+        name = name == null ? null : name + "";
+        for(i in schedules){
+            if ((schedule = schedules[i]).state > _scheduleJs.SCHEDULED && schedule.name === name) return new _indexJs.Transition([
+                [
+                    node
+                ]
+            ], root, name, +i);
+        }
+    }
+    return null;
+};
+
+},{"./transition/index.js":"18i1e","./transition/schedule.js":"dTpjR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5Itz2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = (x)=>()=>x
+;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"bMq36":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function ZoomEvent(type, { sourceEvent , target , transform , dispatch  }) {
+    Object.defineProperties(this, {
+        type: {
+            value: type,
+            enumerable: true,
+            configurable: true
+        },
+        sourceEvent: {
+            value: sourceEvent,
+            enumerable: true,
+            configurable: true
+        },
+        target: {
+            value: target,
+            enumerable: true,
+            configurable: true
+        },
+        transform: {
+            value: transform,
+            enumerable: true,
+            configurable: true
+        },
+        _: {
+            value: dispatch
+        }
+    });
+}
+exports.default = ZoomEvent;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aPs4a":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Transform", ()=>Transform
+);
+parcelHelpers.export(exports, "identity", ()=>identity
+);
+function Transform(k, x, y) {
+    this.k = k;
+    this.x = x;
+    this.y = y;
+}
+Transform.prototype = {
+    constructor: Transform,
+    scale: function(k) {
+        return k === 1 ? this : new Transform(this.k * k, this.x, this.y);
+    },
+    translate: function(x, y) {
+        return x === 0 & y === 0 ? this : new Transform(this.k, this.x + this.k * x, this.y + this.k * y);
+    },
+    apply: function(point) {
+        return [
+            point[0] * this.k + this.x,
+            point[1] * this.k + this.y
+        ];
+    },
+    applyX: function(x) {
+        return x * this.k + this.x;
+    },
+    applyY: function(y) {
+        return y * this.k + this.y;
+    },
+    invert: function(location) {
+        return [
+            (location[0] - this.x) / this.k,
+            (location[1] - this.y) / this.k
+        ];
+    },
+    invertX: function(x) {
+        return (x - this.x) / this.k;
+    },
+    invertY: function(y) {
+        return (y - this.y) / this.k;
+    },
+    rescaleX: function(x) {
+        return x.copy().domain(x.range().map(this.invertX, this).map(x.invert, x));
+    },
+    rescaleY: function(y) {
+        return y.copy().domain(y.range().map(this.invertY, this).map(y.invert, y));
+    },
+    toString: function() {
+        return "translate(" + this.x + "," + this.y + ") scale(" + this.k + ")";
+    }
+};
+var identity = new Transform(1, 0, 0);
+transform.prototype = Transform.prototype;
+function transform(node) {
+    while(!node.__zoom)if (!(node = node.parentNode)) return identity;
+    return node.__zoom;
+}
+exports.default = transform;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cgyVb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "nopropagation", ()=>nopropagation
+);
+function nopropagation(event) {
+    event.stopImmediatePropagation();
+}
+exports.default = function(event) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"g9bhJ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _uuid = require("uuid");
+var global = arguments[3];
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
+}
+function _defineProperties(target, props) {
+    for(var i = 0; i < props.length; i++){
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+    }
+}
+function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor;
+}
+function _defineProperty(obj, key, value) {
+    if (key in obj) Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+    });
+    else obj[key] = value;
+    return obj;
+}
+function _extends() {
+    _extends = Object.assign || function(target) {
+        for(var i = 1; i < arguments.length; i++){
+            var source = arguments[i];
+            for(var key in source)if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
+        }
+        return target;
+    };
+    return _extends.apply(this, arguments);
+}
+function ownKeys(object, enumerableOnly) {
+    var keys1 = Object.keys(object);
+    if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        if (enumerableOnly) symbols = symbols.filter(function(sym) {
+            return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        });
+        keys1.push.apply(keys1, symbols);
+    }
+    return keys1;
+}
+function _objectSpread2(target) {
+    for(var i = 1; i < arguments.length; i++){
+        var source = arguments[i] != null ? arguments[i] : {
+        };
+        if (i % 2) ownKeys(Object(source), true).forEach(function(key) {
+            _defineProperty(target, key, source[key]);
+        });
+        else if (Object.getOwnPropertyDescriptors) Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+        else ownKeys(Object(source)).forEach(function(key) {
+            Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+    }
+    return target;
+}
+function _inherits(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) throw new TypeError("Super expression must either be null or a function");
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+        constructor: {
+            value: subClass,
+            writable: true,
+            configurable: true
+        }
+    });
+    if (superClass) _setPrototypeOf(subClass, superClass);
+}
+function _getPrototypeOf(o1) {
+    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+        return o.__proto__ || Object.getPrototypeOf(o);
+    };
+    return _getPrototypeOf(o1);
+}
+function _setPrototypeOf(o2, p1) {
+    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+        o.__proto__ = p;
+        return o;
+    };
+    return _setPrototypeOf(o2, p1);
+}
+function _assertThisInitialized(self) {
+    if (self === void 0) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    return self;
+}
+function _possibleConstructorReturn(self, call) {
+    if (call && (typeof call === "object" || typeof call === "function")) return call;
+    return _assertThisInitialized(self);
+}
+var CONSTANT = {
+    GLOBAL: {
+        HIDE: '__react_tooltip_hide_event',
+        REBUILD: '__react_tooltip_rebuild_event',
+        SHOW: '__react_tooltip_show_event'
+    }
+};
+/**
+ * Static methods for react-tooltip
+ */ var dispatchGlobalEvent = function dispatchGlobalEvent(eventName, opts) {
+    // Compatible with IE
+    // @see http://stackoverflow.com/questions/26596123/internet-explorer-9-10-11-event-constructor-doesnt-work
+    // @see https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
+    var event;
+    if (typeof window.CustomEvent === 'function') event = new window.CustomEvent(eventName, {
+        detail: opts
+    });
+    else {
+        event = document.createEvent('Event');
+        event.initEvent(eventName, false, true, opts);
+    }
+    window.dispatchEvent(event);
+};
+function staticMethods(target1) {
+    /**
+   * Hide all tooltip
+   * @trigger ReactTooltip.hide()
+   */ target1.hide = function(target) {
+        dispatchGlobalEvent(CONSTANT.GLOBAL.HIDE, {
+            target: target
+        });
+    };
+    /**
+   * Rebuild all tooltip
+   * @trigger ReactTooltip.rebuild()
+   */ target1.rebuild = function() {
+        dispatchGlobalEvent(CONSTANT.GLOBAL.REBUILD);
+    };
+    /**
+   * Show specific tooltip
+   * @trigger ReactTooltip.show()
+   */ target1.show = function(target) {
+        dispatchGlobalEvent(CONSTANT.GLOBAL.SHOW, {
+            target: target
+        });
+    };
+    target1.prototype.globalRebuild = function() {
+        if (this.mount) {
+            this.unbindListener();
+            this.bindListener();
+        }
+    };
+    target1.prototype.globalShow = function(event) {
+        if (this.mount) {
+            var hasTarget = event && event.detail && event.detail.target && true || false; // Create a fake event, specific show will limit the type to `solid`
+            // only `float` type cares e.clientX e.clientY
+            this.showTooltip({
+                currentTarget: hasTarget && event.detail.target
+            }, true);
+        }
+    };
+    target1.prototype.globalHide = function(event) {
+        if (this.mount) {
+            var hasTarget = event && event.detail && event.detail.target && true || false;
+            this.hideTooltip({
+                currentTarget: hasTarget && event.detail.target
+            }, hasTarget);
+        }
+    };
+}
+/**
+ * Events that should be bound to the window
+ */ function windowListener(target) {
+    target.prototype.bindWindowEvents = function(resizeHide) {
+        // ReactTooltip.hide
+        window.removeEventListener(CONSTANT.GLOBAL.HIDE, this.globalHide);
+        window.addEventListener(CONSTANT.GLOBAL.HIDE, this.globalHide, false); // ReactTooltip.rebuild
+        window.removeEventListener(CONSTANT.GLOBAL.REBUILD, this.globalRebuild);
+        window.addEventListener(CONSTANT.GLOBAL.REBUILD, this.globalRebuild, false); // ReactTooltip.show
+        window.removeEventListener(CONSTANT.GLOBAL.SHOW, this.globalShow);
+        window.addEventListener(CONSTANT.GLOBAL.SHOW, this.globalShow, false); // Resize
+        if (resizeHide) {
+            window.removeEventListener('resize', this.onWindowResize);
+            window.addEventListener('resize', this.onWindowResize, false);
+        }
+    };
+    target.prototype.unbindWindowEvents = function() {
+        window.removeEventListener(CONSTANT.GLOBAL.HIDE, this.globalHide);
+        window.removeEventListener(CONSTANT.GLOBAL.REBUILD, this.globalRebuild);
+        window.removeEventListener(CONSTANT.GLOBAL.SHOW, this.globalShow);
+        window.removeEventListener('resize', this.onWindowResize);
+    };
+    /**
+   * invoked by resize event of window
+   */ target.prototype.onWindowResize = function() {
+        if (!this.mount) return;
+        this.hideTooltip();
+    };
+}
+/**
+ * Custom events to control showing and hiding of tooltip
+ *
+ * @attributes
+ * - `event` {String}
+ * - `eventOff` {String}
+ */ var checkStatus = function checkStatus(dataEventOff, e) {
+    var show = this.state.show;
+    var id1 = this.props.id;
+    var isCapture1 = this.isCapture(e.currentTarget);
+    var currentItem = e.currentTarget.getAttribute('currentItem');
+    if (!isCapture1) e.stopPropagation();
+    if (show && currentItem === 'true') {
+        if (!dataEventOff) this.hideTooltip(e);
+    } else {
+        e.currentTarget.setAttribute('currentItem', 'true');
+        setUntargetItems(e.currentTarget, this.getTargetArray(id1));
+        this.showTooltip(e);
+    }
+};
+var setUntargetItems = function setUntargetItems(currentTarget, targetArray) {
+    for(var i = 0; i < targetArray.length; i++)if (currentTarget !== targetArray[i]) targetArray[i].setAttribute('currentItem', 'false');
+    else targetArray[i].setAttribute('currentItem', 'true');
+};
+var customListeners = {
+    id: '9b69f92e-d3fe-498b-b1b4-c5e63a51b0cf',
+    set: function set(target, event, listener) {
+        if (this.id in target) {
+            var map = target[this.id];
+            map[event] = listener;
+        } else // this is workaround for WeakMap, which is not supported in older browsers, such as IE
+        Object.defineProperty(target, this.id, {
+            configurable: true,
+            value: _defineProperty({
+            }, event, listener)
+        });
+    },
+    get: function get(target, event) {
+        var map = target[this.id];
+        if (map !== undefined) return map[event];
+    }
+};
+function customEvent(target) {
+    target.prototype.isCustomEvent = function(ele) {
+        var event = this.state.event;
+        return event || !!ele.getAttribute('data-event');
+    };
+    /* Bind listener for custom event */ target.prototype.customBindListener = function(ele) {
+        var _this = this;
+        var _this$state = this.state, event1 = _this$state.event, eventOff = _this$state.eventOff;
+        var dataEvent = ele.getAttribute('data-event') || event1;
+        var dataEventOff = ele.getAttribute('data-event-off') || eventOff;
+        dataEvent.split(' ').forEach(function(event) {
+            ele.removeEventListener(event, customListeners.get(ele, event));
+            var customListener = checkStatus.bind(_this, dataEventOff);
+            customListeners.set(ele, event, customListener);
+            ele.addEventListener(event, customListener, false);
+        });
+        if (dataEventOff) dataEventOff.split(' ').forEach(function(event) {
+            ele.removeEventListener(event, _this.hideTooltip);
+            ele.addEventListener(event, _this.hideTooltip, false);
+        });
+    };
+    /* Unbind listener for custom event */ target.prototype.customUnbindListener = function(ele) {
+        var _this$state2 = this.state, event = _this$state2.event, eventOff = _this$state2.eventOff;
+        var dataEvent = event || ele.getAttribute('data-event');
+        var dataEventOff = eventOff || ele.getAttribute('data-event-off');
+        ele.removeEventListener(dataEvent, customListeners.get(ele, event));
+        if (dataEventOff) ele.removeEventListener(dataEventOff, this.hideTooltip);
+    };
+}
+/**
+ * Util method to judge if it should follow capture model
+ */ function isCapture(target) {
+    target.prototype.isCapture = function(currentTarget) {
+        return currentTarget && currentTarget.getAttribute('data-iscapture') === 'true' || this.props.isCapture || false;
+    };
+}
+/**
+ * Util method to get effect
+ */ function getEffect(target) {
+    target.prototype.getEffect = function(currentTarget) {
+        var dataEffect = currentTarget.getAttribute('data-effect');
+        return dataEffect || this.props.effect || 'float';
+    };
+}
+/**
+ * Util method to get effect
+ */ var makeProxy = function makeProxy(e) {
+    var proxy = {
+    };
+    for(var key in e)if (typeof e[key] === 'function') proxy[key] = e[key].bind(e);
+    else proxy[key] = e[key];
+    return proxy;
+};
+var bodyListener = function bodyListener(callback, options, e) {
+    var _options$respectEffec = options.respectEffect, respectEffect = _options$respectEffec === void 0 ? false : _options$respectEffec, _options$customEvent = options.customEvent, customEvent1 = _options$customEvent === void 0 ? false : _options$customEvent;
+    var id2 = this.props.id;
+    var tip = e.target.getAttribute('data-tip') || null;
+    var forId = e.target.getAttribute('data-for') || null;
+    var target = e.target;
+    if (this.isCustomEvent(target) && !customEvent1) return;
+    var isTargetBelongsToTooltip = id2 == null && forId == null || forId === id2;
+    if (tip != null && (!respectEffect || this.getEffect(target) === 'float') && isTargetBelongsToTooltip) {
+        var proxy = makeProxy(e);
+        proxy.currentTarget = target;
+        callback(proxy);
+    }
+};
+var findCustomEvents = function findCustomEvents(targetArray, dataAttribute) {
+    var events = {
+    };
+    targetArray.forEach(function(target) {
+        var event = target.getAttribute(dataAttribute);
+        if (event) event.split(' ').forEach(function(event) {
+            return events[event] = true;
+        });
+    });
+    return events;
+};
+var getBody = function getBody() {
+    return document.getElementsByTagName('body')[0];
+};
+function bodyMode(target) {
+    target.prototype.isBodyMode = function() {
+        return !!this.props.bodyMode;
+    };
+    target.prototype.bindBodyListener = function(targetArray) {
+        var _this = this;
+        var _this$state = this.state, event = _this$state.event, eventOff = _this$state.eventOff, possibleCustomEvents = _this$state.possibleCustomEvents, possibleCustomEventsOff = _this$state.possibleCustomEventsOff;
+        var body = getBody();
+        var customEvents = findCustomEvents(targetArray, 'data-event');
+        var customEventsOff = findCustomEvents(targetArray, 'data-event-off');
+        if (event != null) customEvents[event] = true;
+        if (eventOff != null) customEventsOff[eventOff] = true;
+        possibleCustomEvents.split(' ').forEach(function(event) {
+            return customEvents[event] = true;
+        });
+        possibleCustomEventsOff.split(' ').forEach(function(event) {
+            return customEventsOff[event] = true;
+        });
+        this.unbindBodyListener(body);
+        var listeners = this.bodyModeListeners = {
+        };
+        if (event == null) {
+            listeners.mouseover = bodyListener.bind(this, this.showTooltip, {
+            });
+            listeners.mousemove = bodyListener.bind(this, this.updateTooltip, {
+                respectEffect: true
+            });
+            listeners.mouseout = bodyListener.bind(this, this.hideTooltip, {
+            });
+        }
+        for(var _event in customEvents)listeners[_event] = bodyListener.bind(this, function(e) {
+            var targetEventOff = e.currentTarget.getAttribute('data-event-off') || eventOff;
+            checkStatus.call(_this, targetEventOff, e);
+        }, {
+            customEvent: true
+        });
+        for(var _event2 in customEventsOff)listeners[_event2] = bodyListener.bind(this, this.hideTooltip, {
+            customEvent: true
+        });
+        for(var _event3 in listeners)body.addEventListener(_event3, listeners[_event3]);
+    };
+    target.prototype.unbindBodyListener = function(body) {
+        body = body || getBody();
+        var listeners = this.bodyModeListeners;
+        for(var event in listeners)body.removeEventListener(event, listeners[event]);
+    };
+}
+/**
+ * Tracking target removing from DOM.
+ * It's necessary to hide tooltip when it's target disappears.
+ * Otherwise, the tooltip would be shown forever until another target
+ * is triggered.
+ *
+ * If MutationObserver is not available, this feature just doesn't work.
+ */ // https://hacks.mozilla.org/2012/05/dom-mutationobserver-reacting-to-dom-changes-without-killing-browser-performance/
+var getMutationObserverClass = function getMutationObserverClass() {
+    return window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+};
+function trackRemoval(target) {
+    target.prototype.bindRemovalTracker = function() {
+        var _this = this;
+        var MutationObserver = getMutationObserverClass();
+        if (MutationObserver == null) return;
+        var observer = new MutationObserver(function(mutations) {
+            for(var m1 = 0; m1 < mutations.length; m1++){
+                var mutation = mutations[m1];
+                for(var m2 = 0; m2 < mutation.removedNodes.length; m2++){
+                    var element = mutation.removedNodes[m2];
+                    if (element === _this.state.currentTarget) {
+                        _this.hideTooltip();
+                        return;
+                    }
+                }
+            }
+        });
+        observer.observe(window.document, {
+            childList: true,
+            subtree: true
+        });
+        this.removalTracker = observer;
+    };
+    target.prototype.unbindRemovalTracker = function() {
+        if (this.removalTracker) {
+            this.removalTracker.disconnect();
+            this.removalTracker = null;
+        }
+    };
+}
+/**
+ * Calculate the position of tooltip
+ *
+ * @params
+ * - `e` {Event} the event of current mouse
+ * - `target` {Element} the currentTarget of the event
+ * - `node` {DOM} the react-tooltip object
+ * - `place` {String} top / right / bottom / left
+ * - `effect` {String} float / solid
+ * - `offset` {Object} the offset to default position
+ *
+ * @return {Object}
+ * - `isNewState` {Bool} required
+ * - `newState` {Object}
+ * - `position` {Object} {left: {Number}, top: {Number}}
+ */ function getPosition(e, target, node, place, desiredPlace, effect, offset) {
+    var _getDimensions = getDimensions(node), tipWidth = _getDimensions.width, tipHeight = _getDimensions.height;
+    var _getDimensions2 = getDimensions(target), targetWidth = _getDimensions2.width, targetHeight = _getDimensions2.height;
+    var _getCurrentOffset = getCurrentOffset(e, target, effect), mouseX = _getCurrentOffset.mouseX, mouseY = _getCurrentOffset.mouseY;
+    var defaultOffset = getDefaultPosition(effect, targetWidth, targetHeight, tipWidth, tipHeight);
+    var _calculateOffset = calculateOffset(offset), extraOffsetX = _calculateOffset.extraOffsetX, extraOffsetY = _calculateOffset.extraOffsetY;
+    var windowWidth = window.innerWidth;
+    var windowHeight = window.innerHeight;
+    var _getParent = getParent(node), parentTop = _getParent.parentTop, parentLeft = _getParent.parentLeft; // Get the edge offset of the tooltip
+    var getTipOffsetLeft = function getTipOffsetLeft(place) {
+        var offsetX = defaultOffset[place].l;
+        return mouseX + offsetX + extraOffsetX;
+    };
+    var getTipOffsetRight = function getTipOffsetRight(place) {
+        var offsetX = defaultOffset[place].r;
+        return mouseX + offsetX + extraOffsetX;
+    };
+    var getTipOffsetTop = function getTipOffsetTop(place) {
+        var offsetY = defaultOffset[place].t;
+        return mouseY + offsetY + extraOffsetY;
+    };
+    var getTipOffsetBottom = function getTipOffsetBottom(place) {
+        var offsetY = defaultOffset[place].b;
+        return mouseY + offsetY + extraOffsetY;
+    }; //
+    // Functions to test whether the tooltip's sides are inside
+    // the client window for a given orientation p
+    //
+    //  _____________
+    // |             | <-- Right side
+    // | p = 'left'  |\
+    // |             |/  |\
+    // |_____________|   |_\  <-- Mouse
+    //      / \           |
+    //       |
+    //       |
+    //  Bottom side
+    //
+    var outsideLeft = function outsideLeft(p) {
+        return getTipOffsetLeft(p) < 0;
+    };
+    var outsideRight = function outsideRight(p) {
+        return getTipOffsetRight(p) > windowWidth;
+    };
+    var outsideTop = function outsideTop(p) {
+        return getTipOffsetTop(p) < 0;
+    };
+    var outsideBottom = function outsideBottom(p) {
+        return getTipOffsetBottom(p) > windowHeight;
+    }; // Check whether the tooltip with orientation p is completely inside the client window
+    var outside = function outside(p) {
+        return outsideLeft(p) || outsideRight(p) || outsideTop(p) || outsideBottom(p);
+    };
+    var inside = function inside(p) {
+        return !outside(p);
+    };
+    var placesList = [
+        'top',
+        'bottom',
+        'left',
+        'right'
+    ];
+    var insideList = [];
+    for(var i = 0; i < 4; i++){
+        var p2 = placesList[i];
+        if (inside(p2)) insideList.push(p2);
+    }
+    var isNewState = false;
+    var newPlace;
+    var shouldUpdatePlace = desiredPlace !== place;
+    if (inside(desiredPlace) && shouldUpdatePlace) {
+        isNewState = true;
+        newPlace = desiredPlace;
+    } else if (insideList.length > 0 && outside(desiredPlace) && outside(place)) {
+        isNewState = true;
+        newPlace = insideList[0];
+    }
+    if (isNewState) return {
+        isNewState: true,
+        newState: {
+            place: newPlace
+        }
+    };
+    return {
+        isNewState: false,
+        position: {
+            left: parseInt(getTipOffsetLeft(place) - parentLeft, 10),
+            top: parseInt(getTipOffsetTop(place) - parentTop, 10)
+        }
+    };
+}
+var getDimensions = function getDimensions(node) {
+    var _node$getBoundingClie = node.getBoundingClientRect(), height = _node$getBoundingClie.height, width = _node$getBoundingClie.width;
+    return {
+        height: parseInt(height, 10),
+        width: parseInt(width, 10)
+    };
+}; // Get current mouse offset
+var getCurrentOffset = function getCurrentOffset(e, currentTarget, effect) {
+    var boundingClientRect = currentTarget.getBoundingClientRect();
+    var targetTop = boundingClientRect.top;
+    var targetLeft = boundingClientRect.left;
+    var _getDimensions3 = getDimensions(currentTarget), targetWidth = _getDimensions3.width, targetHeight = _getDimensions3.height;
+    if (effect === 'float') return {
+        mouseX: e.clientX,
+        mouseY: e.clientY
+    };
+    return {
+        mouseX: targetLeft + targetWidth / 2,
+        mouseY: targetTop + targetHeight / 2
+    };
+}; // List all possibility of tooltip final offset
+// This is useful in judging if it is necessary for tooltip to switch position when out of window
+var getDefaultPosition = function getDefaultPosition(effect, targetWidth, targetHeight, tipWidth, tipHeight) {
+    var top;
+    var right;
+    var bottom;
+    var left;
+    var disToMouse = 3;
+    var triangleHeight = 2;
+    var cursorHeight = 12; // Optimize for float bottom only, cause the cursor will hide the tooltip
+    if (effect === 'float') {
+        top = {
+            l: -(tipWidth / 2),
+            r: tipWidth / 2,
+            t: -(tipHeight + disToMouse + triangleHeight),
+            b: -disToMouse
+        };
+        bottom = {
+            l: -(tipWidth / 2),
+            r: tipWidth / 2,
+            t: disToMouse + cursorHeight,
+            b: tipHeight + disToMouse + triangleHeight + cursorHeight
+        };
+        left = {
+            l: -(tipWidth + disToMouse + triangleHeight),
+            r: -disToMouse,
+            t: -(tipHeight / 2),
+            b: tipHeight / 2
+        };
+        right = {
+            l: disToMouse,
+            r: tipWidth + disToMouse + triangleHeight,
+            t: -(tipHeight / 2),
+            b: tipHeight / 2
+        };
+    } else if (effect === 'solid') {
+        top = {
+            l: -(tipWidth / 2),
+            r: tipWidth / 2,
+            t: -(targetHeight / 2 + tipHeight + triangleHeight),
+            b: -(targetHeight / 2)
+        };
+        bottom = {
+            l: -(tipWidth / 2),
+            r: tipWidth / 2,
+            t: targetHeight / 2,
+            b: targetHeight / 2 + tipHeight + triangleHeight
+        };
+        left = {
+            l: -(tipWidth + targetWidth / 2 + triangleHeight),
+            r: -(targetWidth / 2),
+            t: -(tipHeight / 2),
+            b: tipHeight / 2
+        };
+        right = {
+            l: targetWidth / 2,
+            r: tipWidth + targetWidth / 2 + triangleHeight,
+            t: -(tipHeight / 2),
+            b: tipHeight / 2
+        };
+    }
+    return {
+        top: top,
+        bottom: bottom,
+        left: left,
+        right: right
+    };
+}; // Consider additional offset into position calculation
+var calculateOffset = function calculateOffset(offset) {
+    var extraOffsetX = 0;
+    var extraOffsetY = 0;
+    if (Object.prototype.toString.apply(offset) === '[object String]') offset = JSON.parse(offset.toString().replace(/'/g, '"'));
+    for(var key in offset){
+        if (key === 'top') extraOffsetY -= parseInt(offset[key], 10);
+        else if (key === 'bottom') extraOffsetY += parseInt(offset[key], 10);
+        else if (key === 'left') extraOffsetX -= parseInt(offset[key], 10);
+        else if (key === 'right') extraOffsetX += parseInt(offset[key], 10);
+    }
+    return {
+        extraOffsetX: extraOffsetX,
+        extraOffsetY: extraOffsetY
+    };
+}; // Get the offset of the parent elements
+var getParent = function getParent(currentTarget) {
+    var currentParent = currentTarget;
+    while(currentParent){
+        var computedStyle = window.getComputedStyle(currentParent); // transform and will-change: transform change the containing block
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_Block
+        if (computedStyle.getPropertyValue('transform') !== 'none' || computedStyle.getPropertyValue('will-change') === 'transform') break;
+        currentParent = currentParent.parentElement;
+    }
+    var parentTop = currentParent && currentParent.getBoundingClientRect().top || 0;
+    var parentLeft = currentParent && currentParent.getBoundingClientRect().left || 0;
+    return {
+        parentTop: parentTop,
+        parentLeft: parentLeft
+    };
+};
+/**
+ * To get the tooltip content
+ * it may comes from data-tip or this.props.children
+ * it should support multiline
+ *
+ * @params
+ * - `tip` {String} value of data-tip
+ * - `children` {ReactElement} this.props.children
+ * - `multiline` {Any} could be Bool(true/false) or String('true'/'false')
+ *
+ * @return
+ * - String or react component
+ */ function getTipContent(tip, children, getContent, multiline) {
+    if (children) return children;
+    if (getContent !== undefined && getContent !== null) return getContent; // getContent can be 0, '', etc.
+    if (getContent === null) return null; // Tip not exist and children is null or undefined
+    var regexp = /<br\s*\/?>/;
+    if (!multiline || multiline === 'false' || !regexp.test(tip)) // No trim(), so that user can keep their input
+    return tip;
+     // Multiline tooltip content
+    return tip.split(regexp).map(function(d, i) {
+        return _reactDefault.default.createElement("span", {
+            key: i,
+            className: "multi-line"
+        }, d);
+    });
+}
+/**
+ * Support aria- and role in ReactTooltip
+ *
+ * @params props {Object}
+ * @return {Object}
+ */ function parseAria(props) {
+    var ariaObj = {
+    };
+    Object.keys(props).filter(function(prop) {
+        // aria-xxx and role is acceptable
+        return /(^aria-\w+$|^role$)/.test(prop);
+    }).forEach(function(prop) {
+        ariaObj[prop] = props[prop];
+    });
+    return ariaObj;
+}
+/**
+ * Convert nodelist to array
+ * @see https://github.com/facebook/fbjs/blob/e66ba20ad5be433eb54423f2b097d829324d9de6/packages/fbjs/src/core/createArrayFromMixed.js#L24
+ * NodeLists are functions in Safari
+ */ function nodeListToArray(nodeList) {
+    var length = nodeList.length;
+    if (nodeList.hasOwnProperty) return Array.prototype.slice.call(nodeList);
+    return new Array(length).fill().map(function(index) {
+        return nodeList[index];
+    });
+}
+function generateUUID() {
+    return 't' + _uuid.v4();
+}
+var baseCss = ".__react_component_tooltip {\n  border-radius: 3px;\n  display: inline-block;\n  font-size: 13px;\n  left: -999em;\n  opacity: 0;\n  padding: 8px 21px;\n  position: fixed;\n  pointer-events: none;\n  transition: opacity 0.3s ease-out;\n  top: -999em;\n  visibility: hidden;\n  z-index: 999;\n}\n.__react_component_tooltip.allow_hover, .__react_component_tooltip.allow_click {\n  pointer-events: auto;\n}\n.__react_component_tooltip::before, .__react_component_tooltip::after {\n  content: \"\";\n  width: 0;\n  height: 0;\n  position: absolute;\n}\n.__react_component_tooltip.show {\n  opacity: 0.9;\n  margin-top: 0;\n  margin-left: 0;\n  visibility: visible;\n}\n.__react_component_tooltip.place-top::before {\n  border-left: 10px solid transparent;\n  border-right: 10px solid transparent;\n  bottom: -8px;\n  left: 50%;\n  margin-left: -10px;\n}\n.__react_component_tooltip.place-bottom::before {\n  border-left: 10px solid transparent;\n  border-right: 10px solid transparent;\n  top: -8px;\n  left: 50%;\n  margin-left: -10px;\n}\n.__react_component_tooltip.place-left::before {\n  border-top: 6px solid transparent;\n  border-bottom: 6px solid transparent;\n  right: -8px;\n  top: 50%;\n  margin-top: -5px;\n}\n.__react_component_tooltip.place-right::before {\n  border-top: 6px solid transparent;\n  border-bottom: 6px solid transparent;\n  left: -8px;\n  top: 50%;\n  margin-top: -5px;\n}\n.__react_component_tooltip .multi-line {\n  display: block;\n  padding: 2px 0;\n  text-align: center;\n}";
+/**
+ * Default pop-up style values (text color, background color).
+ */ var defaultColors = {
+    dark: {
+        text: '#fff',
+        background: '#222',
+        border: 'transparent',
+        arrow: '#222'
+    },
+    success: {
+        text: '#fff',
+        background: '#8DC572',
+        border: 'transparent',
+        arrow: '#8DC572'
+    },
+    warning: {
+        text: '#fff',
+        background: '#F0AD4E',
+        border: 'transparent',
+        arrow: '#F0AD4E'
+    },
+    error: {
+        text: '#fff',
+        background: '#BE6464',
+        border: 'transparent',
+        arrow: '#BE6464'
+    },
+    info: {
+        text: '#fff',
+        background: '#337AB7',
+        border: 'transparent',
+        arrow: '#337AB7'
+    },
+    light: {
+        text: '#222',
+        background: '#fff',
+        border: 'transparent',
+        arrow: '#fff'
+    }
+};
+function getDefaultPopupColors(type) {
+    return defaultColors[type] ? _objectSpread2({
+    }, defaultColors[type]) : undefined;
+}
+/**
+ * Generates the specific tooltip style for use on render.
+ */ function generateTooltipStyle(uuid, customColors, type, hasBorder) {
+    return generateStyle(uuid, getPopupColors(customColors, type, hasBorder));
+}
+/**
+ * Generates the tooltip style rules based on the element-specified "data-type" property.
+ */ function generateStyle(uuid, colors) {
+    var textColor = colors.text;
+    var backgroundColor = colors.background;
+    var borderColor = colors.border;
+    var arrowColor = colors.arrow;
+    return "\n  \t.".concat(uuid, " {\n\t    color: ").concat(textColor, ";\n\t    background: ").concat(backgroundColor, ";\n\t    border: 1px solid ").concat(borderColor, ";\n  \t}\n\n  \t.").concat(uuid, ".place-top {\n        margin-top: -10px;\n    }\n    .").concat(uuid, ".place-top::before {\n        border-top: 8px solid ").concat(borderColor, ";\n    }\n    .").concat(uuid, ".place-top::after {\n        border-left: 8px solid transparent;\n        border-right: 8px solid transparent;\n        bottom: -6px;\n        left: 50%;\n        margin-left: -8px;\n        border-top-color: ").concat(arrowColor, ";\n        border-top-style: solid;\n        border-top-width: 6px;\n    }\n\n    .").concat(uuid, ".place-bottom {\n        margin-top: 10px;\n    }\n    .").concat(uuid, ".place-bottom::before {\n        border-bottom: 8px solid ").concat(borderColor, ";\n    }\n    .").concat(uuid, ".place-bottom::after {\n        border-left: 8px solid transparent;\n        border-right: 8px solid transparent;\n        top: -6px;\n        left: 50%;\n        margin-left: -8px;\n        border-bottom-color: ").concat(arrowColor, ";\n        border-bottom-style: solid;\n        border-bottom-width: 6px;\n    }\n\n    .").concat(uuid, ".place-left {\n        margin-left: -10px;\n    }\n    .").concat(uuid, ".place-left::before {\n        border-left: 8px solid ").concat(borderColor, ";\n    }\n    .").concat(uuid, ".place-left::after {\n        border-top: 5px solid transparent;\n        border-bottom: 5px solid transparent;\n        right: -6px;\n        top: 50%;\n        margin-top: -4px;\n        border-left-color: ").concat(arrowColor, ";\n        border-left-style: solid;\n        border-left-width: 6px;\n    }\n\n    .").concat(uuid, ".place-right {\n        margin-left: 10px;\n    }\n    .").concat(uuid, ".place-right::before {\n        border-right: 8px solid ").concat(borderColor, ";\n    }\n    .").concat(uuid, ".place-right::after {\n        border-top: 5px solid transparent;\n        border-bottom: 5px solid transparent;\n        left: -6px;\n        top: 50%;\n        margin-top: -4px;\n        border-right-color: ").concat(arrowColor, ";\n        border-right-style: solid;\n        border-right-width: 6px;\n    }\n  ");
+}
+function getPopupColors(customColors, type, hasBorder) {
+    var textColor = customColors.text;
+    var backgroundColor = customColors.background;
+    var borderColor = customColors.border;
+    var arrowColor = customColors.arrow ? customColors.arrow : customColors.background;
+    var colors = getDefaultPopupColors(type);
+    if (textColor) colors.text = textColor;
+    if (backgroundColor) colors.background = backgroundColor;
+    if (hasBorder) {
+        if (borderColor) colors.border = borderColor;
+        else colors.border = type === 'light' ? 'black' : 'white';
+    }
+    if (arrowColor) colors.arrow = arrowColor;
+    return colors;
+}
+var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {
+};
+function createCommonjsModule(fn, module) {
+    return module = {
+        exports: {
+        }
+    }, fn(module, module.exports), module.exports;
+}
+var check = function(it) {
+    return it && it.Math == Math && it;
+};
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global_1 = // eslint-disable-next-line es/no-global-this -- safe
+check(typeof globalThis == 'object' && globalThis) || check(typeof window == 'object' && window) || // eslint-disable-next-line no-restricted-globals -- safe
+check(typeof self == 'object' && self) || check(typeof commonjsGlobal == 'object' && commonjsGlobal) || // eslint-disable-next-line no-new-func -- fallback
+function() {
+    return this;
+}() || Function('return this')();
+var fails = function(exec) {
+    try {
+        return !!exec();
+    } catch (error) {
+        return true;
+    }
+};
+// Detect IE8's incomplete defineProperty implementation
+var descriptors = !fails(function() {
+    // eslint-disable-next-line es/no-object-defineproperty -- required for testing
+    return Object.defineProperty({
+    }, 1, {
+        get: function() {
+            return 7;
+        }
+    })[1] != 7;
+});
+var $propertyIsEnumerable = {
+}.propertyIsEnumerable;
+// eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
+var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+// Nashorn ~ JDK8 bug
+var NASHORN_BUG = getOwnPropertyDescriptor && !$propertyIsEnumerable.call({
+    1: 2
+}, 1);
+// `Object.prototype.propertyIsEnumerable` method implementation
+// https://tc39.es/ecma262/#sec-object.prototype.propertyisenumerable
+var f = NASHORN_BUG ? function propertyIsEnumerable(V) {
+    var descriptor = getOwnPropertyDescriptor(this, V);
+    return !!descriptor && descriptor.enumerable;
+} : $propertyIsEnumerable;
+var objectPropertyIsEnumerable = {
+    f: f
+};
+var createPropertyDescriptor = function(bitmap, value) {
+    return {
+        enumerable: !(bitmap & 1),
+        configurable: !(bitmap & 2),
+        writable: !(bitmap & 4),
+        value: value
+    };
+};
+var toString = {
+}.toString;
+var classofRaw = function(it) {
+    return toString.call(it).slice(8, -1);
+};
+var split = ''.split;
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
+var indexedObject = fails(function() {
+    // throws an error in rhino, see https://github.com/mozilla/rhino/issues/346
+    // eslint-disable-next-line no-prototype-builtins -- safe
+    return !Object('z').propertyIsEnumerable(0);
+}) ? function(it) {
+    return classofRaw(it) == 'String' ? split.call(it, '') : Object(it);
+} : Object;
+// `RequireObjectCoercible` abstract operation
+// https://tc39.es/ecma262/#sec-requireobjectcoercible
+var requireObjectCoercible = function(it) {
+    if (it == undefined) throw TypeError("Can't call method on " + it);
+    return it;
+};
+// toObject with fallback for non-array-like ES3 strings
+var toIndexedObject = function(it) {
+    return indexedObject(requireObjectCoercible(it));
+};
+var isObject = function(it) {
+    return typeof it === 'object' ? it !== null : typeof it === 'function';
+};
+// `ToPrimitive` abstract operation
+// https://tc39.es/ecma262/#sec-toprimitive
+// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+// and the second argument - flag - preferred type is a string
+var toPrimitive = function(input, PREFERRED_STRING) {
+    if (!isObject(input)) return input;
+    var fn, val;
+    if (PREFERRED_STRING && typeof (fn = input.toString) == 'function' && !isObject(val = fn.call(input))) return val;
+    if (typeof (fn = input.valueOf) == 'function' && !isObject(val = fn.call(input))) return val;
+    if (!PREFERRED_STRING && typeof (fn = input.toString) == 'function' && !isObject(val = fn.call(input))) return val;
+    throw TypeError("Can't convert object to primitive value");
+};
+// `ToObject` abstract operation
+// https://tc39.es/ecma262/#sec-toobject
+var toObject = function(argument) {
+    return Object(requireObjectCoercible(argument));
+};
+var hasOwnProperty = {
+}.hasOwnProperty;
+var has = function hasOwn(it, key) {
+    return hasOwnProperty.call(toObject(it), key);
+};
+var document$1 = global_1.document;
+// typeof document.createElement is 'object' in old IE
+var EXISTS = isObject(document$1) && isObject(document$1.createElement);
+var documentCreateElement = function(it) {
+    return EXISTS ? document$1.createElement(it) : {
+    };
+};
+// Thank's IE8 for his funny defineProperty
+var ie8DomDefine = !descriptors && !fails(function() {
+    // eslint-disable-next-line es/no-object-defineproperty -- requied for testing
+    return Object.defineProperty(documentCreateElement('div'), 'a', {
+        get: function() {
+            return 7;
+        }
+    }).a != 7;
+});
+// eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
+var $getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+// `Object.getOwnPropertyDescriptor` method
+// https://tc39.es/ecma262/#sec-object.getownpropertydescriptor
+var f$1 = descriptors ? $getOwnPropertyDescriptor : function getOwnPropertyDescriptor(O, P) {
+    O = toIndexedObject(O);
+    P = toPrimitive(P, true);
+    if (ie8DomDefine) try {
+        return $getOwnPropertyDescriptor(O, P);
+    } catch (error) {
+    }
+    if (has(O, P)) return createPropertyDescriptor(!objectPropertyIsEnumerable.f.call(O, P), O[P]);
+};
+var objectGetOwnPropertyDescriptor = {
+    f: f$1
+};
+var anObject = function(it) {
+    if (!isObject(it)) throw TypeError(String(it) + ' is not an object');
+    return it;
+};
+// eslint-disable-next-line es/no-object-defineproperty -- safe
+var $defineProperty = Object.defineProperty;
+// `Object.defineProperty` method
+// https://tc39.es/ecma262/#sec-object.defineproperty
+var f$2 = descriptors ? $defineProperty : function defineProperty(O, P, Attributes) {
+    anObject(O);
+    P = toPrimitive(P, true);
+    anObject(Attributes);
+    if (ie8DomDefine) try {
+        return $defineProperty(O, P, Attributes);
+    } catch (error) {
+    }
+    if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported');
+    if ('value' in Attributes) O[P] = Attributes.value;
+    return O;
+};
+var objectDefineProperty = {
+    f: f$2
+};
+var createNonEnumerableProperty = descriptors ? function(object, key, value) {
+    return objectDefineProperty.f(object, key, createPropertyDescriptor(1, value));
+} : function(object, key, value) {
+    object[key] = value;
+    return object;
+};
+var setGlobal = function(key, value) {
+    try {
+        createNonEnumerableProperty(global_1, key, value);
+    } catch (error) {
+        global_1[key] = value;
+    }
+    return value;
+};
+var SHARED = '__core-js_shared__';
+var store = global_1[SHARED] || setGlobal(SHARED, {
+});
+var sharedStore = store;
+var functionToString = Function.toString;
+// this helper broken in `3.4.1-3.4.4`, so we can't use `shared` helper
+if (typeof sharedStore.inspectSource != 'function') sharedStore.inspectSource = function(it) {
+    return functionToString.call(it);
+};
+var inspectSource = sharedStore.inspectSource;
+var WeakMap = global_1.WeakMap;
+var nativeWeakMap = typeof WeakMap === 'function' && /native code/.test(inspectSource(WeakMap));
+var shared = createCommonjsModule(function(module) {
+    (module.exports = function(key, value) {
+        return sharedStore[key] || (sharedStore[key] = value !== undefined ? value : {
+        });
+    })('versions', []).push({
+        version: '3.12.1',
+        mode: 'global',
+        copyright: '© 2021 Denis Pushkarev (zloirock.ru)'
+    });
+});
+var id = 0;
+var postfix = Math.random();
+var uid = function(key) {
+    return 'Symbol(' + String(key === undefined ? '' : key) + ')_' + (++id + postfix).toString(36);
+};
+var keys = shared('keys');
+var sharedKey = function(key) {
+    return keys[key] || (keys[key] = uid(key));
+};
+var hiddenKeys = {
+};
+var OBJECT_ALREADY_INITIALIZED = 'Object already initialized';
+var WeakMap$1 = global_1.WeakMap;
+var set, get, has$1;
+var enforce = function(it) {
+    return has$1(it) ? get(it) : set(it, {
+    });
+};
+var getterFor = function(TYPE) {
+    return function(it) {
+        var state;
+        if (!isObject(it) || (state = get(it)).type !== TYPE) throw TypeError('Incompatible receiver, ' + TYPE + ' required');
+        return state;
+    };
+};
+if (nativeWeakMap || sharedStore.state) {
+    var store$1 = sharedStore.state || (sharedStore.state = new WeakMap$1());
+    var wmget = store$1.get;
+    var wmhas = store$1.has;
+    var wmset = store$1.set;
+    set = function(it, metadata) {
+        if (wmhas.call(store$1, it)) throw new TypeError(OBJECT_ALREADY_INITIALIZED);
+        metadata.facade = it;
+        wmset.call(store$1, it, metadata);
+        return metadata;
+    };
+    get = function(it) {
+        return wmget.call(store$1, it) || {
+        };
+    };
+    has$1 = function(it) {
+        return wmhas.call(store$1, it);
+    };
+} else {
+    var STATE = sharedKey('state');
+    hiddenKeys[STATE] = true;
+    set = function(it, metadata) {
+        if (has(it, STATE)) throw new TypeError(OBJECT_ALREADY_INITIALIZED);
+        metadata.facade = it;
+        createNonEnumerableProperty(it, STATE, metadata);
+        return metadata;
+    };
+    get = function(it) {
+        return has(it, STATE) ? it[STATE] : {
+        };
+    };
+    has$1 = function(it) {
+        return has(it, STATE);
+    };
+}
+var internalState = {
+    set: set,
+    get: get,
+    has: has$1,
+    enforce: enforce,
+    getterFor: getterFor
+};
+var redefine = createCommonjsModule(function(module) {
+    var getInternalState = internalState.get;
+    var enforceInternalState = internalState.enforce;
+    var TEMPLATE = String(String).split('String');
+    (module.exports = function(O, key, value, options) {
+        var unsafe = options ? !!options.unsafe : false;
+        var simple = options ? !!options.enumerable : false;
+        var noTargetGet = options ? !!options.noTargetGet : false;
+        var state;
+        if (typeof value == 'function') {
+            if (typeof key == 'string' && !has(value, 'name')) createNonEnumerableProperty(value, 'name', key);
+            state = enforceInternalState(value);
+            if (!state.source) state.source = TEMPLATE.join(typeof key == 'string' ? key : '');
+        }
+        if (O === global_1) {
+            if (simple) O[key] = value;
+            else setGlobal(key, value);
+            return;
+        } else if (!unsafe) delete O[key];
+        else if (!noTargetGet && O[key]) simple = true;
+        if (simple) O[key] = value;
+        else createNonEnumerableProperty(O, key, value);
+    // add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
+    })(Function.prototype, 'toString', function toString() {
+        return typeof this == 'function' && getInternalState(this).source || inspectSource(this);
+    });
+});
+var path = global_1;
+var aFunction = function(variable) {
+    return typeof variable == 'function' ? variable : undefined;
+};
+var getBuiltIn = function(namespace, method) {
+    return arguments.length < 2 ? aFunction(path[namespace]) || aFunction(global_1[namespace]) : path[namespace] && path[namespace][method] || global_1[namespace] && global_1[namespace][method];
+};
+var ceil = Math.ceil;
+var floor = Math.floor;
+// `ToInteger` abstract operation
+// https://tc39.es/ecma262/#sec-tointeger
+var toInteger = function(argument) {
+    return isNaN(argument = +argument) ? 0 : (argument > 0 ? floor : ceil)(argument);
+};
+var min = Math.min;
+// `ToLength` abstract operation
+// https://tc39.es/ecma262/#sec-tolength
+var toLength = function(argument) {
+    return argument > 0 ? min(toInteger(argument), 9007199254740991) : 0; // 2 ** 53 - 1 == 9007199254740991
+};
+var max = Math.max;
+var min$1 = Math.min;
+// Helper for a popular repeating case of the spec:
+// Let integer be ? ToInteger(index).
+// If integer < 0, let result be max((length + integer), 0); else let result be min(integer, length).
+var toAbsoluteIndex = function(index, length) {
+    var integer = toInteger(index);
+    return integer < 0 ? max(integer + length, 0) : min$1(integer, length);
+};
+// `Array.prototype.{ indexOf, includes }` methods implementation
+var createMethod = function(IS_INCLUDES) {
+    return function($this, el, fromIndex) {
+        var O = toIndexedObject($this);
+        var length = toLength(O.length);
+        var index = toAbsoluteIndex(fromIndex, length);
+        var value;
+        // Array#includes uses SameValueZero equality algorithm
+        // eslint-disable-next-line no-self-compare -- NaN check
+        if (IS_INCLUDES && el != el) while(length > index){
+            value = O[index++];
+            // eslint-disable-next-line no-self-compare -- NaN check
+            if (value != value) return true;
+        // Array#indexOf ignores holes, Array#includes - not
+        }
+        else for(; length > index; index++){
+            if ((IS_INCLUDES || index in O) && O[index] === el) return IS_INCLUDES || index || 0;
+        }
+        return !IS_INCLUDES && -1;
+    };
+};
+var arrayIncludes = {
+    // `Array.prototype.includes` method
+    // https://tc39.es/ecma262/#sec-array.prototype.includes
+    includes: createMethod(true),
+    // `Array.prototype.indexOf` method
+    // https://tc39.es/ecma262/#sec-array.prototype.indexof
+    indexOf: createMethod(false)
+};
+var indexOf = arrayIncludes.indexOf;
+var objectKeysInternal = function(object, names) {
+    var O = toIndexedObject(object);
+    var i = 0;
+    var result = [];
+    var key;
+    for(key in O)!has(hiddenKeys, key) && has(O, key) && result.push(key);
+    // Don't enum bug & hidden keys
+    while(names.length > i)if (has(O, key = names[i++])) ~indexOf(result, key) || result.push(key);
+    return result;
+};
+// IE8- don't enum bug keys
+var enumBugKeys = [
+    'constructor',
+    'hasOwnProperty',
+    'isPrototypeOf',
+    'propertyIsEnumerable',
+    'toLocaleString',
+    'toString',
+    'valueOf'
+];
+var hiddenKeys$1 = enumBugKeys.concat('length', 'prototype');
+// `Object.getOwnPropertyNames` method
+// https://tc39.es/ecma262/#sec-object.getownpropertynames
+// eslint-disable-next-line es/no-object-getownpropertynames -- safe
+var f$3 = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
+    return objectKeysInternal(O, hiddenKeys$1);
+};
+var objectGetOwnPropertyNames = {
+    f: f$3
+};
+// eslint-disable-next-line es/no-object-getownpropertysymbols -- safe
+var f$4 = Object.getOwnPropertySymbols;
+var objectGetOwnPropertySymbols = {
+    f: f$4
+};
+// all object keys, includes non-enumerable and symbols
+var ownKeys$1 = getBuiltIn('Reflect', 'ownKeys') || function ownKeys(it) {
+    var keys2 = objectGetOwnPropertyNames.f(anObject(it));
+    var getOwnPropertySymbols = objectGetOwnPropertySymbols.f;
+    return getOwnPropertySymbols ? keys2.concat(getOwnPropertySymbols(it)) : keys2;
+};
+var copyConstructorProperties = function(target, source) {
+    var keys3 = ownKeys$1(source);
+    var defineProperty = objectDefineProperty.f;
+    var getOwnPropertyDescriptor1 = objectGetOwnPropertyDescriptor.f;
+    for(var i = 0; i < keys3.length; i++){
+        var key = keys3[i];
+        if (!has(target, key)) defineProperty(target, key, getOwnPropertyDescriptor1(source, key));
+    }
+};
+var replacement = /#|\.prototype\./;
+var isForced = function(feature, detection) {
+    var value = data[normalize(feature)];
+    return value == POLYFILL ? true : value == NATIVE ? false : typeof detection == 'function' ? fails(detection) : !!detection;
+};
+var normalize = isForced.normalize = function(string) {
+    return String(string).replace(replacement, '.').toLowerCase();
+};
+var data = isForced.data = {
+};
+var NATIVE = isForced.NATIVE = 'N';
+var POLYFILL = isForced.POLYFILL = 'P';
+var isForced_1 = isForced;
+var getOwnPropertyDescriptor$1 = objectGetOwnPropertyDescriptor.f;
+/*
+  options.target      - name of the target object
+  options.global      - target is the global object
+  options.stat        - export as static methods of target
+  options.proto       - export as prototype methods of target
+  options.real        - real prototype method for the `pure` version
+  options.forced      - export even if the native feature is available
+  options.bind        - bind methods to the target, required for the `pure` version
+  options.wrap        - wrap constructors to preventing global pollution, required for the `pure` version
+  options.unsafe      - use the simple assignment of property instead of delete + defineProperty
+  options.sham        - add a flag to not completely full polyfills
+  options.enumerable  - export as enumerable property
+  options.noTargetGet - prevent calling a getter on target
+*/ var _export = function(options, source) {
+    var TARGET = options.target;
+    var GLOBAL = options.global;
+    var STATIC = options.stat;
+    var FORCED, target, key, targetProperty, sourceProperty, descriptor;
+    if (GLOBAL) target = global_1;
+    else if (STATIC) target = global_1[TARGET] || setGlobal(TARGET, {
+    });
+    else target = (global_1[TARGET] || {
+    }).prototype;
+    if (target) for(key in source){
+        sourceProperty = source[key];
+        if (options.noTargetGet) {
+            descriptor = getOwnPropertyDescriptor$1(target, key);
+            targetProperty = descriptor && descriptor.value;
+        } else targetProperty = target[key];
+        FORCED = isForced_1(GLOBAL ? key : TARGET + (STATIC ? '.' : '#') + key, options.forced);
+        // contained in target
+        if (!FORCED && targetProperty !== undefined) {
+            if (typeof sourceProperty === typeof targetProperty) continue;
+            copyConstructorProperties(sourceProperty, targetProperty);
+        }
+        // add a flag to not completely full polyfills
+        if (options.sham || targetProperty && targetProperty.sham) createNonEnumerableProperty(sourceProperty, 'sham', true);
+        // extend global
+        redefine(target, key, sourceProperty, options);
+    }
+};
+var aFunction$1 = function(it) {
+    if (typeof it != 'function') throw TypeError(String(it) + ' is not a function');
+    return it;
+};
+// optional / simple context binding
+var functionBindContext = function(fn, that, length) {
+    aFunction$1(fn);
+    if (that === undefined) return fn;
+    switch(length){
+        case 0:
+            return function() {
+                return fn.call(that);
+            };
+        case 1:
+            return function(a) {
+                return fn.call(that, a);
+            };
+        case 2:
+            return function(a, b) {
+                return fn.call(that, a, b);
+            };
+        case 3:
+            return function(a, b, c) {
+                return fn.call(that, a, b, c);
+            };
+    }
+    return function() {
+        return fn.apply(that, arguments);
+    };
+};
+// `IsArray` abstract operation
+// https://tc39.es/ecma262/#sec-isarray
+// eslint-disable-next-line es/no-array-isarray -- safe
+var isArray = Array.isArray || function isArray(arg) {
+    return classofRaw(arg) == 'Array';
+};
+var engineUserAgent = getBuiltIn('navigator', 'userAgent') || '';
+var process = global_1.process;
+var versions = process && process.versions;
+var v8 = versions && versions.v8;
+var match, version;
+if (v8) {
+    match = v8.split('.');
+    version = match[0] < 4 ? 1 : match[0] + match[1];
+} else if (engineUserAgent) {
+    match = engineUserAgent.match(/Edge\/(\d+)/);
+    if (!match || match[1] >= 74) {
+        match = engineUserAgent.match(/Chrome\/(\d+)/);
+        if (match) version = match[1];
+    }
+}
+var engineV8Version = version && +version;
+/* eslint-disable es/no-symbol -- required for testing */ // eslint-disable-next-line es/no-object-getownpropertysymbols -- required for testing
+var nativeSymbol = !!Object.getOwnPropertySymbols && !fails(function() {
+    return !String(Symbol()) || // Chrome 38 Symbol has incorrect toString conversion
+    // Chrome 38-40 symbols are not inherited from DOM collections prototypes to instances
+    !Symbol.sham && engineV8Version && engineV8Version < 41;
+});
+/* eslint-disable es/no-symbol -- required for testing */ var useSymbolAsUid = nativeSymbol && !Symbol.sham && typeof Symbol.iterator == 'symbol';
+var WellKnownSymbolsStore = shared('wks');
+var Symbol$1 = global_1.Symbol;
+var createWellKnownSymbol = useSymbolAsUid ? Symbol$1 : Symbol$1 && Symbol$1.withoutSetter || uid;
+var wellKnownSymbol = function(name) {
+    if (!has(WellKnownSymbolsStore, name) || !(nativeSymbol || typeof WellKnownSymbolsStore[name] == 'string')) {
+        if (nativeSymbol && has(Symbol$1, name)) WellKnownSymbolsStore[name] = Symbol$1[name];
+        else WellKnownSymbolsStore[name] = createWellKnownSymbol('Symbol.' + name);
+    }
+    return WellKnownSymbolsStore[name];
+};
+var SPECIES = wellKnownSymbol('species');
+// `ArraySpeciesCreate` abstract operation
+// https://tc39.es/ecma262/#sec-arrayspeciescreate
+var arraySpeciesCreate = function(originalArray, length) {
+    var C;
+    if (isArray(originalArray)) {
+        C = originalArray.constructor;
+        // cross-realm fallback
+        if (typeof C == 'function' && (C === Array || isArray(C.prototype))) C = undefined;
+        else if (isObject(C)) {
+            C = C[SPECIES];
+            if (C === null) C = undefined;
+        }
+    }
+    return new (C === undefined ? Array : C)(length === 0 ? 0 : length);
+};
+var push = [].push;
+// `Array.prototype.{ forEach, map, filter, some, every, find, findIndex, filterOut }` methods implementation
+var createMethod$1 = function(TYPE) {
+    var IS_MAP = TYPE == 1;
+    var IS_FILTER = TYPE == 2;
+    var IS_SOME = TYPE == 3;
+    var IS_EVERY = TYPE == 4;
+    var IS_FIND_INDEX = TYPE == 6;
+    var IS_FILTER_OUT = TYPE == 7;
+    var NO_HOLES = TYPE == 5 || IS_FIND_INDEX;
+    return function($this, callbackfn, that, specificCreate) {
+        var O = toObject($this);
+        var self = indexedObject(O);
+        var boundFunction = functionBindContext(callbackfn, that, 3);
+        var length = toLength(self.length);
+        var index = 0;
+        var create = specificCreate || arraySpeciesCreate;
+        var target = IS_MAP ? create($this, length) : IS_FILTER || IS_FILTER_OUT ? create($this, 0) : undefined;
+        var value, result;
+        for(; length > index; index++)if (NO_HOLES || index in self) {
+            value = self[index];
+            result = boundFunction(value, index, O);
+            if (TYPE) {
+                if (IS_MAP) target[index] = result; // map
+                else if (result) switch(TYPE){
+                    case 3:
+                        return true; // some
+                    case 5:
+                        return value; // find
+                    case 6:
+                        return index; // findIndex
+                    case 2:
+                        push.call(target, value); // filter
+                }
+                else switch(TYPE){
+                    case 4:
+                        return false; // every
+                    case 7:
+                        push.call(target, value); // filterOut
+                }
+            }
+        }
+        return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : target;
+    };
+};
+var arrayIteration = {
+    // `Array.prototype.forEach` method
+    // https://tc39.es/ecma262/#sec-array.prototype.foreach
+    forEach: createMethod$1(0),
+    // `Array.prototype.map` method
+    // https://tc39.es/ecma262/#sec-array.prototype.map
+    map: createMethod$1(1),
+    // `Array.prototype.filter` method
+    // https://tc39.es/ecma262/#sec-array.prototype.filter
+    filter: createMethod$1(2),
+    // `Array.prototype.some` method
+    // https://tc39.es/ecma262/#sec-array.prototype.some
+    some: createMethod$1(3),
+    // `Array.prototype.every` method
+    // https://tc39.es/ecma262/#sec-array.prototype.every
+    every: createMethod$1(4),
+    // `Array.prototype.find` method
+    // https://tc39.es/ecma262/#sec-array.prototype.find
+    find: createMethod$1(5),
+    // `Array.prototype.findIndex` method
+    // https://tc39.es/ecma262/#sec-array.prototype.findIndex
+    findIndex: createMethod$1(6),
+    // `Array.prototype.filterOut` method
+    // https://github.com/tc39/proposal-array-filtering
+    filterOut: createMethod$1(7)
+};
+// `Object.keys` method
+// https://tc39.es/ecma262/#sec-object.keys
+// eslint-disable-next-line es/no-object-keys -- safe
+var objectKeys = Object.keys || function keys(O) {
+    return objectKeysInternal(O, enumBugKeys);
+};
+// `Object.defineProperties` method
+// https://tc39.es/ecma262/#sec-object.defineproperties
+// eslint-disable-next-line es/no-object-defineproperties -- safe
+var objectDefineProperties = descriptors ? Object.defineProperties : function defineProperties(O, Properties) {
+    anObject(O);
+    var keys4 = objectKeys(Properties);
+    var length = keys4.length;
+    var index = 0;
+    var key;
+    while(length > index)objectDefineProperty.f(O, key = keys4[index++], Properties[key]);
+    return O;
+};
+var html = getBuiltIn('document', 'documentElement');
+var GT = '>';
+var LT = '<';
+var PROTOTYPE = 'prototype';
+var SCRIPT = 'script';
+var IE_PROTO = sharedKey('IE_PROTO');
+var EmptyConstructor = function() {
+};
+var scriptTag = function(content) {
+    return LT + SCRIPT + GT + content + LT + '/' + SCRIPT + GT;
+};
+// Create object with fake `null` prototype: use ActiveX Object with cleared prototype
+var NullProtoObjectViaActiveX = function(activeXDocument1) {
+    activeXDocument1.write(scriptTag(''));
+    activeXDocument1.close();
+    var temp = activeXDocument1.parentWindow.Object;
+    activeXDocument1 = null; // avoid memory leak
+    return temp;
+};
+// Create object with fake `null` prototype: use iframe Object with cleared prototype
+var NullProtoObjectViaIFrame = function() {
+    // Thrash, waste and sodomy: IE GC bug
+    var iframe = documentCreateElement('iframe');
+    var JS = 'java' + SCRIPT + ':';
+    var iframeDocument;
+    iframe.style.display = 'none';
+    html.appendChild(iframe);
+    // https://github.com/zloirock/core-js/issues/475
+    iframe.src = String(JS);
+    iframeDocument = iframe.contentWindow.document;
+    iframeDocument.open();
+    iframeDocument.write(scriptTag('document.F=Object'));
+    iframeDocument.close();
+    return iframeDocument.F;
+};
+// Check for document.domain and active x support
+// No need to use active x approach when document.domain is not set
+// see https://github.com/es-shims/es5-shim/issues/150
+// variation of https://github.com/kitcambridge/es5-shim/commit/4f738ac066346
+// avoid IE GC bug
+var activeXDocument;
+var NullProtoObject = function() {
+    try {
+        /* global ActiveXObject -- old IE */ activeXDocument = document.domain && new ActiveXObject('htmlfile');
+    } catch (error) {
+    }
+    NullProtoObject = activeXDocument ? NullProtoObjectViaActiveX(activeXDocument) : NullProtoObjectViaIFrame();
+    var length = enumBugKeys.length;
+    while(length--)delete NullProtoObject[PROTOTYPE][enumBugKeys[length]];
+    return NullProtoObject();
+};
+hiddenKeys[IE_PROTO] = true;
+// `Object.create` method
+// https://tc39.es/ecma262/#sec-object.create
+var objectCreate = Object.create || function create(O, Properties) {
+    var result;
+    if (O !== null) {
+        EmptyConstructor[PROTOTYPE] = anObject(O);
+        result = new EmptyConstructor();
+        EmptyConstructor[PROTOTYPE] = null;
+        // add "__proto__" for Object.getPrototypeOf polyfill
+        result[IE_PROTO] = O;
+    } else result = NullProtoObject();
+    return Properties === undefined ? result : objectDefineProperties(result, Properties);
+};
+var UNSCOPABLES = wellKnownSymbol('unscopables');
+var ArrayPrototype = Array.prototype;
+// Array.prototype[@@unscopables]
+// https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
+if (ArrayPrototype[UNSCOPABLES] == undefined) objectDefineProperty.f(ArrayPrototype, UNSCOPABLES, {
+    configurable: true,
+    value: objectCreate(null)
+});
+// add a key to Array.prototype[@@unscopables]
+var addToUnscopables = function(key) {
+    ArrayPrototype[UNSCOPABLES][key] = true;
+};
+var $find = arrayIteration.find;
+var FIND = 'find';
+var SKIPS_HOLES = true;
+// Shouldn't skip holes
+if (FIND in []) Array(1)[FIND](function() {
+    SKIPS_HOLES = false;
+});
+// `Array.prototype.find` method
+// https://tc39.es/ecma262/#sec-array.prototype.find
+_export({
+    target: 'Array',
+    proto: true,
+    forced: SKIPS_HOLES
+}, {
+    find: function find(callbackfn /* , that = undefined */ ) {
+        return $find(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+    }
+});
+// https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
+addToUnscopables(FIND);
+var _class, _class2, _temp;
+var ReactTooltip = staticMethods(_class = windowListener(_class = customEvent(_class = isCapture(_class = getEffect(_class = bodyMode(_class = trackRemoval(_class = (_temp = _class2 = /*#__PURE__*/ function(_React$Component) {
+    _inherits(ReactTooltip1, _React$Component);
+    _createClass(ReactTooltip1, null, [
+        {
+            key: "propTypes",
+            get: function get() {
+                return {
+                    uuid: _propTypesDefault.default.string,
+                    children: _propTypesDefault.default.any,
+                    place: _propTypesDefault.default.string,
+                    type: _propTypesDefault.default.string,
+                    effect: _propTypesDefault.default.string,
+                    offset: _propTypesDefault.default.object,
+                    multiline: _propTypesDefault.default.bool,
+                    border: _propTypesDefault.default.bool,
+                    textColor: _propTypesDefault.default.string,
+                    backgroundColor: _propTypesDefault.default.string,
+                    borderColor: _propTypesDefault.default.string,
+                    arrowColor: _propTypesDefault.default.string,
+                    insecure: _propTypesDefault.default.bool,
+                    "class": _propTypesDefault.default.string,
+                    className: _propTypesDefault.default.string,
+                    id: _propTypesDefault.default.string,
+                    html: _propTypesDefault.default.bool,
+                    delayHide: _propTypesDefault.default.number,
+                    delayUpdate: _propTypesDefault.default.number,
+                    delayShow: _propTypesDefault.default.number,
+                    event: _propTypesDefault.default.string,
+                    eventOff: _propTypesDefault.default.string,
+                    isCapture: _propTypesDefault.default.bool,
+                    globalEventOff: _propTypesDefault.default.string,
+                    getContent: _propTypesDefault.default.any,
+                    afterShow: _propTypesDefault.default.func,
+                    afterHide: _propTypesDefault.default.func,
+                    overridePosition: _propTypesDefault.default.func,
+                    disable: _propTypesDefault.default.bool,
+                    scrollHide: _propTypesDefault.default.bool,
+                    resizeHide: _propTypesDefault.default.bool,
+                    wrapper: _propTypesDefault.default.string,
+                    bodyMode: _propTypesDefault.default.bool,
+                    possibleCustomEvents: _propTypesDefault.default.string,
+                    possibleCustomEventsOff: _propTypesDefault.default.string,
+                    clickable: _propTypesDefault.default.bool
+                };
+            }
+        }
+    ]);
+    function ReactTooltip1(props) {
+        var _this;
+        _classCallCheck(this, ReactTooltip1);
+        _this = _possibleConstructorReturn(this, _getPrototypeOf(ReactTooltip1).call(this, props));
+        _this.state = {
+            uuid: props.uuid || generateUUID(),
+            place: props.place || 'top',
+            // Direction of tooltip
+            desiredPlace: props.place || 'top',
+            type: 'dark',
+            // Color theme of tooltip
+            effect: 'float',
+            // float or fixed
+            show: false,
+            border: false,
+            customColors: {
+            },
+            offset: {
+            },
+            extraClass: '',
+            html: false,
+            delayHide: 0,
+            delayShow: 0,
+            event: props.event || null,
+            eventOff: props.eventOff || null,
+            currentEvent: null,
+            // Current mouse event
+            currentTarget: null,
+            // Current target of mouse event
+            ariaProps: parseAria(props),
+            // aria- and role attributes
+            isEmptyTip: false,
+            disable: false,
+            possibleCustomEvents: props.possibleCustomEvents || '',
+            possibleCustomEventsOff: props.possibleCustomEventsOff || '',
+            originTooltip: null,
+            isMultiline: false
+        };
+        _this.bind([
+            'showTooltip',
+            'updateTooltip',
+            'hideTooltip',
+            'hideTooltipOnScroll',
+            'getTooltipContent',
+            'globalRebuild',
+            'globalShow',
+            'globalHide',
+            'onWindowResize',
+            'mouseOnToolTip'
+        ]);
+        _this.mount = true;
+        _this.delayShowLoop = null;
+        _this.delayHideLoop = null;
+        _this.delayReshow = null;
+        _this.intervalUpdateContent = null;
+        return _this;
+    }
+    /**
+   * For unify the bind and unbind listener
+   */ _createClass(ReactTooltip1, [
+        {
+            key: "bind",
+            value: function bind(methodArray) {
+                var _this2 = this;
+                methodArray.forEach(function(method) {
+                    _this2[method] = _this2[method].bind(_this2);
+                });
+            }
+        },
+        {
+            key: "componentDidMount",
+            value: function componentDidMount() {
+                var _this$props = this.props, insecure = _this$props.insecure, resizeHide = _this$props.resizeHide;
+                this.bindListener(); // Bind listener for tooltip
+                this.bindWindowEvents(resizeHide); // Bind global event for static method
+                this.injectStyles(); // Inject styles for each DOM root having tooltip.
+            }
+        },
+        {
+            key: "componentWillUnmount",
+            value: function componentWillUnmount() {
+                this.mount = false;
+                this.clearTimer();
+                this.unbindListener();
+                this.removeScrollListener(this.state.currentTarget);
+                this.unbindWindowEvents();
+            }
+        },
+        {
+            key: "injectStyles",
+            value: function injectStyles() {
+                var tooltipRef = this.tooltipRef;
+                if (!tooltipRef) return;
+                var parentNode = tooltipRef.parentNode;
+                while(parentNode.parentNode)parentNode = parentNode.parentNode;
+                var domRoot;
+                switch(parentNode.constructor.name){
+                    case 'Document':
+                    case 'HTMLDocument':
+                    case undefined:
+                        domRoot = parentNode.head;
+                        break;
+                    case 'ShadowRoot':
+                    default:
+                        domRoot = parentNode;
+                        break;
+                } // Prevent styles duplication.
+                if (!domRoot.querySelector('style[data-react-tooltip]')) {
+                    var style = document.createElement('style');
+                    style.textContent = baseCss;
+                    style.setAttribute('data-react-tooltip', 'true');
+                    domRoot.appendChild(style);
+                }
+            }
+        },
+        {
+            key: "mouseOnToolTip",
+            value: function mouseOnToolTip() {
+                var show = this.state.show;
+                if (show && this.tooltipRef) {
+                    /* old IE or Firefox work around */ if (!this.tooltipRef.matches) {
+                        /* old IE work around */ if (this.tooltipRef.msMatchesSelector) this.tooltipRef.matches = this.tooltipRef.msMatchesSelector;
+                        else /* old Firefox work around */ this.tooltipRef.matches = this.tooltipRef.mozMatchesSelector;
+                    }
+                    return this.tooltipRef.matches(':hover');
+                }
+                return false;
+            }
+        },
+        {
+            key: "getTargetArray",
+            value: function getTargetArray(id3) {
+                var targetArray = [];
+                var selector;
+                if (!id3) selector = '[data-tip]:not([data-for])';
+                else {
+                    var escaped = id3.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+                    selector = "[data-tip][data-for=\"".concat(escaped, "\"]");
+                } // Scan document for shadow DOM elements
+                nodeListToArray(document.getElementsByTagName('*')).filter(function(element) {
+                    return element.shadowRoot;
+                }).forEach(function(element) {
+                    targetArray = targetArray.concat(nodeListToArray(element.shadowRoot.querySelectorAll(selector)));
+                });
+                return targetArray.concat(nodeListToArray(document.querySelectorAll(selector)));
+            }
+        },
+        {
+            key: "bindListener",
+            value: function bindListener() {
+                var _this3 = this;
+                var _this$props2 = this.props, id4 = _this$props2.id, globalEventOff = _this$props2.globalEventOff, isCapture2 = _this$props2.isCapture;
+                var targetArray = this.getTargetArray(id4);
+                targetArray.forEach(function(target) {
+                    if (target.getAttribute('currentItem') === null) target.setAttribute('currentItem', 'false');
+                    _this3.unbindBasicListener(target);
+                    if (_this3.isCustomEvent(target)) _this3.customUnbindListener(target);
+                });
+                if (this.isBodyMode()) this.bindBodyListener(targetArray);
+                else targetArray.forEach(function(target) {
+                    var isCaptureMode = _this3.isCapture(target);
+                    var effect = _this3.getEffect(target);
+                    if (_this3.isCustomEvent(target)) {
+                        _this3.customBindListener(target);
+                        return;
+                    }
+                    target.addEventListener('mouseenter', _this3.showTooltip, isCaptureMode);
+                    target.addEventListener('focus', _this3.showTooltip, isCaptureMode);
+                    if (effect === 'float') target.addEventListener('mousemove', _this3.updateTooltip, isCaptureMode);
+                    target.addEventListener('mouseleave', _this3.hideTooltip, isCaptureMode);
+                    target.addEventListener('blur', _this3.hideTooltip, isCaptureMode);
+                });
+                 // Global event to hide tooltip
+                if (globalEventOff) {
+                    window.removeEventListener(globalEventOff, this.hideTooltip);
+                    window.addEventListener(globalEventOff, this.hideTooltip, isCapture2);
+                } // Track removal of targetArray elements from DOM
+                this.bindRemovalTracker();
+            }
+        },
+        {
+            key: "unbindListener",
+            value: function unbindListener() {
+                var _this4 = this;
+                var _this$props3 = this.props, id5 = _this$props3.id, globalEventOff = _this$props3.globalEventOff;
+                if (this.isBodyMode()) this.unbindBodyListener();
+                else {
+                    var targetArray = this.getTargetArray(id5);
+                    targetArray.forEach(function(target) {
+                        _this4.unbindBasicListener(target);
+                        if (_this4.isCustomEvent(target)) _this4.customUnbindListener(target);
+                    });
+                }
+                if (globalEventOff) window.removeEventListener(globalEventOff, this.hideTooltip);
+                this.unbindRemovalTracker();
+            }
+        },
+        {
+            key: "unbindBasicListener",
+            value: function unbindBasicListener(target) {
+                var isCaptureMode = this.isCapture(target);
+                target.removeEventListener('mouseenter', this.showTooltip, isCaptureMode);
+                target.removeEventListener('mousemove', this.updateTooltip, isCaptureMode);
+                target.removeEventListener('mouseleave', this.hideTooltip, isCaptureMode);
+            }
+        },
+        {
+            key: "getTooltipContent",
+            value: function getTooltipContent() {
+                var _this$props4 = this.props, getContent = _this$props4.getContent, children = _this$props4.children; // Generate tooltip content
+                var content;
+                if (getContent) {
+                    if (Array.isArray(getContent)) content = getContent[0] && getContent[0](this.state.originTooltip);
+                    else content = getContent(this.state.originTooltip);
+                }
+                return getTipContent(this.state.originTooltip, children, content, this.state.isMultiline);
+            }
+        },
+        {
+            key: "isEmptyTip",
+            value: function isEmptyTip(placeholder) {
+                return typeof placeholder === 'string' && placeholder === '' || placeholder === null;
+            }
+        },
+        {
+            key: "showTooltip",
+            value: function showTooltip(e, isGlobalCall) {
+                if (!this.tooltipRef) return;
+                if (isGlobalCall) {
+                    // Don't trigger other elements belongs to other ReactTooltip
+                    var targetArray = this.getTargetArray(this.props.id);
+                    var isMyElement = targetArray.some(function(ele) {
+                        return ele === e.currentTarget;
+                    });
+                    if (!isMyElement) return;
+                } // Get the tooltip content
+                // calculate in this phrase so that tip width height can be detected
+                var _this$props5 = this.props, multiline = _this$props5.multiline, getContent = _this$props5.getContent;
+                var originTooltip = e.currentTarget.getAttribute('data-tip');
+                var isMultiline = e.currentTarget.getAttribute('data-multiline') || multiline || false; // If it is focus event or called by ReactTooltip.show, switch to `solid` effect
+                var switchToSolid = e instanceof window.FocusEvent || isGlobalCall; // if it needs to skip adding hide listener to scroll
+                var scrollHide = true;
+                if (e.currentTarget.getAttribute('data-scroll-hide')) scrollHide = e.currentTarget.getAttribute('data-scroll-hide') === 'true';
+                else if (this.props.scrollHide != null) scrollHide = this.props.scrollHide;
+                 // adding aria-describedby to target to make tooltips read by screen readers
+                if (e && e.currentTarget && e.currentTarget.setAttribute) e.currentTarget.setAttribute('aria-describedby', this.state.uuid);
+                 // Make sure the correct place is set
+                var desiredPlace = e.currentTarget.getAttribute('data-place') || this.props.place || 'top';
+                var effect = switchToSolid && 'solid' || this.getEffect(e.currentTarget);
+                var offset = e.currentTarget.getAttribute('data-offset') || this.props.offset || {
+                };
+                var result = getPosition(e, e.currentTarget, this.tooltipRef, desiredPlace, desiredPlace, effect, offset);
+                if (result.position && this.props.overridePosition) result.position = this.props.overridePosition(result.position, e, e.currentTarget, this.tooltipRef, desiredPlace, desiredPlace, effect, offset);
+                var place = result.isNewState ? result.newState.place : desiredPlace; // To prevent previously created timers from triggering
+                this.clearTimer();
+                var target = e.currentTarget;
+                var reshowDelay = this.state.show ? target.getAttribute('data-delay-update') || this.props.delayUpdate : 0;
+                var self = this;
+                var updateState = function updateState() {
+                    self.setState({
+                        originTooltip: originTooltip,
+                        isMultiline: isMultiline,
+                        desiredPlace: desiredPlace,
+                        place: place,
+                        type: target.getAttribute('data-type') || self.props.type || 'dark',
+                        customColors: {
+                            text: target.getAttribute('data-text-color') || self.props.textColor || null,
+                            background: target.getAttribute('data-background-color') || self.props.backgroundColor || null,
+                            border: target.getAttribute('data-border-color') || self.props.borderColor || null,
+                            arrow: target.getAttribute('data-arrow-color') || self.props.arrowColor || null
+                        },
+                        effect: effect,
+                        offset: offset,
+                        html: (target.getAttribute('data-html') ? target.getAttribute('data-html') === 'true' : self.props.html) || false,
+                        delayShow: target.getAttribute('data-delay-show') || self.props.delayShow || 0,
+                        delayHide: target.getAttribute('data-delay-hide') || self.props.delayHide || 0,
+                        delayUpdate: target.getAttribute('data-delay-update') || self.props.delayUpdate || 0,
+                        border: (target.getAttribute('data-border') ? target.getAttribute('data-border') === 'true' : self.props.border) || false,
+                        extraClass: target.getAttribute('data-class') || self.props["class"] || self.props.className || '',
+                        disable: (target.getAttribute('data-tip-disable') ? target.getAttribute('data-tip-disable') === 'true' : self.props.disable) || false,
+                        currentTarget: target
+                    }, function() {
+                        if (scrollHide) self.addScrollListener(self.state.currentTarget);
+                        self.updateTooltip(e);
+                        if (getContent && Array.isArray(getContent)) self.intervalUpdateContent = setInterval(function() {
+                            if (self.mount) {
+                                var _getContent = self.props.getContent;
+                                var placeholder = getTipContent(originTooltip, '', _getContent[0](), isMultiline);
+                                var isEmptyTip = self.isEmptyTip(placeholder);
+                                self.setState({
+                                    isEmptyTip: isEmptyTip
+                                });
+                                self.updatePosition();
+                            }
+                        }, getContent[1]);
+                    });
+                }; // If there is no delay call immediately, don't allow events to get in first.
+                if (reshowDelay) this.delayReshow = setTimeout(updateState, reshowDelay);
+                else updateState();
+            }
+        },
+        {
+            key: "updateTooltip",
+            value: function updateTooltip(e) {
+                var _this5 = this;
+                var _this$state = this.state, delayShow = _this$state.delayShow, disable = _this$state.disable;
+                var afterShow = this.props.afterShow;
+                var placeholder = this.getTooltipContent();
+                var eventTarget = e.currentTarget || e.target; // Check if the mouse is actually over the tooltip, if so don't hide the tooltip
+                if (this.mouseOnToolTip()) return;
+                 // if the tooltip is empty, disable the tooltip
+                if (this.isEmptyTip(placeholder) || disable) return;
+                var delayTime = !this.state.show ? parseInt(delayShow, 10) : 0;
+                var updateState = function updateState() {
+                    if (Array.isArray(placeholder) && placeholder.length > 0 || placeholder) {
+                        var isInvisible = !_this5.state.show;
+                        _this5.setState({
+                            currentEvent: e,
+                            currentTarget: eventTarget,
+                            show: true
+                        }, function() {
+                            _this5.updatePosition();
+                            if (isInvisible && afterShow) afterShow(e);
+                        });
+                    }
+                };
+                clearTimeout(this.delayShowLoop);
+                if (delayTime) this.delayShowLoop = setTimeout(updateState, delayTime);
+                else updateState();
+            }
+        },
+        {
+            key: "listenForTooltipExit",
+            value: function listenForTooltipExit() {
+                var show = this.state.show;
+                if (show && this.tooltipRef) this.tooltipRef.addEventListener('mouseleave', this.hideTooltip);
+            }
+        },
+        {
+            key: "removeListenerForTooltipExit",
+            value: function removeListenerForTooltipExit() {
+                var show = this.state.show;
+                if (show && this.tooltipRef) this.tooltipRef.removeEventListener('mouseleave', this.hideTooltip);
+            }
+        },
+        {
+            key: "hideTooltip",
+            value: function hideTooltip(e, hasTarget) {
+                var _this6 = this;
+                var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
+                    isScroll: false
+                };
+                var disable = this.state.disable;
+                var isScroll = options.isScroll;
+                var delayHide = isScroll ? 0 : this.state.delayHide;
+                var afterHide = this.props.afterHide;
+                var placeholder = this.getTooltipContent();
+                if (!this.mount) return;
+                if (this.isEmptyTip(placeholder) || disable) return; // if the tooltip is empty, disable the tooltip
+                if (hasTarget) {
+                    // Don't trigger other elements belongs to other ReactTooltip
+                    var targetArray = this.getTargetArray(this.props.id);
+                    var isMyElement = targetArray.some(function(ele) {
+                        return ele === e.currentTarget;
+                    });
+                    if (!isMyElement || !this.state.show) return;
+                } // clean up aria-describedby when hiding tooltip
+                if (e && e.currentTarget && e.currentTarget.removeAttribute) e.currentTarget.removeAttribute('aria-describedby');
+                var resetState = function resetState() {
+                    var isVisible = _this6.state.show; // Check if the mouse is actually over the tooltip, if so don't hide the tooltip
+                    if (_this6.mouseOnToolTip()) {
+                        _this6.listenForTooltipExit();
+                        return;
+                    }
+                    _this6.removeListenerForTooltipExit();
+                    _this6.setState({
+                        show: false
+                    }, function() {
+                        _this6.removeScrollListener(_this6.state.currentTarget);
+                        if (isVisible && afterHide) afterHide(e);
+                    });
+                };
+                this.clearTimer();
+                if (delayHide) this.delayHideLoop = setTimeout(resetState, parseInt(delayHide, 10));
+                else resetState();
+            }
+        },
+        {
+            key: "hideTooltipOnScroll",
+            value: function hideTooltipOnScroll(event, hasTarget) {
+                this.hideTooltip(event, hasTarget, {
+                    isScroll: true
+                });
+            }
+        },
+        {
+            key: "addScrollListener",
+            value: function addScrollListener(currentTarget) {
+                var isCaptureMode = this.isCapture(currentTarget);
+                window.addEventListener('scroll', this.hideTooltipOnScroll, isCaptureMode);
+            }
+        },
+        {
+            key: "removeScrollListener",
+            value: function removeScrollListener(currentTarget) {
+                var isCaptureMode = this.isCapture(currentTarget);
+                window.removeEventListener('scroll', this.hideTooltipOnScroll, isCaptureMode);
+            } // Calculation the position
+        },
+        {
+            key: "updatePosition",
+            value: function updatePosition() {
+                var _this7 = this;
+                var _this$state2 = this.state, currentEvent = _this$state2.currentEvent, currentTarget = _this$state2.currentTarget, place = _this$state2.place, desiredPlace = _this$state2.desiredPlace, effect = _this$state2.effect, offset = _this$state2.offset;
+                var node = this.tooltipRef;
+                var result = getPosition(currentEvent, currentTarget, node, place, desiredPlace, effect, offset);
+                if (result.position && this.props.overridePosition) result.position = this.props.overridePosition(result.position, currentEvent, currentTarget, node, place, desiredPlace, effect, offset);
+                if (result.isNewState) // Switch to reverse placement
+                return this.setState(result.newState, function() {
+                    _this7.updatePosition();
+                });
+                 // Set tooltip position
+                node.style.left = result.position.left + 'px';
+                node.style.top = result.position.top + 'px';
+            }
+        },
+        {
+            key: "clearTimer",
+            value: function clearTimer() {
+                clearTimeout(this.delayShowLoop);
+                clearTimeout(this.delayHideLoop);
+                clearTimeout(this.delayReshow);
+                clearInterval(this.intervalUpdateContent);
+            }
+        },
+        {
+            key: "hasCustomColors",
+            value: function hasCustomColors() {
+                var _this8 = this;
+                return Boolean(Object.keys(this.state.customColors).find(function(color) {
+                    return color !== 'border' && _this8.state.customColors[color];
+                }) || this.state.border && this.state.customColors['border']);
+            }
+        },
+        {
+            key: "render",
+            value: function render() {
+                var _this9 = this;
+                var _this$state3 = this.state, extraClass = _this$state3.extraClass, html1 = _this$state3.html, ariaProps = _this$state3.ariaProps, disable = _this$state3.disable, uuid = _this$state3.uuid;
+                var content = this.getTooltipContent();
+                var isEmptyTip = this.isEmptyTip(content);
+                var style = generateTooltipStyle(this.state.uuid, this.state.customColors, this.state.type, this.state.border);
+                var tooltipClass = '__react_component_tooltip' + " ".concat(this.state.uuid) + (this.state.show && !disable && !isEmptyTip ? ' show' : '') + (this.state.border ? ' border' : '') + " place-".concat(this.state.place) + " type-".concat(this.hasCustomColors() ? 'custom' : this.state.type) + (this.props.delayUpdate ? ' allow_hover' : '') + (this.props.clickable ? ' allow_click' : '');
+                var Wrapper = this.props.wrapper;
+                if (ReactTooltip1.supportedWrappers.indexOf(Wrapper) < 0) Wrapper = ReactTooltip1.defaultProps.wrapper;
+                var wrapperClassName = [
+                    tooltipClass,
+                    extraClass
+                ].filter(Boolean).join(' ');
+                if (html1) {
+                    var htmlContent = "".concat(content, "\n<style aria-hidden=\"true\">").concat(style, "</style>");
+                    return _reactDefault.default.createElement(Wrapper, _extends({
+                        className: "".concat(wrapperClassName),
+                        id: this.props.id || uuid,
+                        ref: function ref(_ref) {
+                            return _this9.tooltipRef = _ref;
+                        }
+                    }, ariaProps, {
+                        "data-id": "tooltip",
+                        dangerouslySetInnerHTML: {
+                            __html: htmlContent
+                        }
+                    }));
+                } else return _reactDefault.default.createElement(Wrapper, _extends({
+                    className: "".concat(wrapperClassName),
+                    id: this.props.id || uuid
+                }, ariaProps, {
+                    ref: function ref(_ref2) {
+                        return _this9.tooltipRef = _ref2;
+                    },
+                    "data-id": "tooltip"
+                }), _reactDefault.default.createElement("style", {
+                    dangerouslySetInnerHTML: {
+                        __html: style
+                    },
+                    "aria-hidden": "true"
+                }), content);
+            }
+        }
+    ], [
+        {
+            key: "getDerivedStateFromProps",
+            value: function getDerivedStateFromProps(nextProps, prevState) {
+                var ariaProps = prevState.ariaProps;
+                var newAriaProps = parseAria(nextProps);
+                var isChanged = Object.keys(newAriaProps).some(function(props) {
+                    return newAriaProps[props] !== ariaProps[props];
+                });
+                if (!isChanged) return null;
+                return _objectSpread2({
+                }, prevState, {
+                    ariaProps: newAriaProps
+                });
+            }
+        }
+    ]);
+    return ReactTooltip1;
+}(_reactDefault.default.Component), _defineProperty(_class2, "defaultProps", {
+    insecure: true,
+    resizeHide: true,
+    wrapper: 'div',
+    clickable: false
+}), _defineProperty(_class2, "supportedWrappers", [
+    'div',
+    'span'
+]), _defineProperty(_class2, "displayName", 'ReactTooltip'), _temp)) || _class) || _class) || _class) || _class) || _class) || _class) || _class;
+exports.default = ReactTooltip;
+
+},{"react":"4mchR","prop-types":"2bysO","uuid":"cQ42Y","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cQ42Y":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "v1", ()=>_v1JsDefault.default
+);
+parcelHelpers.export(exports, "v3", ()=>_v3JsDefault.default
+);
+parcelHelpers.export(exports, "v4", ()=>_v4JsDefault.default
+);
+parcelHelpers.export(exports, "v5", ()=>_v5JsDefault.default
+);
+var _v1Js = require("./v1.js");
+var _v1JsDefault = parcelHelpers.interopDefault(_v1Js);
+var _v3Js = require("./v3.js");
+var _v3JsDefault = parcelHelpers.interopDefault(_v3Js);
+var _v4Js = require("./v4.js");
+var _v4JsDefault = parcelHelpers.interopDefault(_v4Js);
+var _v5Js = require("./v5.js");
+var _v5JsDefault = parcelHelpers.interopDefault(_v5Js);
+
+},{"./v1.js":false,"./v3.js":false,"./v4.js":"ioYVZ","./v5.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ioYVZ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _rngJs = require("./rng.js");
+var _rngJsDefault = parcelHelpers.interopDefault(_rngJs);
+var _bytesToUuidJs = require("./bytesToUuid.js");
+var _bytesToUuidJsDefault = parcelHelpers.interopDefault(_bytesToUuidJs);
+function v4(options, buf, offset) {
+    var i = buf && offset || 0;
+    if (typeof options == 'string') {
+        buf = options === 'binary' ? new Array(16) : null;
+        options = null;
+    }
+    options = options || {
+    };
+    var rnds = options.random || (options.rng || _rngJsDefault.default)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+    rnds[6] = rnds[6] & 15 | 64;
+    rnds[8] = rnds[8] & 63 | 128; // Copy bytes to buffer, if provided
+    if (buf) for(var ii = 0; ii < 16; ++ii)buf[i + ii] = rnds[ii];
+    return buf || _bytesToUuidJsDefault.default(rnds);
+}
+exports.default = v4;
+
+},{"./rng.js":"jqBjd","./bytesToUuid.js":"81tkg","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jqBjd":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+// Unique ID creation requires a high quality random # generator. In the browser we therefore
+// require the crypto API and do not support built-in fallback to lower quality random number
+// generators (like Math.random()).
+// getRandomValues needs to be invoked in a context where "this" is a Crypto implementation. Also,
+// find the complete implementation of crypto (msCrypto) on IE11.
+var getRandomValues = typeof crypto != 'undefined' && crypto.getRandomValues && crypto.getRandomValues.bind(crypto) || typeof msCrypto != 'undefined' && typeof msCrypto.getRandomValues == 'function' && msCrypto.getRandomValues.bind(msCrypto);
+var rnds8 = new Uint8Array(16); // eslint-disable-line no-undef
+function rng() {
+    if (!getRandomValues) throw new Error('crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported');
+    return getRandomValues(rnds8);
+}
+exports.default = rng;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"81tkg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/**
+ * Convert array of 16 byte values to UUID string format of the form:
+ * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+ */ var byteToHex = [];
+for(var i = 0; i < 256; ++i)byteToHex[i] = (i + 256).toString(16).substr(1);
+function bytesToUuid(buf, offset) {
+    var i = offset || 0;
+    var bth = byteToHex; // join used to fix memory issue caused by concatenation: https://bugs.chromium.org/p/v8/issues/detail?id=3175#c4
+    return [
+        bth[buf[i++]],
+        bth[buf[i++]],
+        bth[buf[i++]],
+        bth[buf[i++]],
+        '-',
+        bth[buf[i++]],
+        bth[buf[i++]],
+        '-',
+        bth[buf[i++]],
+        bth[buf[i++]],
+        '-',
+        bth[buf[i++]],
+        bth[buf[i++]],
+        '-',
+        bth[buf[i++]],
+        bth[buf[i++]],
+        bth[buf[i++]],
+        bth[buf[i++]],
+        bth[buf[i++]],
+        bth[buf[i++]]
+    ].join('');
+}
+exports.default = bytesToUuid;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7KYeb":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7a76 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
