@@ -4,10 +4,6 @@ import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import { Home } from "./Home";
 import { PicturePage } from "./PicturePage";
-import {
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
-} from 'reactstrap';
 
 export function App() {
   connectToDb()
@@ -31,9 +27,6 @@ async function connectToDb() {
     key: String,
     value: BigInt
   });
-
-
 }
-
 
 export default App;
