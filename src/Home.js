@@ -81,15 +81,21 @@ function GraphCard(props) {
                         <Button style={{ margin: 2, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Crime</Button>
                         <Button style={{ margin: 2, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Cost of Living</Button>
                         <Button style={{ margin: 2, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Visas</Button>
-
                     </div>
                     <div class="nine">
                         <CardBody>
                             <CardTitle tag="h5">{currentCountry}</CardTitle>
-                            <CardText>Sample Card Text to display!</CardText>
+                            <CardText>
+                                Sample Card Text to display! <br />
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non scelerisque elit. Aenean rutrum, turpis nec porta faucibus, elit magna convallis purus, in fermentum metus lacus vel risus. Sed egestas, metus eget congue fermentum, lorem sapien porta lorem, nec tempor nisi risus sit amet metus. Morbi eu lacus enim. Cras ut nisl hendrerit quam iaculis pellentesque sed iaculis sapien. Fusce tempus vestibulum lacus. Etiam suscipit sapien a accumsan finibus. In malesuada felis justo, sollicitudin molestie est sodales porta. Ut viverra eleifend pellentesque. Etiam elit nisl, viverra id pellentesque eu, viverra in risus. Suspendisse dui velit, posuere nec eros a, pretium ultrices tellus. Pellentesque pulvinar magna est, in aliquet metus finibus in. Curabitur elementum erat ut euismod consequat. Vestibulum mattis neque ac nibh tempor lacinia. Aliquam a fringilla libero. <br />
+
+                                Nunc sed metus nibh. Nulla malesuada arcu sit amet ipsum cursus, vitae imperdiet mauris ullamcorper. Ut eget turpis tellus. In hac habitasse platea dictumst. Nulla volutpat mauris ac eros vestibulum, a gravida arcu fringilla. Donec finibus, nisi in consectetur faucibus, sem tellus imperdiet lorem, quis porta velit erat in tortor. Fusce tristique neque eget auctor aliquam. Vestibulum dignissim non nisl vel commodo.  <br />
+
+                                Suspendisse at ipsum a augue lobortis ultrices. Nulla facilisi. Integer porttitor arcu arcu, non interdum libero blandit vel. Quisque eu vestibulum nulla, quis maximus leo. Fusce ornare quis massa sit amet euismod. Aliquam vel tortor in nisl sollicitudin mattis. Cras ornare id lorem eu viverra. Aenean vel tincidunt sem.  <br />
+                            </CardText>
                         </CardBody>
                     </div>
-                    
+
                 </div>
                 <Button onClick={disableButton}>Back</Button>
             </Card>
