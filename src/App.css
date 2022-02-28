@@ -1,0 +1,14 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 2;
+  gap: 2px;
+  grid-auto-rows: minmax(15px, auto);
+}
+.one {
+  grid-column: 1/2;
+  grid-row: 1;
+  width: 180px;
+}
+.nine {
+  grid-column:2;
+}
