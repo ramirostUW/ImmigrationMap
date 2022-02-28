@@ -4,6 +4,7 @@ import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import { Home } from "./Home";
 import { PicturePage } from "./PicturePage";
+import './App.css';
 
 export function App() {
   connectToDb()

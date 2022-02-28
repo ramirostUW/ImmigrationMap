@@ -1,18 +1,42 @@
-.tab-list {
-    border-bottom: 1px solid #ccc;
-    padding-left: 0;
-  }
-  
-  .tab-list-item {
-    display: inline-block;
-    list-style: none;
-    margin-bottom: -1px;
-    padding: 0.5rem 0.75rem;
-  }
-  
-  .tab-list-active {
-    background-color: white;
-    border: solid #ccc;
-    border-width: 1px 1px 0 1px;
-  }
-  
+.wrapper {
+  display: grid;
+  grid-template-columns: 2;
+  gap: 1px;
+  grid-auto-rows: minmax(15px, auto);
+}
+.one {
+  grid-column: 1;
+  grid-row: 1;
+}
+.two {
+  grid-column: 1;
+  grid-row: 2;
+}
+.three {
+  grid-column: 1;
+  grid-row: 3;
+}
+.four {
+  grid-column:1;
+  grid-row: 4;
+}
+.five {
+  grid-column:1;
+  grid-row: 5;
+}
+.six {
+  grid-column:1;
+  grid-row: 6;
+}
+.seven {
+  grid-column:1;
+  grid-row: 7;
+}
+.eight {
+  grid-column:1;
+  grid-row: 8;
+}
+.cardContent{
+  grid-column:2;
+  grid-row: 1;
+}

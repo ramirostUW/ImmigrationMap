@@ -3,6 +3,7 @@ import { useState } from "react";
 import MapChart from "./MapChart"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
+import "./App.css";
 import {
     Card, CardImg, CardBody,
     CardTitle, CardText, Button
@@ -54,6 +55,10 @@ function GraphCard(props) {
     function disableButton() {
         props.btnToggle(false);
     }
+    let cardBtnStyling = {
+        width: "100px",
+        height: "1px"
+    }
     return (
         <div style={{
             display: 'block', width: "1000px", padding: 30
@@ -67,11 +72,21 @@ function GraphCard(props) {
                     height="50px"
                     src="https://media.geeksforgeeks.org/wp-content/uploads/20210425000233/test-300x297.png"
                     alt="GFG Logo" />
-                <CardBody>
-                    <CardTitle tag="h5">{currentCountry}</CardTitle>
-                    <CardText>Sample Card Text to display!</CardText>
-                    <Button onClick={disableButton}>Back</Button>
-                </CardBody>
+                <div class="wrapper">
+                    <div class="one"><Button style={{ margin: 2, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Migration Flow</Button></div>
+                    <div class="two"><Button style={{ margin: 2, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Immigrant Population</Button></div>
+                    <div class="three"><Button style={{ margin: 2, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Education</Button></div>
+                    <div class="four"><Button style={{ margin: 2, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Religion</Button></div>
+                    <div class="five"><Button style={{ margin: 2, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Economy</Button></div>
+                    <div class="six"><Button style={{ margin: 2, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Crime</Button></div>
+                    <div class="seven"><Button style={{ margin: 2, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Cost of Living</Button></div>
+                    <div class="eight"><Button style={{ margin: 2, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Visas</Button></div>
+                    <CardBody class="cardContent">
+                        <CardTitle tag="h5">{currentCountry}</CardTitle>
+                        <CardText>Sample Card Text to display!</CardText>
+                    </CardBody>
+                </div>
+                <Button onClick={disableButton}>Back</Button>
             </Card>
         </div>
     );
