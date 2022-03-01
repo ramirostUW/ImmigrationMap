@@ -5,6 +5,7 @@
   "dependencies": {
     "d3-fetch": "^3.0.1",
     "mongoose": "^6.2.3",
+    "panic-overlay": "^1.0.51",
     "parcel": "^2.2.0",
     "plotly.js": "^2.9.0",
     "prop-types": "^15.8.1",
