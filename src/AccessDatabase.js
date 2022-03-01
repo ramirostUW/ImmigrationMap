@@ -8,7 +8,7 @@ export async function connectToDb() {
 
 export function getMigrantFlowData() {
     
-    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/Migration%20Flows%20out%20from%20USA%20-%202005%20-%202020.csv");
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/migration-flows-in.csv");
 
     return [crimeData, crimeDataLoading];
     
