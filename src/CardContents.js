@@ -62,7 +62,7 @@ export function EducationCard(props) {
         <div>
             <h1>Education for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText>{JSON.stringify(crimeData)}</CardText>}
+            {!crimeDataLoading && <CardText><EducationGraph /></CardText>}
         </div>
 
     )
@@ -75,7 +75,7 @@ export function ReligionCard(props) {
         <div>
             <h1>Religion for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText>{JSON.stringify(crimeData)}</CardText>}
+            {!crimeDataLoading && <CardText><ReligionGraph /></CardText>}
         </div>
 
     )
@@ -159,7 +159,7 @@ function MigrationFlowGraph() {
                 data={[
                     { type: 'bar', x: Object.keys(plotMap), y: Object.values(plotMap) },
                 ]}
-                layout={{ width: 750, height: 750, title: 'Migration outflows for USA' }}
+                layout={{ width: 750, height: 750, title: 'Migration outflows for USA' ,xaxis: {tickangle:30}}}
             />
 
         )
@@ -224,4 +224,65 @@ function ImmigrantPopGraph() {
 }
 function sortObjectEntries(map, n) {
     return Object.entries(map).sort((a, b) => b[1] - a[1]).map(el => el[0]).slice(0, n)
+}
+
+function EducationGraph() {
+    let [eduData, eduDataLoading] = getEducationData()
+    if (!eduDataLoading) {
+        let types = []
+        let tuition = []
+        let roomBoard = []
+        let booksSupplies = []
+        let other = []
+        for (let i = 0; i < eduData.length; i++) {
+            type = eduData[i]["Institution"]
+            types.push(type)
+            tuit = eduData[i]["Tuition & Fees"]
+            tuition.push(tuit)
+            rabs = eduData[i]["Room & Board (on campus)"]
+            roomBoard.push(rabs)
+            sups = eduData[i]["Books & Supplies"]
+            booksSupplies.push(sups)
+            oths = eduData[i]["Other expenses"]
+            other.push(oths)
+        }
+        return (
+            <Plot
+                data={[
+                    { type: 'bar', x: types, y: tuition, name: "Tuition"},
+                    { type: 'bar', x: types, y: roomBoard, name: "Room & Board (on campus)"},
+                    { type: 'bar', x: types, y: booksSupplies, name:  "Books & Supplies"},
+                    { type: 'bar', x: types, y: other, name: "Other expenses"},
+                ]}
+                layout={{ width: 750, height: 750, title: 'Average cost of education',barmode: 'stack' }}
+            />
+
+        )
+    } else {
+        return (<p>Data is loading!</p>)
+    }
+}
+
+function ReligionGraph() {
+    let [relData, relDataLoading] = getReligionData()
+    if (!relDataLoading) {
+        let religion = []
+        let share = []
+        for(let i = 0; i < relData.length; i++) {
+            let rel = relData[i]["Religious Affiliation"]
+            let sh = relData[i]["2020 weighted %"]
+            religion.push(rel)
+            share.push(sh)
+        }
+        return (
+            <Plot
+                data={[
+                    { type: 'bar', y: share, x: religion},
+                ]}
+                layout={{ width: 750, height: 500, title: 'Propotion of religious affiliations', xaxis: {size:8}}}
+            />
+        )
+    } else {
+        return (<p>Data is still loading!</p>)
+    }
 }
