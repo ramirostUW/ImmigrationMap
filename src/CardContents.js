@@ -149,7 +149,7 @@ function MigrationFlowGraph() {
         let sorter = sortObjectEntries(map, 20);
         let plotMap = {}
         for (let i = 0; i < sorter.length; i++) {
-            country = sorter[i];
+            let country = sorter[i];
             plotMap[country] = map[country];
         }
 
@@ -235,15 +235,15 @@ function EducationGraph() {
         let booksSupplies = []
         let other = []
         for (let i = 0; i < eduData.length; i++) {
-            type = eduData[i]["Institution"]
+            let type = eduData[i]["Institution"]
             types.push(type)
-            tuit = eduData[i]["Tuition & Fees"]
+            let tuit = eduData[i]["Tuition & Fees"]
             tuition.push(tuit)
-            rabs = eduData[i]["Room & Board (on campus)"]
+            let rabs = eduData[i]["Room & Board (on campus)"]
             roomBoard.push(rabs)
-            sups = eduData[i]["Books & Supplies"]
+            let sups = eduData[i]["Books & Supplies"]
             booksSupplies.push(sups)
-            oths = eduData[i]["Other expenses"]
+            let oths = eduData[i]["Other expenses"]
             other.push(oths)
         }
         return (
