@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A template for websites made with React and bundled with parcel.",
   "dependencies": {
+    "d3-fetch": "^3.0.1",
     "mongoose": "^6.2.3",
     "parcel": "^2.2.0",
     "prop-types": "^15.8.1",

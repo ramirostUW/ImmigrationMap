@@ -7,7 +7,6 @@ import { PicturePage } from "./PicturePage";
 import './App.css';
 
 export function App() {
-  connectToDb()
 
   return (
     <div>
@@ -20,14 +19,6 @@ export function App() {
       </Routes>
     </div>
   );
-}
-
-async function connectToDb() {
-  await mongoose.connect('mongodb+srv://ramirost:ramirost@cluster0.tlydu.mongodb.net/infoCapstone?retryWrites=true&w=majority')
-  const CrimeData = new mongoose.Schema({
-    key: String,
-    value: BigInt
-  });
 }
 
 export default App;
