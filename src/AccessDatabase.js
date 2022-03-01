@@ -70,3 +70,11 @@ export function getVisaData() {
     return [crimeData, crimeDataLoading];
     
 }
+
+export function getStateCoded() {
+    
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/state_codes.csv");
+
+    return [crimeData, crimeDataLoading];
+    
+}
