@@ -190,7 +190,9 @@ function ImmigrantPopGraph() {
             stateMap[state] = code
         }
         let plotMap = {}
-        for (state in stateMap) {
+        //for (state in stateMap) {
+        for (let x = 0; x < codes.length; x++) {
+            let state = Object.keys(stateMap)[x]
             plotMap[stateMap[state]] = map[state]
         }
         return (
