@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import MapChart from "./MapChart"
-import {getMigrantFlowData, getImmigrantPopulationData, getEducationData, 
-        getReligionData, getEconomyData, getCrimeBiasData, 
-        getCostOfLivingData, getVisaData } from "./AccessDatabase"
+import {
+    getMigrantFlowData, getImmigrantPopulationData, getEducationData,
+    getReligionData, getEconomyData, getCrimeBiasData,
+    getCostOfLivingData, getVisaData
+} from "./AccessDatabase"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
 import "./App.css";
+import Plot from 'react-plotly.js';
 import {
     Card, CardImg, CardBody,
     CardTitle, CardText, Button
@@ -28,105 +31,144 @@ export function DefaultCardContent(props) {
 
 export function MigrationFlowCard(props) {
     let [crimeData, crimeDataLoading] = getMigrantFlowData();
-    
+
     return (
         <div>
             <h1>Migration Flow for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText>{JSON.stringify(crimeData)}</CardText>}
+            {!crimeDataLoading && <CardText><MigrationFlowGraph /></CardText>}
         </div>
-        
+
     )
 }
 
 export function ImmigrantPopCard(props) {
     let [crimeData, crimeDataLoading] = getImmigrantPopulationData();
-    
+
     return (
         <div>
             <h1>Immigrant Population for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {!crimeDataLoading && <CardText>{JSON.stringify(crimeData)}</CardText>}
         </div>
-        
+
     )
 }
 
 export function EducationCard(props) {
     let [crimeData, crimeDataLoading] = getEducationData();
-    
+
     return (
         <div>
             <h1>Education for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {!crimeDataLoading && <CardText>{JSON.stringify(crimeData)}</CardText>}
         </div>
-        
+
     )
 }
 
 export function ReligionCard(props) {
     let [crimeData, crimeDataLoading] = getReligionData();
-    
+
     return (
         <div>
             <h1>Religion for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {!crimeDataLoading && <CardText>{JSON.stringify(crimeData)}</CardText>}
         </div>
-        
+
     )
 }
 
 export function EconomyCard(props) {
     let [crimeData, crimeDataLoading] = getEconomyData();
-    
+
     return (
         <div>
             <h1>Economy for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {!crimeDataLoading && <CardText>{JSON.stringify(crimeData)}</CardText>}
         </div>
-        
+
     )
 }
 
 
 export function CrimeCard(props) {
     let [crimeData, crimeDataLoading] = getCrimeBiasData();
-    
+
     return (
         <div>
             <h1>Crime for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {!crimeDataLoading && <CardText>{JSON.stringify(crimeData)}</CardText>}
         </div>
-        
+
     )
 }
 
 export function CostOfLivingCard(props) {
     let [crimeData, crimeDataLoading] = getCostOfLivingData();
-    
+
     return (
         <div>
             <h1>Cost of Living for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {!crimeDataLoading && <CardText>{JSON.stringify(crimeData)}</CardText>}
         </div>
-        
+
     )
 }
 
 export function VisaCard(props) {
     let [crimeData, crimeDataLoading] = getVisaData("https://github.com/ramirostUW/ImmigrationMap/blob/main/src/datafiles/General%20Information.csv");
-    
+
     return (
         <div>
             <h1>Visas for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {!crimeDataLoading && <CardText>{JSON.stringify(crimeData)}</CardText>}
         </div>
-        
+
     )
+}
+
+
+function MigrationFlowGraph() {
+    let [countryMigData, countryMigDataLoading] = getMigrantFlowData();
+    if (!countryMigDataLoading) {
+        let map = {}
+        for (let i = 0; i < countryMigData.length; i++) {
+            let country = countryMigData[i]["Region and country of last residence"];
+            let num = countryMigData[i]["Total"]
+            num = num.replace(",", "")
+            num = parseInt(num);
+            map[country] = num;
+        }
+        let sorter = sortObjectEntries(map, 20);
+        plotMap = {}
+        for (let i = 0; i < sorter.length; i++) {
+            country = sorter[i];
+            plotMap[country] = map[country];
+        }
+
+        return (
+            <Plot
+                data={[
+                    { type: 'bar', x: Object.keys(plotMap), y: Object.values(plotMap) },
+                ]}
+                layout={{ width: 750, height: 750, title: 'Migration outflows for USA' }}
+            />
+
+        )
+    } else {
+        return (
+            <p>Data still loading</p>
+        )
+    }
+
+}
+function sortObjectEntries(map, n) {
+    return Object.entries(map).sort((a, b) => b[1] - a[1]).map(el => el[0]).slice(0, n)
 }
