@@ -4,7 +4,7 @@ import MapChart from "./MapChart"
 import {
     getMigrantFlowData, getImmigrantPopulationData, getEducationData,
     getReligionData, getEconomyData, getCrimeBiasData,
-    getCostOfLivingData, getVisaData
+    getCostOfLivingData, getVisaData, getStateCoded
 } from "./AccessDatabase"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
@@ -49,7 +49,7 @@ export function ImmigrantPopCard(props) {
         <div>
             <h1>Immigrant Population for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText>{JSON.stringify(crimeData)}</CardText>}
+            {!crimeDataLoading && <CardText><ImmigrantPopGraph /></CardText>}
         </div>
 
     )
@@ -153,6 +153,7 @@ function MigrationFlowGraph() {
             plotMap[country] = map[country];
         }
 
+
         return (
             <Plot
                 data={[
@@ -168,6 +169,58 @@ function MigrationFlowGraph() {
         )
     }
 
+}
+
+function ImmigrantPopGraph() {
+    let [migPopData, migPopDataLoading] = getImmigrantPopulationData()
+    let [codes, codesLoading] = getStateCoded()
+    if (!migPopDataLoading) {
+        let map = {}
+        let stateMap = {}
+        for (let i = 0; i < migPopData.length; i++) {
+            let state = migPopData[i]["State"];
+            let num = migPopData[i]["State share of immigrants"]
+            num = num.replace("%", "")
+            num = parseFloat(num);
+            map[state] = num;
+        }
+        for (let i = 0; i < codes.length; i++) {
+            let code = codes[i]["Abbr."]
+            let state = codes[i]["State"]
+            stateMap[state] = code
+        }
+        plotMap = {}
+        for (state in stateMap) {
+            plotMap[stateMap[state]] = map[state]
+        }
+        return (
+            <Plot
+                data={[
+                    {
+                        type: 'choropleth', locationmode: 'USA-states', locations: Object.keys(plotMap), z: Object.values(plotMap), text: Object.keys(plotMap), colorscale: [
+                            [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
+                            [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
+                            [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
+                        ], colorbar: {
+                            title: 'Percentage Population',
+                            thickness: 2
+                        }, marker: {
+                            line: {
+                                color: 'rgb(255,255,255)',
+                                width: 2
+                            }
+                        }
+                    },
+                ]}
+                layout={{ title: "Immigration population chloropleth", geo: { scope: 'usa' }, width: 1000, height: 1000 }
+                }
+            />
+        )
+    } else {
+        return (
+            <p>Data is still loading!</p>
+        )
+    }
 }
 function sortObjectEntries(map, n) {
     return Object.entries(map).sort((a, b) => b[1] - a[1]).map(el => el[0]).slice(0, n)
