@@ -147,7 +147,7 @@ function MigrationFlowGraph() {
             map[country] = num;
         }
         let sorter = sortObjectEntries(map, 20);
-        plotMap = {}
+        let plotMap = {}
         for (let i = 0; i < sorter.length; i++) {
             country = sorter[i];
             plotMap[country] = map[country];
@@ -189,7 +189,7 @@ function ImmigrantPopGraph() {
             let state = codes[i]["State"]
             stateMap[state] = code
         }
-        plotMap = {}
+        let plotMap = {}
         for (state in stateMap) {
             plotMap[stateMap[state]] = map[state]
         }
