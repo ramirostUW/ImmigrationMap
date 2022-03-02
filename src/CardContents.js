@@ -14,7 +14,7 @@ import {
     Card, CardImg, CardBody,
     CardTitle, CardText, Button
 } from "reactstrap"
-import propTypes from "prop-types";
+import propTypes, { oneOfType } from "prop-types";
 
 export function DefaultCardContent(props) {
     return (
@@ -128,7 +128,7 @@ export function VisaCard(props) {
         <div>
             <h1>Visas for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText><VisaGraph/></CardText>}
+            {!crimeDataLoading && <CardText><VisaGraph /></CardText>}
         </div>
 
     )
@@ -386,11 +386,11 @@ function CostOfLivingGraph() {
             <Plot
                 data={[
                     {
-                        type: 'choropleth', 
-                        locationmode: 'USA-states', 
-                        locations: Object.keys(plotMap), 
-                        z: Object.values(plotMap), 
-                        text: Object.keys(stateMap), 
+                        type: 'choropleth',
+                        locationmode: 'USA-states',
+                        locations: Object.keys(plotMap),
+                        z: Object.values(plotMap),
+                        text: Object.keys(stateMap),
                         colorscale: [
                             [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
                             [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
@@ -417,25 +417,53 @@ function CostOfLivingGraph() {
 }
 
 function VisaGraph() {
-    let [visaData, visaDataLoading] = getCostOfLivingData()
-    if(!visaDataLoading) {
+    let [visaData, visaDataLoading] = getVisaData()
+    if (!visaDataLoading) {
         let map = {}
-        let form = []
-        for(let i = 0; i < visaData.length; i++) {
+
+        for (let i = 0; i < visaData.length; i++) {
             let type = visaData[i]["Form Description"]
-            let frm= visaData[i]["Form"]
-            form.push(frm)
+            let form = visaData[i]["Form"]
+            let key = type + " (" + form + ")"
             let fy17 = visaData[i]["FY 2018"]
             let fy18 = visaData[i]["FY 2019"]
             let fy19 = visaData[i]["FY 2020"]
             let fy20 = visaData[i]["FY 2021"]
             let fy21 = visaData[i]["FY 2021"]
             let fy22 = visaData[i]["FY 2022"]
-            let series = [fy17, fy18, fy19, fy20, fy21, fy22]
-            map[type] = series
+            let series = []
+            series.push(parseFloat(fy17))
+            series.push(parseFloat(fy18))
+            series.push(parseFloat(fy19))
+            series.push(parseFloat(fy20))
+            series.push(parseFloat(fy21))
+            series.push(parseFloat(fy22))
+            map[key] = series
         }
         return (
-            <div>woohoo</div>
+            <Plot
+                data={[
+                    { type: 'scatter', y: map[Object.keys(map)[0]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[0]},
+                    { type: 'scatter', y: map[Object.keys(map)[1]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[1]},
+                    { type: 'scatter', y: map[Object.keys(map)[2]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[2]},
+                    { type: 'scatter', y: map[Object.keys(map)[3]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[3]},
+                    { type: 'scatter', y: map[Object.keys(map)[4]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[4]},
+                    { type: 'lines+markers', y: map[Object.keys(map)[5]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[5]},
+                    { type: 'lines+markers', y: map[Object.keys(map)[6]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[6]},
+                    { type: 'lines+markers', y: map[Object.keys(map)[7]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[7]},
+                ]}
+                layout={{ width: 1000, 
+
+                    height: 1000,
+                    title: 'Average processing time (months)', 
+                    xaxis: { size: 8 },
+                    legend: {
+                        x: 1,
+                        xanchor: 'right',
+                        y: 1
+                      }
+                }}
+            />
         )
     } else {
         return (<p>Data is still loading!</p>)
