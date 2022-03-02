@@ -1,12 +1,10 @@
 Form,Form Description,Classification / basis for filing,FY 2017,FY 2018,FY 2019,FY 2020,FY 2021,FY 2022
 I-90,Application to Replace Permanent Resident Card,"Initial issuance, replacement or renewal",6.8,8,7.8,8.3,5.2,1.2
-I-129,Petition for a Nonimmigrant Worker,Nonimmigrant Petition (Premium filed),0.4,0.4,0.4,0.4,0.3,0.3
 I-129,Petition for a Nonimmigrant Worker,Nonimmigrant Petition (non Premium filed,3.4,3.8,4.7,2.3,1.8,2.8
 I-129F,Petition for Alien Fiancé(e),All Classifications,3.6,6.5,5.2,4.6,8,9.6
 I-130,Petition for Alien Relative,Immediate Relative,6.5,7.6,8.6,8.3,10.2,9.7
-I-140,Immigrant Petition for Alien Workers,Immigrant Petition (Premium filed),0.4,0.3,0.3,0.3,0.4,0.4
 I-140,Immigrant Petition for Alien Workers,Immigrant Petition (non Premium filed),7.3,8.9,5.8,4.9,8.2,11.4
-I-485,Application to Register Permanent Residence or to Adjust Status,Based on refugee admission more than 1 year ago,4.6,6.4,9.4,9.3,7.1,24.4
-I-485,Application to Register Permanent Residence or to Adjust Status,Employment-based adjustment applications,7,10.6,10,8.8,9.9,11.1
-I-485,Application to Register Permanent Residence or to Adjust Status,Family-based adjustment applications,7.9,10.2,10.9,9.3,12.9,10.3
+I-485,Refugee Application to Register Permanent Residence or to Adjust Status,Based on refugee admission more than 1 year ago,4.6,6.4,9.4,9.3,7.1,24.4
+I-485,Employment-based Application to Register Permanent Residence or to Adjust Status,Employment-based adjustment applications,7,10.6,10,8.8,9.9,11.1
+I-485,Family-based Application to Register Permanent Residence or to Adjust Status,Family-based adjustment applications,7.9,10.2,10.9,9.3,12.9,10.3
 I-765,Application for Employment Authorization,All other applications for employment authorization,2.6,3,3.4,3.2,3.9,3
