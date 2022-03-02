@@ -40,8 +40,7 @@ export function getReligionData() {
 
 export function getEconomyData() {
     
-    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/unemployment%20over%20time%20-%20Sheet1.csv");
-
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/unemployment_state_rates.csv")
     return [crimeData, crimeDataLoading];
     
 }
@@ -57,7 +56,7 @@ export function getCrimeBiasData() {
 
 export function getCostOfLivingData() {
     
-    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/living%20wage%20by%20state%202020.csv");
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/cost_of_living_USA.csv");
 
     return [crimeData, crimeDataLoading];
     
