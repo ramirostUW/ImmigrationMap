@@ -88,7 +88,7 @@ export function EconomyCard(props) {
         <div>
             <h1>Economy for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText>{JSON.stringify(crimeData)}</CardText>}
+            {!crimeDataLoading && <CardText><EconomyGraph /></CardText>}
         </div>
 
     )
@@ -102,7 +102,7 @@ export function CrimeCard(props) {
         <div>
             <h1>Crime for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText>{JSON.stringify(crimeData)}</CardText>}
+            {!crimeDataLoading && <CardText><CrimeBiasGraph /></CardText>}
         </div>
 
     )
@@ -115,7 +115,7 @@ export function CostOfLivingCard(props) {
         <div>
             <h1>Cost of Living for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText>{JSON.stringify(crimeData)}</CardText>}
+            {!crimeDataLoading && <CardText><CostOfLivingGraph /></CardText>}
         </div>
 
     )
@@ -128,7 +128,7 @@ export function VisaCard(props) {
         <div>
             <h1>Visas for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText>{JSON.stringify(crimeData)}</CardText>}
+            {!crimeDataLoading && <CardText><VisaGraph/></CardText>}
         </div>
 
     )
@@ -159,7 +159,7 @@ function MigrationFlowGraph() {
                 data={[
                     { type: 'bar', x: Object.keys(plotMap), y: Object.values(plotMap) },
                 ]}
-                layout={{ width: 750, height: 750, title: 'Migration outflows for USA' ,xaxis: {tickangle:30}}}
+                layout={{ width: 750, height: 750, title: 'Migration outflows for USA', xaxis: { tickangle: 30 } }}
             />
 
         )
@@ -251,17 +251,85 @@ function EducationGraph() {
         return (
             <Plot
                 data={[
-                    { type: 'bar', x: types, y: tuition, name: "Tuition"},
-                    { type: 'bar', x: types, y: roomBoard, name: "Room & Board (on campus)"},
-                    { type: 'bar', x: types, y: booksSupplies, name:  "Books & Supplies"},
-                    { type: 'bar', x: types, y: other, name: "Other expenses"},
+                    { type: 'bar', x: ["Public, in state", "Private for-profit", "Private, non-profit"], y: tuition, name: "Tuition" },
+                    { type: 'bar', x: ["Public, in state", "Private for-profit", "Private, non-profit"], y: roomBoard, name: "Room & Board (on campus)" },
+                    { type: 'bar', x: ["Public, in state", "Private for-profit", "Private, non-profit"], y: booksSupplies, name: "Books & Supplies" },
+                    { type: 'bar', x: ["Public, in state", "Private for-profit", "Private, non-profit"], y: other, name: "Other expenses" },
                 ]}
-                layout={{ width: 750, height: 750, title: 'Average cost of education',barmode: 'stack' }}
+                layout={{ width: 750, height: 750, title: 'Average cost of education', barmode: 'stack' }}
             />
 
         )
     } else {
         return (<p>Data is loading!</p>)
+    }
+}
+function EconomyGraph() {
+    let [ecoData, ecoDataLoading] = getEconomyData()
+    if (!ecoDataLoading) {
+        let codes = []
+        let rates = []
+        let states = []
+        for (let i = 0; i < ecoData.length; i++) {
+            let code = ecoData[i]["State code"]
+            let rate = ecoData[i]["Annual avg"]
+            let state = ecoData[i]["State"]
+            codes.push(code)
+            rates.push(rate)
+            states.push(state)
+        }
+        return (
+            <Plot
+                data={[
+                    {
+                        type: 'choropleth', locationmode: 'USA-states', locations: codes, z: rates, text: states, colorscale: [
+                            [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
+                            [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
+                            [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
+                        ], colorbar: {
+                            title: 'Annual avg. unemployment%',
+                            thickness: 2
+                        }, marker: {
+                            line: {
+                                color: 'rgb(255,255,255)',
+                                width: 2
+                            }
+                        }
+                    },
+                ]}
+                layout={{ title: "Unemployment rate chloropleth", geo: { scope: 'usa' }, width: 1000, height: 1000 }
+                }
+            />
+
+        )
+    } else {
+        return (
+            <p>Data is loading!</p>
+        )
+    }
+}
+
+function CrimeBiasGraph() {
+    let [criData, criDataLoading] = getCrimeBiasData()
+    if (!criDataLoading) {
+        let number = []
+        let bias = []
+        for (let i = 0; i < criData.length; i++) {
+            let num = criData[i]["value"]
+            number.push(num)
+            let bi = criData[i]["key"]
+            bias.push(bi)
+        }
+        return (
+            <Plot
+                data={[
+                    { type: 'bar', y: number, x: bias },
+                ]}
+                layout={{ width: 750, height: 500, title: 'Distribution of race-based crimes', xaxis: { size: 8 } }}
+            />
+        )
+    } else {
+        return (<p>Data is still loading!</p>)
     }
 }
 
@@ -270,7 +338,7 @@ function ReligionGraph() {
     if (!relDataLoading) {
         let religion = []
         let share = []
-        for(let i = 0; i < relData.length; i++) {
+        for (let i = 0; i < relData.length; i++) {
             let rel = relData[i]["Religious Affiliation"]
             let sh = relData[i]["2020 weighted %"]
             religion.push(rel)
@@ -279,10 +347,95 @@ function ReligionGraph() {
         return (
             <Plot
                 data={[
-                    { type: 'bar', y: share, x: religion},
+                    { type: 'bar', y: share, x: religion },
                 ]}
-                layout={{ width: 750, height: 500, title: 'Propotion of religious affiliations', xaxis: {size:8}}}
+                layout={{ width: 750, height: 500, title: 'Propotion of religious affiliations', xaxis: { size: 8 } }}
             />
+        )
+    } else {
+        return (<p>Data is still loading!</p>)
+    }
+}
+
+function CostOfLivingGraph() {
+    let [colData, colDataLoading] = getCostOfLivingData()
+    let [codes, codesLoading] = getStateCoded()
+    if (!colDataLoading) {
+        let map = {}
+        for (let i = 0; i < colData.length; i++) {
+            let state = colData[i]["State"]
+            let value = colData[i]["Average value of the dollar"] + ""
+            value = value.replace("$", "")
+            value = parseFloat(value);
+            map[state] = value
+        }
+        let stateMap = {}
+        for (let i = 0; i < codes.length; i++) {
+            let code = codes[i]["Abbr."]
+            let state = codes[i]["State"]
+            stateMap[state] = code
+        }
+        let plotMap = {}
+        //for (state in stateMap) {
+        for (let x = 0; x < codes.length; x++) {
+            let state = Object.keys(stateMap)[x]
+            plotMap[stateMap[state]] = map[state]
+        }
+
+        return (
+            <Plot
+                data={[
+                    {
+                        type: 'choropleth', 
+                        locationmode: 'USA-states', 
+                        locations: Object.keys(plotMap), 
+                        z: Object.values(plotMap), 
+                        text: Object.keys(stateMap), 
+                        colorscale: [
+                            [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
+                            [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
+                            [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
+                        ], colorbar: {
+                            title: 'Average value of $',
+                            thickness: 2
+                        }, marker: {
+                            line: {
+                                color: 'rgb(255,255,255)',
+                                width: 2
+                            }
+                        }
+                    },
+                ]}
+                layout={{ title: "Chloropleth for Avg. value of the dollar vs. national average", geo: { scope: 'usa' }, width: 1000, height: 1000 }
+                }
+            />
+        )
+
+    } else {
+        return (<p>Data is still loading!</p>)
+    }
+}
+
+function VisaGraph() {
+    let [visaData, visaDataLoading] = getCostOfLivingData()
+    if(!visaDataLoading) {
+        let map = {}
+        let form = []
+        for(let i = 0; i < visaData.length; i++) {
+            let type = visaData[i]["Form Description"]
+            let frm= visaData[i]["Form"]
+            form.push(frm)
+            let fy17 = visaData[i]["FY 2018"]
+            let fy18 = visaData[i]["FY 2019"]
+            let fy19 = visaData[i]["FY 2020"]
+            let fy20 = visaData[i]["FY 2021"]
+            let fy21 = visaData[i]["FY 2021"]
+            let fy22 = visaData[i]["FY 2022"]
+            let series = [fy17, fy18, fy19, fy20, fy21, fy22]
+            map[type] = series
+        }
+        return (
+            <div>woohoo</div>
         )
     } else {
         return (<p>Data is still loading!</p>)
