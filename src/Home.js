@@ -54,17 +54,17 @@ export function Home() {
                 <p>This is the home page of the website.</p>
             </main>
             <Tabs>
-                <div label="Interactive Maps">
+                <div label="INTERACTIVE MAPS">
                     {buttonEnabled && <GraphCard btnToggle={enableButton} currentCountry={currentCountry} />}
                     {!buttonEnabled && <div>
                         <MapChart setTooltipContent={setContent} onClickCountry={showCard} />
                         <ReactTooltip>{content}</ReactTooltip>
                     </div>}
                 </div>
-                <div label="Directions of Use">
+                <div label="DIRECTIONS OF USE">
                     Sample Text
                 </div>
-                <div label="Glossary">
+                <div label="GLOSSARY">
                     Sample Text
                 </div>
             </Tabs>

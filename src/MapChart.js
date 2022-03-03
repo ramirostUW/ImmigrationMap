@@ -5,6 +5,8 @@ import {
   Geographies,
   Geography
 } from "react-simple-maps";
+import { geoPatterson } from "d3-geo-projection";
+
 
 const geoUrl = //"./world-110m.json"
 //"./datafiles/world-110m.json"
@@ -20,16 +22,19 @@ const rounded = num => {
   }
 };
 
+const projection = geoPatterson()
+
 const MapChart = (props) => {
   let setTooltipContent = props.setTooltipContent
   let onClickCountry = props.onClickCountry;
   //{ setTooltipContent }
   return (
     <>
-      <ComposableMap data-tip="" projectionConfig={{ scale: 155, center:[20, -380]}}
-        width={800}
+      <ComposableMap data-tip="" 
+        width={1000}
         height={600}
-        style={{ width: "100%", height: "auto"}} >
+        style={{ width: "100%", height: "auto"}}
+        projection={projection} >
         <Geographies geography={geoUrl}>
           {({ geographies }) =>
             geographies.map(geo => (
