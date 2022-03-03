@@ -98,17 +98,19 @@ function GraphCard(props) {
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
                 integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
                 crossorigin="anonymous" />
+              <link rel="stylesheet" href="App.css"/>
+            
             <Card>
                 <div class="wrapper">
                     <div class="one">
-                        <Button onClick={() => { setCurrentCardOption("migrantFlow") }} style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Migration Flow</Button>
-                        <Button onClick={() => { setCurrentCardOption("immigrantPopulation") }} style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Immigrant Population</Button>
-                        <Button onClick={() => { setCurrentCardOption("education") }} style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Education</Button>
-                        <Button onClick={() => { setCurrentCardOption("religion") }} style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Religion</Button>
-                        <Button onClick={() => { setCurrentCardOption("economy") }} style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Economy</Button>
-                        <Button onClick={() => { setCurrentCardOption("crime") }} style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Crime</Button>
-                        <Button onClick={() => { setCurrentCardOption("costOfLiving") }} style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Cost of Living</Button>
-                        <Button onClick={() => { setCurrentCardOption("visas") }} style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Gill Sans", textAlign: "left" }}>Visas</Button>
+                        <Button onClick={() => { setCurrentCardOption("migrantFlow") }} class="cust-button" style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", }}>Migration Flow</Button>
+                        <Button onClick={() => { setCurrentCardOption("immigrantPopulation") }} class="cust-button" style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left" }}>Immigrant Population</Button>
+                        <Button onClick={() => { setCurrentCardOption("education") }} class="cust-button" style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left" }}>Education</Button>
+                        <Button onClick={() => { setCurrentCardOption("religion") }} class="cust-button" style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left" }}>Religion</Button>
+                        <Button onClick={() => { setCurrentCardOption("economy") }} class="cust-button" style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left" }}>Economy</Button>
+                        <Button onClick={() => { setCurrentCardOption("crime") }} class="cust-button" style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left" }}>Crime</Button>
+                        <Button onClick={() => { setCurrentCardOption("costOfLiving") }} class="cust-button" style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left" }}>Cost of Living</Button>
+                        <Button onClick={() => { setCurrentCardOption("visas") }} class="cust-button" style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left" }}>Visas</Button>
                     </div>
                     <div class="nine">
                         <CardBody>

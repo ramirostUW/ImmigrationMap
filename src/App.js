@@ -11,7 +11,7 @@ export function App() {
   return (
     <div>
       <header>
-        <h1>Immigration Map</h1>
+        <h1>IMMIGRATION INC. </h1>
       </header>
       <Routes>
         <Route path="/" element={<Home />} />

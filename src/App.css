@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&family=Questrial&display=swap');
+
+* {
+  font-family: 'Questrial', Helvetica, sans-serif;
+  background-color: #EBF6FF;
+}
+
+h1 {
+  font-family: 'League Spartan', Helvetica, sans-serif;
+  font-size: 2rem;
+  margin-left: 20px;
+}
+
+main p {
+  font-size: 15px;
+  margin-left: 20px;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 2;
@@ -11,4 +29,20 @@
 }
 .nine {
   grid-column:2;
+}
+
+body {
+  margin: 0;
+}
+
+.rsm-svg {
+  background-color: #D7F3FF;
+}
+
+.cust-button {
+  background-color: #EBF6FF;
+  border-color: #004AAD;
+  border: 2px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
 }

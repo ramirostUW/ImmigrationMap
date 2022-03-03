@@ -26,7 +26,10 @@ const MapChart = (props) => {
   //{ setTooltipContent }
   return (
     <>
-      <ComposableMap data-tip="" projectionConfig={{ scale: 200 }}>
+      <ComposableMap data-tip="" projectionConfig={{ scale: 155, center:[20, -380]}}
+        width={800}
+        height={600}
+        style={{ width: "100%", height: "auto"}} >
         <Geographies geography={geoUrl}>
           {({ geographies }) =>
             geographies.map(geo => (
