@@ -2,7 +2,7 @@
 
 * {
   font-family: 'Questrial', Helvetica, sans-serif;
-  background-color: #EBF6FF;
+  background-color: #EEF6F6;
 }
 
 h1 {
@@ -26,6 +26,7 @@ main p {
   grid-column: 1/2;
   grid-row: 1;
   width: 180px;
+  margin-right: 20px;
 }
 .nine {
   grid-column:2;
@@ -37,12 +38,4 @@ body {
 
 .rsm-svg {
   background-color: #D7F3FF;
-}
-
-.cust-button {
-  background-color: #EBF6FF;
-  border-color: #004AAD;
-  border: 2px;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
 }
