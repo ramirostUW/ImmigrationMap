@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A template for websites made with React and bundled with parcel.",
   "dependencies": {
+    "country-flags-svg": "^1.1.6",
     "d3-fetch": "^3.0.1",
     "mongoose": "^6.2.3",
     "panic-overlay": "^1.0.51",
@@ -13,6 +14,7 @@
     "react-dom": "^17.0.2",
     "react-plotly.js": "^2.5.1",
     "react-router-dom": "^6.2.1",
+    "react-share": "^4.4.0",
     "react-simple-maps": "^2.3.0",
     "react-tooltip": "^4.2.21",
     "reactstrap": "^9.0.1"

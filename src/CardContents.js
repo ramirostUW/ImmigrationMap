@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import MapChart from "./MapChart"
 import {
-    getMigrantFlowData, getImmigrantPopulationData, getEducationData,
+    getGeneralInfoData, getMigrantFlowData, getImmigrantPopulationData, getEducationData,
     getReligionData, getEconomyData, getCrimeBiasData,
     getCostOfLivingData, getVisaData, getStateCoded
 } from "./AccessDatabase"
@@ -15,18 +15,63 @@ import {
     CardTitle, CardText, Button
 } from "reactstrap"
 import propTypes, { oneOfType } from "prop-types";
+import { findFlagUrlByCountryName, countries } from "country-flags-svg";
 
 export function DefaultCardContent(props) {
-    return (
-        <CardText>
-            Sample Card Text to display! <br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non scelerisque elit. Aenean rutrum, turpis nec porta faucibus, elit magna convallis purus, in fermentum metus lacus vel risus. Sed egestas, metus eget congue fermentum, lorem sapien porta lorem, nec tempor nisi risus sit amet metus. Morbi eu lacus enim. Cras ut nisl hendrerit quam iaculis pellentesque sed iaculis sapien. Fusce tempus vestibulum lacus. Etiam suscipit sapien a accumsan finibus. In malesuada felis justo, sollicitudin molestie est sodales porta. Ut viverra eleifend pellentesque. Etiam elit nisl, viverra id pellentesque eu, viverra in risus. Suspendisse dui velit, posuere nec eros a, pretium ultrices tellus. Pellentesque pulvinar magna est, in aliquet metus finibus in. Curabitur elementum erat ut euismod consequat. Vestibulum mattis neque ac nibh tempor lacinia. Aliquam a fringilla libero. <br />
+    let [generalInfoData, generalInfoDataLoading] = getGeneralInfoData();
+    let generalInfoObject = null;
+    if (!generalInfoDataLoading) {
+        let selectedName = props.currentCountry;
+        for (let i = 0; i < generalInfoData.length; i++) {
+            if (generalInfoData[i].Country === selectedName) {
+                generalInfoObject = generalInfoData[i];
+            }
+        }
 
-            Nunc sed metus nibh. Nulla malesuada arcu sit amet ipsum cursus, vitae imperdiet mauris ullamcorper. Ut eget turpis tellus. In hac habitasse platea dictumst. Nulla volutpat mauris ac eros vestibulum, a gravida arcu fringilla. Donec finibus, nisi in consectetur faucibus, sem tellus imperdiet lorem, quis porta velit erat in tortor. Fusce tristique neque eget auctor aliquam. Vestibulum dignissim non nisl vel commodo.  <br />
 
-            Suspendisse at ipsum a augue lobortis ultrices. Nulla facilisi. Integer porttitor arcu arcu, non interdum libero blandit vel. Quisque eu vestibulum nulla, quis maximus leo. Fusce ornare quis massa sit amet euismod. Aliquam vel tortor in nisl sollicitudin mattis. Cras ornare id lorem eu viverra. Aenean vel tincidunt sem.  <br />
-        </CardText>
-    )
+        if (selectedName === "United States of America") {
+            selectedName = "United States"
+        }
+        let currentCountryObject = null;
+        for (let i = 0; i < countries.length; i++) {
+            if (countries[i].name === selectedName) {
+                currentCountryObject = countries[i];
+            }
+        }
+
+        generalInfoObject = {
+            ...generalInfoObject,
+            ...{ iso3: currentCountryObject.iso3 }
+        }
+        var data = [{
+            type: 'table',
+            header: {
+                values: Object.keys(generalInfoObject),
+                align: "center",
+                line: { width: 1, color: 'black' },
+                fill: { color: "grey" },
+                font: { family: "Arial", size: 12, color: "white" }
+            },
+            cells: {
+                values: Object.values(generalInfoObject),
+                align: "center",
+                line: { color: "black", width: 1 },
+                font: { family: "Arial", size: 11, color: ["black"] }
+            }
+        }]
+        return (
+
+            <div>
+                <img length={750} width={750} src={findFlagUrlByCountryName(selectedName)} />
+                <Plot data={data} layout={{ length: 300, width: 750 }} />
+            </div>
+        )
+    }
+    else {
+        return (
+            <p>Data is still loading!</p>
+        )
+    }
 }
 
 export function MigrationFlowCard(props) {
@@ -441,29 +486,35 @@ function VisaGraph() {
             map[key] = series
         }
         return (
-            <Plot
-                data={[
-                    { type: 'scatter', y: map[Object.keys(map)[0]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[0]},
-                    { type: 'scatter', y: map[Object.keys(map)[1]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[1]},
-                    { type: 'scatter', y: map[Object.keys(map)[2]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[2]},
-                    { type: 'scatter', y: map[Object.keys(map)[3]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[3]},
-                    { type: 'scatter', y: map[Object.keys(map)[4]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[4]},
-                    { type: 'lines+markers', y: map[Object.keys(map)[5]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[5]},
-                    { type: 'lines+markers', y: map[Object.keys(map)[6]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[6]},
-                    { type: 'lines+markers', y: map[Object.keys(map)[7]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[7]},
-                ]}
-                layout={{ width: 1000, 
+            <div>
+                <div>
+                    <p>Note: Double click on a line in the legend to display/hide it in the graph!</p>
+                </div>  
+                <Plot
+                    data={[
+                        { type: 'scatter', y: map[Object.keys(map)[0]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[0] },
+                        { type: 'scatter', y: map[Object.keys(map)[1]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[1] },
+                        { type: 'scatter', y: map[Object.keys(map)[2]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[2] },
+                        { type: 'scatter', y: map[Object.keys(map)[3]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[3] },
+                        { type: 'scatter', y: map[Object.keys(map)[4]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[4] },
+                        { type: 'lines+markers', y: map[Object.keys(map)[5]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[5] },
+                        { type: 'lines+markers', y: map[Object.keys(map)[6]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[6] },
+                        { type: 'lines+markers', y: map[Object.keys(map)[7]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[7] },
+                    ]}
+                    layout={{
+                        width: 1000,
 
-                    height: 1000,
-                    title: 'Average processing time (months)', 
-                    xaxis: { size: 8 },
-                    legend: {
-                        x: 1,
-                        xanchor: 'right',
-                        y: 1
-                      }
-                }}
-            />
+                        height: 1000,
+                        title: 'Average processing time (months)',
+                        xaxis: { size: 8 },
+                        legend: {
+                            x: 1,
+                            xanchor: 'right',
+                            y: 1
+                        }
+                    }}
+                />
+            </div>
         )
     } else {
         return (<p>Data is still loading!</p>)

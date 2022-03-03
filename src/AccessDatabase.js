@@ -2,8 +2,11 @@ import mongoose from "mongoose";
 import { useFetch } from './hooks/useFetch'
 import * as React from "react";
 
-export async function connectToDb() {
-    await mongoose.connect('mongodb+srv://ramirost:ramirost@cluster0.tlydu.mongodb.net/infoCapstone?retryWrites=true&w=majority')
+export function getGeneralInfoData() {
+       
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/General%20Information.csv");
+
+    return [crimeData, crimeDataLoading];    
 }
 
 export function getMigrantFlowData() {
