@@ -1,6 +1,9 @@
+@import "https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&family=Questrial&display=swap";
 .tab-list {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 3px solid #004AAD;
     padding-left: 0;
+    text-align: center;
+    margin-bottom: 0;
   }
   
   .tab-list-item {
@@ -8,26 +11,72 @@
     list-style: none;
     margin-bottom: -1px;
     padding: 0.5rem 0.75rem;
+    font-size: 17px;
+    font-family: 'League Spartan', Helvetica, sans-serif;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: solid #004AAD;
+    border-width: 3px 3px 0 3px;
+    margin-left: 5px;
+    width: 300px;
+    text-align: center;
+    color: #004AAD;
   }
   
   .tab-list-active {
+    background-color:#004AAD;
+    border: solid #004AAD;
+    border-width: 2px 2px 0 2px;
+    color: white;
+  }
+
+  .tabs {
     background-color: white;
-    border: solid #ccc;
-    border-width: 1px 1px 0 1px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
   
+  
+* {
+  font-family: 'Questrial', Helvetica, sans-serif;
+  /* background-color: #EEF6F6; */
+}
+
+h1 {
+  font-family: 'League Spartan', Helvetica, sans-serif;
+  font-size: 2rem;
+  margin-left: 20px;
+}
+
+main p {
+  font-size: 15px;
+  margin-left: 20px;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 2;
   gap: 2px;
   grid-auto-rows: minmax(15px, auto);
 }
+
 .one {
   grid-column: 1/2;
   grid-row: 1;
   width: 180px;
+  margin-right: 20px;
 }
+
 .nine {
   grid-column:2;
 }
+
+body {
+  margin: 0;
+}
+
+.rsm-svg {
+  background-color: #D7F3FF;
+}
+
 /*# sourceMappingURL=index.7668d46c.css.map */
