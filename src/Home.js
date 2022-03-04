@@ -51,7 +51,6 @@ export function Home() {
     return (
         <>
             <main>
-                <p>An interactive map featuring data pertinent to each country</p>
             </main>
             <Tabs>
                 <div label="INTERACTIVE MAPS">
@@ -81,7 +80,7 @@ export function Home() {
                 </div>
                 <div label="GLOSSARY">
                     <div class="container">
-                    <div class="md-6">
+                    <div>
                     <h1 class="directions-title">Migration Flows</h1>
                     <p class="directions-text">Displays data about the flow of immigration by country of origin</p>
                     </div>
@@ -89,7 +88,7 @@ export function Home() {
                     <h1 class="directions-title">Immigrant Population</h1>
                     <p class="directions-text">Displays data about the proportion of immigrants living in the country</p>
                     </div>
-                    <div class="md-6">
+                    <div>
                     <h1 class="directions-title">Visas</h1>
                     <p class="directions-text">Displays data about the average wait times associated with filing for immigration</p>
                     </div>

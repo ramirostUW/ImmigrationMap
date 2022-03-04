@@ -488,7 +488,7 @@ function VisaGraph() {
         return (
             <div>
                 <div>
-                    <p>Note: Double click on a line in the legend to display/hide it in the graph!</p>
+                    <p class="note">Note: Double click on a line in the legend to display/hide it in the graph!</p>
                 </div>  
                 <Plot
                     data={[
