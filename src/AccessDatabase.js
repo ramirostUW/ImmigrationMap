@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import { useFetch } from './hooks/useFetch'
 import * as React from "react";
 
