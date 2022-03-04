@@ -51,7 +51,7 @@ export function Home() {
     return (
         <>
             <main>
-                <p>This is the home page of the website.</p>
+                <p>An interactive map featuring data pertinent to each country</p>
             </main>
             <Tabs>
                 <div label="INTERACTIVE MAPS">
@@ -62,10 +62,58 @@ export function Home() {
                     </div>}
                 </div>
                 <div label="DIRECTIONS OF USE">
-                    Sample Text
+                    <h1 class="directions-title">HOVER OVER A COUNTRY</h1>
+                    <p class="directions-text">Hovering over a country in the interactive map will display the country’s flow of migrants in and out.</p>
+                    <h1 class="directions-title">CLICK ON A POINT</h1>
+                    <p class="directions-text">Clicking on a point will display a pop-up of general information about the country.</p>
+                    <h1 class="directions-title">CLICK ON A COUNTRY</h1>
+                    <p class="directions-text">Clicking on a country will display a pop-up screen where you can view statistical information about the country relating to immigration.</p>
+                    <h1 class="directions-title">CLICK ON TABS</h1>
+                    <p class="directions-text">Navigate between various tabs to view the map, directions of use, and legend. Upon clicking on a country, you can click on different tabs to view information about the country's:
+                        Migration Flows,
+                        Immigrant Population,
+                        Visas,
+                        Education,
+                        Religion,
+                        Economy,
+                        Crime,
+                        Cost of Living</p>
                 </div>
                 <div label="GLOSSARY">
-                    Sample Text
+                    <div class="container">
+                    <div class="md-6">
+                    <h1 class="directions-title">Migration Flows</h1>
+                    <p class="directions-text">Displays data about the flow of immigration by country of origin</p>
+                    </div>
+                    <div>
+                    <h1 class="directions-title">Immigrant Population</h1>
+                    <p class="directions-text">Displays data about the proportion of immigrants living in the country</p>
+                    </div>
+                    <div class="md-6">
+                    <h1 class="directions-title">Visas</h1>
+                    <p class="directions-text">Displays data about the average wait times associated with filing for immigration</p>
+                    </div>
+                    <div>
+                    <h1 class="directions-title">Education</h1>
+                    <p class="directions-text">Displays data about the average cost of expenses and tuition in the country</p>
+                    </div>
+                    <div>
+                    <h1 class="directions-title">Religion</h1>
+                    <p class="directions-text">Displays data about the proportion of religious affiliations in the country</p>
+                    </div>
+                    <div>
+                    <h1 class="directions-title">Employment</h1>
+                    <p class="directions-text">Displays data about the average employment rate over time in the country</p>
+                    </div>
+                    <div>
+                    <h1 class="directions-title">Crime</h1>
+                    <p class="directions-text">Displays data about the proportion of hate crimes and types of crime in the country</p>
+                    </div>
+                    <div>
+                    <h1 class="directions-title">Cost of Living</h1>
+                    <p class="directions-text">Displays data about the average cost of living and expenses in the country</p>
+                    </div>
+                    </div>
                 </div>
             </Tabs>
 
@@ -98,23 +146,23 @@ function GraphCard(props) {
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
                 integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
                 crossorigin="anonymous" />
-              <link rel="stylesheet" href="App.css"/>
-            
+            <link rel="stylesheet" href="App.css" />
+
             <Card>
                 <div class="wrapper">
                     <div class="one">
-                        <Button onClick={() => { setCurrentCardOption("migrantFlow") }} style={{ fontSize:"15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius:"50px", borderBottomRightRadius:"50px", backgroundColor: "#EBF6FF", borderColor:"#004AAD", borderWidth:"3px", color:"#004AAD"}}>Migration Flow</Button>
-                        <Button onClick={() => { setCurrentCardOption("immigrantPopulation") }} style={{ fontSize:"15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius:"50px", borderBottomRightRadius:"50px", backgroundColor: "#EBF6FF", borderColor:"#004AAD", borderWidth:"3px", color:"#004AAD"}}>Immigrant Population</Button>
-                        <Button onClick={() => { setCurrentCardOption("education") }} style={{ fontSize:"15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius:"50px", borderBottomRightRadius:"50px", backgroundColor: "#EBF6FF", borderColor:"#004AAD", borderWidth:"3px", color:"#004AAD"}}>Education</Button>
-                        <Button onClick={() => { setCurrentCardOption("religion") }} style={{ fontSize:"15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius:"50px", borderBottomRightRadius:"50px", backgroundColor: "#EBF6FF", borderColor:"#004AAD", borderWidth:"3px", color:"#004AAD"}}>Religion</Button>
-                        <Button onClick={() => { setCurrentCardOption("economy") }} style={{ fontSize:"15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius:"50px", borderBottomRightRadius:"50px", backgroundColor: "#EBF6FF", borderColor:"#004AAD", borderWidth:"3px", color:"#004AAD"}}>Economy</Button>
-                        <Button onClick={() => { setCurrentCardOption("crime") }} style={{ fontSize:"15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius:"50px", borderBottomRightRadius:"50px", backgroundColor: "#EBF6FF", borderColor:"#004AAD", borderWidth:"3px", color:"#004AAD"}}>Crime</Button>
-                        <Button onClick={() => { setCurrentCardOption("costOfLiving") }} style={{ fontSize:"15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius:"50px", borderBottomRightRadius:"50px", backgroundColor: "#EBF6FF", borderColor:"#004AAD", borderWidth:"3px", color:"#004AAD"}}>Cost of Living</Button>
-                        <Button onClick={() => { setCurrentCardOption("visas") }} style={{ fontSize:"15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius:"50px", borderBottomRightRadius:"50px", backgroundColor: "#EBF6FF", borderColor:"#004AAD", borderWidth:"3px", color:"#004AAD" }}>Visas</Button>
+                        <Button onClick={() => { setCurrentCardOption("migrantFlow") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Migration Flow</Button>
+                        <Button onClick={() => { setCurrentCardOption("immigrantPopulation") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Immigrant Population</Button>
+                        <Button onClick={() => { setCurrentCardOption("education") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Education</Button>
+                        <Button onClick={() => { setCurrentCardOption("religion") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Religion</Button>
+                        <Button onClick={() => { setCurrentCardOption("economy") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Economy</Button>
+                        <Button onClick={() => { setCurrentCardOption("crime") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Crime</Button>
+                        <Button onClick={() => { setCurrentCardOption("costOfLiving") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Cost of Living</Button>
+                        <Button onClick={() => { setCurrentCardOption("visas") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Visas</Button>
                     </div>
                     <div class="nine">
                         <CardBody>
-                            <CardTitle tag="h5">{currentCountry}</CardTitle>
+                            <CardTitle tag="h5" style={{ fontSize: "20px", fontFamily: "Questrial" }}>{currentCountry}</CardTitle>
                             {(currentCardOption === "") && <DefaultCardContent currentCountry={currentCountry} />}
                             {(currentCardOption === "migrantFlow" && currentCountry === "United States of America") && <MigrationFlowCard currentCountry={currentCountry} />}
                             {(currentCardOption === "immigrantPopulation" && currentCountry === "United States of America") && <ImmigrantPopCard currentCountry={currentCountry} />}
@@ -128,8 +176,8 @@ function GraphCard(props) {
                     </div>
 
                 </div>
-                <Button style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Gill Sans", textAlign: "center" }} onClick={disableButton}>Back</Button>
-                <div class="socialMediaButtons"><FacebookShareButton url={"https://google.com"}/></div>
+                <Button style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "League Spartan", textAlign: "center", borderRadius: "40px", backgroundColor: "#004AAD" }} onClick={disableButton}>Back</Button>
+                <div class="socialMediaButtons"><FacebookShareButton url={"https://google.com"} /></div>
             </Card>
         </div>
     );

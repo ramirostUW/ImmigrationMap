@@ -6,9 +6,41 @@
 }
 
 h1 {
-  font-family: 'League Spartan', Helvetica, sans-serif;
-  font-size: 2rem;
   margin-left: 20px;
+  color: #004AAD;
+}
+
+.flag-page, h5 {
+  margin-left: 20px;
+}
+
+.directions-text {
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.directions-title {
+  font-size: 20px;
+  margin-top: 30px;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container > div {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+.chart-name {
+  font-family: 'League Spartan', Helvetica, sans-serif;
+  font-size: 24px;
+  color: #004AAD;
+  text-transform: uppercase;
 }
 
 main p {
@@ -17,19 +49,20 @@ main p {
 }
 
 .wrapper {
-  display: grid;
+  display: flex;
   grid-template-columns: 2;
   gap: 2px;
   grid-auto-rows: minmax(15px, auto);
 }
+
 .one {
   grid-column: 1/2;
   grid-row: 1;
   width: 180px;
-  margin-right: 20px;
 }
 .nine {
   grid-column:2;
+  margin: auto;
 }
 
 body {

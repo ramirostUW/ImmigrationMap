@@ -10,8 +10,9 @@ export function App() {
 
   return (
     <div>
+      <img src="public/imgs/applogo.png" />
       <header>
-        <h1>IMMIGRATION INC. </h1>
+      <h1>IMMIGRATION INC. </h1>
       </header>
       <Routes>
         <Route path="/" element={<Home />} />

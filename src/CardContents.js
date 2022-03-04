@@ -61,7 +61,7 @@ export function DefaultCardContent(props) {
         }]
         return (
 
-            <div>
+            <div class="flag-page">
                 <img length={750} width={750} src={findFlagUrlByCountryName(selectedName)} />
                 <Plot data={data} layout={{ length: 300, width: 750 }} />
             </div>
@@ -79,7 +79,7 @@ export function MigrationFlowCard(props) {
 
     return (
         <div>
-            <h1>Migration Flow for {props.currentCountry}</h1>
+            <h1 class="chart-name">Migration Flow for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {!crimeDataLoading && <CardText><MigrationFlowGraph /></CardText>}
         </div>
@@ -92,7 +92,7 @@ export function ImmigrantPopCard(props) {
 
     return (
         <div>
-            <h1>Immigrant Population for {props.currentCountry}</h1>
+            <h1 class="chart-name">Immigrant Population for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {!crimeDataLoading && <CardText><ImmigrantPopGraph /></CardText>}
         </div>
@@ -105,7 +105,7 @@ export function EducationCard(props) {
 
     return (
         <div>
-            <h1>Education for {props.currentCountry}</h1>
+            <h1 class="chart-name">Education for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {!crimeDataLoading && <CardText><EducationGraph /></CardText>}
         </div>
@@ -118,7 +118,7 @@ export function ReligionCard(props) {
 
     return (
         <div>
-            <h1>Religion for {props.currentCountry}</h1>
+            <h1 class="chart-name">Religion for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {!crimeDataLoading && <CardText><ReligionGraph /></CardText>}
         </div>
@@ -131,7 +131,7 @@ export function EconomyCard(props) {
 
     return (
         <div>
-            <h1>Economy for {props.currentCountry}</h1>
+            <h1 class="chart-name">Economy for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {!crimeDataLoading && <CardText><EconomyGraph /></CardText>}
         </div>
@@ -145,7 +145,7 @@ export function CrimeCard(props) {
 
     return (
         <div>
-            <h1>Crime for {props.currentCountry}</h1>
+            <h1 class="chart-name">Crime for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {!crimeDataLoading && <CardText><CrimeBiasGraph /></CardText>}
         </div>
@@ -158,7 +158,7 @@ export function CostOfLivingCard(props) {
 
     return (
         <div>
-            <h1>Cost of Living for {props.currentCountry}</h1>
+            <h1 class="chart-name">Cost of Living for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {!crimeDataLoading && <CardText><CostOfLivingGraph /></CardText>}
         </div>
@@ -171,7 +171,7 @@ export function VisaCard(props) {
 
     return (
         <div>
-            <h1>Visas for {props.currentCountry}</h1>
+            <h1 class="chart-name">Visas for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {!crimeDataLoading && <CardText><VisaGraph /></CardText>}
         </div>
