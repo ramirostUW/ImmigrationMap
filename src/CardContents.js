@@ -511,7 +511,7 @@ function VisaGraph() {
     if (!visaDataLoading) {
         let countries = []
         let totals = []
-        map ={}
+        
 
         for (let i = 0; i < visaData.length; i++) {
             let country = visaData[i]["Fiscal Year 2014"]
@@ -520,7 +520,7 @@ function VisaGraph() {
             total = parseFloat(total)
             countries.push(country)
             totals.push(total)
-            map[country] = total
+
         }
         return (
             <Plot
