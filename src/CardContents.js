@@ -63,7 +63,10 @@ export function DefaultCardContent(props) {
 
             <div class="flag-page">
                 <img length={750} width={750} src={findFlagUrlByCountryName(selectedName)} />
-                <Plot data={data} layout={{ length: 300, width: 750 }} />
+                <Plot data={data} layout={{
+                    length: 300, width: 750, paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)'
+                }} />
             </div>
         )
     }
@@ -167,7 +170,7 @@ export function CostOfLivingCard(props) {
 }
 
 export function VisaCard(props) {
-    let [crimeData, crimeDataLoading] = getVisaData("https://github.com/ramirostUW/ImmigrationMap/blob/main/src/datafiles/General%20Information.csv");
+    let [crimeData, crimeDataLoading] = getVisaData();
 
     return (
         <div>
@@ -191,21 +194,51 @@ function MigrationFlowGraph() {
             num = parseInt(num);
             map[country] = num;
         }
-        let sorter = sortObjectEntries(map, 20);
+        /*let sorter = sortObjectEntries(map, 20);
         let plotMap = {}
         for (let i = 0; i < sorter.length; i++) {
             let country = sorter[i];
             plotMap[country] = map[country];
         }
-
+        */
 
         return (
-            <Plot
+            /*<Plot
                 data={[
                     { type: 'bar', x: Object.keys(plotMap), y: Object.values(plotMap) },
                 ]}
                 layout={{ width: 750, height: 750, title: 'Migration outflows for USA', xaxis: { tickangle: 30 } }}
+            />*/
+            <Plot
+                data={[
+                    {
+                        type: 'choropleth', locationmode: 'country names', locations: Object.keys(map), z: Object.values(map), text: Object.keys(map), colorscale: [
+                            [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
+                            [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
+                            [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
+                        ], colorbar: {
+                            title: 'Number of immigrants',
+                            thickness: 2
+                        }, marker: {
+                            line: {
+                                color: 'rgb(255,255,255)',
+                                width: 2
+                            }
+                        }
+                    },
+                ]}
+                layout={{
+                    title: "Countries USA is receiving immigrants from", geo: {
+                        projection: {
+                            type: 'mercator'
+                        }
+                    }, width: 1000, height: 1000, paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)'
+                }
+                }
             />
+            
+
 
         )
     } else {
@@ -244,12 +277,12 @@ function ImmigrantPopGraph() {
             <Plot
                 data={[
                     {
-                        type: 'choropleth', locationmode: 'USA-states', locations: Object.keys(plotMap), z: Object.values(plotMap), text: Object.keys(plotMap), colorscale: [
+                        type: 'choropleth', locationmode: 'USA-states', locations: Object.keys(plotMap), z: Object.values(plotMap), text: Object.keys(stateMap), hovertext: "%", colorscale: [
                             [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
                             [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
                             [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
                         ], colorbar: {
-                            title: 'Percentage Population',
+                            title: 'Percentage of Immigrant Population',
                             thickness: 2
                         }, marker: {
                             line: {
@@ -259,7 +292,10 @@ function ImmigrantPopGraph() {
                         }
                     },
                 ]}
-                layout={{ title: "Immigration population chloropleth", geo: { scope: 'usa' }, width: 1000, height: 1000 }
+                layout={{
+                    title: "Immigration population chloropleth", geo: { scope: 'usa' }, width: 1000, height: 1000, paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)'
+                }
                 }
             />
         )
@@ -280,30 +316,28 @@ function EducationGraph() {
         let tuition = []
         let roomBoard = []
         let booksSupplies = []
-        let other = []
         for (let i = 0; i < eduData.length; i++) {
             let type = eduData[i]["Institution"]
             types.push(type)
-            let tuit = eduData[i]["Tuition & Fees"]
+            let tuit = eduData[i]["Tuition and required fees"]
             tuition.push(tuit)
-            let rabs = eduData[i]["Room & Board (on campus)"]
+            let rabs = eduData[i]["Dormitory rooms"]
             roomBoard.push(rabs)
-            let sups = eduData[i]["Books & Supplies"]
+            let sups = eduData[i]["Board"]
             booksSupplies.push(sups)
-            let oths = eduData[i]["Other expenses"]
-            other.push(oths)
         }
         return (
             <Plot
                 data={[
-                    { type: 'bar', x: ["Public, in state", "Private for-profit", "Private, non-profit"], y: tuition, name: "Tuition" },
-                    { type: 'bar', x: ["Public, in state", "Private for-profit", "Private, non-profit"], y: roomBoard, name: "Room & Board (on campus)" },
-                    { type: 'bar', x: ["Public, in state", "Private for-profit", "Private, non-profit"], y: booksSupplies, name: "Books & Supplies" },
-                    { type: 'bar', x: ["Public, in state", "Private for-profit", "Private, non-profit"], y: other, name: "Other expenses" },
+                    { type: 'bar', x: types, y: tuition, name: "Tuition" },
+                    { type: 'bar', x: types, y: roomBoard, name: "Dormitory rooms" },
+                    { type: 'bar', x: types, y: booksSupplies, name: "Board" },
                 ]}
-                layout={{ width: 750, height: 750, title: 'Average cost of education', barmode: 'stack' }}
+                layout={{
+                    width: 750, height: 750, title: 'Average cost of education for Foreign nationals', barmode: 'stack', paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)'
+                }}
             />
-
         )
     } else {
         return (<p>Data is loading!</p>)
@@ -312,39 +346,41 @@ function EducationGraph() {
 function EconomyGraph() {
     let [ecoData, ecoDataLoading] = getEconomyData()
     if (!ecoDataLoading) {
-        let codes = []
-        let rates = []
-        let states = []
+        let occupation = []
+        let share = []
+        let wage = []
         for (let i = 0; i < ecoData.length; i++) {
-            let code = ecoData[i]["State code"]
-            let rate = ecoData[i]["Annual avg"]
-            let state = ecoData[i]["State"]
-            codes.push(code)
-            rates.push(rate)
-            states.push(state)
+            let occ = ecoData[i]["Occupation title (click on the occupation title to view its profile)"]
+            let shar = ecoData[i]["Employment per 1,000 jobs"]
+            shar = parseFloat(shar)
+            let wag = ecoData[i]["Annual mean wage"]
+            wag = wag.replace("$", "")
+            wag = parseFloat(wag);
+            occupation.push(occ)
+            share.push(shar)
+            wage.push(wag)
         }
+        var trace1 = {
+            x: occupation,
+            y: share,
+            name: 'Employment in Industy per 1000 jobs',
+            type: 'bar'
+        };
+
+        var trace2 = {
+            x: occupation,
+            y: wage,
+            name: 'Mean Annual Wage in thousands(USD)',
+            yaxis: 'Mean Annual Wage (USD)',
+            type: 'bar'
+        };
+
+        var data = [trace1, trace2];
         return (
-            <Plot
-                data={[
-                    {
-                        type: 'choropleth', locationmode: 'USA-states', locations: codes, z: rates, text: states, colorscale: [
-                            [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
-                            [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
-                            [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
-                        ], colorbar: {
-                            title: 'Annual avg. unemployment%',
-                            thickness: 2
-                        }, marker: {
-                            line: {
-                                color: 'rgb(255,255,255)',
-                                width: 2
-                            }
-                        }
-                    },
-                ]}
-                layout={{ title: "Unemployment rate chloropleth", geo: { scope: 'usa' }, width: 1000, height: 1000 }
-                }
-            />
+            <Plot data={data} layout={{
+                length: 750, width: 1200, paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)'
+            }} />
 
         )
     } else {
@@ -358,19 +394,22 @@ function CrimeBiasGraph() {
     let [criData, criDataLoading] = getCrimeBiasData()
     if (!criDataLoading) {
         let number = []
-        let bias = []
+        let types = []
         for (let i = 0; i < criData.length; i++) {
-            let num = criData[i]["value"]
+            let num = criData[i]["Incidents"]
             number.push(num)
-            let bi = criData[i]["key"]
-            bias.push(bi)
+            let type = criData[i]["Offense type"]
+            types.push(type)
         }
         return (
             <Plot
                 data={[
-                    { type: 'bar', y: number, x: bias },
+                    { type: 'pie', values: number, labels: types },
                 ]}
-                layout={{ width: 750, height: 500, title: 'Distribution of race-based crimes', xaxis: { size: 8 } }}
+                layout={{
+                    width: 750, height: 750, title: 'Distribution of crimes by offense-type', paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)'
+                }}
             />
         )
     } else {
@@ -394,7 +433,10 @@ function ReligionGraph() {
                 data={[
                     { type: 'bar', y: share, x: religion },
                 ]}
-                layout={{ width: 750, height: 500, title: 'Propotion of religious affiliations', xaxis: { size: 8 } }}
+                layout={{
+                    width: 750, height: 500, title: 'Propotion of religious affiliations', xaxis: { size: 8 }, paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)'
+                }}
             />
         )
     } else {
@@ -451,7 +493,10 @@ function CostOfLivingGraph() {
                         }
                     },
                 ]}
-                layout={{ title: "Chloropleth for Avg. value of the dollar vs. national average", geo: { scope: 'usa' }, width: 1000, height: 1000 }
+                layout={{
+                    title: "Chloropleth for Avg. value of the dollar vs. national average", geo: { scope: 'usa' }, width: 1000, height: 1000, paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)'
+                }
                 }
             />
         )
@@ -464,59 +509,57 @@ function CostOfLivingGraph() {
 function VisaGraph() {
     let [visaData, visaDataLoading] = getVisaData()
     if (!visaDataLoading) {
-        let map = {}
+        let countries = []
+        let totals = []
+        map ={}
 
         for (let i = 0; i < visaData.length; i++) {
-            let type = visaData[i]["Form Description"]
-            let form = visaData[i]["Form"]
-            let key = type + " (" + form + ")"
-            let fy17 = visaData[i]["FY 2018"]
-            let fy18 = visaData[i]["FY 2019"]
-            let fy19 = visaData[i]["FY 2020"]
-            let fy20 = visaData[i]["FY 2021"]
-            let fy21 = visaData[i]["FY 2021"]
-            let fy22 = visaData[i]["FY 2022"]
-            let series = []
-            series.push(parseFloat(fy17))
-            series.push(parseFloat(fy18))
-            series.push(parseFloat(fy19))
-            series.push(parseFloat(fy20))
-            series.push(parseFloat(fy21))
-            series.push(parseFloat(fy22))
-            map[key] = series
+            let country = visaData[i]["Fiscal Year 2014"]
+            let total = visaData[i]["Grand Total"]
+            total = total.replace(",", "")
+            total = parseFloat(total)
+            countries.push(country)
+            totals.push(total)
+            map[country] = total
         }
         return (
-            <div>
-                <div>
-                    <p class="note">Note: Double click on a line in the legend to display/hide it in the graph!</p>
-                </div>  
-                <Plot
-                    data={[
-                        { type: 'scatter', y: map[Object.keys(map)[0]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[0] },
-                        { type: 'scatter', y: map[Object.keys(map)[1]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[1] },
-                        { type: 'scatter', y: map[Object.keys(map)[2]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[2] },
-                        { type: 'scatter', y: map[Object.keys(map)[3]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[3] },
-                        { type: 'scatter', y: map[Object.keys(map)[4]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[4] },
-                        { type: 'lines+markers', y: map[Object.keys(map)[5]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[5] },
-                        { type: 'lines+markers', y: map[Object.keys(map)[6]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[6] },
-                        { type: 'lines+markers', y: map[Object.keys(map)[7]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[7] },
-                    ]}
-                    layout={{
-                        width: 1000,
-
-                        height: 1000,
-                        title: 'Average processing time (months)',
-                        xaxis: { size: 8 },
-                        legend: {
-                            x: 1,
-                            xanchor: 'right',
-                            y: 1
+            <Plot
+                data={[
+                    {
+                        type: 'choropleth',
+                        locationmode: 'country names',
+                        locations: countries,
+                        z: totals,
+                        text: countries,
+                        colorscale: [
+                            [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
+                            [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
+                            [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
+                        ], colorbar: {
+                            title: 'Number of Visas issued (2020)',
+                            thickness: 2
+                        }, marker: {
+                            line: {
+                                color: 'rgb(255,255,255)',
+                                width: 2
+                            }
                         }
-                    }}
-                />
-            </div>
+                    },
+                ]}
+                layout={{
+                    title: "Number of visas issued to different countries", geo: {
+                        projection: {
+                            type: 'mercator'
+                        }
+                    }, width: 1000, height: 1000, paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)'
+                }
+                }
+            />
+            
         )
     } else {
         return (<p>Data is still loading!</p>)
     }
 }
+
