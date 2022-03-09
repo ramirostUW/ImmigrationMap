@@ -172,7 +172,7 @@ function GraphCard(props) {
             <link rel="stylesheet" href="App.css" />
 
             <Card>
-                <div style={{backgroundColor: "#EEF6F6"}} class="wrapper">
+                <div style={{align: "center",backgroundColor: "#EEF6F6"}} class="wrapper">
                     <div class="one">
                         <Button onClick={() => { setCurrentCardOption("migrantFlow"); changeClickedStyle(setMigrantButtonStyle)}} style={migrantButtonStyle}>Migration Flow</Button>
                         <Button onClick={() => { setCurrentCardOption("immigrantPopulation"); changeClickedStyle(setImmigrationButtonStyle) }} style={immigrationButtonStyle}>Immigrant Population</Button>
