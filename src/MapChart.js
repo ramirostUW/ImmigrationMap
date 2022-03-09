@@ -32,7 +32,7 @@ const MapChart = (props) => {
     <>
       <ComposableMap data-tip="" 
         width={1000}
-        height={600}
+        height={420}
         style={{ width: "100%", height: "auto"}}
         projection={projection} >
         <Geographies geography={geoUrl}>
@@ -55,15 +55,17 @@ const MapChart = (props) => {
                 }}
                 style={{
                   default: {
-                    fill: "#D6D6DA",
-                    outline: "none"
+                    fill: "#ffffff",
+                    stroke: "#d4dbe8",
+                    outline: "none",
+                    strokeWidth:"0.75"
                   },
                   hover: {
-                    fill: "#F53",
+                    fill: "#ffcf33",
                     outline: "none"
                   },
                   pressed: {
-                    fill: "#E42",
+                    fill: "#1500d1",
                     outline: "none"
                   }
                 }}

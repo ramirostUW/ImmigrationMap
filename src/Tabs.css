@@ -1,23 +1,20 @@
 .tab-list {
-    border-bottom: 3px solid #004AAD;
+    border-bottom: 2px solid #004AAD;
     padding-left: 0;
     text-align: center;
     margin-bottom: 0;
+    display: flex;
+    margin-top: 0;
   }
   
   .tab-list-item {
-    display: inline-block;
+    flex: 1;
     list-style: none;
-    margin-bottom: -1px;
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem;
     font-size: 17px;
     font-family: 'League Spartan', Helvetica, sans-serif;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     border: solid #004AAD;
-    border-width: 3px 3px 0 3px;
-    margin-left: 5px;
-    width: 400px;
+    border-width: 2px 0px 0 2px;
     text-align: center;
     color: #004AAD;
   }

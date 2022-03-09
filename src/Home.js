@@ -61,10 +61,6 @@ export function Home() {
                     </div>}
                 </div>
                 <div label="DIRECTIONS OF USE">
-                    <h1 class="directions-title">HOVER OVER A COUNTRY</h1>
-                    <p class="directions-text">Hovering over a country in the interactive map will display the country’s flow of migrants in and out.</p>
-                    <h1 class="directions-title">CLICK ON A POINT</h1>
-                    <p class="directions-text">Clicking on a point will display a pop-up of general information about the country.</p>
                     <h1 class="directions-title">CLICK ON A COUNTRY</h1>
                     <p class="directions-text">Clicking on a country will display a pop-up screen where you can view statistical information about the country relating to immigration.</p>
                     <h1 class="directions-title">CLICK ON TABS</h1>
@@ -77,42 +73,46 @@ export function Home() {
                         Economy,
                         Crime,
                         Cost of Living</p>
+                    <div class="countryData">
+                        <h2 class="dataTitle">AVAILABLE COUNTRY DATA</h2>
+                        <div class="container">
+                            <div>
+                                <h1 class="directions-title">Migration Flows</h1>
+                                <p class="directions-text">Displays data about the flow of migration by country of origin</p>
+                            </div>
+                            <div>
+                                <h1 class="directions-title">Immigrant Population</h1>
+                                <p class="directions-text">Displays data about the proportion of immigrants living in the country</p>
+                            </div>
+                            <div>
+                                <h1 class="directions-title">Visas</h1>
+                                <p class="directions-text">Displays data about the average number of visas granted by country of origin</p>
+                            </div>
+                            <div>
+                                <h1 class="directions-title">Education</h1>
+                                <p class="directions-text">Displays data about the average cost of expenses and tuition in the country</p>
+                            </div>
+                            <div>
+                                <h1 class="directions-title">Religion</h1>
+                                <p class="directions-text">Displays data about the proportion of religious affiliations in the country</p>
+                            </div>
+                            <div>
+                                <h1 class="directions-title">Employment</h1>
+                                <p class="directions-text">Displays data about the most common occupation industries and average median wages</p>
+                            </div>
+                            <div>
+                                <h1 class="directions-title">Crime</h1>
+                                <p class="directions-text">Displays data about the most prevalent types of crime in the country</p>
+                            </div>
+                            <div>
+                                <h1 class="directions-title">Cost of Living</h1>
+                                <p class="directions-text">Displays data about the average cost of living and expenses in the country</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div label="GLOSSARY">
-                    <div class="container">
-                    <div>
-                    <h1 class="directions-title">Migration Flows</h1>
-                    <p class="directions-text">Displays data about the flow of immigration by country of origin</p>
-                    </div>
-                    <div>
-                    <h1 class="directions-title">Immigrant Population</h1>
-                    <p class="directions-text">Displays data about the proportion of immigrants living in the country</p>
-                    </div>
-                    <div>
-                    <h1 class="directions-title">Visas</h1>
-                    <p class="directions-text">Displays data about the average wait times associated with filing for immigration</p>
-                    </div>
-                    <div>
-                    <h1 class="directions-title">Education</h1>
-                    <p class="directions-text">Displays data about the average cost of expenses and tuition in the country</p>
-                    </div>
-                    <div>
-                    <h1 class="directions-title">Religion</h1>
-                    <p class="directions-text">Displays data about the proportion of religious affiliations in the country</p>
-                    </div>
-                    <div>
-                    <h1 class="directions-title">Employment</h1>
-                    <p class="directions-text">Displays data about the average employment rate over time in the country</p>
-                    </div>
-                    <div>
-                    <h1 class="directions-title">Crime</h1>
-                    <p class="directions-text">Displays data about the proportion of hate crimes and types of crime in the country</p>
-                    </div>
-                    <div>
-                    <h1 class="directions-title">Cost of Living</h1>
-                    <p class="directions-text">Displays data about the average cost of living and expenses in the country</p>
-                    </div>
-                    </div>
+                <div label="ABOUT US">
+                    <div> insert information about us and sources</div>
                 </div>
             </Tabs>
 
@@ -140,7 +140,7 @@ function GraphCard(props) {
 
     let buttonStyle = { fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }
     let clickedbuttonStyle = { fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#004AAD", borderColor: "#004AAD", borderWidth: "3px", color: "white" }
-    
+
     let [migrantButtonStyle, setMigrantButtonStyle] = useState(buttonStyle)
     let [immigrationButtonStyle, setImmigrationButtonStyle] = useState(buttonStyle)
     let [educationButtonStyle, setEducationButtonStyle] = useState(buttonStyle)
@@ -149,16 +149,16 @@ function GraphCard(props) {
     let [crimetButtonStyle, setCrimeButtonStyle] = useState(buttonStyle)
     let [costLivingButtonStyle, setCostLivingButtonStyle] = useState(buttonStyle)
     let [visaButtonStyle, setVisaButtonStyle] = useState(buttonStyle)
-    
+
     let [currentClickedSetter, setCurrentClickedSetter] = useState(null);
 
-    function changeClickedStyle(newClickedSetter){
+    function changeClickedStyle(newClickedSetter) {
         let buttonSetterArray = [setMigrantButtonStyle, setImmigrationButtonStyle, setEducationButtonStyle, setReligionButtonStyle, setEconomyButtonStyle, setCrimeButtonStyle, setCostLivingButtonStyle, setVisaButtonStyle]
-        var filtered = buttonSetterArray.filter(function(value){ 
+        var filtered = buttonSetterArray.filter(function (value) {
             return value !== newClickedSetter;
         });
         newClickedSetter(clickedbuttonStyle);
-        filtered.forEach(function(currentFunc){
+        filtered.forEach(function (currentFunc) {
             currentFunc(buttonStyle)
         })
     }
@@ -172,9 +172,9 @@ function GraphCard(props) {
             <link rel="stylesheet" href="App.css" />
 
             <Card>
-                <div style={{align: "center",backgroundColor: "#EEF6F6"}} class="wrapper">
+                <div style={{ align: "center", backgroundColor: "#EEF6F6" }} class="wrapper">
                     <div class="one">
-                        <Button onClick={() => { setCurrentCardOption("migrantFlow"); changeClickedStyle(setMigrantButtonStyle)}} style={migrantButtonStyle}>Migration Flow</Button>
+                        <Button onClick={() => { setCurrentCardOption("migrantFlow"); changeClickedStyle(setMigrantButtonStyle) }} style={migrantButtonStyle}>Migration Flow</Button>
                         <Button onClick={() => { setCurrentCardOption("immigrantPopulation"); changeClickedStyle(setImmigrationButtonStyle) }} style={immigrationButtonStyle}>Immigrant Population</Button>
                         <Button onClick={() => { setCurrentCardOption("education"); changeClickedStyle(setEducationButtonStyle) }} style={educationButtonStyle}>Education</Button>
                         <Button onClick={() => { setCurrentCardOption("religion"); changeClickedStyle(setReligionButtonStyle) }} style={religionButtonStyle}>Religion</Button>
