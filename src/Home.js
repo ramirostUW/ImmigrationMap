@@ -164,7 +164,7 @@ function GraphCard(props) {
     }
     return (
         <div style={{
-            display: 'block', width: "1500px", padding: 30
+            display: 'block', width: "auto", padding: 30
         }}>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
                 integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
@@ -182,10 +182,14 @@ function GraphCard(props) {
                         <Button onClick={() => { setCurrentCardOption("crime"); changeClickedStyle(setCrimeButtonStyle) }} style={crimetButtonStyle}>Crime</Button>
                         <Button onClick={() => { setCurrentCardOption("costOfLiving"); changeClickedStyle(setCostLivingButtonStyle) }} style={costLivingButtonStyle}>Cost of Living</Button>
                         <Button onClick={() => { setCurrentCardOption("visas"); changeClickedStyle(setVisaButtonStyle) }} style={visaButtonStyle}>Visas</Button>
+                    <div class="backButton">
+                    <Button style={{ margin: BTN_MARGIN, height: "40px", width: "180px", borderRadius:"40px", fontFamily: "League Spartan", textAlign: "center", backgroundColor: "#004AAD" }} onClick={disableButton}>Back</Button>
+                    <div class="socialMediaButtons"><FacebookShareButton url={"https://google.com"} /></div>
+                    </div>
                     </div>
                     <div class="nine">
                         <CardBody>
-                            <CardTitle tag="h5" style={{ fontSize: "20px", fontFamily: "Questrial" }}>{currentCountry}</CardTitle>
+                            <CardTitle tag="h5" style={{ fontSize: "18px", fontFamily: "Questrial" }}>{currentCountry}</CardTitle>
                             {(currentCardOption === "") && <DefaultCardContent currentCountry={currentCountry} />}
                             {(currentCardOption === "migrantFlow" && currentCountry === "United States of America") && <MigrationFlowCard currentCountry={currentCountry} />}
                             {(currentCardOption === "immigrantPopulation" && currentCountry === "United States of America") && <ImmigrantPopCard currentCountry={currentCountry} />}
@@ -199,8 +203,6 @@ function GraphCard(props) {
                     </div>
 
                 </div>
-                <Button style={{ margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "League Spartan", textAlign: "center", borderRadius: "40px", backgroundColor: "#004AAD" }} onClick={disableButton}>Back</Button>
-                <div class="socialMediaButtons"><FacebookShareButton url={"https://google.com"} /></div>
             </Card>
         </div>
     );

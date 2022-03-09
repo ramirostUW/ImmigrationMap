@@ -407,7 +407,8 @@ function CrimeBiasGraph() {
                     { type: 'pie', values: number, labels: types },
                 ]}
                 layout={{
-                    width: 750, height: 750, title: 'Distribution of crimes by offense-type', paper_bgcolor: 'rgba(0,0,0,0)',
+                    width: 700, height: 500, title: 'Distribution of Crimes by Type of Offense', paper_bgcolor: 'rgba(0,0,0,0)',
+                    fontTitle:"Raleway",
                     plot_bgcolor: 'rgba(0,0,0,0)'
                 }}
             />
