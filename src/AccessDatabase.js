@@ -26,8 +26,7 @@ export function getImmigrantPopulationData() {
 
 export function getEducationData() {
     
-    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/Distribution%20of%20college%20costs%202022%20UPDATED.csv");
-
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/EDUCATION%20education%20expenses.xls%20-%20Digest%202020%20Table%20330.10.csv")
     return [crimeData, crimeDataLoading];
     
 }
@@ -42,7 +41,7 @@ export function getReligionData() {
 
 export function getEconomyData() {
     
-    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/unemployment_state_rates.csv")
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/EMPLOYMENT%20Top%20Occupations%20and%20median%20wage%20-%20Sheet1.csv")
     return [crimeData, crimeDataLoading];
     
 }
@@ -50,8 +49,7 @@ export function getEconomyData() {
 
 export function getCrimeBiasData() {
     
-    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/crime-bias%20motivation.csv");
-
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/crime_by_offense_new.csv")
     return [crimeData, crimeDataLoading];
     
 }
@@ -66,10 +64,8 @@ export function getCostOfLivingData() {
 
 export function getVisaData() {
     
-    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/National%20Median%20Application%20Processing%20Times.csv");
-
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/VISA%20visa%20issuance%20by%20nationality%20and%20visa%20type.xls%20-%20FY14.csv")
     return [crimeData, crimeDataLoading];
-    
 }
 
 export function getStateCoded() {
