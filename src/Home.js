@@ -138,6 +138,30 @@ function GraphCard(props) {
 
     const [currentCardOption, setCurrentCardOption] = useState("");
 
+    let buttonStyle = { fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }
+    let clickedbuttonStyle = { fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#004AAD", borderColor: "#004AAD", borderWidth: "3px", color: "white" }
+    
+    let [migrantButtonStyle, setMigrantButtonStyle] = useState(buttonStyle)
+    let [immigrationButtonStyle, setImmigrationButtonStyle] = useState(buttonStyle)
+    let [educationButtonStyle, setEducationButtonStyle] = useState(buttonStyle)
+    let [religionButtonStyle, setReligionButtonStyle] = useState(buttonStyle)
+    let [economyButtonStyle, setEconomyButtonStyle] = useState(buttonStyle)
+    let [crimetButtonStyle, setCrimeButtonStyle] = useState(buttonStyle)
+    let [costLivingButtonStyle, setCostLivingButtonStyle] = useState(buttonStyle)
+    let [visaButtonStyle, setVisaButtonStyle] = useState(buttonStyle)
+    
+    let [currentClickedSetter, setCurrentClickedSetter] = useState(null);
+
+    function changeClickedStyle(newClickedSetter){
+        let buttonSetterArray = [setMigrantButtonStyle, setImmigrationButtonStyle, setEducationButtonStyle, setReligionButtonStyle, setEconomyButtonStyle, setCrimeButtonStyle, setCostLivingButtonStyle, setVisaButtonStyle]
+        var filtered = buttonSetterArray.filter(function(value){ 
+            return value !== newClickedSetter;
+        });
+        newClickedSetter(clickedbuttonStyle);
+        filtered.forEach(function(currentFunc){
+            currentFunc(buttonStyle)
+        })
+    }
     return (
         <div style={{
             display: 'block', width: "1500px", padding: 30
@@ -148,16 +172,16 @@ function GraphCard(props) {
             <link rel="stylesheet" href="App.css" />
 
             <Card>
-                <div class="wrapper">
+                <div style={{backgroundColor: "#EEF6F6"}} class="wrapper">
                     <div class="one">
-                        <Button onClick={() => { setCurrentCardOption("migrantFlow") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Migration Flow</Button>
-                        <Button onClick={() => { setCurrentCardOption("immigrantPopulation") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Immigrant Population</Button>
-                        <Button onClick={() => { setCurrentCardOption("education") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Education</Button>
-                        <Button onClick={() => { setCurrentCardOption("religion") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Religion</Button>
-                        <Button onClick={() => { setCurrentCardOption("economy") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Economy</Button>
-                        <Button onClick={() => { setCurrentCardOption("crime") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Crime</Button>
-                        <Button onClick={() => { setCurrentCardOption("costOfLiving") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Cost of Living</Button>
-                        <Button onClick={() => { setCurrentCardOption("visas") }} style={{ fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }}>Visas</Button>
+                        <Button onClick={() => { setCurrentCardOption("migrantFlow"); changeClickedStyle(setMigrantButtonStyle)}} style={migrantButtonStyle}>Migration Flow</Button>
+                        <Button onClick={() => { setCurrentCardOption("immigrantPopulation"); changeClickedStyle(setImmigrationButtonStyle) }} style={immigrationButtonStyle}>Immigrant Population</Button>
+                        <Button onClick={() => { setCurrentCardOption("education"); changeClickedStyle(setEducationButtonStyle) }} style={educationButtonStyle}>Education</Button>
+                        <Button onClick={() => { setCurrentCardOption("religion"); changeClickedStyle(setReligionButtonStyle) }} style={religionButtonStyle}>Religion</Button>
+                        <Button onClick={() => { setCurrentCardOption("economy"); changeClickedStyle(setEconomyButtonStyle) }} style={economyButtonStyle}>Economy</Button>
+                        <Button onClick={() => { setCurrentCardOption("crime"); changeClickedStyle(setCrimeButtonStyle) }} style={crimetButtonStyle}>Crime</Button>
+                        <Button onClick={() => { setCurrentCardOption("costOfLiving"); changeClickedStyle(setCostLivingButtonStyle) }} style={costLivingButtonStyle}>Cost of Living</Button>
+                        <Button onClick={() => { setCurrentCardOption("visas"); changeClickedStyle(setVisaButtonStyle) }} style={visaButtonStyle}>Visas</Button>
                     </div>
                     <div class="nine">
                         <CardBody>
