@@ -50,22 +50,22 @@ export function DefaultCardContent(props) {
                 align: "center",
                 line: { width: 1, color: 'black' },
                 fill: { color: "grey" },
-                font: { family: "Arial", size: 12, color: "white" }
+                font: { family: "Questrial", size: 12, color: "white" }
             },
             cells: {
                 values: Object.values(generalInfoObject),
                 align: "center",
                 line: { color: "black", width: 1 },
-                font: { family: "Arial", size: 11, color: ["black"] }
+                font: { family: "Questrial", size: 11, color: ["black"] }
             }
         }]
         return (
 
             <div class="flag-page">
-                <img length={750} width={750} src={findFlagUrlByCountryName(selectedName)} />
+                <img length={550} width={550} src={findFlagUrlByCountryName(selectedName)} />
                 <Plot data={data} layout={{
                     length: 300, width: 750, paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)'
+                    plot_bgcolor: 'rgba(0,0,0,0)', margin: 0
                 }} />
             </div>
         )
@@ -215,25 +215,26 @@ function MigrationFlowGraph() {
                         type: 'choropleth', locationmode: 'country names', locations: Object.keys(map), z: Object.values(map), text: Object.keys(map), colorscale: [
                             [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
                             [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
-                            [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
+                            [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)'],
                         ], colorbar: {
                             title: 'Number of immigrants',
-                            thickness: 2
+                            thickness: 15,
+                            len: 1.05
                         }, marker: {
                             line: {
                                 color: 'rgb(255,255,255)',
-                                width: 2
+                                width: 1
                             }
                         }
                     },
                 ]}
                 layout={{
-                    title: "Countries USA is receiving immigrants from", geo: {
+                    title: "Where are immigrants coming from?", geo: {
                         projection: {
-                            type: 'mercator'
+                            type: 'projection'
                         }
-                    }, width: 1000, height: 1000, paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)'
+                    }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial"}
                 }
                 }
             />
@@ -282,8 +283,9 @@ function ImmigrantPopGraph() {
                             [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
                             [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
                         ], colorbar: {
-                            title: 'Percentage of Immigrant Population',
-                            thickness: 2
+                            title: '% of Immigrant Population',
+                            thickness: 15,
+                            len: 1.1
                         }, marker: {
                             line: {
                                 color: 'rgb(255,255,255)',
@@ -293,8 +295,8 @@ function ImmigrantPopGraph() {
                     },
                 ]}
                 layout={{
-                    title: "Immigration population chloropleth", geo: { scope: 'usa' }, width: 1000, height: 1000, paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)'
+                    title: "How many and where are immigrants living?", geo: { scope: 'usa' }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial"}
                 }
                 }
             />
@@ -329,13 +331,13 @@ function EducationGraph() {
         return (
             <Plot
                 data={[
-                    { type: 'bar', x: types, y: tuition, name: "Tuition" },
-                    { type: 'bar', x: types, y: roomBoard, name: "Dormitory rooms" },
-                    { type: 'bar', x: types, y: booksSupplies, name: "Board" },
+                    { type: 'bar', x: types, y: tuition, name: "Tuition", font: { family: "Questrial"},},
+                    { type: 'bar', x: types, y: roomBoard, name: "Dormitory rooms", font: { family: "Questrial"}, },
+                    { type: 'bar', x: types, y: booksSupplies, name: "Board", font: { family: "Questrial"}, },
                 ]}
                 layout={{
-                    width: 750, height: 750, title: 'Average cost of education for Foreign nationals', barmode: 'stack', paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)'
+                    width: 750, height: 750, title: 'How much does post-secondary education & expenses cost?', barmode: 'stack', paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial"}
                 }}
             />
         )
@@ -370,7 +372,7 @@ function EconomyGraph() {
         var trace2 = {
             x: occupation,
             y: wage,
-            name: 'Mean Annual Wage in thousands(USD)',
+            name: 'Mean Annual Wage in thousands (USD)',
             yaxis: 'Mean Annual Wage (USD)',
             type: 'bar'
         };
@@ -378,8 +380,9 @@ function EconomyGraph() {
         var data = [trace1, trace2];
         return (
             <Plot data={data} layout={{
-                length: 750, width: 1200, paper_bgcolor: 'rgba(0,0,0,0)',
-                plot_bgcolor: 'rgba(0,0,0,0)'
+                title: "What is the mean annual wage of top occupations?",
+                length: 750, width: 1100, paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial"}
             }} />
 
         )
@@ -407,9 +410,9 @@ function CrimeBiasGraph() {
                     { type: 'pie', values: number, labels: types },
                 ]}
                 layout={{
-                    width: 700, height: 500, title: 'Distribution of Crimes by Type of Offense', paper_bgcolor: 'rgba(0,0,0,0)',
+                    width: 700, height: 500, title: 'What types of crimes are most prevalent?', paper_bgcolor: 'rgba(0,0,0,0)',
                     fontTitle:"Raleway",
-                    plot_bgcolor: 'rgba(0,0,0,0)'
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial"}
                 }}
             />
         )
@@ -432,11 +435,11 @@ function ReligionGraph() {
         return (
             <Plot
                 data={[
-                    { type: 'bar', y: share, x: religion },
+                    { type: 'bar', y: share, x: religion},
                 ]}
                 layout={{
-                    width: 750, height: 500, title: 'Propotion of religious affiliations', xaxis: { size: 8 }, paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)'
+                    width: 1100, height: 600, title: 'What is the distribution of religious affiliations?', xaxis: { size: 8 }, paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial"}
                 }}
             />
         )
@@ -479,13 +482,15 @@ function CostOfLivingGraph() {
                         locations: Object.keys(plotMap),
                         z: Object.values(plotMap),
                         text: Object.keys(stateMap),
+                        font: { family: "Questrial"},
                         colorscale: [
                             [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
                             [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
                             [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
                         ], colorbar: {
                             title: 'Average value of $',
-                            thickness: 2
+                            thickness: 15,
+                            len: 1.05
                         }, marker: {
                             line: {
                                 color: 'rgb(255,255,255)',
@@ -495,8 +500,8 @@ function CostOfLivingGraph() {
                     },
                 ]}
                 layout={{
-                    title: "Chloropleth for Avg. value of the dollar vs. national average", geo: { scope: 'usa' }, width: 1000, height: 1000, paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)'
+                    title: "What is the value of a dollar?", geo: { scope: 'usa' }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial"}
                 }
                 }
             />
@@ -532,27 +537,34 @@ function VisaGraph() {
                         locations: countries,
                         z: totals,
                         text: countries,
+                        font: { family: "Questrial"},
                         colorscale: [
                             [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
                             [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
                             [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
                         ], colorbar: {
-                            title: 'Number of Visas issued (2020)',
-                            thickness: 2
+                            title: {
+                                text: 'Number of Visas issued (2020)'
+                            }, thickness: 15,
+                            len: 1.00
+
                         }, marker: {
                             line: {
                                 color: 'rgb(255,255,255)',
-                                width: 2
+                                width: 1
                             }
                         }
                     },
                 ]}
                 layout={{
-                    title: "Number of visas issued to different countries", geo: {
+                    title: {
+                        text: "How many visas are issued by nationality?",
+                        font: { family: "Questrial"}
+                    }, geo: {
                         projection: {
-                            type: 'mercator'
+                            type: 'projection'
                         }
-                    }, width: 1000, height: 1000, paper_bgcolor: 'rgba(0,0,0,0)',
+                    }, width: 1150, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
                     plot_bgcolor: 'rgba(0,0,0,0)'
                 }
                 }
