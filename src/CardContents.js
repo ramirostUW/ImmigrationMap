@@ -4,7 +4,7 @@ import MapChart from "./MapChart"
 import {
     getGeneralInfoData, getMigrantFlowData, getImmigrantPopulationData, getEducationData,
     getReligionData, getEconomyData, getCrimeBiasData,
-    getCostOfLivingData, getVisaData, getStateCoded
+    getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData
 } from "./AccessDatabase"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
@@ -150,7 +150,7 @@ export function CrimeCard(props) {
         <div>
             <h1 class="chart-name">Crime for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText><CrimeBiasGraph /></CardText>}
+            {!crimeDataLoading && <CardText><CrimeGraphs /></CardText>}
         </div>
 
     )
@@ -203,42 +203,46 @@ function MigrationFlowGraph() {
         */
 
         return (
-            /*<Plot
-                data={[
-                    { type: 'bar', x: Object.keys(plotMap), y: Object.values(plotMap) },
-                ]}
-                layout={{ width: 750, height: 750, title: 'Migration outflows for USA', xaxis: { tickangle: 30 } }}
-            />*/
-            <Plot
-                data={[
-                    {
-                        type: 'choropleth', locationmode: 'country names', locations: Object.keys(map), z: Object.values(map), text: Object.keys(map), colorscale: [
-                            [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
-                            [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
-                            [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)'],
-                        ], colorbar: {
-                            title: 'Number of immigrants',
-                            thickness: 15,
-                            len: 1.05
-                        }, marker: {
-                            line: {
-                                color: 'rgb(255,255,255)',
-                                width: 1
+            <div>
+                <Plot
+                    data={[
+                        {
+                            type: 'choropleth', locationmode: 'country names', locations: Object.keys(map), z: Object.values(map), text: Object.keys(map), colorscale: [
+                                [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
+                                [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
+                                [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)'],
+                            ], colorbar: {
+                                title: 'Number of immigrants',
+                                thickness: 15,
+                                len: 1.05
+                            }, marker: {
+                                line: {
+                                    color: 'rgb(255,255,255)',
+                                    width: 1
+                                }
                             }
-                        }
-                    },
-                ]}
-                layout={{
-                    title: "Where are immigrants coming from?", geo: {
-                        projection: {
-                            type: 'projection'
-                        }
-                    }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial"}
-                }
-                }
-            />
-            
+                        },
+                    ]}
+                    layout={{
+                        title: "Where are immigrants coming from?", geo: {
+                            projection: {
+                                type: 'projection'
+                            }
+                        }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
+                        plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+                    }
+                    }
+                />
+                    <Plot
+                    data={[
+                        { type: 'bar', x: Object.values(map), y: Object.keys(map), orientation:"h"},
+                    ]}
+                    layout={{ width: 750, height: 750, title: 'Migration outflows for USA', yaxis: { tickangle: 30,
+                        rangeslider: {} },xaxis: {fixedrange: false}, paper_bgcolor: 'rgba(0,0,0,0)',
+                        plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, barmode:"horizontal"}}
+                />
+            </div>
+
 
 
         )
@@ -296,7 +300,7 @@ function ImmigrantPopGraph() {
                 ]}
                 layout={{
                     title: "How many and where are immigrants living?", geo: { scope: 'usa' }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial"}
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
                 }
                 }
             />
@@ -331,13 +335,13 @@ function EducationGraph() {
         return (
             <Plot
                 data={[
-                    { type: 'bar', x: types, y: tuition, name: "Tuition", font: { family: "Questrial"},},
-                    { type: 'bar', x: types, y: roomBoard, name: "Dormitory rooms", font: { family: "Questrial"}, },
-                    { type: 'bar', x: types, y: booksSupplies, name: "Board", font: { family: "Questrial"}, },
+                    { type: 'bar', x: types, y: tuition, name: "Tuition", font: { family: "Questrial" }, },
+                    { type: 'bar', x: types, y: roomBoard, name: "Dormitory rooms", font: { family: "Questrial" }, },
+                    { type: 'bar', x: types, y: booksSupplies, name: "Board", font: { family: "Questrial" }, },
                 ]}
                 layout={{
                     width: 750, height: 750, title: 'How much does post-secondary education & expenses cost?', barmode: 'stack', paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial"}
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
                 }}
             />
         )
@@ -382,7 +386,7 @@ function EconomyGraph() {
             <Plot data={data} layout={{
                 title: "What is the mean annual wage of top occupations?",
                 length: 750, width: 1100, paper_bgcolor: 'rgba(0,0,0,0)',
-                plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial"}
+                plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
             }} />
 
         )
@@ -393,7 +397,7 @@ function EconomyGraph() {
     }
 }
 
-function CrimeBiasGraph() {
+function CrimeTypeGraph() {
     let [criData, criDataLoading] = getCrimeBiasData()
     if (!criDataLoading) {
         let number = []
@@ -411,8 +415,8 @@ function CrimeBiasGraph() {
                 ]}
                 layout={{
                     width: 700, height: 500, title: 'What types of crimes are most prevalent?', paper_bgcolor: 'rgba(0,0,0,0)',
-                    fontTitle:"Raleway",
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial"}
+                    fontTitle: "Raleway",
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
                 }}
             />
         )
@@ -435,11 +439,11 @@ function ReligionGraph() {
         return (
             <Plot
                 data={[
-                    { type: 'bar', y: share, x: religion},
+                    { type: 'bar', y: share, x: religion },
                 ]}
                 layout={{
                     width: 1100, height: 600, title: 'What is the distribution of religious affiliations?', xaxis: { size: 8 }, paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial"}
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
                 }}
             />
         )
@@ -482,7 +486,7 @@ function CostOfLivingGraph() {
                         locations: Object.keys(plotMap),
                         z: Object.values(plotMap),
                         text: Object.keys(stateMap),
-                        font: { family: "Questrial"},
+                        font: { family: "Questrial" },
                         colorscale: [
                             [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
                             [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
@@ -501,7 +505,7 @@ function CostOfLivingGraph() {
                 ]}
                 layout={{
                     title: "What is the value of a dollar?", geo: { scope: 'usa' }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial"}
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
                 }
                 }
             />
@@ -517,7 +521,7 @@ function VisaGraph() {
     if (!visaDataLoading) {
         let countries = []
         let totals = []
-        
+
 
         for (let i = 0; i < visaData.length; i++) {
             let country = visaData[i]["Fiscal Year 2014"]
@@ -537,7 +541,7 @@ function VisaGraph() {
                         locations: countries,
                         z: totals,
                         text: countries,
-                        font: { family: "Questrial"},
+                        font: { family: "Questrial" },
                         colorscale: [
                             [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
                             [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
@@ -559,7 +563,7 @@ function VisaGraph() {
                 layout={{
                     title: {
                         text: "How many visas are issued by nationality?",
-                        font: { family: "Questrial"}
+                        font: { family: "Questrial" }
                     }, geo: {
                         projection: {
                             type: 'projection'
@@ -569,10 +573,51 @@ function VisaGraph() {
                 }
                 }
             />
-            
+
         )
     } else {
         return (<p>Data is still loading!</p>)
     }
 }
 
+function CrimeBiasGraph() {
+    let [criData, criDataLoading] = getCrimeTypeData()
+    if (!criDataLoading) {
+        let plotMap = {}
+        let otherCount = 0
+        for (let i = 0; i < criData.length; i++) {
+            let num = criData[i]["value"]
+            num = parseFloat(num)
+            let type = criData[i]["key"]
+            if (num <= 80) {
+                otherCount = otherCount + num
+            } else {
+                plotMap[type] = num
+            }
+        }
+        plotMap["Others"] = otherCount
+        return (
+            <Plot
+                data={[
+                    { type: 'pie', values: Object.values(plotMap), labels: Object.keys(plotMap) },
+                ]}
+                layout={{
+                    width: 700, height: 500, title: 'What biases propogate through crimes?', paper_bgcolor: 'rgba(0,0,0,0)',
+                    fontTitle: "Raleway",
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+                }}
+            />
+        )
+    } else {
+        return (
+            <p>Data is still loading!</p>
+        )
+    }
+}
+
+function CrimeGraphs() {
+    let [criData, criDataLoading] = getCrimeTypeData()
+    let [crimeData, crimeDataLoading] = getCrimeBiasData()
+    return (<div>{!(crimeDataLoading && criDataLoading) && <CardText><CrimeTypeGraph /></CardText>}
+        {!(crimeDataLoading && criDataLoading) && <CardText><CrimeBiasGraph /></CardText>}</div>)
+}

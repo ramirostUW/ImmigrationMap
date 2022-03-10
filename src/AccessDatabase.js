@@ -75,3 +75,10 @@ export function getStateCoded() {
     return [crimeData, crimeDataLoading];
     
 }
+
+export function getCrimeTypeData() {
+    
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/crime-bias%20motivation.csv");
+
+    return [crimeData, crimeDataLoading];
+}  
