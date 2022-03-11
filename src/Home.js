@@ -63,6 +63,8 @@ export function Home() {
                 <div label="DIRECTIONS OF USE">
                     <h1 class="directions-title">CLICK ON A COUNTRY</h1>
                     <p class="directions-text">Clicking on a country will display a pop-up screen where you can view statistical information about the country relating to immigration.</p>
+                    <h1 class="directions-title">CLICK ON LEGEND</h1>
+                    <p class="directions-text">The legends on our graphs and charts are interactive. Click on them to add/remove series!</p>
                     <h1 class="directions-title">CLICK ON TABS</h1>
                     <p class="directions-text">Navigate between various tabs to view the map, directions of use, and legend. Upon clicking on a country, you can click on different tabs to view information about the country's:
                         Migration Flows,

@@ -82,3 +82,10 @@ export function getCrimeTypeData() {
 
     return [crimeData, crimeDataLoading];
 }  
+
+export function getVisaWaitData() {
+    
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/National%20Median%20Application%20Processing%20Times.csv")
+
+    return [crimeData, crimeDataLoading];
+} 

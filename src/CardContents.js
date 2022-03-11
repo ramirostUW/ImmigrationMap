@@ -4,7 +4,7 @@ import MapChart from "./MapChart"
 import {
     getGeneralInfoData, getMigrantFlowData, getImmigrantPopulationData, getEducationData,
     getReligionData, getEconomyData, getCrimeBiasData,
-    getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData
+    getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData, getVisaWaitData
 } from "./AccessDatabase"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
@@ -233,13 +233,16 @@ function MigrationFlowGraph() {
                     }
                     }
                 />
-                    <Plot
+                <Plot
                     data={[
-                        { type: 'bar', x: Object.values(map), y: Object.keys(map), orientation:"h"},
+                        { type: 'bar', x: Object.keys(map), y: Object.values(map)/*, orientation: "h" */ },
                     ]}
-                    layout={{ width: 750, height: 750, title: 'Migration outflows for USA', yaxis: { tickangle: 30,
-                        rangeslider: {} },xaxis: {fixedrange: false}, paper_bgcolor: 'rgba(0,0,0,0)',
-                        plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, barmode:"horizontal"}}
+                    layout={{
+                        width: 750, height: 750, title: 'Country wise break-up of immigrants for USA', xaxis: {
+                            rangeslider: {}
+                        }, yaxis: { fixedrange: false, title: "# of Immigrants" }, paper_bgcolor: 'rgba(0,0,0,0)',
+                        plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, barmode: "horizontal"
+                    }}
                 />
             </div>
 
@@ -341,7 +344,7 @@ function EducationGraph() {
                 ]}
                 layout={{
                     width: 750, height: 750, title: 'How much does post-secondary education & expenses cost?', barmode: 'stack', paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, yaxis: { title: "US Dollars ($)" }
                 }}
             />
         )
@@ -356,10 +359,10 @@ function EconomyGraph() {
         let share = []
         let wage = []
         for (let i = 0; i < ecoData.length; i++) {
-            let occ = ecoData[i]["Occupation title (click on the occupation title to view its profile)"]
-            let shar = ecoData[i]["Employment per 1,000 jobs"]
+            let occ = ecoData[i]["Occupation"]
+            let shar = ecoData[i]["Employment per 1000 jobs"]
             shar = parseFloat(shar)
-            let wag = ecoData[i]["Annual mean wage"]
+            let wag = ecoData[i]["Annual Mean Wage"]
             wag = wag.replace("$", "")
             wag = parseFloat(wag);
             occupation.push(occ)
@@ -371,6 +374,7 @@ function EconomyGraph() {
             y: share,
             name: 'Employment in Industy per 1000 jobs',
             type: 'bar'
+            //orientation: "h"
         };
 
         var trace2 = {
@@ -379,6 +383,7 @@ function EconomyGraph() {
             name: 'Mean Annual Wage in thousands (USD)',
             yaxis: 'Mean Annual Wage (USD)',
             type: 'bar'
+            //orientation: "h"
         };
 
         var data = [trace1, trace2];
@@ -386,7 +391,9 @@ function EconomyGraph() {
             <Plot data={data} layout={{
                 title: "What is the mean annual wage of top occupations?",
                 length: 750, width: 1100, paper_bgcolor: 'rgba(0,0,0,0)',
-                plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+                plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" },
+                xaxis: { rangeslider: {} },
+                yaxis: { title: "Number per 1000, USD in 1000s" }
             }} />
 
         )
@@ -443,7 +450,7 @@ function ReligionGraph() {
                 ]}
                 layout={{
                     width: 1100, height: 600, title: 'What is the distribution of religious affiliations?', xaxis: { size: 8 }, paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, yaxis: { "title": "Percentage" }
                 }}
             />
         )
@@ -504,7 +511,7 @@ function CostOfLivingGraph() {
                     },
                 ]}
                 layout={{
-                    title: "What is the value of a dollar?", geo: { scope: 'usa' }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
+                    title: "What is the value of a dollar in different parts of the country?", geo: { scope: 'usa' }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
                     plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
                 }
                 }
@@ -533,46 +540,49 @@ function VisaGraph() {
 
         }
         return (
-            <Plot
-                data={[
-                    {
-                        type: 'choropleth',
-                        locationmode: 'country names',
-                        locations: countries,
-                        z: totals,
-                        text: countries,
-                        font: { family: "Questrial" },
-                        colorscale: [
-                            [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
-                            [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
-                            [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
-                        ], colorbar: {
-                            title: {
-                                text: 'Number of Visas issued (2020)'
-                            }, thickness: 15,
-                            len: 1.00
+            <div>
+                <Plot
+                    data={[
+                        {
+                            type: 'choropleth',
+                            locationmode: 'country names',
+                            locations: countries,
+                            z: totals,
+                            text: countries,
+                            font: { family: "Questrial" },
+                            colorscale: [
+                                [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
+                                [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
+                                [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
+                            ], colorbar: {
+                                title: {
+                                    text: 'Number of Visas issued (2020)'
+                                }, thickness: 15,
+                                len: 1.00
 
-                        }, marker: {
-                            line: {
-                                color: 'rgb(255,255,255)',
-                                width: 1
+                            }, marker: {
+                                line: {
+                                    color: 'rgb(255,255,255)',
+                                    width: 1
+                                }
                             }
-                        }
-                    },
-                ]}
-                layout={{
-                    title: {
-                        text: "How many visas are issued by nationality?",
-                        font: { family: "Questrial" }
-                    }, geo: {
-                        projection: {
-                            type: 'projection'
-                        }
-                    }, width: 1150, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)'
-                }
-                }
-            />
+                        },
+                    ]}
+                    layout={{
+                        title: {
+                            text: "How many visas are issued by nationality?",
+                            font: { family: "Questrial" }
+                        }, geo: {
+                            projection: {
+                                type: 'projection'
+                            }
+                        }, width: 1150, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
+                        plot_bgcolor: 'rgba(0,0,0,0)'
+                    }
+                    }
+                />
+                <VisaWaitGraph/>
+            </div>
 
         )
     } else {
@@ -620,4 +630,61 @@ function CrimeGraphs() {
     let [crimeData, crimeDataLoading] = getCrimeBiasData()
     return (<div>{!(crimeDataLoading && criDataLoading) && <CardText><CrimeTypeGraph /></CardText>}
         {!(crimeDataLoading && criDataLoading) && <CardText><CrimeBiasGraph /></CardText>}</div>)
+}
+
+function VisaWaitGraph() {
+    let [visaData, visaDataLoading] = getVisaWaitData()
+    if (!visaDataLoading) {
+        let map = {}
+
+        for (let i = 0; i < visaData.length; i++) {
+            let type = visaData[i]["Form Description"]
+            let form = visaData[i]["Form"]
+            let key = type + " (" + form + ")"
+            let fy17 = visaData[i]["FY 2018"]
+            let fy18 = visaData[i]["FY 2019"]
+            let fy19 = visaData[i]["FY 2020"]
+            let fy20 = visaData[i]["FY 2021"]
+            let fy21 = visaData[i]["FY 2021"]
+            let fy22 = visaData[i]["FY 2022"]
+            let series = []
+            series.push(parseFloat(fy17))
+            series.push(parseFloat(fy18))
+            series.push(parseFloat(fy19))
+            series.push(parseFloat(fy20))
+            series.push(parseFloat(fy21))
+            series.push(parseFloat(fy22))
+            map[key] = series
+        }
+        return (
+            <div>
+                <Plot
+                    data={[
+                        { type: 'scatter', y: map[Object.keys(map)[0]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[0] },
+                        { type: 'scatter', y: map[Object.keys(map)[1]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[1] },
+                        { type: 'scatter', y: map[Object.keys(map)[2]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[2] },
+                        { type: 'scatter', y: map[Object.keys(map)[3]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[3] },
+                        { type: 'scatter', y: map[Object.keys(map)[4]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[4] },
+                        { type: 'scatter', y: map[Object.keys(map)[5]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[5] },
+                        { type: 'scatter', y: map[Object.keys(map)[6]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[6] },
+                        { type: 'scatter', y: map[Object.keys(map)[7]], x: [2017, 2018, 2019, 2020, 2021, 2022], name: Object.keys(map)[7] },
+                    ]}
+                    layout={{
+                        width: 1000,
+                        height: 1000,
+                        xaxis: { size: 8, rangeselector:{}},
+                        title: "How much time does it take to process visa applications?",
+                        legend: {
+                            orientation: "h"
+                        },
+                        paper_bgcolor: 'rgba(0,0,0,0)',
+                        plot_bgcolor: 'rgba(0,0,0,0)',
+                        yaxis:{title:"months"}
+                    }}
+                />
+            </div>
+        )
+    } else {
+        return (<p>Data is still loading!</p>)
+    }
 }
