@@ -60,6 +60,36 @@ h1 {
   color: #004AAD;
 }
 
+.titleAbout {
+  font-size: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 40px;
+  color: #004AAD;
+  background-color: #D7F3FF;
+  padding-left: 30px;
+}
+
+.aboutProject {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+  line-height: 25px;
+  font-size: 15px;
+}
+
+.sources {
+  font-size: 14px;
+  padding-left: 20px;
+  text-indent: -20px;
+  margin-left: 30px;
+  margin-right: 30px;
+  line-height: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .note {
   font-size: 15px;
   margin-left: 20px;
