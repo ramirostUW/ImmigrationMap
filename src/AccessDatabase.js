@@ -89,3 +89,10 @@ export function getVisaWaitData() {
 
     return [crimeData, crimeDataLoading];
 } 
+
+export function getMigrationFlowDataUK() {
+    
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/ee6b7a7700f7bbe470623afb8b467c12bd3d9e9c/src/datafiles/migration-flows-in-UK.csv")
+
+    return [crimeData, crimeDataLoading];
+} 

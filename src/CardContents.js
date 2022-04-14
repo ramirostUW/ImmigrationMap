@@ -4,7 +4,8 @@ import MapChart from "./MapChart"
 import {
     getGeneralInfoData, getMigrantFlowData, getImmigrantPopulationData, getEducationData,
     getReligionData, getEconomyData, getCrimeBiasData,
-    getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData, getVisaWaitData
+    getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData, getVisaWaitData, 
+    getMigrationFlowDataUK
 } from "./AccessDatabase"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
@@ -84,7 +85,7 @@ export function MigrationFlowCard(props) {
         <div>
             <h1 class="chart-name">Migration Flow for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText><MigrationFlowGraph /></CardText>}
+            {!crimeDataLoading && <CardText><MigrationFlowGraph currentCountry={props.currentCountry}/></CardText>}
         </div>
 
     )
@@ -183,8 +184,14 @@ export function VisaCard(props) {
 }
 
 
-function MigrationFlowGraph() {
-    let [countryMigData, countryMigDataLoading] = getMigrantFlowData();
+function MigrationFlowGraph(props) {
+    let currentCountry = props.currentCountry;
+    var countryMigData;
+    var countryMigDataLoading;
+    if(currentCountry === "United States of America")
+        [countryMigData, countryMigDataLoading] = getMigrantFlowData();
+    if(currentCountry === "United Kingdom")
+        [countryMigData, countryMigDataLoading] = getMigrationFlowDataUK();
     if (!countryMigDataLoading) {
         let map = {}
         for (let i = 0; i < countryMigData.length; i++) {
