@@ -222,7 +222,7 @@ function GraphCard(props) {
                         <CardBody>
                             <CardTitle tag="h5" style={{ fontSize: "18px", fontFamily: "Questrial" }}>{currentCountry}</CardTitle>
                             {(currentCardOption === "") && <DefaultCardContent currentCountry={currentCountry} />}
-                            {(currentCardOption === "migrantFlow" && (currentCountry === "United States of America" || currentCountry === "United Kingdom")) && <MigrationFlowCard currentCountry={currentCountry} />}
+                            {(currentCardOption === "migrantFlow" && (currentCountry === "United States of America" || currentCountry === "United Kingdom" || currentCountry === "Germany")) && <MigrationFlowCard currentCountry={currentCountry} />}
                             {(currentCardOption === "immigrantPopulation" && currentCountry === "United States of America") && <ImmigrantPopCard currentCountry={currentCountry} />}
                             {(currentCardOption === "education" && currentCountry === "United States of America") && <EducationCard currentCountry={currentCountry} />}
                             {(currentCardOption === "religion" && currentCountry === "United States of America") && <ReligionCard currentCountry={currentCountry} />}

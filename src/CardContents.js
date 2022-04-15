@@ -5,7 +5,7 @@ import {
     getGeneralInfoData, getMigrantFlowData, getImmigrantPopulationData, getEducationData,
     getReligionData, getEconomyData, getCrimeBiasData,
     getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData, getVisaWaitData, 
-    getMigrationFlowDataUK
+    getMigrationFlowDataUK, getMigrationFlowDataGermany
 } from "./AccessDatabase"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
@@ -190,6 +190,8 @@ function MigrationFlowGraph(props) {
     var countryMigDataLoading;
     if(currentCountry === "United States of America")
         [countryMigData, countryMigDataLoading] = getMigrantFlowData();
+    if(currentCountry === "Germany")
+        [countryMigData, countryMigDataLoading] = getMigrationFlowDataGermany();
     if(currentCountry === "United Kingdom")
         [countryMigData, countryMigDataLoading] = getMigrationFlowDataUK();
     if (!countryMigDataLoading) {
