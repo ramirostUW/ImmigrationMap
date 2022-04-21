@@ -11,7 +11,7 @@ export function App() {
   return (
     <div>
       <header>
-      <img style={{display:"block",marginLeft:"auto",marginRight:"auto"}} src={logo} width="170px"/>
+      <a href ="/"><img style={{display:"block",marginLeft:"auto",marginRight:"auto"}} src={logo} width="170px"/></a>
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
