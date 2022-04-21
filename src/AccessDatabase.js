@@ -103,3 +103,10 @@ export function getMigrationFlowDataGermany() {
 
     return [crimeData, crimeDataLoading];
 } 
+
+export function getMigrationFlowDataCanada() {
+    
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/migration-flows-in-Canada.csv");
+
+    return [crimeData, crimeDataLoading];
+} 
