@@ -209,14 +209,11 @@ function GraphCard(props) {
                         <Button onClick={() => { setCurrentCardOption("immigrantPopulation"); changeClickedStyle(setImmigrationButtonStyle) }} style={immigrationButtonStyle}>Immigrant Population</Button>
                         <Button onClick={() => { setCurrentCardOption("education"); changeClickedStyle(setEducationButtonStyle) }} style={educationButtonStyle}>Education</Button>
                         <Button onClick={() => { setCurrentCardOption("religion"); changeClickedStyle(setReligionButtonStyle) }} style={religionButtonStyle}>Religion</Button>
-                        <Button onClick={() => { setCurrentCardOption("economy"); changeClickedStyle(setEconomyButtonStyle) }} style={economyButtonStyle}>Economy</Button>
+                        <Button onClick={() => { setCurrentCardOption("economy"); changeClickedStyle(setEconomyButtonStyle) }} style={economyButtonStyle}>Employment</Button>
                         <Button onClick={() => { setCurrentCardOption("crime"); changeClickedStyle(setCrimeButtonStyle) }} style={crimetButtonStyle}>Crime</Button>
                         <Button onClick={() => { setCurrentCardOption("costOfLiving"); changeClickedStyle(setCostLivingButtonStyle) }} style={costLivingButtonStyle}>Cost of Living</Button>
                         <Button onClick={() => { setCurrentCardOption("visas"); changeClickedStyle(setVisaButtonStyle) }} style={visaButtonStyle}>Visas</Button>
-                        <div class="backButton">
-                            <Button style={{ margin: BTN_MARGIN, height: "40px", width: "180px", borderRadius: "40px", fontFamily: "League Spartan", textAlign: "center", backgroundColor: "#004AAD" }} onClick={disableButton}>Back</Button>
-                            <div class="socialMediaButtons"><FacebookShareButton url={"https://google.com"} /></div>
-                        </div>
+                        <Button style={{ margin: BTN_MARGIN, height: "40px", width: "180px", borderRadius: "40px", fontFamily: "League Spartan", textAlign: "center", backgroundColor: "#004AAD" }} onClick={disableButton}>Back</Button>
                     </div>
                     <div class="nine">
                         <CardBody>

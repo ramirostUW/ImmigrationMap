@@ -212,13 +212,22 @@ function MigrationFlowGraph(props) {
             plotMap[country] = map[country];
         }
         */
-
+        let countryNames = Object.keys(map);
+        countryNames.sort(function(val1, val2){
+            return map[val2] - map[val1];
+        })
+        let sortedMap = {};
+        for(let i = 0; i < countryNames.length; i++)
+        {
+            let currentCountry = countryNames[i];
+            sortedMap[currentCountry] = map[currentCountry];
+        }
         return (
             <div>
                 <Plot
                     data={[
                         {
-                            type: 'choropleth', locationmode: 'country names', locations: Object.keys(map), z: Object.values(map), text: Object.keys(map), colorscale: [
+                            type: 'choropleth', locationmode: 'country names', locations: Object.keys(sortedMap), z: Object.values(sortedMap), text: Object.keys(sortedMap), colorscale: [
                                 [0, '#ebecf0'], [0.2, '#8587d6'],
                                 [0.4, '#768acc'], [0.6, '#4973c9'],
                                 [0.8, '#2354b8'], [1, '#004AAD'],
@@ -246,7 +255,7 @@ function MigrationFlowGraph(props) {
                 />
                 <Plot
                     data={[
-                        { type: 'bar', x: Object.keys(map), y: Object.values(map)/*, orientation: "h" */
+                        { type: 'bar', x: Object.keys(sortedMap), y: Object.values(sortedMap)/*, orientation: "h" */
                             ,   marker: {
                                 color: '#004AAD'}
                      },
@@ -511,9 +520,12 @@ function CostOfLivingGraph() {
                         text: Object.keys(stateMap),
                         font: { family: "Questrial" },
                         colorscale: [
-                            [0, '#ebecf0'], [0.2, '#8587d6'],
-                            [0.4, '#768acc'], [0.6, '#4973c9'],
-                            [0.8, '#2354b8'], [1, '#004AAD']
+                            [0, '#004AAD'], [0.2, '#2354b8'],
+                            [0.4, '#4973c9'], [0.6, '#768acc'],
+                            [0.8, '#8587d6'], [1, '#ebecf0']
+                            // [0, '#ebecf0'], [0.2, '#8587d6'],
+                            //[0.4, '#768acc'], [0.6, '#4973c9'],
+                            //[0.8, '#2354b8'], [1, '#004AAD']
                         ], colorbar: {
                             title: 'Average value of $',
                             thickness: 15,
@@ -597,7 +609,6 @@ function VisaGraph() {
                     }
                     }
                 />
-                <VisaWaitGraph/>
             </div>
 
         )
