@@ -214,7 +214,7 @@ function MigrationFlowGraph(props) {
         */
         let countryNames = Object.keys(map);
         countryNames.sort(function(val1, val2){
-            return map[val2] - map[val1];
+            return map[val1] - map[val2];
         })
         let sortedMap = {};
         for(let i = 0; i < countryNames.length; i++)
@@ -249,25 +249,41 @@ function MigrationFlowGraph(props) {
                                 type: 'projection'
                             }
                         }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
-                        plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+                        plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, autorange : "reversed"
                     }
                     }
                 />
                 <Plot
                     data={[
-                        { type: 'bar', x: Object.keys(sortedMap), y: Object.values(sortedMap)/*, orientation: "h" */
-                            ,   marker: {
-                                color: '#004AAD'}
-                     },
-                    ]}
-                    layout={{
-                        width: 1100, height: 700, title: 'Where are immigrants coming from by nationality?', xaxis: {
-                            rangeslider: {}
-                        }, yaxis: { fixedrange: false, title: "# of Immigrants" }, paper_bgcolor: 'rgba(0,0,0,0)',
-                        plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, barmode: "horizontal"
-                    }}
-                />
+                        { type: 'bar', x: Object.values(sortedMap), y: Object.keys(sortedMap), orientation: "h" 
+                        ,   marker: {
+                            color: '#004AAD',  orientation: 'v'}
+                 },
+                ]}
+                layout={{
+                    width: 1100, height: 3000, title: 'Where are immigrants coming from by nationality?', xaxis: {
+                        side: 'top'
+                    }, yaxis: { fixedrange: false, title: "# of Immigrants" }, paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+                }}
+            />
             </div>
+            /*
+                <Plot
+                    data={[
+                        { type: 'bar', x: Object.values(sortedMap), y: Object.keys(sortedMap), orientation: "h" 
+                        ,   marker: {
+                            color: '#004AAD',  orientation: 'v'}
+                 },
+                ]}
+                layout={{
+                    width: 1100, height: 700, title: 'Where are immigrants coming from by nationality?', yaxis: {
+                        rangeslider: {}
+                    }, xaxis: { fixedrange: false, title: "# of Immigrants" }, paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+                }}
+            />
+            */
 
 
 
