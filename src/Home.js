@@ -53,66 +53,6 @@ export function Home() {
             <main>
             </main>
             <Tabs>
-                <div label="INTERACTIVE MAPS">
-                    {buttonEnabled && <GraphCard btnToggle={enableButton} currentCountry={currentCountry} />}
-                    {!buttonEnabled && <div>
-                        <MapChart setTooltipContent={setContent} onClickCountry={showCard} />
-                        <ReactTooltip>{content}</ReactTooltip>
-                    </div>}
-                </div>
-                <div label="DIRECTIONS OF USE">
-                    <h1 class="directions-title">CLICK ON A COUNTRY</h1>
-                    <p class="directions-text">Clicking on a country will display a pop-up screen where you can view statistical information about the country relating to immigration.</p>
-                    <h1 class="directions-title">CLICK ON LEGEND</h1>
-                    <p class="directions-text">The legends on our graphs and charts are interactive. Click on them to add/remove series!</p>
-                    <h1 class="directions-title">CLICK ON TABS</h1>
-                    <p class="directions-text">Navigate between various tabs to view the map, directions of use, and legend. Upon clicking on a country, you can click on different tabs to view information about the country's:
-                        Migration Flows,
-                        Immigrant Population,
-                        Visas,
-                        Education,
-                        Religion,
-                        Economy,
-                        Crime,
-                        Cost of Living</p>
-                    <div class="countryData">
-                        <h2 class="dataTitle">AVAILABLE COUNTRY DATA</h2>
-                        <div class="container">
-                            <div>
-                                <h1 class="directions-title">Migration Flows</h1>
-                                <p class="directions-text">Displays data about the flow of migration by country of origin</p>
-                            </div>
-                            <div>
-                                <h1 class="directions-title">Immigrant Population</h1>
-                                <p class="directions-text">Displays data about the proportion of immigrants living in the country</p>
-                            </div>
-                            <div>
-                                <h1 class="directions-title">Visas</h1>
-                                <p class="directions-text">Displays data about the average number of visas granted by country of origin</p>
-                            </div>
-                            <div>
-                                <h1 class="directions-title">Education</h1>
-                                <p class="directions-text">Displays data about the average cost of expenses and tuition in the country</p>
-                            </div>
-                            <div>
-                                <h1 class="directions-title">Religion</h1>
-                                <p class="directions-text">Displays data about the proportion of religious affiliations in the country</p>
-                            </div>
-                            <div>
-                                <h1 class="directions-title">Employment</h1>
-                                <p class="directions-text">Displays data about the most common occupation industries and average median wages</p>
-                            </div>
-                            <div>
-                                <h1 class="directions-title">Crime</h1>
-                                <p class="directions-text">Displays data about the most prevalent types of crime in the country</p>
-                            </div>
-                            <div>
-                                <h1 class="directions-title">Cost of Living</h1>
-                                <p class="directions-text">Displays data about the average cost of living and expenses in the country</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div label="ABOUT US">
                     <h2 class="titleAbout">ABOUT THE PROJECT</h2>
                     <div class="aboutProject"> In the Winter of 2022, a team of four Informatics students posessing various skillsets came together to ask the question: How can we effectively communicate information to prospective immigrants so that they can assess a host country based on quality of life?
@@ -144,6 +84,13 @@ export function Home() {
                         <div class="sources"> U.S. Citizenship and Immigration Services. (2022). Historical National Median Processing Time (in Months) for All USCIS Offices for Select Forms By Fiscal Year. USCIS Case Processing Times. Retrieved February 28, 2022, from https://egov.uscis.gov/processing-times/historic-pt </div>
 
                     </div>
+                </div>
+                <div label="INTERACTIVE MAPS">
+                    {buttonEnabled && <GraphCard btnToggle={enableButton} currentCountry={currentCountry} />}
+                    {!buttonEnabled && <div>
+                        <MapChart setTooltipContent={setContent} onClickCountry={showCard} />
+                        <ReactTooltip>{content}</ReactTooltip>
+                    </div>}
                 </div>
             </Tabs>
 
