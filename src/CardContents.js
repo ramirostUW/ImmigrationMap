@@ -5,7 +5,7 @@ import {
     getGeneralInfoData, getMigrantFlowData, getImmigrantPopulationData, getEducationData,
     getReligionData, getEconomyData, getCrimeBiasData,
     getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData, getVisaWaitData, 
-    getMigrationFlowDataUK, getMigrationFlowDataGermany, getMigrationFlowDataCanada
+    getMigrationFlowDataUK, getMigrationFlowDataGermany, getMigrationFlowDataCanada, getEducationDataCanada
 } from "./AccessDatabase"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
@@ -106,12 +106,16 @@ export function ImmigrantPopCard(props) {
 
 export function EducationCard(props) {
     let [crimeData, crimeDataLoading] = getEducationData();
-
+    let isCanada = false
+    if(props.currentCountry === "Canada") {
+        isCanada = true
+    }
     return (
         <div>
             <h1 class="chart-name">Education for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText><EducationGraph /></CardText>}
+            {(!crimeDataLoading && !isCanada) && <CardText><EducationGraph /></CardText>}
+            {(!crimeDataLoading && isCanada) && <CardText><EducationGraphCanada /></CardText>}
         </div>
 
     )
@@ -729,5 +733,18 @@ function VisaWaitGraph() {
         )
     } else {
         return (<p>Data is still loading!</p>)
+    }
+
+    function EducationGraphCanada() {
+        let [eduData, eduDataLoading] = getEducationDataCanada();
+        if(!eduDataLoading) {
+            let costs = []
+            let majors = []
+            return (
+                <p>{JSON.stringify(eduData)}</p>
+            )
+        } else {
+            return (<p>Data is still loading!</p>)
+        }
     }
 }

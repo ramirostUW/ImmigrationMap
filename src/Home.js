@@ -168,7 +168,7 @@ function GraphCard(props) {
                             {(currentCardOption === "") && <DefaultCardContent currentCountry={currentCountry} />}
                             {(currentCardOption === "migrantFlow" && (currentCountry === "United States of America" || currentCountry === "United Kingdom" || currentCountry === "Germany" || currentCountry === "Canada")) && <MigrationFlowCard currentCountry={currentCountry} />}
                             {(currentCardOption === "immigrantPopulation" && currentCountry === "United States of America") && <ImmigrantPopCard currentCountry={currentCountry} />}
-                            {(currentCardOption === "education" && currentCountry === "United States of America") && <EducationCard currentCountry={currentCountry} />}
+                            {(currentCardOption === "education" && (currentCountry === "United States of America" || currentCountry === "Canada"  || currentCountry === "United Kingdom" || currentCountry === "Germany")) && <EducationCard currentCountry={currentCountry} />}
                             {(currentCardOption === "religion" && currentCountry === "United States of America") && <ReligionCard currentCountry={currentCountry} />}
                             {(currentCardOption === "economy" && currentCountry === "United States of America") && <EconomyCard currentCountry={currentCountry} />}
                             {(currentCardOption === "crime" && currentCountry === "United States of America") && <CrimeCard currentCountry={currentCountry} />}

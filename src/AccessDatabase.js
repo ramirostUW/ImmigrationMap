@@ -113,7 +113,6 @@ export function getMigrationFlowDataCanada() {
 
 export function getEducationDataCanada() {
     
-    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/migration-flows-in-Canada.csv");
-
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/canadian_education.csv");
     return [crimeData, crimeDataLoading];
 } 
