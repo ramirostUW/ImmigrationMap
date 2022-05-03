@@ -4,8 +4,9 @@ import MapChart from "./MapChart"
 import {
     getGeneralInfoData, getMigrantFlowData, getImmigrantPopulationData, getEducationData,
     getReligionData, getEconomyData, getCrimeBiasData,
-    getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData, getVisaWaitData, 
-    getMigrationFlowDataUK, getMigrationFlowDataGermany, getMigrationFlowDataCanada, getEducationDataCanada, getEmploymentDataCanada
+    getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData, getVisaWaitData,
+    getMigrationFlowDataUK, getMigrationFlowDataGermany, getMigrationFlowDataCanada, getEducationDataCanada, getEmploymentDataCanada,
+    getCrimeDataCanada
 } from "./AccessDatabase"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
@@ -85,7 +86,7 @@ export function MigrationFlowCard(props) {
         <div>
             <h1 class="chart-name">Migration Flow for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText><MigrationFlowGraph currentCountry={props.currentCountry}/></CardText>}
+            {!crimeDataLoading && <CardText><MigrationFlowGraph currentCountry={props.currentCountry} /></CardText>}
         </div>
 
     )
@@ -107,7 +108,7 @@ export function ImmigrantPopCard(props) {
 export function EducationCard(props) {
     let [crimeData, crimeDataLoading] = getEducationData();
     let isCanada = false
-    if(props.currentCountry === "Canada") {
+    if (props.currentCountry === "Canada") {
         isCanada = true
     }
     return (
@@ -137,7 +138,7 @@ export function ReligionCard(props) {
 export function EconomyCard(props) {
     let [crimeData, crimeDataLoading] = getEconomyData();
     let isCanada = false
-    if(props.currentCountry === "Canada") {
+    if (props.currentCountry === "Canada") {
         isCanada = true
     }
 
@@ -155,12 +156,16 @@ export function EconomyCard(props) {
 
 export function CrimeCard(props) {
     let [crimeData, crimeDataLoading] = getCrimeBiasData();
-
+    let isCanada = false
+    if (props.currentCountry === "Canada") {
+        isCanada = true
+    }
     return (
         <div>
             <h1 class="chart-name">Crime for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText><CrimeGraphs /></CardText>}
+            {(!crimeDataLoading && !isCanada) && <CardText><CrimeGraphs /></CardText>}
+            {(!crimeDataLoading && isCanada) && <CardText><CrimeGraphCanada /></CardText>}
         </div>
 
     )
@@ -197,13 +202,13 @@ function MigrationFlowGraph(props) {
     let currentCountry = props.currentCountry;
     var countryMigData;
     var countryMigDataLoading;
-    if(currentCountry === "United States of America")
+    if (currentCountry === "United States of America")
         [countryMigData, countryMigDataLoading] = getMigrantFlowData();
-    if(currentCountry === "Germany")
+    if (currentCountry === "Germany")
         [countryMigData, countryMigDataLoading] = getMigrationFlowDataGermany();
-    if(currentCountry === "United Kingdom")
+    if (currentCountry === "United Kingdom")
         [countryMigData, countryMigDataLoading] = getMigrationFlowDataUK();
-    if(currentCountry === "Canada")
+    if (currentCountry === "Canada")
         [countryMigData, countryMigDataLoading] = getMigrationFlowDataCanada();
     if (!countryMigDataLoading) {
         let map = {}
@@ -222,12 +227,11 @@ function MigrationFlowGraph(props) {
         }
         */
         let countryNames = Object.keys(map);
-        countryNames.sort(function(val1, val2){
+        countryNames.sort(function (val1, val2) {
             return map[val1] - map[val2];
         })
         let sortedMap = {};
-        for(let i = 0; i < countryNames.length; i++)
-        {
+        for (let i = 0; i < countryNames.length; i++) {
             let currentCountry = countryNames[i];
             sortedMap[currentCountry] = map[currentCountry];
         }
@@ -258,24 +262,26 @@ function MigrationFlowGraph(props) {
                                 type: 'projection'
                             }
                         }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
-                        plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, autorange : "reversed"
+                        plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, autorange: "reversed"
                     }
                     }
                 />
                 <Plot
                     data={[
-                        { type: 'bar', x: Object.values(sortedMap), y: Object.keys(sortedMap), orientation: "h" 
-                        ,   marker: {
-                            color: '#004AAD',  orientation: 'v'}
-                 },
-                ]}
-                layout={{
-                    width: 1100, height: 3000, title: 'Where are immigrants coming from by nationality?', xaxis: {
-                        side: 'top'
-                    }, yaxis: { fixedrange: false, title: "# of Immigrants" }, paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
-                }}
-            />
+                        {
+                            type: 'bar', x: Object.values(sortedMap), y: Object.keys(sortedMap), orientation: "h"
+                            , marker: {
+                                color: '#004AAD', orientation: 'v'
+                            }
+                        },
+                    ]}
+                    layout={{
+                        width: 1100, height: 3000, title: 'Where are immigrants coming from by nationality?', xaxis: {
+                            side: 'top'
+                        }, yaxis: { fixedrange: false, title: "# of Immigrants" }, paper_bgcolor: 'rgba(0,0,0,0)',
+                        plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+                    }}
+                />
             </div>
             /*
                 <Plot
@@ -386,9 +392,9 @@ function EducationGraph() {
         return (
             <Plot
                 data={[
-                    { type: 'bar', x: types, y: tuition, name: "Tuition", font: { family: "Questrial" }, marker: {color: '#004AAD'}},
-                    { type: 'bar', x: types, y: roomBoard, name: "Dormitory rooms", font: { family: "Questrial" }, marker: {color: '#00ad62'}},
-                    { type: 'bar', x: types, y: booksSupplies, name: "Board", font: { family: "Questrial" }, marker: {color: '#ffcf33'}},
+                    { type: 'bar', x: types, y: tuition, name: "Tuition", font: { family: "Questrial" }, marker: { color: '#004AAD' } },
+                    { type: 'bar', x: types, y: roomBoard, name: "Dormitory rooms", font: { family: "Questrial" }, marker: { color: '#00ad62' } },
+                    { type: 'bar', x: types, y: booksSupplies, name: "Board", font: { family: "Questrial" }, marker: { color: '#ffcf33' } },
                 ]}
                 layout={{
                     width: 750, height: 750, title: 'How much does post-secondary education & expenses cost?', barmode: 'stack', paper_bgcolor: 'rgba(0,0,0,0)',
@@ -422,7 +428,7 @@ function EconomyGraph() {
             y: share,
             name: 'Employment in Industy per 1000 jobs',
             type: 'bar',
-            marker: {color: '#004AAD'}
+            marker: { color: '#004AAD' }
             //orientation: "h"
         };
 
@@ -432,7 +438,7 @@ function EconomyGraph() {
             name: 'Mean Annual Wage in thousands (USD)',
             yaxis: 'Mean Annual Wage (USD)',
             type: 'bar',
-            marker: {color: '#00ad62'}
+            marker: { color: '#00ad62' }
             //orientation: "h"
         };
 
@@ -496,7 +502,7 @@ function ReligionGraph() {
         return (
             <Plot
                 data={[
-                    { type: 'bar', y: share, x: religion, marker: {color: '#004AAD'} },
+                    { type: 'bar', y: share, x: religion, marker: { color: '#004AAD' } },
                 ]}
                 layout={{
                     width: 1100, height: 600, title: 'What is the distribution of religious affiliations?', xaxis: { size: 8 }, paper_bgcolor: 'rgba(0,0,0,0)',
@@ -724,14 +730,14 @@ function VisaWaitGraph() {
                     layout={{
                         width: 1000,
                         height: 1000,
-                        xaxis: { size: 8, rangeselector:{}},
+                        xaxis: { size: 8, rangeselector: {} },
                         title: "How much time does it take to process visa applications?",
                         legend: {
                             orientation: "h"
                         },
                         paper_bgcolor: 'rgba(0,0,0,0)',
                         plot_bgcolor: 'rgba(0,0,0,0)',
-                        yaxis:{title:"months"}
+                        yaxis: { title: "months" }
                     }}
                 />
             </div>
@@ -743,24 +749,24 @@ function VisaWaitGraph() {
 
 function EducationGraphCanada() {
     let [eduData, eduDataLoading] = getEducationDataCanada();
-    if(!eduDataLoading) {
+    if (!eduDataLoading) {
         let costs = []
         let majors = []
         let plotMap = {}
-        for(let i = 0; i < eduData.length; i++) {
+        for (let i = 0; i < eduData.length; i++) {
             let major = eduData[i]["Field"]
             let cost = eduData[i]["Amount (Can$)"]
             majors.push(major)
             costs.push(cost)
         }
-        return(
+        return (
             <Plot
                 data={[
-                    { type: 'bar', x: majors, y: costs, font: { family: "Questrial" }, marker: {color: '#004AAD'}},
+                    { type: 'bar', x: majors, y: costs, font: { family: "Questrial" }, marker: { color: '#004AAD' } },
                 ]}
                 layout={{
                     width: 750, height: 750, title: 'How does cost of education vary across different fields', paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, yaxis: { title: "CAN Dollars ($)" }, xaxis: {tickangle: 45, tickfont: {size:12}}
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, yaxis: { title: "CAN Dollars ($)" }, xaxis: { tickangle: 45, tickfont: { size: 12 } }
                 }}
             />
         )
@@ -772,10 +778,10 @@ function EducationGraphCanada() {
 
 function EmploymentGraphCanada() {
     let [empData, empDataLoading] = getEmploymentDataCanada();
-    if(!empDataLoading) {
+    if (!empDataLoading) {
         let wages = []
         let industries = []
-        for(let i = 0; i < empData.length; i++) {
+        for (let i = 0; i < empData.length; i++) {
             let wage = empData[i]["Median Annual wage"]
             let industry = empData[i]["Industry"]
             wages.push(wage)
@@ -784,13 +790,45 @@ function EmploymentGraphCanada() {
         return (
             <Plot
                 data={[
-                    { type: 'bar', x: industries, y: wages, name: "Mean Annual Wage", font: { family: "Questrial" }, marker: {color: '#004AAD'}},
+                    { type: 'bar', x: industries, y: wages, name: "Mean Annual Wage", font: { family: "Questrial" }, marker: { color: '#004AAD' } },
                 ]}
                 layout={{
                     width: 750, height: 750, title: 'How does the mean annual wage vary across industries in Canada', paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, yaxis: { title: "CAN Dollars ($)" }, xaxis: {tickangle: 20, tickfont: {size:9}}
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, yaxis: { title: "CAN Dollars ($)" }, xaxis: { tickangle: 20, tickfont: { size: 9 } }
                 }}
             />
+        )
+    } else {
+        return (
+            <p>Data is still loading!</p>
+        )
+    }
+}
+
+function CrimeGraphCanada() {
+    let [criData, criDataLoading] = getCrimeDataCanada();
+    if (!criDataLoading) {
+        let myString = "";
+        let plotMap = {}
+        for (let i = 0; i < criData.length; i++) {
+            myString = myString + JSON.stringify(criData[i]["Violations"])
+            let num = criData[i]["values"]
+            num = parseFloat(num)
+            let type = criData[i]["Violations"]
+            plotMap[type] = num
+        }
+        return (
+            <div>
+                <Plot
+                    data={[
+                        { type: 'bar', x: Object.keys(plotMap), y: Object.values(plotMap), name: "Type of Crime", font: { family: "Questrial" }, marker: { color: '#004AAD' } },
+                    ]}
+                    layout={{
+                        width: 750, height: 750, title: 'Number of violations per 100,000 people', paper_bgcolor: 'rgba(0,0,0,0)',
+                        plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, yaxis: { title: "proportion per 100,000 people" }, xaxis: { tickangle: 45, tickfont: { size: 12 } }
+                    }}
+                />
+            </div>
         )
     } else {
         return (
