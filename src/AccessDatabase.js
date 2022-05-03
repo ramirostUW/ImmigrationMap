@@ -119,6 +119,6 @@ export function getEducationDataCanada() {
 
 export function getEmploymentDataCanada() {
     
-    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/canadian_education.csv");
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/canada_employment.csv");
     return [crimeData, crimeDataLoading];
 } 
