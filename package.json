@@ -5,6 +5,7 @@
   "dependencies": {
     "country-flags-svg": "^1.1.6",
     "d3-fetch": "^3.0.1",
+    "d3-geo-albers": "0.0.0",
     "mongoose": "^6.2.3",
     "panic-overlay": "^1.0.51",
     "parcel": "^2.2.0",

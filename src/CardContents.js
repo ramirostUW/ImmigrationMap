@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import MapChart from "./MapChart"
+import MapChartUK from "./MapChartUK"
 import {
     getGeneralInfoData, getMigrantFlowData, getImmigrantPopulationData, getEducationData,
     getReligionData, getEconomyData, getCrimeBiasData,
@@ -94,12 +94,17 @@ export function MigrationFlowCard(props) {
 
 export function ImmigrantPopCard(props) {
     let [crimeData, crimeDataLoading] = getImmigrantPopulationData();
-
+    let isUK = false
+    if (props.currentCountry === "United Kingdom") {
+        isUK = true
+    }
     return (
         <div>
             <h1 class="chart-name">Immigrant Population for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText><ImmigrantPopGraph /></CardText>}
+            {(!crimeDataLoading && isUK) && <CardText><ImmigrationPopulationUK /></CardText>}
+            {(!crimeDataLoading && !isUK) && <CardText><ImmigrantPopGraph /></CardText>}
+            
         </div>
 
     )
@@ -835,4 +840,10 @@ function CrimeGraphCanada() {
             <p>Data is still loading!</p>
         )
     }
+}
+
+function ImmigrationPopulationUK() {
+    return (
+        <MapChartUK/>
+    )
 }
