@@ -136,12 +136,17 @@ export function ReligionCard(props) {
 
 export function EconomyCard(props) {
     let [crimeData, crimeDataLoading] = getEconomyData();
+    let isCanada = false
+    if(props.currentCountry === "Canada") {
+        isCanada = true
+    }
 
     return (
         <div>
             <h1 class="chart-name">Economy for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText><EconomyGraph /></CardText>}
+            {(!crimeDataLoading && !isCanada) && <CardText><EconomyGraph /></CardText>}
+            {(!crimeDataLoading && isCanada) && <CardText><EmploymentGraphCanada /></CardText>}
         </div>
 
     )
@@ -751,11 +756,11 @@ function EducationGraphCanada() {
         return(
             <Plot
                 data={[
-                    { type: 'bar', x: majors, y: costs, name: "Tuition", font: { family: "Questrial" }, marker: {color: '#004AAD'}},
+                    { type: 'bar', x: majors, y: costs, font: { family: "Questrial" }, marker: {color: '#004AAD'}},
                 ]}
                 layout={{
                     width: 750, height: 750, title: 'How does cost of education vary across different fields', paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, yaxis: { title: "CAN Dollars ($)" }
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, yaxis: { title: "CAN Dollars ($)" }, xaxis: {tickangle: 45, tickfont: {size:12}}
                 }}
             />
         )
@@ -766,5 +771,30 @@ function EducationGraphCanada() {
 
 
 function EmploymentGraphCanada() {
-    let [eduData, eduDataLoading] = getEmploymentDataCanada();
+    let [empData, empDataLoading] = getEmploymentDataCanada();
+    if(!empDataLoading) {
+        let wages = []
+        let industries = []
+        for(let i = 0; i < empData.length; i++) {
+            let wage = empData[i]["Median Annual wage"]
+            let industry = empData[i]["Industry"]
+            wages.push(wage)
+            industries.push(industry)
+        }
+        return (
+            <Plot
+                data={[
+                    { type: 'bar', x: industries, y: wages, name: "Mean Annual Wage", font: { family: "Questrial" }, marker: {color: '#004AAD'}},
+                ]}
+                layout={{
+                    width: 750, height: 750, title: 'How does the mean annual wage vary across industries in Canada', paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, yaxis: { title: "CAN Dollars ($)" }, xaxis: {tickangle: 20, tickfont: {size:9}}
+                }}
+            />
+        )
+    } else {
+        return (
+            <p>Data is still loading!</p>
+        )
+    }
 }
