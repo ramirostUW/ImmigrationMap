@@ -5,7 +5,7 @@ import {
     getGeneralInfoData, getMigrantFlowData, getImmigrantPopulationData, getEducationData,
     getReligionData, getEconomyData, getCrimeBiasData,
     getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData, getVisaWaitData, 
-    getMigrationFlowDataUK, getMigrationFlowDataGermany, getMigrationFlowDataCanada, getEducationDataCanada
+    getMigrationFlowDataUK, getMigrationFlowDataGermany, getMigrationFlowDataCanada, getEducationDataCanada, getEmploymentDataCanada
 } from "./AccessDatabase"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
@@ -734,17 +734,37 @@ function VisaWaitGraph() {
     } else {
         return (<p>Data is still loading!</p>)
     }
+}
 
-    function EducationGraphCanada() {
-        let [eduData, eduDataLoading] = getEducationDataCanada();
-        if(!eduDataLoading) {
-            let costs = []
-            let majors = []
-            return (
-                <p>{JSON.stringify(eduData)}</p>
-            )
-        } else {
-            return (<p>Data is still loading!</p>)
+function EducationGraphCanada() {
+    let [eduData, eduDataLoading] = getEducationDataCanada();
+    if(!eduDataLoading) {
+        let costs = []
+        let majors = []
+        let plotMap = {}
+        for(let i = 0; i < eduData.length; i++) {
+            let major = eduData[i]["Field"]
+            let cost = eduData[i]["Amount (Can$)"]
+            majors.push(major)
+            costs.push(cost)
         }
+        return(
+            <Plot
+                data={[
+                    { type: 'bar', x: majors, y: costs, name: "Tuition", font: { family: "Questrial" }, marker: {color: '#004AAD'}},
+                ]}
+                layout={{
+                    width: 750, height: 750, title: 'How does cost of education vary across different fields', paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, yaxis: { title: "CAN Dollars ($)" }
+                }}
+            />
+        )
+    } else {
+        return (<p>Data is still loading!</p>)
     }
+}
+
+
+function EmploymentGraphCanada() {
+    let [eduData, eduDataLoading] = getEmploymentDataCanada();
 }
