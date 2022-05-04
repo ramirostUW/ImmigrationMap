@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import MapChartUK from "./MapChartUK"
+import MapChartSample from "./MapChartSample"
 import {
     getGeneralInfoData, getMigrantFlowData, getImmigrantPopulationData, getEducationData,
     getReligionData, getEconomyData, getCrimeBiasData,
@@ -844,6 +845,6 @@ function CrimeGraphCanada() {
 
 function ImmigrationPopulationUK() {
     return (
-        <MapChartUK/>
+        <MapChartUK />
     )
 }

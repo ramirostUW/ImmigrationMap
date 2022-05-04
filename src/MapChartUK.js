@@ -6,6 +6,7 @@ import {
   Geography
 } from "react-simple-maps";
 import { geoPatterson } from "d3-geo-projection";
+import { geoAlbersUk } from "d3-composite-projections";
 
 
 const geoUrl = "https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/geofiles/uk.json";
@@ -20,12 +21,10 @@ const rounded = num => {
   }
 };
 
-let width =1000;
-let height = 420;
-const projection = geoPatterson().scale(width / 2.4 * 20 / Math.PI)
+const projection = geoAlbersUk()/*geoPatterson().scale(1000 / 2.4 * 20 / Math.PI)
 .rotate([0,0])
 .center([0,52.5])
-.translate([width / 2, height / 2])
+.translate([1000 / 2, 420 / 2])*/
 
 
 const MapChartUK = (props) => {
