@@ -53,6 +53,13 @@ export function Home() {
             <main>
             </main>
             <Tabs>
+                <div label="INTERACTIVE MAPS">
+                    {buttonEnabled && <GraphCard btnToggle={enableButton} currentCountry={currentCountry} />}
+                    {!buttonEnabled && <div>
+                        <MapChart setTooltipContent={setContent} onClickCountry={showCard} />
+                        <ReactTooltip>{content}</ReactTooltip>
+                    </div>}
+                </div>
                 <div label="ABOUT US">
                     <h2 class="titleAbout">ABOUT THE PROJECT</h2>
                     <div class="aboutProject"> In the Winter of 2022, a team of four Informatics students posessing various skillsets came together to ask the question: How can we effectively communicate information to prospective immigrants so that they can assess a host country based on quality of life?
@@ -85,13 +92,7 @@ export function Home() {
 
                     </div>
                 </div>
-                <div label="INTERACTIVE MAPS">
-                    {buttonEnabled && <GraphCard btnToggle={enableButton} currentCountry={currentCountry} />}
-                    {!buttonEnabled && <div>
-                        <MapChart setTooltipContent={setContent} onClickCountry={showCard} />
-                        <ReactTooltip>{content}</ReactTooltip>
-                    </div>}
-                </div>
+
             </Tabs>
 
         </>
@@ -167,11 +168,11 @@ function GraphCard(props) {
                             <CardTitle tag="h5" style={{ fontSize: "18px", fontFamily: "Questrial" }}>{currentCountry}</CardTitle>
                             {(currentCardOption === "") && <DefaultCardContent currentCountry={currentCountry} />}
                             {(currentCardOption === "migrantFlow" && (currentCountry === "United States of America" || currentCountry === "United Kingdom" || currentCountry === "Germany" || currentCountry === "Canada")) && <MigrationFlowCard currentCountry={currentCountry} />}
-                            {(currentCardOption === "immigrantPopulation" && (currentCountry === "United States of America"  || currentCountry === "United Kingdom" )) && <ImmigrantPopCard currentCountry={currentCountry} />}
-                            {(currentCardOption === "education" && (currentCountry === "United States of America" || currentCountry === "Canada"  || currentCountry === "United Kingdom" || currentCountry === "Germany")) && <EducationCard currentCountry={currentCountry} />}
+                            {(currentCardOption === "immigrantPopulation" && (currentCountry === "United States of America" || currentCountry === "United Kingdom")) && <ImmigrantPopCard currentCountry={currentCountry} />}
+                            {(currentCardOption === "education" && (currentCountry === "United States of America" || currentCountry === "Canada" || currentCountry === "United Kingdom" || currentCountry === "Germany")) && <EducationCard currentCountry={currentCountry} />}
                             {(currentCardOption === "religion" && currentCountry === "United States of America") && <ReligionCard currentCountry={currentCountry} />}
                             {(currentCardOption === "economy" && (currentCountry === "United States of America" || currentCountry === "United Kingdom" || currentCountry === "Germany" || currentCountry === "Canada")) && <EconomyCard currentCountry={currentCountry} />}
-                            {(currentCardOption === "crime" && (currentCountry === "United States of America" || currentCountry === "Canada" )) && <CrimeCard currentCountry={currentCountry} />}
+                            {(currentCardOption === "crime" && (currentCountry === "United States of America" || currentCountry === "Canada")) && <CrimeCard currentCountry={currentCountry} />}
                             {(currentCardOption === "costOfLiving" && currentCountry === "United States of America") && <CostOfLivingCard currentCountry={currentCountry} />}
                             {(currentCardOption === "visas" && currentCountry === "United States of America") && <VisaCard currentCountry={currentCountry} />}
                         </CardBody>

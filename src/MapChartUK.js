@@ -9,7 +9,10 @@ import { geoPatterson } from "d3-geo-projection";
 import { geoAlbersUk } from "d3-composite-projections";
 
 
-const geoUrl = "https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/geofiles/uk.json";
+const geoUrlNI = "https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/geofiles/northernIreland.json";
+const geoUrlScotland = "https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/geofiles/scotland.json";
+const geoUrlEngland = "https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/geofiles/england.json";
+const geoUrlWales = "https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/geofiles/wales.json";
 
 const rounded = num => {
   if (num > 1000000000) {
@@ -37,6 +40,49 @@ const MapChartUK = (props) => {
 
   let listOfCountriesWithData = ["United States of America", "Germany", "United Kingdom", "Canada"]
   //{ setTooltipContent }
+
+  function geoMappingFunction(geo){
+              
+    const { NAME, POP_EST } = geo.properties;
+    let restingColor = "#ffffff";
+    if(listOfCountriesWithData.includes(NAME))
+      restingColor ="#00FF00";
+    let style = {
+      default: {
+        fill: restingColor,
+        stroke: "#d4dbe8",
+        outline: "none",
+        strokeWidth: "0.75"
+      },
+      hover: {
+        fill: "#ffcf33",
+        outline: "none"
+      },
+      pressed: {
+        fill: "#1500d1",
+        outline: "none"
+      }
+    }
+    return (
+      <Geography
+        key={geo.rsmKey}
+        geography={geo}
+        onClick={() => {
+          const { NAME, POP_EST } = geo.properties;
+          onClickCountry(NAME, POP_EST);
+          //setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
+        }}
+        onMouseEnter={() => {
+          const { NAME, POP_EST } = geo.properties;
+          setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
+        }}
+        onMouseLeave={() => {
+          setTooltipContent("");
+        }}
+        style={style}
+      />
+    )
+  }
   return (
     <>
       <ComposableMap data-tip=""
@@ -44,7 +90,22 @@ const MapChartUK = (props) => {
         height={420}
         style={{ width: "100%", height: "auto" }}
         projection={projection} >
-        <Geographies geography={geoUrl}>
+        <Geographies geography={geoUrlEngland}>
+          {({ geographies }) =>
+            geographies.map(geo =>{geoMappingFunction(geo)})
+          }
+        </Geographies>
+        <Geographies geography={geoUrlScotland}>
+        {({ geographies }) =>
+            geographies.map(geo =>{geoMappingFunction(geo)})
+          }
+        </Geographies>
+        <Geographies geography={geoUrlWales}>
+        {({ geographies }) =>
+            geographies.map(geo =>{geoMappingFunction(geo)})
+          }
+        </Geographies>
+        <Geographies geography={geoUrlNI}>
           {({ geographies }) =>
             geographies.map(geo => {
               

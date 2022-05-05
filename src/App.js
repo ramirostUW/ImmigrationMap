@@ -1,23 +1,26 @@
 // App.js
-import * as React from "react";
+import React, { Suspense, lazy } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
-import { Home } from "./Home";
-import { PicturePage } from "./PicturePage";
-import './App.css';
+const Home = lazy(() => import('.//Home'));
+const LandingPage = lazy(() => import('./landing/LandingPage'));
+const PicturePage = lazy(() => import('./PicturePage'));
 import logo from './img/applogo.png';
 
 export function App() {
   //<h1>IMMIGRATION INC. </h1>
   return (
-    <div>
-      <header>
-      <a href ="/"><img style={{display:"block",marginLeft:"auto",marginRight:"auto"}} src={logo} width="170px"/></a>
-      </header>
+    <Suspense fallback={<div>Loading...</div>}>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="PicturePage" element={<PicturePage />} />
+        <Route path="/site" element={
+          <div>
+            <header>
+              <a href="/#/site"><img style={{ display: "block", marginLeft: "auto", marginRight: "auto" }} src={logo} width="170px" /></a>
+            </header>
+            <Home /></div>
+        } />
+        <Route path="/" element={<LandingPage />} />
       </Routes>
-    </div>
+    </Suspense>
   );
 }
 
