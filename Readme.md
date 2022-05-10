@@ -6,12 +6,20 @@ This is the repo for the iGlobetrotters team's 2022 UW Informatics Capstone Proj
 The project is an online application that presents users with data and information on potential countries to move to. 
 
 # Miro Board
-Our Miro board can be found here: https://miro.com/app/board/uXjVOWU6bZk=/
+Our Miro board can be found here: https://miro.com/app/board/uXjVOWHgta4=/
 A google drive backup can be found here: https://drive.google.com/file/d/1L421i52ewnLtZ1HO838G6SKh5-_ptEcG/view?usp=sharing
+Figma with prototypes: https://www.figma.com/file/gqIfMkqXYTxuVU2acdV8Hh/Immigration-Inc.?node-id=0%3A1
+Final Presentation: https://docs.google.com/presentation/d/1LwOhL3_5OqVH3AsSeHeYVSVEZRusyrt0xwDDH9le0hs/edit?usp=sharing
+Usability Testing Findings: https://docs.google.com/document/d/166B2M2dtTZYJcF4eV0nPD5iJqbdE0aEbH-GglGXRMtg/edit?usp=sharing
+
+
 
 # Project Idea and User Research
-Our project idea was originally centered on fighting disinformation concerning immigration. As we did stakeholder research, however, we found that potential users were less interested in finding out about immigration itself than in learning what options they had if they wanted to immigrate. We then switchted to our current idea: in interactive map that presents users with the chance to learn more about countries they are interested in immigrating to, and the economic and legal circumstances for immigrants in those countries. 
-Our user research indicated that while some users were happy with our product and found it intuitive, others found it clunky and confusing. Thus, we focused the remainder of our time on making the visuals less confusing and easier to understand by clearing up our labels and controls. 
+Immigrants need as much information as possible when adapting to a new
+country to combat differences in culture and transition smoothly. Without appropriate research, they can face barriers in accessing basic needs and are often subject to exploitation. Immigration Inc. is an interactive website providing knowledge and resources for those interested in moving out of their home countries. Through data visualizations powered by government statistics covering topics such as education, employment, and population, Immigration Inc. enables users to make informed decisions regarding immigration.
+
+Our project idea was originally centered on fighting disinformation concerning immigration. As we did stakeholder research, however, we found that potential users were less interested in finding out about immigration itself than in learning what options they had if they wanted to immigrate. We then switched to our current idea: an interactive map that presents users with the chance to learn more about countries they are interested in immigrating to, and the economic and legal circumstances for immigrants in those countries. 
+Our user research indicated that while some users were happy with our product and found it intuitive, others found it clunky and confusing. Some of the data didn't appear to be clearly represented or were misleading (ex: visa application times). Thus, we focused the remainder of our time on making the visuals less confusing and easier to understand by more clearly defining our labels and controls. We took out data that would only confuse the users and focused on creating stories with the data using problem statements in each category. We also decide to rebrand the website with new visual colors and modernize the look based on user feedback.
 
 # Cloning the project 
 The project does not have a formal backend structure or a need for a hosting service other than github pages. It is designed to have a compact setup and be easy to relocate and duplicate. 
