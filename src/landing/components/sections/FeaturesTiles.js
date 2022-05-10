@@ -44,8 +44,8 @@ const FeaturesTiles = ({
   );
 
   const sectionHeader = {
-    title: 'Build up the whole picture',
-    paragraph: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at volutpat diam ut venenatis.'
+    title: 'About Us',
+    paragraph: 'Immigrants report that they need as much information as possible when adapting to a new country to combat differences in culture and transition smoothly. Without appropriate research, they can face barriers in accessing basic needs and may be subject to exploitation. To address this ongoing issue, Immigration Inc. was created to promote the necessary transfer of knowledge and resources for those interested in moving out of their home country. Immigration Inc. advocates to make individuals feel confident in decision-making for the best quality of life.'
   };
 
   return (
