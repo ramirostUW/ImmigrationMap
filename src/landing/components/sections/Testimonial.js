@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { SectionTilesProps } from '../../utils/SectionProps';
 import SectionHeader from './partials/SectionHeader';
+import Image from '../elements/Image';
 
 const propTypes = {
   ...SectionTilesProps.types
@@ -44,8 +45,7 @@ const Testimonial = ({
   );
 
   const sectionHeader = {
-    title: 'Customer testimonials',
-    paragraph: 'Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis lectus nulla at volutpat diam ut venenatis tellus—in ornare.'
+    title: 'Meet the Team'
   };
 
   return (
@@ -60,33 +60,16 @@ const Testimonial = ({
 
             <div className="tiles-item reveal-from-right" data-reveal-delay="200">
               <div className="tiles-item-inner">
-                <div className="testimonial-item-content">
-                  <p className="text-sm mb-0">
-                    — Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum cillum dolore eu fugiat.
-                      </p>
-                </div>
+                <Image
+                  src={require('./../../assets/images/amara.png')}
+                  alt="Features split 01"
+                  width={528}
+                  height={396} />
                 <div className="testimonial-item-footer text-xs mt-32 mb-0 has-top-divider">
-                  <span className="testimonial-item-name text-color-high">Roman Level</span>
+                  <span className="testimonial-item-name text-color-high">Amara Perry</span>
                   <span className="text-color-low"> / </span>
                   <span className="testimonial-item-link">
-                    <a href="#0">AppName</a>
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="tiles-item reveal-from-bottom">
-              <div className="tiles-item-inner">
-                <div className="testimonial-item-content">
-                  <p className="text-sm mb-0">
-                    — Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum cillum dolore eu fugiat.
-                      </p>
-                </div>
-                <div className="testimonial-item-footer text-xs mt-32 mb-0 has-top-divider">
-                  <span className="testimonial-item-name text-color-high">Diana Rynzhuk</span>
-                  <span className="text-color-low"> / </span>
-                  <span className="testimonial-item-link">
-                    <a href="#0">AppName</a>
+                    <a href="#0">Something Cool</a>
                   </span>
                 </div>
               </div>
@@ -94,21 +77,71 @@ const Testimonial = ({
 
             <div className="tiles-item reveal-from-left" data-reveal-delay="200">
               <div className="tiles-item-inner">
-                <div className="testimonial-item-content">
-                  <p className="text-sm mb-0">
-                    — Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum cillum dolore eu fugiat.
-                      </p>
-                </div>
+                <Image
+                  src={require('./../../assets/images/faiza.png')}
+                  alt="Features split 01"
+                  width={528}
+                  height={396} />
                 <div className="testimonial-item-footer text-xs mt-32 mb-0 has-top-divider">
-                  <span className="testimonial-item-name text-color-high">Ben Stafford</span>
+                  <span className="testimonial-item-name text-color-high">Faiza Hussain</span>
                   <span className="text-color-low"> / </span>
                   <span className="testimonial-item-link">
-                    <a href="#0">AppName</a>
+                    <a href="#0">Something Cool</a>
                   </span>
                 </div>
               </div>
             </div>
 
+            <div className="tiles-item reveal-from-right" data-reveal-delay="200">
+              <div className="tiles-item-inner">
+                <Image
+                  src={require('./../../assets/images/ramiro.png')}
+                  alt="Features split 01"
+                  width={528}
+                  height={396} />
+                <div className="testimonial-item-footer text-xs mt-32 mb-0 has-top-divider">
+                  <span className="testimonial-item-name text-color-high">Ramiro Steinmann Petrasso</span>
+                  <span className="text-color-low"> / </span>
+                  <span className="testimonial-item-link">
+                    <a href="#0">Something Cool</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="tiles-item reveal-from-left" data-reveal-delay="200">
+              <div className="tiles-item-inner">
+                <Image
+                  src={require('./../../assets/images/shourya.png')}
+                  alt="Features split 01"
+                  width={528}
+                  height={396} />
+                <div className="testimonial-item-footer text-xs mt-32 mb-0 has-top-divider">
+                  <span className="testimonial-item-name text-color-high">Shourya Srivastava</span>
+                  <span className="text-color-low"> / </span>
+                  <span className="testimonial-item-link">
+                    <a href="#0">Something Cool</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="tiles-item reveal-from-top" data-reveal-delay="200">
+              <div className="tiles-item-inner">
+                <Image
+                  src={require('./../../assets/images/talin.png')}
+                  alt="Features split 01"
+                  width={528}
+                  height={396} />
+                <div className="testimonial-item-footer text-xs mt-32 mb-0 has-top-divider">
+                  <span className="testimonial-item-name text-color-high">Talin Hans</span>
+                  <span className="text-color-low"> / </span>
+                  <span className="testimonial-item-link">
+                    <a href="#0">Something Cool</a>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
