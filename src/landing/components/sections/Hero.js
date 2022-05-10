@@ -66,13 +66,13 @@ const Hero = ({
             <div className="container-xs">
               <p className="m-0 mb-32 reveal-from-bottom" data-reveal-delay="400">
                 View our interactive map to explore statistical information by category from various countries.
-                </p>
+              </p>
               <div className="reveal-from-bottom" data-reveal-delay="600">
                 <ButtonGroup>
-                  <Button tag="a" color="primary" wideMobile href="/#/site">
+                  <Button tag="a" color="primary" wideMobile href="https://immigrationinc.info/#site">
                     Get started
                     </Button>
-                  <Button tag="a" color="dark" wideMobile href="https://github.com/ramirostUW/ImmigrationMap/">
+                  <Button tag="a" color="dark" wideMobile href="https://github.com/ramirostUW/ImmigrationMap">
                     View on Github
                     </Button>
                 </ButtonGroup>
@@ -88,7 +88,7 @@ const Hero = ({
             >
               <Image
                 className="has-shadow"
-                src={require('./../../assets/images/video-placeholder.jpg')}
+                src={require('./../../assets/images/placeholder.png')}
                 alt="Hero"
                 width={896}
                 height={504} />
