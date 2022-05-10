@@ -9,7 +9,7 @@ The project is an online application that presents users with data and informati
 Our Miro board can be found here: https://miro.com/app/board/uXjVOWU6bZk=/
 A google drive backup can be found here: https://drive.google.com/file/d/1L421i52ewnLtZ1HO838G6SKh5-_ptEcG/view?usp=sharing
 
-#Project Idea and User Research
+# Project Idea and User Research
 Our project idea was originally centered on fighting disinformation concerning immigration. As we did stakeholder research, however, we found that potential users were less interested in finding out about immigration itself than in learning what options they had if they wanted to immigrate. We then switchted to our current idea: in interactive map that presents users with the chance to learn more about countries they are interested in immigrating to, and the economic and legal circumstances for immigrants in those countries. 
 Our user research indicated that while some users were happy with our product and found it intuitive, others found it clunky and confusing. Thus, we focused the remainder of our time on making the visuals less confusing and easier to understand by clearing up our labels and controls. 
 
