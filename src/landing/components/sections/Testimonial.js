@@ -69,7 +69,7 @@ const Testimonial = ({
                   <span className="testimonial-item-name text-color-high">Amara Perry</span>
                   <span className="text-color-low"> / </span>
                   <span className="testimonial-item-link">
-                    <a href="#0">Something Cool</a>
+                    <a href="#0">Program Manager</a>
                   </span>
                 </div>
               </div>
@@ -86,7 +86,7 @@ const Testimonial = ({
                   <span className="testimonial-item-name text-color-high">Faiza Hussain</span>
                   <span className="text-color-low"> / </span>
                   <span className="testimonial-item-link">
-                    <a href="#0">Something Cool</a>
+                    <a href="#0">UX Design/Research</a>
                   </span>
                 </div>
               </div>
@@ -103,7 +103,7 @@ const Testimonial = ({
                   <span className="testimonial-item-name text-color-high">Ramiro Steinmann Petrasso</span>
                   <span className="text-color-low"> / </span>
                   <span className="testimonial-item-link">
-                    <a href="#0">Something Cool</a>
+                    <a href="#0">Full Stack Developer</a>
                   </span>
                 </div>
               </div>
@@ -120,7 +120,7 @@ const Testimonial = ({
                   <span className="testimonial-item-name text-color-high">Shourya Srivastava</span>
                   <span className="text-color-low"> / </span>
                   <span className="testimonial-item-link">
-                    <a href="#0">Something Cool</a>
+                    <a href="#0">Full Stack Developer</a>
                   </span>
                 </div>
               </div>
@@ -137,7 +137,7 @@ const Testimonial = ({
                   <span className="testimonial-item-name text-color-high">Talin Hans</span>
                   <span className="text-color-low"> / </span>
                   <span className="testimonial-item-link">
-                    <a href="#0">Something Cool</a>
+                    <a href="#0">Full Stack Developer</a>
                   </span>
                 </div>
               </div>
