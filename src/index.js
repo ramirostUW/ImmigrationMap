@@ -1,4 +1,4 @@
-//import 'panic-overlay';
+import 'panic-overlay';
 import React from "react";
 import ReactDOM from "react-dom";
 import {HashRouter as Router} from 'react-router-dom'
