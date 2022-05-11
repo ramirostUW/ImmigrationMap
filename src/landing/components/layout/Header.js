@@ -120,7 +120,7 @@ const Header = ({
                       className="list-reset header-nav-right"
                     >
                       <li>
-                        <Link to="https://immigrationinc.info/#/site" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Interactive Map</Link>
+                        <Link to="/#/site" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Interactive Map</Link>
                       </li>
                     </ul>}
                 </div>

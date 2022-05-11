@@ -69,7 +69,7 @@ const Hero = ({
               </p>
               <div className="reveal-from-bottom" data-reveal-delay="600">
                 <ButtonGroup>
-                  <Button tag="a" color="primary" wideMobile href="https://immigrationinc.info/#site">
+                  <Button tag="a" color="primary" wideMobile href="/#/site">
                     Get started
                     </Button>
                   <Button tag="a" color="dark" wideMobile href="https://github.com/ramirostUW/ImmigrationMap">
