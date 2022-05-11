@@ -8,6 +8,8 @@ import {
 import { geoPatterson } from "d3-geo-projection";
 import { geoAlbersUk } from "d3-composite-projections";
 import ReactTooltip from "react-tooltip";
+import { getImmigrantPopulationDataUK } from "./AccessDatabase"
+import chroma from "chroma-js";
 
 const geoUrlNI = "https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/geofiles/northernIreland.json";
 const geoUrlScotland = "https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/geofiles/scotland.json";
@@ -24,6 +26,8 @@ const rounded = num => {
   }
 };
 
+let perc2color = chroma.scale(['yellow', 'red']);
+
 const projection = geoAlbersUk().translate([1000 / 2, 420 / 2]);/*geoPatterson().scale(1000 / 2.4 * 20 / Math.PI)
 .rotate([0,0])
 .center([0,52.5])
@@ -35,19 +39,23 @@ const MapChartUK = (props) => {
   let onClickCountry = function(){
 
   }
-
-  let listOfCountriesWithData = ["United States of America", "Germany", "United Kingdom", "Canada"]
+  let [popData, popDataLoading] = getImmigrantPopulationDataUK();
   //{ setTooltipContent }
-
+  let popValues = {}
+  if(!popDataLoading){
+    for(let i = 0; i < popData.length; i++){
+      let currentRow = popData[i];
+      popValues[currentRow["AREANM"]] = parseInt(currentRow["% Non-UK born, 2020"]);
+    }
+  }
   function GeoMappingFunction(props){
     let geo = props.geo;
-    const { NAME, POP_EST } = geo.properties;
+    let name = geo.properties.LAD13NM
+    let percentOfImmigrants = popValues[name];
     let restingColor = "#ffffff";
-    if(listOfCountriesWithData.includes(NAME))
-      restingColor ="#00FF00";
     let style = {
       default: {
-        fill: restingColor,
+        fill: perc2color(percentOfImmigrants /50),
         stroke: "#d4dbe8",
         outline: "none",
         strokeWidth: "0.75"
@@ -72,8 +80,10 @@ const MapChartUK = (props) => {
         }}
         onMouseEnter={() => {
           const { NAME, POP_EST } = geo.properties;
+          let name = geo.properties.LAD13NM
+          let percentOfImmigrants = popValues[name];
           //setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
-          setTooltipContent(geo.properties.LAD13NM)
+          setTooltipContent(name + " - " + percentOfImmigrants + "% immigrant population")
         }}
         onMouseLeave={() => {
           setTooltipContent("");

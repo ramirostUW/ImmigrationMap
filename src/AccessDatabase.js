@@ -128,3 +128,11 @@ export function getCrimeDataCanada() {
     let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/canadaCrimeData.csv");
     return [crimeData, crimeDataLoading];
 } 
+
+export function getImmigrantPopulationDataUK() {
+    
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/ukImmigrationPopulation.csv");
+
+    return [crimeData, crimeDataLoading];
+    
+}
