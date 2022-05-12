@@ -174,6 +174,12 @@ export function getUKeduData() {
     
 }
 
+export function getUKeconomyData() {
+    
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/ukEconomy.csv");
+    return [crimeData, crimeDataLoading];
+    
+}
 
 
 

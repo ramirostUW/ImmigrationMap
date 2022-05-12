@@ -7,7 +7,7 @@ import {
     getReligionData, getEconomyData, getCrimeBiasData,
     getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData, getVisaWaitData,
     getMigrationFlowDataUK, getMigrationFlowDataGermany, getMigrationFlowDataCanada, getEducationDataCanada, getEmploymentDataCanada,
-    getCrimeDataCanada, getCanadaReligionData, getCanadaColData, getUKrelData, getUKcrimeData, getUKeduData
+    getCrimeDataCanada, getCanadaReligionData, getCanadaColData, getUKrelData, getUKcrimeData, getUKeduData, getUKeconomyData
 } from "./AccessDatabase"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
@@ -173,6 +173,7 @@ export function EconomyCard(props) {
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {(!crimeDataLoading && !isCanada && !isUK) && <CardText><EconomyGraph /></CardText>}
             {(!crimeDataLoading && isCanada && !isUK) && <CardText><EmploymentGraphCanada /></CardText>}
+            {(!crimeDataLoading && !isCanada && isUK) && <CardText><EconomyGraphUK /></CardText>}
         </div>
 
     )
@@ -1048,3 +1049,33 @@ function EduGraphUk() {
         )
     }
 }
+
+function EconomyGraphUK() {
+    let [ecoData, ecoDataLoading] = getUKeconomyData()
+    if (!ecoDataLoading) {
+        let plotMap = {}
+        for(let i = 0; i < ecoData.length; i++) {
+            let religion = ecoData[i]["Section"]
+            let value = ecoData[i]["All"]
+            plotMap[religion] = parseInt(value)
+        }
+        return ( <Plot
+            data={[
+                { type: 'pie', labels: Object.keys(plotMap), values: Object.values(plotMap), font: { family: "Questrial" }, marker: { color: '#004AAD' } },
+            ]}
+            layout={{
+                width: 700, height: 500, title:'', paper_bgcolor: 'rgba(0,0,0,0)',
+                fontTitle: "Raleway",
+                plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+            }}
+        />
+        
+    )         
+        
+    } else {
+        return (
+            <p>Data is still loading!</p>
+        )
+    }
+}
+

@@ -123,3 +123,5 @@ const MapChartUK = (props) => {
 };
 
 export default memo(MapChartUK);
+
+
