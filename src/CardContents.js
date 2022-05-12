@@ -7,7 +7,7 @@ import {
     getReligionData, getEconomyData, getCrimeBiasData,
     getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData, getVisaWaitData,
     getMigrationFlowDataUK, getMigrationFlowDataGermany, getMigrationFlowDataCanada, getEducationDataCanada, getEmploymentDataCanada,
-    getCrimeDataCanada
+    getCrimeDataCanada, getCanadaReligionData, getCanadaColData
 } from "./AccessDatabase"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
@@ -130,12 +130,17 @@ export function EducationCard(props) {
 
 export function ReligionCard(props) {
     let [crimeData, crimeDataLoading] = getReligionData();
+    let isCanada = false
+    if (props.currentCountry === "Canada") {
+        isCanada = true
+    }
 
     return (
         <div>
             <h1 class="chart-name">Religion for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText><ReligionGraph /></CardText>}
+            {(!crimeDataLoading && !isCanada) && <CardText><ReligionGraph /></CardText>}
+            {(!crimeDataLoading && isCanada) && <CardText><ReligionGraphCanada /></CardText>}
         </div>
 
     )
@@ -179,12 +184,17 @@ export function CrimeCard(props) {
 
 export function CostOfLivingCard(props) {
     let [crimeData, crimeDataLoading] = getCostOfLivingData();
+    let isCanada = false
+    if (props.currentCountry === "Canada") {
+        isCanada = true
+    }
 
     return (
         <div>
             <h1 class="chart-name">Cost of Living for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {!crimeDataLoading && <CardText><CostOfLivingGraph /></CardText>}
+            {(!crimeDataLoading && !isCanada) && <CardText><CostOfLivingGraph /></CardText>}
+            {(!crimeDataLoading && isCanada) && <CardText><ColGraphCanada /></CardText>}
         </div>
 
     )
@@ -847,4 +857,89 @@ function ImmigrationPopulationUK() {
     return (
         <MapChartUK />
     )
+}
+
+function ReligionGraphCanada() {
+    let [relData, relDataLoading] = getCanadaReligionData();
+    if (!relDataLoading) {
+        let plotMap = {}
+        for (let i = 0; i < relData.length - 1; i++) {
+            let num = relData[i]["propotion"]
+            num = parseFloat(num)
+            let type = relData[i]["religion"]
+            plotMap[type] = num
+        }
+        return (
+            <Plot
+                data={[
+                    { type: 'pie', values: Object.values(plotMap), labels: Object.keys(plotMap) },
+                ]}
+                layout={{
+                    width: 700, height: 500, title: 'What is the distribution of religious affiliations in Canada?', paper_bgcolor: 'rgba(0,0,0,0)',
+                    fontTitle: "Raleway",
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+                }}
+            />
+        )
+    } else {
+        return (
+            <p>Data is still loading!</p>
+        )
+    }
+}
+
+function ColGraphCanada() {
+    let [colData, colDataLoading] = getCanadaColData();
+    if (!colDataLoading) {
+        let cities = []
+        let housing = []
+        let transportation = []
+        let food = []
+        let preschool = []
+        let plotMap = {}
+        for(let i = 0; i < colData.length; i++) {
+            let city = colData[i]["City"]
+            cities.push(city)
+            let house = colData[i]["Monthly Housing Costs"]
+            house = house.replace(",", "")
+            house = house.replace("$", "")
+            house = parseFloat(house)
+            housing.push(house)
+            let trans = colData[i]["Transportation"]
+            trans = trans.replace("$", "")
+            trans = trans.replace(",", "")
+            trans = parseFloat(trans)
+            transportation.push(trans)
+            let foods = colData[i]["Food"]
+            foods = foods.replace("$", "")
+            foods = foods.replace(",", "")
+            foods = parseFloat(foods)
+            food.push(foods)
+            let school = colData[i]["Preschool"]
+            school = school.replace("$", "")
+            school = school.replace(",", "")
+            school = parseFloat(school)
+            preschool.push(school)
+        }
+        return ( <Plot
+            data={[
+                { type: 'bar', x: cities, y: housing, name: "Housing", font: { family: "Questrial" }, marker: { color: '#004AAD' } },
+                { type: 'bar', x: cities, y: transportation, name: "Transportation", font: { family: "Questrial" }, marker: { color: '#00ad62' } },
+                { type: 'bar', x: cities, y: food, name: "Food", font: { family: "Questrial" }, marker: { color: '#ffcf33' } },
+                { type: 'bar', x: cities, y: preschool, name: "Preschool", font: { family: "Questrial" }, marker: { color: 'red' } },
+            ]}
+            layout={{
+                width: 750, height: 750, title: 'How do the average monthly expenses for a 3-member family vary across major cities?', barmode: 'stack', paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, yaxis: { title: "CAN Dollars ($)" }
+            }}
+        />
+    )
+           
+                
+        
+    } else {
+        return (
+            <p>Data is still loading!</p>
+        )
+    }
 }

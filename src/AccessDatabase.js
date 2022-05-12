@@ -136,3 +136,19 @@ export function getImmigrantPopulationDataUK() {
     return [crimeData, crimeDataLoading];
     
 }
+
+export function getCanadaReligionData() {
+    
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/CANADARELIGION.csv");
+
+    return [crimeData, crimeDataLoading];
+    
+}
+
+export function getCanadaColData() {
+    
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/canadaCOL.csv")
+
+    return [crimeData, crimeDataLoading];
+    
+}
