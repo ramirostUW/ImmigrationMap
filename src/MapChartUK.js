@@ -10,8 +10,8 @@ import { geoAlbersUk } from "d3-composite-projections";
 import ReactTooltip from "react-tooltip";
 import { getImmigrantPopulationDataUK } from "./AccessDatabase"
 import chroma from "chroma-js";
+import { isUndefined } from "lodash";
 
-const geoUrlNI = "https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/geofiles/northernIreland.json";
 const geoUrlScotland = "https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/geofiles/scotland.json";
 const geoUrlEngland = "https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/geofiles/england.json";
 const geoUrlWales = "https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/geofiles/wales.json";
@@ -50,9 +50,7 @@ const MapChartUK = (props) => {
   }
   function GeoMappingFunction(props){
     let geo = props.geo;
-    let name = geo.properties.LAD13NM
-    let percentOfImmigrants = popValues[name];
-    let restingColor = "#ffffff";
+    let percentOfImmigrants = popValues[geo.properties.LAD13NM? geo.properties.LAD13NM : geo.properties.LGDNAME];
     let style = {
       default: {
         fill: perc2color(percentOfImmigrants /50),
@@ -81,9 +79,13 @@ const MapChartUK = (props) => {
         onMouseEnter={() => {
           const { NAME, POP_EST } = geo.properties;
           let name = geo.properties.LAD13NM
+          if(!name){
+            name = geo.properties.LGDNAME
+          }
           let percentOfImmigrants = popValues[name];
           //setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
-          setTooltipContent(name + " - " + percentOfImmigrants + "% immigrant population")
+          setTooltipContent(name)
+          //setTooltipContent(name + " - " + percentOfImmigrants + "% immigrant population")
         }}
         onMouseLeave={() => {
           setTooltipContent("");
@@ -110,11 +112,6 @@ const MapChartUK = (props) => {
           }
         </Geographies>
         <Geographies geography={geoUrlWales}>
-          {({ geographies }) =>
-            geographies.map(geo =>{return (<GeoMappingFunction geo={geo} />)})
-          }
-        </Geographies>
-        <Geographies geography={geoUrlNI}>
           {({ geographies }) =>
             geographies.map(geo =>{return (<GeoMappingFunction geo={geo} />)})
           }
