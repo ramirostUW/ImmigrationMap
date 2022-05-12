@@ -188,3 +188,9 @@ export function getUKcolData() {
     
 }
 
+export function getCanadaImmigrantPopulationData() {
+    
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/canadaImmigrationPopulation.csv");
+    return [crimeData, crimeDataLoading];
+    
+}

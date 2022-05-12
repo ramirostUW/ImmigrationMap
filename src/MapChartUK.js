@@ -83,9 +83,7 @@ const MapChartUK = (props) => {
             name = geo.properties.LGDNAME
           }
           let percentOfImmigrants = popValues[name];
-          //setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
-          setTooltipContent(name)
-          //setTooltipContent(name + " - " + percentOfImmigrants + "% immigrant population")
+          setTooltipContent(name + " - " + percentOfImmigrants + "% immigrant population")
         }}
         onMouseLeave={() => {
           setTooltipContent("");

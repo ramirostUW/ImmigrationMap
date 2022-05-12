@@ -7,7 +7,7 @@ import {
 } from "react-simple-maps";
 import { geoPatterson } from "d3-geo-projection";
 import ReactTooltip from "react-tooltip";
-import { getImmigrantPopulationDataUK } from "./AccessDatabase"
+import { getCanadaImmigrantPopulationData } from "./AccessDatabase"
 import chroma from "chroma-js";
 import { isUndefined } from "lodash";
 
@@ -39,21 +39,23 @@ const MapChartCanada = (props) => {
   let onClickCountry = function(){
 
   }
-  let [popData, popDataLoading] = getImmigrantPopulationDataUK();
+  let [popData, popDataLoading] = getCanadaImmigrantPopulationData();
   //{ setTooltipContent }
   let popValues = {}
   if(!popDataLoading){
     for(let i = 0; i < popData.length; i++){
       let currentRow = popData[i];
-      popValues[currentRow["AREANM"]] = parseInt(currentRow["% Non-UK born, 2020"]);
+      let nonmigrants = parseInt(currentRow["Period of immigration - Non-immigrants"]);
+      let migrants = parseInt(currentRow["Period of immigration - Immigrants"]);
+      popValues[currentRow["Geographic name"]] = migrants/(migrants + nonmigrants);
     }
   }
   function GeoMappingFunction(props){
     let geo = props.geo;
-    let percentOfImmigrants = popValues[geo.properties.LAD13NM? geo.properties.LAD13NM : geo.properties.LGDNAME];
+    let percentOfImmigrants = popValues[geo.properties.name];
     let style = {
       default: {
-        fill: "#ffffff",
+        fill: perc2color(percentOfImmigrants * 2),
         stroke: "#d4dbe8",
         outline: "none",
         strokeWidth: "0.75"
@@ -77,13 +79,10 @@ const MapChartCanada = (props) => {
           //setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
         }}
         onMouseEnter={() => {
-          let name = geo.properties.LAD13NM
-          if(!name){
-            name = geo.properties.LGDNAME
-          }
+          let name = geo.properties.name
           let percentOfImmigrants = popValues[name];
           //setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
-          setTooltipContent(geo.properties.name)
+          setTooltipContent(name + " - " + Math.round((percentOfImmigrants*100)*100)/100 + "% immigrant population")
           //setTooltipContent(name + " - " + percentOfImmigrants + "% immigrant population")
         }}
         onMouseLeave={() => {
