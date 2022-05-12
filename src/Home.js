@@ -36,8 +36,8 @@ import {
     WorkplaceShareButton
 } from "react-share";
 
-const BTN_HEIGHT = "50px";
-const BTN_MARGIN = 4;
+const BTN_HEIGHT = "60px";
+const BTN_MARGIN = "2px";
 
 export function Home() {
     const [content, setContent] = useState("");
@@ -117,8 +117,8 @@ function GraphCard(props) {
 
     const [currentCardOption, setCurrentCardOption] = useState("");
 
-    let buttonStyle = { fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#EBF6FF", borderColor: "#004AAD", borderWidth: "3px", color: "#004AAD" }
-    let clickedbuttonStyle = { fontSize: "15px", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "180px", fontFamily: "Questrial", textAlign: "left", borderTopRightRadius: "50px", borderBottomRightRadius: "50px", backgroundColor: "#004AAD", borderColor: "#004AAD", borderWidth: "3px", color: "white" }
+    let buttonStyle = { fontSize: "15px", fontWeight: "bold", textTransform: "uppercase", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "240px", fontFamily: "Sora:wght@400", textAlign: "left", borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px", borderTopRightRadius: "10px", borderBottomRightRadius: "10px", backgroundColor: "#D0F3EB", borderColor: "#005B67", borderWidth: "3px", color: "#005B67" }
+    let clickedbuttonStyle = { fontSize: "15px", fontWeight: "bold", textTransform: "uppercase", margin: BTN_MARGIN, height: BTN_HEIGHT, width: "240px", fontFamily: "Sora:wght@400", textAlign: "left", borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px", borderTopRightRadius: "10px", borderBottomRightRadius: "10px", backgroundColor: "#005B67", borderColor: "#005B67", borderWidth: "3px", color: "white" }
 
     let [migrantButtonStyle, setMigrantButtonStyle] = useState(buttonStyle)
     let [immigrationButtonStyle, setImmigrationButtonStyle] = useState(buttonStyle)
@@ -151,7 +151,7 @@ function GraphCard(props) {
             <link rel="stylesheet" href="App.css" />
 
             <Card>
-                <div style={{ align: "center", backgroundColor: "#EEF6F6" }} class="wrapper">
+                <div style={{ align: "center", backgroundColor: "#D0F3EB" }} class="wrapper">
                     <div class="one">
                         <Button onClick={() => { setCurrentCardOption("migrantFlow"); changeClickedStyle(setMigrantButtonStyle) }} style={migrantButtonStyle}>Migration Flow</Button>
                         <Button onClick={() => { setCurrentCardOption("immigrantPopulation"); changeClickedStyle(setImmigrationButtonStyle) }} style={immigrationButtonStyle}>Immigrant Population</Button>
@@ -161,11 +161,11 @@ function GraphCard(props) {
                         <Button onClick={() => { setCurrentCardOption("crime"); changeClickedStyle(setCrimeButtonStyle) }} style={crimetButtonStyle}>Crime</Button>
                         <Button onClick={() => { setCurrentCardOption("costOfLiving"); changeClickedStyle(setCostLivingButtonStyle) }} style={costLivingButtonStyle}>Cost of Living</Button>
                         <Button onClick={() => { setCurrentCardOption("visas"); changeClickedStyle(setVisaButtonStyle) }} style={visaButtonStyle}>Visas</Button>
-                        <Button style={{ margin: BTN_MARGIN, height: "40px", width: "180px", borderRadius: "40px", fontFamily: "League Spartan", textAlign: "center", backgroundColor: "#004AAD" }} onClick={disableButton}>Back</Button>
+                        <Button style={{ margin: BTN_MARGIN, marginTop: "10px", marginLeft: "10px", height: "40px", width: "230px", borderRadius: "40px", fontFamily: "Sora:wght@400", textAlign: "center", backgroundColor: "#005B67" }} onClick={disableButton}>Back</Button>
                     </div>
                     <div class="nine">
                         <CardBody>
-                            <CardTitle tag="h5" style={{ fontSize: "18px", fontFamily: "Questrial" }}>{currentCountry}</CardTitle>
+                            <CardTitle tag="h5" style={{ fontSize: "18px", textTransform: "uppercase", fontFamily: "Sora:wght@400" }}>{currentCountry}</CardTitle>
                             {(currentCardOption === "") && <DefaultCardContent currentCountry={currentCountry} />}
                             {(currentCardOption === "migrantFlow" && (currentCountry === "United States of America" || currentCountry === "United Kingdom" || currentCountry === "Germany" || currentCountry === "Canada")) && <MigrationFlowCard currentCountry={currentCountry} />}
                             {(currentCardOption === "immigrantPopulation" && (currentCountry === "United States of America" || currentCountry === "Canada" || currentCountry === "United Kingdom")) && <ImmigrantPopCard currentCountry={currentCountry} />}
