@@ -7,7 +7,7 @@ import {
     getReligionData, getEconomyData, getCrimeBiasData,
     getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData, getVisaWaitData,
     getMigrationFlowDataUK, getMigrationFlowDataGermany, getMigrationFlowDataCanada, getEducationDataCanada, getEmploymentDataCanada,
-    getCrimeDataCanada, getCanadaReligionData, getCanadaColData, getUKrelData, getUKcrimeData
+    getCrimeDataCanada, getCanadaReligionData, getCanadaColData, getUKrelData, getUKcrimeData, getUKeduData
 } from "./AccessDatabase"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
@@ -114,15 +114,20 @@ export function ImmigrantPopCard(props) {
 export function EducationCard(props) {
     let [crimeData, crimeDataLoading] = getEducationData();
     let isCanada = false
+    let isUK = false
     if (props.currentCountry === "Canada") {
         isCanada = true
+    }
+    if (props.currentCountry === "United Kingdom") {
+        isUK = true
     }
     return (
         <div>
             <h1 class="chart-name">Education for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {(!crimeDataLoading && !isCanada) && <CardText><EducationGraph /></CardText>}
-            {(!crimeDataLoading && isCanada) && <CardText><EducationGraphCanada /></CardText>}
+            {(!crimeDataLoading && !isCanada && !isUK) && <CardText><EducationGraph /></CardText>}
+            {(!crimeDataLoading && isCanada && !isUK) && <CardText><EducationGraphCanada /></CardText>}
+            {(!crimeDataLoading && !isCanada && isUK) && <CardText><EduGraphUk /></CardText>}
         </div>
 
     )
@@ -1001,6 +1006,35 @@ function CrimeGraphUk() {
             ]}
             layout={{
                 width: 700, height: 500, title: 'What are the prevalent types of crime in the UK?', paper_bgcolor: 'rgba(0,0,0,0)',
+                fontTitle: "Raleway",
+                plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+            }}
+        />
+        
+    )         
+        
+    } else {
+        return (
+            <p>Data is still loading!</p>
+        )
+    }
+}
+
+function EduGraphUk() {
+    let [eduData, eduDataLoading] = getUKeduData();
+    if (!eduDataLoading) {
+        let plotMap = {}
+        for(let i = 0; i < eduData.length; i++) {
+            let religion = eduData[i]["type"]
+            let value = eduData[i]["cost"]
+            plotMap[religion] = parseInt(value)
+        }
+        return ( <Plot
+            data={[
+                { type: 'bar', x: Object.keys(plotMap), y: Object.values(plotMap), name: "Cost of Attendance", font: { family: "Questrial" }, marker: { color: '#004AAD' } },
+            ]}
+            layout={{
+                width: 700, height: 500, title: 'Average cost of attendance at the top 100 instuitions in UK with avg min/max for nationality', paper_bgcolor: 'rgba(0,0,0,0)',
                 fontTitle: "Raleway",
                 plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
             }}
