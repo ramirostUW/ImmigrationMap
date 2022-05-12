@@ -7,7 +7,7 @@ import {
     getReligionData, getEconomyData, getCrimeBiasData,
     getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData, getVisaWaitData,
     getMigrationFlowDataUK, getMigrationFlowDataGermany, getMigrationFlowDataCanada, getEducationDataCanada, getEmploymentDataCanada,
-    getCrimeDataCanada, getCanadaReligionData, getCanadaColData
+    getCrimeDataCanada, getCanadaReligionData, getCanadaColData, getUKrelData, getUKcrimeData
 } from "./AccessDatabase"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
@@ -131,16 +131,21 @@ export function EducationCard(props) {
 export function ReligionCard(props) {
     let [crimeData, crimeDataLoading] = getReligionData();
     let isCanada = false
+    let isUK = false
     if (props.currentCountry === "Canada") {
         isCanada = true
+    }
+    if (props.currentCountry === "United Kingdom") {
+        isUK = true
     }
 
     return (
         <div>
             <h1 class="chart-name">Religion for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {(!crimeDataLoading && !isCanada) && <CardText><ReligionGraph /></CardText>}
-            {(!crimeDataLoading && isCanada) && <CardText><ReligionGraphCanada /></CardText>}
+            {(!crimeDataLoading && !isCanada && !isUK) && <CardText><ReligionGraph /></CardText>}
+            {(!crimeDataLoading && isCanada && !isUK) && <CardText><ReligionGraphCanada /></CardText>}
+            {(!crimeDataLoading && !isCanada && isUK) && <CardText><RelGraphUk /></CardText>}
         </div>
 
     )
@@ -149,16 +154,20 @@ export function ReligionCard(props) {
 export function EconomyCard(props) {
     let [crimeData, crimeDataLoading] = getEconomyData();
     let isCanada = false
+    let isUK = false
     if (props.currentCountry === "Canada") {
         isCanada = true
+    }
+    if (props.currentCountry === "United Kingdom") {
+        isUK = true
     }
 
     return (
         <div>
             <h1 class="chart-name">Economy for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {(!crimeDataLoading && !isCanada) && <CardText><EconomyGraph /></CardText>}
-            {(!crimeDataLoading && isCanada) && <CardText><EmploymentGraphCanada /></CardText>}
+            {(!crimeDataLoading && !isCanada && !isUK) && <CardText><EconomyGraph /></CardText>}
+            {(!crimeDataLoading && isCanada && !isUK) && <CardText><EmploymentGraphCanada /></CardText>}
         </div>
 
     )
@@ -168,15 +177,20 @@ export function EconomyCard(props) {
 export function CrimeCard(props) {
     let [crimeData, crimeDataLoading] = getCrimeBiasData();
     let isCanada = false
+    let isUK = false
     if (props.currentCountry === "Canada") {
         isCanada = true
+    }
+    if (props.currentCountry === "United Kingdom") {
+        isUK = true
     }
     return (
         <div>
             <h1 class="chart-name">Crime for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {(!crimeDataLoading && !isCanada) && <CardText><CrimeGraphs /></CardText>}
-            {(!crimeDataLoading && isCanada) && <CardText><CrimeGraphCanada /></CardText>}
+            {(!crimeDataLoading && !isCanada && !isUK) && <CardText><CrimeGraphs /></CardText>}
+            {(!crimeDataLoading && isCanada && !isUK) && <CardText><CrimeGraphCanada /></CardText>}
+            {(!crimeDataLoading && !isCanada && isUK) && <CardText><CrimeGraphUk /></CardText>}
         </div>
 
     )
@@ -936,6 +950,63 @@ function ColGraphCanada() {
     )
            
                 
+        
+    } else {
+        return (
+            <p>Data is still loading!</p>
+        )
+    }
+}
+
+function RelGraphUk() {
+    let [relData, relDataLoading] = getUKrelData();
+    if (!relDataLoading) {
+        let plotMap = {}
+        for(let i = 0; i < relData.length; i++) {
+            let religion = relData[i]["RELIGION"]
+            let value = relData[i]["VALUE"]
+            plotMap[religion] = value
+        }
+        return (  <Plot
+            data={[
+                { type: 'pie', values: Object.values(plotMap), labels: Object.keys(plotMap) },
+            ]}
+            layout={{
+                width: 700, height: 500, title: 'What is the distribution of religious affiliations in the UK?', paper_bgcolor: 'rgba(0,0,0,0)',
+                fontTitle: "Raleway",
+                plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+            }}
+        />
+    )         
+        
+    } else {
+        return (
+            <p>Data is still loading!</p>
+        )
+    }
+}
+
+function CrimeGraphUk() {
+    let [criData, criDataLoading] = getUKcrimeData();
+    if (!criDataLoading) {
+        let plotMap = {}
+        for(let i = 0; i < criData.length; i++) {
+            let religion = criData[i]["MinorText"]
+            let value = criData[i]["pct"]
+            plotMap[religion] = value
+        }
+        return ( <Plot
+            data={[
+                { type: 'pie', values: Object.values(plotMap), labels: Object.keys(plotMap) },
+            ]}
+            layout={{
+                width: 700, height: 500, title: 'What are the prevalent types of crime in the UK?', paper_bgcolor: 'rgba(0,0,0,0)',
+                fontTitle: "Raleway",
+                plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+            }}
+        />
+        
+    )         
         
     } else {
         return (
