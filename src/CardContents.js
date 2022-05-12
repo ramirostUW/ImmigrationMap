@@ -7,7 +7,7 @@ import {
     getReligionData, getEconomyData, getCrimeBiasData,
     getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData, getVisaWaitData,
     getMigrationFlowDataUK, getMigrationFlowDataGermany, getMigrationFlowDataCanada, getEducationDataCanada, getEmploymentDataCanada,
-    getCrimeDataCanada, getCanadaReligionData, getCanadaColData, getUKrelData, getUKcrimeData, getUKeduData
+    getCrimeDataCanada, getCanadaReligionData, getCanadaColData, getUKrelData, getUKcrimeData, getUKeduData, getUKeconomyData, getUKcolData
 } from "./AccessDatabase"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
@@ -173,6 +173,7 @@ export function EconomyCard(props) {
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
             {(!crimeDataLoading && !isCanada && !isUK) && <CardText><EconomyGraph /></CardText>}
             {(!crimeDataLoading && isCanada && !isUK) && <CardText><EmploymentGraphCanada /></CardText>}
+            {(!crimeDataLoading && !isCanada && isUK) && <CardText><EconomyGraphUK /></CardText>}
         </div>
 
     )
@@ -204,16 +205,22 @@ export function CrimeCard(props) {
 export function CostOfLivingCard(props) {
     let [crimeData, crimeDataLoading] = getCostOfLivingData();
     let isCanada = false
+    let isUK = false
     if (props.currentCountry === "Canada") {
         isCanada = true
     }
+    if (props.currentCountry === "United Kingdom") {
+        isUK = true
+    }
+
 
     return (
         <div>
             <h1 class="chart-name">Cost of Living for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {(!crimeDataLoading && !isCanada) && <CardText><CostOfLivingGraph /></CardText>}
-            {(!crimeDataLoading && isCanada) && <CardText><ColGraphCanada /></CardText>}
+            {(!crimeDataLoading && !isCanada && !isUK) && <CardText><CostOfLivingGraph /></CardText>}
+            {(!crimeDataLoading && isCanada && !isUK) && <CardText><ColGraphCanada /></CardText>}
+            {(!crimeDataLoading && !isCanada && isUK) && <CardText><ColGraphUK /></CardText>}
         </div>
 
     )
@@ -1048,3 +1055,65 @@ function EduGraphUk() {
         )
     }
 }
+
+function EconomyGraphUK() {
+    let [ecoData, ecoDataLoading] = getUKeconomyData()
+    if (!ecoDataLoading) {
+        let plotMap = {}
+        for(let i = 0; i < ecoData.length; i++) {
+            let religion = ecoData[i]["Section"]
+            let value = ecoData[i]["All"]
+            plotMap[religion] = parseInt(value)
+        }
+        return ( <Plot
+            data={[
+                { type: 'pie', labels: Object.keys(plotMap), values: Object.values(plotMap), font: { family: "Questrial" }, marker: { color: '#004AAD' } },
+            ]}
+            layout={{
+                width: 700, height: 500, title:'', paper_bgcolor: 'rgba(0,0,0,0)',
+                fontTitle: "Raleway",
+                title: "Distribution of the labor force across sectors of the industry in the UK?",
+                plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+            }}
+        />
+        
+    )         
+        
+    } else {
+        return (
+            <p>Data is still loading!</p>
+        )
+    }
+}
+
+function ColGraphUK() {
+    let [colData, colDataLoading] = getUKcolData()
+    if (!colDataLoading) {
+        let plotMap = {}
+        for(let i = 0; i < colData.length; i++) {
+            let city = colData[i]["city"]
+            let value = colData[i]["cost of living"]
+            plotMap[city] = parseFloat(value)
+        }
+        return ( <Plot
+            data={[
+                { type: 'bar', x: Object.keys(plotMap), y: Object.values(plotMap), font: { family: "Questrial" }, marker: { color: '#004AAD' } },
+            ]}
+            layout={{
+                width: 700, height: 500, title:'', paper_bgcolor: 'rgba(0,0,0,0)',
+                fontTitle: "Raleway",
+                title: "Cost of living Index for top cities in the UK",
+                plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+            }}
+        />
+        
+    )         
+        
+    } else {
+        return (
+            <p>Data is still loading!</p>
+        )
+    }
+}
+
+
