@@ -11,6 +11,7 @@
     "d3-geo-albers": "0.0.0",
     "lodash": "^4.17.21",
     "mongoose": "^6.2.3",
+    "normalize.css": "^8.0.1",
     "panic-overlay": "^1.0.51",
     "parcel": "^2.5.0",
     "plotly.js": "^2.9.0",

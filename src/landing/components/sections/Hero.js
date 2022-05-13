@@ -63,8 +63,8 @@ const Hero = ({
            
             <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
             <div className="newstuff">
-            <pp2> Where do <span className="text-color-secondary">you</span> want to immigrate?</pp2><pp>
-                View our interactive map to explore statistical information by category from various countries. </pp> 
+            <pp2> Where do <span className="text-color-secondary">you</span> want to immigrate?</pp2><br />
+            <pp> View our interactive map to explore statistical information by category from various countries. </pp> 
 
             </div>
             </h1>
