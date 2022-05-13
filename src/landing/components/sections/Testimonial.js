@@ -36,7 +36,8 @@ const Testimonial = ({
   const innerClasses = classNames(
     'testimonial-inner section-inner',
     topDivider && 'has-top-divider',
-    bottomDivider && 'has-bottom-divider'
+    bottomDivider && 'has-bottom-divider',
+    'addMargin'
   );
 
   const tilesClasses = classNames(

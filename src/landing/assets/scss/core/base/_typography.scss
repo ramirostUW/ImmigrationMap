@@ -7,13 +7,23 @@ body {
 	font-size: 0.9rem;
 }
 
-pp {
+.addMargin {
+	margin-top: 70px;
+}
+
+.addMargin2 {
+	margin-top: 20px;
+}
+
+
+
+.benefits {
 	font-style: italic;
-	color: white;
-	font-weight: bolder;
-	margin-left: -45px;
-	font-size: 13.5px;
-	background-color: #6FC1C2;
+}
+
+
+.moveDown {
+	margin-top: 280px;
 }
 
 body,
@@ -30,16 +40,9 @@ h1, h2, h3, h4, h5, h6,
 	@include font-family(heading);
 	@include font-weight(heading);
 	clear: both;
-	color: white;
+	color: #005B67;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-}
-
-pp2 {
-	background-color:#005B67;
-	padding: 10px;
-	padding-left: 30px;
-	padding-right: 30px;
 }
 
 h1,

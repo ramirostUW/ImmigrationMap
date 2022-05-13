@@ -33,7 +33,8 @@ const FeaturesSplit = ({
     topOuterDivider && 'has-top-divider',
     bottomOuterDivider && 'has-bottom-divider',
     hasBgColor && 'has-bg-color',
-    invertColor && 'invert-color'  );
+    invertColor && 'invert-color',
+    'addMargin2'  );
 
   const innerClasses = classNames(
     'features-split-inner section-inner',
@@ -50,12 +51,11 @@ const FeaturesSplit = ({
 
   const sectionHeader = {
     title: 'Process',
-    paragraph: 'Immigrants report that they need as much information as possible when adapting to a new country to combat differences in culture and transition smoothly. Without appropriate research, they can face barriers in accessing basic needs and may be subject to exploitation. To address this ongoing issue, Immigration Inc. was created to promote the necessary transfer of knowledge and resources for those interested in moving out of their home country. Immigration Inc. advocates to make individuals feel confident in decision-making for the best quality of life.'
+    
   };
 
   const sectionHeader2 = {
     title: 'Benefits',
-    paragraph: 'Immigrants report that they need as much information as possible when adapting to a new country to combat differences in culture and transition smoothly. Without appropriate research, they can face barriers in accessing basic needs and may be subject to exploitation. To address this ongoing issue, Immigration Inc. was created to promote the necessary transfer of knowledge and resources for those interested in moving out of their home country. Immigration Inc. advocates to make individuals feel confident in decision-making for the best quality of life.'
   };
 
   return (
@@ -97,6 +97,12 @@ Immigration Inc. is an interactive website providing knowledge and resources for
           
           <SectionHeader data={sectionHeader} className="center-content" />
 
+          <p className="m-0 center-content">
+            Market Research → Literature Review → Survey Research → Data Analysis → User Persona Development
+          </p>
+          <p className="m-0 center-content marginBottom">
+            → Brainstorming/Prototyping → Minimal Viable Product Development → Usability Testing → Final Product Development
+          </p>
             <div className="split-item">
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
                 <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
@@ -106,7 +112,7 @@ Immigration Inc. is an interactive website providing knowledge and resources for
                   Dynamic World Country Map
                   </h3>
                 <p className="m-0">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Explore multiple countries to compare information and quality of living
                   </p>
               </div>
               <div className={
@@ -126,13 +132,13 @@ Immigration Inc. is an interactive website providing knowledge and resources for
             <div className="split-item">
               <div className="split-item-content center-content-mobile reveal-from-right" data-reveal-container=".split-item">
                 <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
-                  Wide array of immigration information
+                  Wide array of information
                   </div>
                 <h3 className="mt-0 mb-12">
                   Information by Category
                   </h3>
                 <p className="m-0">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Navigate categories to learn about the statistics of the country
                   </p>
               </div>
               <div className={
@@ -152,14 +158,13 @@ Immigration Inc. is an interactive website providing knowledge and resources for
             <div className="split-item">
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
                 <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
-                  Lightning fast workflow
+                  Visually impactful data
                   </div>
                 <h3 className="mt-0 mb-12">
                   Interactive Data Visualizations
                   </h3>
                 <p className="m-0">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
+                View various visualizations sourced from government public data                  </p>
               </div>
               <div className={
                 classNames(
@@ -176,6 +181,16 @@ Immigration Inc. is an interactive website providing knowledge and resources for
             </div>
 
             <SectionHeader data={sectionHeader2} className="center-content" />
+
+            <p className="m-0 center-content benefits">
+            Improved quality of life and smoother transition
+          </p>
+          <p className="m-0 center-content benefits">
+          Increased satisfaction in host country
+          </p>
+          <p className="m-0 center-content benefits">
+Centralized location to look for statistical information
+          </p>
 
 
           </div>
