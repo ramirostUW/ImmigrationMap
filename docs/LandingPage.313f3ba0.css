@@ -373,9 +373,11 @@ body {
 
 pp {
   color: #fff;
-  margin: 0;
+  background-color: #6fc1c2;
+  margin-left: -45px;
   font-size: 13.5px;
   font-style: italic;
+  font-weight: bolder;
 }
 
 body, button, input, select, textarea {
@@ -392,11 +394,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 800;
 }
 
-.newstuff {
-  background-color: #005b67;
-}
-
 pp2 {
+  background-color: #005b67;
   padding: 10px 30px;
 }
 
@@ -637,10 +636,6 @@ b, strong {
     font-size: 32px;
     line-height: 42px;
   }
-}
-
-smallbr {
-  line-height: 0;
 }
 
 .container, .container-sm, .container-xs {

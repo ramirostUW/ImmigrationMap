@@ -24363,6 +24363,9 @@ _c1 = Home;
 const LandingPage = /*#__PURE__*/ _react.lazy(_c2 = ()=>require("936b9ab3834b64ea")
 );
 _c3 = LandingPage;
+const PicturePage = /*#__PURE__*/ _react.lazy(_c4 = ()=>require("804f19ab91a95159")
+);
+_c5 = PicturePage;
 function App() {
     //<h1>IMMIGRATION INC. </h1>
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_react.Suspense, {
@@ -24394,7 +24397,7 @@ function App() {
                     }, void 0, true, void 0, void 0)
                 }, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 13,
+                    lineNumber: 14,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -24402,36 +24405,38 @@ function App() {
                     element: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(LandingPage, {}, void 0, false, void 0, void 0)
                 }, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 20,
+                    lineNumber: 21,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/App.js",
-            lineNumber: 12,
+            lineNumber: 13,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/App.js",
-        lineNumber: 11,
+        lineNumber: 12,
         columnNumber: 5
     }, this);
 }
-_c4 = App;
+_c6 = App;
 exports.default = App;
-var _c, _c1, _c2, _c3, _c4;
+var _c, _c1, _c2, _c3, _c4, _c5, _c6;
 $RefreshReg$(_c, "Home$lazy");
 $RefreshReg$(_c1, "Home");
 $RefreshReg$(_c2, "LandingPage$lazy");
 $RefreshReg$(_c3, "LandingPage");
-$RefreshReg$(_c4, "App");
+$RefreshReg$(_c4, "PicturePage$lazy");
+$RefreshReg$(_c5, "PicturePage");
+$RefreshReg$(_c6, "App");
 
   $parcel$ReactRefreshHelpers$f00f.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","./img/applogo.png":"ixGBV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","7953e837dfca1ab8":"ep3K7","936b9ab3834b64ea":"1XxiT"}],"ixGBV":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","./img/applogo.png":"ixGBV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","7953e837dfca1ab8":"ep3K7","936b9ab3834b64ea":"1XxiT","804f19ab91a95159":"76ykH"}],"ixGBV":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('bLxZJ') + "applogo.431c1ba5.png" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {
@@ -24706,7 +24711,14 @@ module.exports = Promise.all([
 ]).then(()=>module.bundle.root('3SOqY')
 );
 
-},{"./helpers/browser/css-loader":"1MWPE","./helpers/bundle-url":"lgJ39","./helpers/browser/js-loader":"61B45"}],"JKYwb":[function(require,module,exports) {
+},{"./helpers/browser/css-loader":"1MWPE","./helpers/bundle-url":"lgJ39","./helpers/browser/js-loader":"61B45"}],"76ykH":[function(require,module,exports) {
+module.exports = require("./helpers/browser/js-loader")(require('./helpers/bundle-url').getBundleURL('bLxZJ') + "PicturePage.1a614483.js" + "?" + Date.now()).catch((err)=>{
+    delete module.bundle.cache[module.id];
+    throw err;
+}).then(()=>module.bundle.root('fGZWX')
+);
+
+},{"./helpers/browser/js-loader":"61B45","./helpers/bundle-url":"lgJ39"}],"JKYwb":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _stacktracey = require("stacktracey");

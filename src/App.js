@@ -3,6 +3,7 @@ import React, { Suspense, lazy } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 const Home = lazy(() => import('.//Home'));
 const LandingPage = lazy(() => import('./landing/LandingPage'));
+const PicturePage = lazy(() => import('./PicturePage'));
 import logo from './img/applogo.png';
 
 export function App() {

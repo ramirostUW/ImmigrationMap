@@ -33,7 +33,7 @@ const FeaturesSplit = ({
     topOuterDivider && 'has-top-divider',
     bottomOuterDivider && 'has-bottom-divider',
     hasBgColor && 'has-bg-color',
-    invertColor && 'invert-color');
+    invertColor && 'invert-color'  );
 
   const innerClasses = classNames(
     'features-split-inner section-inner',
@@ -68,22 +68,22 @@ const FeaturesSplit = ({
 
           <div className={splitClasses}>
 
-            <div className="split-item">
+          <div className="split-item">
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
                 <h3 className="mt-0 mb-12">
                   About Us
-                </h3>
+                  </h3>
                 <p className="m-0">
-                  Immigrants need as much information as possible when adapting to a new
-                  country to combat differences in culture and transition smoothly. Without appropriate research, they can face barriers in accessing basic needs and are often subject to exploitation.
+                Immigrants need as much information as possible when adapting to a new
+country to combat differences in culture and transition smoothly. Without appropriate research, they can face barriers in accessing basic needs and are often subject to exploitation. 
 
-                  Immigration Inc. is an interactive website providing knowledge and resources for those interested in moving out of their home countries. Through data visualizations powered by government statistics covering topics such as education, employment, and population, Immigration Inc. enables users to make informed decisions regarding immigration.
-                </p>
+Immigration Inc. is an interactive website providing knowledge and resources for those interested in moving out of their home countries. Through data visualizations powered by government statistics covering topics such as education, employment, and population, Immigration Inc. enables users to make informed decisions regarding immigration.
+                  </p>
               </div>
               <div className={
                 classNames(
                   'split-item-image center-content-mobile reveal-from-bottom',
-                  imageFill && 'split-item-image-fill',
+                  imageFill && 'split-item-image-fill', 
                 )}
                 data-reveal-container=".split-item">
                 <Image
@@ -91,23 +91,23 @@ const FeaturesSplit = ({
                   alt="passport"
                   width={297}
                   height={223}
-                />
+                   />
               </div>
             </div>
-            
-            <SectionHeader data={sectionHeader} className="center-content" />
-            
+          
+          <SectionHeader data={sectionHeader} className="center-content" />
+
             <div className="split-item">
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
                 <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
                   Easily find your destination
-                </div>
+                  </div>
                 <h3 className="mt-0 mb-12">
                   Dynamic World Country Map
-                </h3>
+                  </h3>
                 <p className="m-0">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+                  </p>
               </div>
               <div className={
                 classNames(
@@ -127,13 +127,13 @@ const FeaturesSplit = ({
               <div className="split-item-content center-content-mobile reveal-from-right" data-reveal-container=".split-item">
                 <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
                   Wide array of immigration information
-                </div>
+                  </div>
                 <h3 className="mt-0 mb-12">
                   Information by Category
-                </h3>
+                  </h3>
                 <p className="m-0">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+                  </p>
               </div>
               <div className={
                 classNames(
@@ -153,13 +153,13 @@ const FeaturesSplit = ({
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
                 <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
                   Lightning fast workflow
-                </div>
+                  </div>
                 <h3 className="mt-0 mb-12">
                   Interactive Data Visualizations
-                </h3>
+                  </h3>
                 <p className="m-0">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+                  </p>
               </div>
               <div className={
                 classNames(
