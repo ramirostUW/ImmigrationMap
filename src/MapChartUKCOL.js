@@ -144,7 +144,7 @@ const MapChartUK = (props) => {
         <Marker key={name} coordinates={coordinates} 
         onMouseEnter={() => {setTooltipContent(name + " - Cost of Living Index = " + popValues[name])}} 
         onMouseLeave={() => {setTooltipContent("");}} >
-          <circle r={5} fill={perc2color(popValues[name]/200)} stroke={"#fff"} strokeWidth={2} />
+          <circle r={2 + ((popValues[name] - 60)/3)} fill={perc2color(popValues[name]/200)} stroke={"#fff"} strokeWidth={2} />
           <text
             textAnchor="middle"
             y={markerOffset}

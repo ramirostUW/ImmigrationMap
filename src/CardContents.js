@@ -510,7 +510,7 @@ function EconomyGraph() {
                 title: "What is the mean annual wage of top occupations?",
                 length: 750, width: 1100, paper_bgcolor: 'rgba(0,0,0,0)',
                 plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" },
-                xaxis: { rangeslider: {} },
+                xaxis: { },
                 yaxis: { title: "Number per 1000, USD in 1000s" }
             }} />
 
@@ -853,7 +853,7 @@ function EducationGraphCanada() {
                 ]}
                 layout={{
                     width: 800, height: 650, title: 'How does cost of education vary across different fields?', paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }, yaxis: { title: "CAN Dollars ($)" }, xaxis: { tickangle: 45, tickfont: { size: 12 } }
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }, yaxis: { title: "CAN Dollars ($)" }, xaxis: { tickangle: 45, tickfont: { size: 9 } }
                 }}
             />
         )
