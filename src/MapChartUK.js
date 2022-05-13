@@ -94,6 +94,7 @@ const MapChartUK = (props) => {
   }
   return (
     <div>
+      <h2>How many and where are immigrants living?</h2>
       <ComposableMap data-tip=""
         width={1000}
         height={420}
