@@ -48,6 +48,7 @@ export function Home() {
         enableButton(true);
         setCurrentCountry(name);
     }
+
     return (
         <>
             <main>
