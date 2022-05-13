@@ -334,3 +334,7 @@ strong {
 		@include font-size(bquote-desktop);
 	}
 }
+
+smallbr {
+	line-height: 0px;
+}
