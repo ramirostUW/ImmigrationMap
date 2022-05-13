@@ -16451,7 +16451,9 @@ const Hero = ({ className , topOuterDivider , bottomOuterDivider , topDivider , 
                                             lineNumber: 66,
                                             columnNumber: 13
                                         }, undefined),
-                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("br", {}, void 0, false, {
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("br", {
+                                            className: "smallbr"
+                                        }, void 0, false, {
                                             fileName: "src/landing/components/sections/Hero.js",
                                             lineNumber: 66,
                                             columnNumber: 102

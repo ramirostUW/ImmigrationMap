@@ -3,12 +3,13 @@ import {
   ZoomableGroup,
   ComposableMap,
   Geographies,
-  Geography
+  Geography,
+  Marker
 } from "react-simple-maps";
 import { geoPatterson } from "d3-geo-projection";
 import { geoAlbersUk } from "d3-composite-projections";
 import ReactTooltip from "react-tooltip";
-import { getImmigrantPopulationDataUK } from "./AccessDatabase"
+import { getUKcolData } from "./AccessDatabase"
 import chroma from "chroma-js";
 import { isUndefined } from "lodash";
 
@@ -28,10 +29,7 @@ const rounded = num => {
 
 let perc2color = chroma.scale(['yellow', 'red']);
 
-const projection = geoAlbersUk().translate([1000 / 2, 420 / 2]);/*geoPatterson().scale(1000 / 2.4 * 20 / Math.PI)
-.rotate([0,0])
-.center([0,52.5])
-.translate([1000 / 2, 420 / 2])*/
+const projection = geoAlbersUk().translate([1000 / 2, 420 / 2]);
 
 
 const MapChartUK = (props) => {
@@ -39,13 +37,17 @@ const MapChartUK = (props) => {
   let onClickCountry = function(){
 
   }
-  let [popData, popDataLoading] = getImmigrantPopulationDataUK();
+  const markers = [
+    { markerOffset: -15, name: "London", coordinates: [0.1276, 51.5072] }
+
+  ]
+  let [colData, colDataLoading] = getUKcolData();
   //{ setTooltipContent }
   let popValues = {}
-  if(!popDataLoading){
-    for(let i = 0; i < popData.length; i++){
-      let currentRow = popData[i];
-      popValues[currentRow["AREANM"]] = parseInt(currentRow["% Non-UK born, 2020"]);
+  if(!colDataLoading){
+    for(let i = 0; i < colData.length; i++){
+      let currentRow = colData[i];
+      popValues[currentRow["city"]] = parseFloat(currentRow["cost of living"]);
     }
   }
   function GeoMappingFunction(props){
@@ -53,17 +55,17 @@ const MapChartUK = (props) => {
     let percentOfImmigrants = popValues[geo.properties.LAD13NM? geo.properties.LAD13NM : geo.properties.LGDNAME];
     let style = {
       default: {
-        fill: perc2color(percentOfImmigrants /50),
+        fill: "#ffffff",
         stroke: "#d4dbe8",
         outline: "none",
         strokeWidth: "0.75"
       },
       hover: {
-        fill: "#ffcf33",
+        fill: "#ffffff",
         outline: "none"
       },
       pressed: {
-        fill: "#1500d1",
+        fill: "#ffffff",
         outline: "none"
       }
     }
@@ -74,16 +76,8 @@ const MapChartUK = (props) => {
         onClick={() => {
           const { NAME, POP_EST } = geo.properties;
           onClickCountry(NAME, POP_EST);
-          //setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
         }}
         onMouseEnter={() => {
-          const { NAME, POP_EST } = geo.properties;
-          let name = geo.properties.LAD13NM
-          if(!name){
-            name = geo.properties.LGDNAME
-          }
-          let percentOfImmigrants = popValues[name];
-          setTooltipContent(name + " - " + percentOfImmigrants + "% immigrant population")
         }}
         onMouseLeave={() => {
           setTooltipContent("");
@@ -114,6 +108,20 @@ const MapChartUK = (props) => {
             geographies.map(geo =>{return (<GeoMappingFunction geo={geo} />)})
           }
         </Geographies>
+        {markers.map(({ name, coordinates, markerOffset }) => (
+        <Marker key={name} coordinates={coordinates} 
+        onMouseEnter={() => {setTooltipContent(name + " - Cost of Living Index = " + popValues[name])}} 
+        onMouseLeave={() => {setTooltipContent("");}} >
+          <circle r={5} fill={perc2color(popValues[name]/200)} stroke={"#fff"} strokeWidth={2} />
+          <text
+            textAnchor="middle"
+            y={markerOffset}
+            style={{ fontFamily: "system-ui", fill: "#5D5A6D" }}
+          >
+            {name}
+          </text>
+        </Marker>
+      ))}
       </ComposableMap>
       <ReactTooltip>{content}</ReactTooltip>
     </div>

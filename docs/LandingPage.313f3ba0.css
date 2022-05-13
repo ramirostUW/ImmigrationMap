@@ -639,6 +639,10 @@ b, strong {
   }
 }
 
+smallbr {
+  line-height: 0;
+}
+
 .container, .container-sm, .container-xs {
   width: 100%;
   margin: 0 auto;
