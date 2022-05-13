@@ -93,7 +93,7 @@ export function Home() {
                             </ul>
                     </div>
 
-                    <h2 class="titleAbout">Data Sources</h2>
+                    <h2 class="titleAbout">DATA SOURCES</h2>
                     <div class="aboutProject makeSmall">
                         <ul>
                             <li>https://www.un.org/development/desa/pd/content/international-migrant-stock

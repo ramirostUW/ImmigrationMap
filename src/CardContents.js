@@ -302,9 +302,9 @@ function MigrationFlowGraph(props) {
                     data={[
                         {
                             type: 'choropleth', locationmode: 'country names', locations: Object.keys(sortedMap), z: Object.values(sortedMap), text: Object.keys(sortedMap), colorscale: [
-                                [0, '#ebecf0'], [0.2, '#8587d6'],
-                                [0.4, '#768acc'], [0.6, '#4973c9'],
-                                [0.8, '#2354b8'], [1, '#004AAD'],
+                                [0, '#fff5de'], [0.2, '#ffe6a7'],
+                                [0.4, '#ffd874'], [0.6, '#ffca41'],
+                                [0.8, '#ffc327'], [1, '#ffbc0e'],
                             ], colorbar: {
                                 title: 'Number of immigrants',
                                 thickness: 15,
@@ -332,7 +332,7 @@ function MigrationFlowGraph(props) {
                         {
                             type: 'bar', x: Object.values(sortedMapLimit25), y: Object.keys(sortedMapLimit25), orientation: "h"
                             , marker: {
-                                color: '#004AAD', orientation: 'v'
+                                color: '#6FC1C2', orientation: 'v'
                             }
                         },
                     ]}
@@ -340,7 +340,7 @@ function MigrationFlowGraph(props) {
                         width: 1100, height: 1000, title: 'Where are immigrants coming from by nationality?', xaxis: {
                             side: 'top'
                         }, yaxis: { fixedrange: false, title: "# of Immigrants" }, paper_bgcolor: 'rgba(0,0,0,0)',
-                        plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+                        plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }
                     }}
                 />
             </div>
@@ -402,9 +402,9 @@ function ImmigrantPopGraph() {
                 data={[
                     {
                         type: 'choropleth', locationmode: 'USA-states', locations: Object.keys(plotMap), z: Object.values(plotMap), text: Object.keys(stateMap), hovertext: "%", colorscale: [
-                            [0, '#ebecf0'], [0.2, '#8587d6'],
-                            [0.4, '#768acc'], [0.6, '#4973c9'],
-                            [0.8, '#2354b8'], [1, '#004AAD'],
+                            [0, '#fff5de'], [0.2, '#ffe6a7'],
+                                [0.4, '#ffd874'], [0.6, '#ffca41'],
+                                [0.8, '#ffc327'], [1, '#ffbc0e'],
                         ], colorbar: {
                             title: '% of Immigrant Population',
                             thickness: 15,
@@ -419,7 +419,7 @@ function ImmigrantPopGraph() {
                 ]}
                 layout={{
                     title: "How many and where are immigrants living?", geo: { scope: 'usa' }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }
                 }
                 }
             />
@@ -454,13 +454,13 @@ function EducationGraph() {
         return (
             <Plot
                 data={[
-                    { type: 'bar', x: types, y: tuition, name: "Tuition", font: { family: "Questrial" }, marker: { color: '#004AAD' } },
-                    { type: 'bar', x: types, y: roomBoard, name: "Dormitory rooms", font: { family: "Questrial" }, marker: { color: '#00ad62' } },
-                    { type: 'bar', x: types, y: booksSupplies, name: "Board", font: { family: "Questrial" }, marker: { color: '#ffcf33' } },
+                    { type: 'bar', x: types, y: tuition, name: "Tuition", font: { family: "Questrial" }, marker: { color: '#005B67' } },
+                    { type: 'bar', x: types, y: roomBoard, name: "Dormitory rooms", font: { family: "Questrial" }, marker: { color: '#6FC1C2' } },
+                    { type: 'bar', x: types, y: booksSupplies, name: "Living Expenses/Board", font: { family: "Questrial" }, marker: { color: '#FFD15A' } },
                 ]}
                 layout={{
-                    width: 750, height: 750, title: 'How much does post-secondary education & expenses cost?', barmode: 'stack', paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, yaxis: { title: "US Dollars ($)" }
+                    width: 750, height: 750, title: 'What is the cost of post-secondary education & expenses?', barmode: 'stack', paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }, yaxis: { title: "US Dollars ($)" }
                 }}
             />
         )
@@ -490,7 +490,7 @@ function EconomyGraph() {
             y: share,
             name: 'Employment in Industy per 1000 jobs',
             type: 'bar',
-            marker: { color: '#004AAD' }
+            marker: { color: '#6FC1C2' }
             //orientation: "h"
         };
 
@@ -500,7 +500,7 @@ function EconomyGraph() {
             name: 'Mean Annual Wage in thousands (USD)',
             yaxis: 'Mean Annual Wage (USD)',
             type: 'bar',
-            marker: { color: '#00ad62' }
+            marker: { color: '#005B67' }
             //orientation: "h"
         };
 
@@ -536,12 +536,25 @@ function CrimeTypeGraph() {
         return (
             <Plot
                 data={[
-                    { type: 'pie', values: number, labels: types },
+                    { type: 'pie', values: number, labels: types,
+                    marker: {
+                        'colors': [
+                          '#5a88ff',
+                          '#ffd15a',
+                          '#ff5a88',
+                          '#5affd1',
+                          '#ff7f5a',
+                          '#7f5aff',
+                          '#d15aff',
+                          '#005B67',
+                          '#dbff5a'
+                        ]
+                      } },
                 ]}
                 layout={{
                     width: 700, height: 500, title: 'What types of crimes are most prevalent?', paper_bgcolor: 'rgba(0,0,0,0)',
-                    fontTitle: "Raleway",
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
+                    fontTitle: "Sora:wght@300",
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }
                 }}
             />
         )
@@ -564,11 +577,11 @@ function ReligionGraph() {
         return (
             <Plot
                 data={[
-                    { type: 'bar', y: share, x: religion, marker: { color: '#004AAD' } },
+                    { type: 'bar', y: share, x: religion, marker: { color: '#6FC1C2' } },
                 ]}
                 layout={{
                     width: 1100, height: 600, title: 'What is the distribution of religious affiliations?', xaxis: { size: 8 }, paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }, yaxis: { "title": "Percentage" }
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }, yaxis: { "title": "Percentage (%)" }
                 }}
             />
         )
@@ -613,9 +626,9 @@ function CostOfLivingGraph() {
                         text: Object.keys(stateMap),
                         font: { family: "Sora:wght@300" },
                         colorscale: [
-                            [0, '#004AAD'], [0.2, '#2354b8'],
-                            [0.4, '#4973c9'], [0.6, '#768acc'],
-                            [0.8, '#8587d6'], [1, '#ebecf0']
+                            [0, '#fff5de'], [0.2, '#ffe6a7'],
+                                [0.4, '#ffd874'], [0.6, '#ffca41'],
+                                [0.8, '#ffc327'], [1, '#ffbc0e']
                             // [0, '#ebecf0'], [0.2, '#8587d6'],
                             //[0.4, '#768acc'], [0.6, '#4973c9'],
                             //[0.8, '#2354b8'], [1, '#004AAD']
@@ -632,7 +645,7 @@ function CostOfLivingGraph() {
                     },
                 ]}
                 layout={{
-                    title: "What is the value of a dollar in different parts of the country?", geo: { scope: 'usa' }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
+                    title: "Where is it more expensive to live in parts of the country?", geo: { scope: 'usa' }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
                     plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }
                 }
                 }
@@ -672,9 +685,9 @@ function VisaGraph() {
                             text: countries,
                             font: { family: "Sora:wght@300" },
                             colorscale: [
-                                [0, '#ebecf0'], [0.2, '#8587d6'],
-                                [0.4, '#768acc'], [0.6, '#4973c9'],
-                                [0.8, '#2354b8'], [1, '#004AAD']
+                                [0, '#fff5de'], [0.2, '#ffe6a7'],
+                                [0.4, '#ffd874'], [0.6, '#ffca41'],
+                                [0.8, '#ffc327'], [1, '#ffbc0e']
                             ], colorbar: {
                                 title: {
                                     text: 'Number of Visas issued (2020)'
@@ -729,11 +742,23 @@ function CrimeBiasGraph() {
         return (
             <Plot
                 data={[
-                    { type: 'pie', values: Object.values(plotMap), labels: Object.keys(plotMap) },
+                    { type: 'pie', values: Object.values(plotMap), labels: Object.keys(plotMap), marker: {
+                        'colors': [
+                          '#5a88ff',
+                          '#ffd15a',
+                          '#ff5a88',
+                          '#5affd1',
+                          '#ff7f5a',
+                          '#7f5aff',
+                          '#d15aff',
+                          '#005B67',
+                          '#dbff5a'
+                        ]
+                      } },
                 ]}
                 layout={{
                     width: 700, height: 500, title: 'What biases propogate through crimes?', paper_bgcolor: 'rgba(0,0,0,0)',
-                    fontTitle: "Raleway",
+                    fontTitle: "Sora:wght@300",
                     plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }
                 }}
             />
@@ -824,10 +849,10 @@ function EducationGraphCanada() {
         return (
             <Plot
                 data={[
-                    { type: 'bar', x: majors, y: costs, font: { family: "Sora:wght@300" }, marker: { color: '#004AAD' } },
+                    { type: 'bar', x: majors, y: costs, font: { family: "Sora:wght@300" }, marker: { color: '#005B67' } },
                 ]}
                 layout={{
-                    width: 750, height: 750, title: 'How does cost of education vary across different fields', paper_bgcolor: 'rgba(0,0,0,0)',
+                    width: 800, height: 650, title: 'How does cost of education vary across different fields?', paper_bgcolor: 'rgba(0,0,0,0)',
                     plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }, yaxis: { title: "CAN Dollars ($)" }, xaxis: { tickangle: 45, tickfont: { size: 12 } }
                 }}
             />
@@ -852,7 +877,7 @@ function EmploymentGraphCanada() {
         return (
             <Plot
                 data={[
-                    { type: 'bar', x: industries, y: wages, name: "Mean Annual Wage", font: { family: "Sora:wght@300" }, marker: { color: '#004AAD' } },
+                    { type: 'bar', x: industries, y: wages, name: "Mean Annual Wage", font: { family: "Sora:wght@300" }, marker: { color: '#005B67' } },
                 ]}
                 layout={{
                     width: 750, height: 750, title: 'How does the mean annual wage vary across industries in Canada', paper_bgcolor: 'rgba(0,0,0,0)',
@@ -883,7 +908,7 @@ function CrimeGraphCanada() {
             <div>
                 <Plot
                     data={[
-                        { type: 'bar', x: Object.keys(plotMap), y: Object.values(plotMap), name: "Type of Crime", font: { family: "Sora:wght@300" }, marker: { color: '#004AAD' } },
+                        { type: 'bar', x: Object.keys(plotMap), y: Object.values(plotMap), name: "Type of Crime", font: { family: "Sora:wght@300" }, marker: { color: '#005B67' } },
                     ]}
                     layout={{
                         width: 750, height: 750, title: 'Number of violations per 100,000 people', paper_bgcolor: 'rgba(0,0,0,0)',
@@ -918,11 +943,23 @@ function ReligionGraphCanada() {
         return (
             <Plot
                 data={[
-                    { type: 'pie', values: Object.values(plotMap), labels: Object.keys(plotMap) },
+                    { type: 'pie', values: Object.values(plotMap), labels: Object.keys(plotMap), marker: {
+                        'colors': [
+                          '#5a88ff',
+                          '#ffd15a',
+                          '#ff5a88',
+                          '#5affd1',
+                          '#ff7f5a',
+                          '#7f5aff',
+                          '#d15aff',
+                          '#005B67',
+                          '#dbff5a'
+                        ]
+                      } },
                 ]}
                 layout={{
                     width: 700, height: 500, title: 'What is the distribution of religious affiliations in Canada?', paper_bgcolor: 'rgba(0,0,0,0)',
-                    fontTitle: "Raleway",
+                    fontTitle: "Sora:wght@300",
                     plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }
                 }}
             />
@@ -969,10 +1006,10 @@ function ColGraphCanada() {
         }
         return ( <Plot
             data={[
-                { type: 'bar', x: cities, y: housing, name: "Housing", font: { family: "Sora:wght@300" }, marker: { color: '#004AAD' } },
-                { type: 'bar', x: cities, y: transportation, name: "Transportation", font: { family: "Sora:wght@300" }, marker: { color: '#00ad62' } },
-                { type: 'bar', x: cities, y: food, name: "Food", font: { family: "Sora:wght@300" }, marker: { color: '#ffcf33' } },
-                { type: 'bar', x: cities, y: preschool, name: "Preschool", font: { family: "Sora:wght@300" }, marker: { color: 'red' } },
+                { type: 'bar', x: cities, y: housing, name: "Housing", font: { family: "Sora:wght@300" }, marker: { color: '#005B67' } },
+                { type: 'bar', x: cities, y: transportation, name: "Transportation", font: { family: "Sora:wght@300" }, marker: { color: '#6FC1C2' } },
+                { type: 'bar', x: cities, y: food, name: "Food", font: { family: "Sora:wght@300" }, marker: { color: '#FFD15A' } },
+                { type: 'bar', x: cities, y: preschool, name: "Preschool", font: { family: "Sora:wght@300" }, marker: { color: '#FFD15A' } },
             ]}
             layout={{
                 width: 750, height: 750, title: 'How do the average monthly expenses for a 3-member family vary across major cities?', barmode: 'stack', paper_bgcolor: 'rgba(0,0,0,0)',
@@ -1001,11 +1038,23 @@ function RelGraphUk() {
         }
         return (  <Plot
             data={[
-                { type: 'pie', values: Object.values(plotMap), labels: Object.keys(plotMap) },
+                { type: 'pie', values: Object.values(plotMap), labels: Object.keys(plotMap), marker: {
+                    'colors': [
+                      '#5a88ff',
+                      '#ffd15a',
+                      '#ff5a88',
+                      '#5affd1',
+                      '#ff7f5a',
+                      '#7f5aff',
+                      '#d15aff',
+                      '#005B67',
+                      '#dbff5a'
+                    ]
+                  } },
             ]}
             layout={{
                 width: 700, height: 500, title: 'What is the distribution of religious affiliations in the UK?', paper_bgcolor: 'rgba(0,0,0,0)',
-                fontTitle: "Raleway",
+                fontTitle: "Sora:wght@300",
                 plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }
             }}
         />
@@ -1029,11 +1078,23 @@ function CrimeGraphUk() {
         }
         return ( <Plot
             data={[
-                { type: 'pie', values: Object.values(plotMap), labels: Object.keys(plotMap) },
+                { type: 'pie', values: Object.values(plotMap), labels: Object.keys(plotMap), marker: {
+                    'colors': [
+                      '#5a88ff',
+                      '#ffd15a',
+                      '#ff5a88',
+                      '#5affd1',
+                      '#ff7f5a',
+                      '#7f5aff',
+                      '#d15aff',
+                      '#005B67',
+                      '#dbff5a'
+                    ]
+                  } },
             ]}
             layout={{
                 width: 700, height: 500, title: 'What are the prevalent types of crime in the UK?', paper_bgcolor: 'rgba(0,0,0,0)',
-                fontTitle: "Raleway",
+                fontTitle: "Sora:wght@300",
                 plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }
             }}
         />
@@ -1058,11 +1119,11 @@ function EduGraphUk() {
         }
         return ( <Plot
             data={[
-                { type: 'bar', x: Object.keys(plotMap), y: Object.values(plotMap), name: "Cost of Attendance", font: { family: "Sora:wght@300" }, marker: { color: '#004AAD' } },
+                { type: 'bar', x: Object.keys(plotMap), y: Object.values(plotMap), name: "Cost of Attendance", font: { family: "Sora:wght@300" }, marker: { color: '#6FC1C2' } },
             ]}
             layout={{
                 width: 700, height: 500, title: 'Average cost of attendance at the top 100 instuitions in UK with avg min/max for nationality', paper_bgcolor: 'rgba(0,0,0,0)',
-                fontTitle: "Raleway",
+                fontTitle: "Sora:wght@300",
                 plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }
             }}
         />
@@ -1093,7 +1154,7 @@ function EmploymentGraphUK(){
         return (
             <Plot
                 data={[
-                    { type: 'bar', x: Object.keys(processedData), y: Object.values(processedData), name: "Employment per industry in FY2021Q4", font: { family: "Sora:wght@300" }, marker: { color: '#004AAD' } },
+                    { type: 'bar', x: Object.keys(processedData), y: Object.values(processedData), name: "Employment per industry in FY2021Q4", font: { family: "Sora:wght@300" }, marker: { color: '#005B67' } },
                 ]}
                 layout={{
                     width: 750, height: 750, title: 'How many people were employed in each industry in the UK at the end of 2021?', paper_bgcolor: 'rgba(0,0,0,0)',
