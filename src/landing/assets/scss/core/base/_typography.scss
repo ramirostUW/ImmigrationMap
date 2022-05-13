@@ -10,10 +10,8 @@ body {
 pp {
 	font-style: italic;
 	color: white;
-	font-weight: bolder;
-	margin-left: -45px;
 	font-size: 13.5px;
-	background-color: #6FC1C2;
+	margin: 0px;
 }
 
 body,
@@ -35,8 +33,11 @@ h1, h2, h3, h4, h5, h6,
 	overflow-wrap: break-word;
 }
 
-pp2 {
+.newstuff {
 	background-color:#005B67;
+}
+
+pp2 {
 	padding: 10px;
 	padding-left: 30px;
 	padding-right: 30px;
