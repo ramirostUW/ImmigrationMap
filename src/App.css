@@ -138,3 +138,7 @@ body {
   margin-bottom: 0;
   bottom: -10px;
 }
+
+.makeSmall {
+  font-size: 11px;
+}

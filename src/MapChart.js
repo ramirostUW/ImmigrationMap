@@ -16,7 +16,7 @@ const rounded = num => {
   if (num > 1000000000) {
     return Math.round(num / 100000000) / 10 + "Bn";
   } else if (num > 1000000) {
-    return Math.round(num / 100000) / 10 + "M";
+    return Math.round(num / 100000) / 10 + " Million People";
   } else {
     return Math.round(num / 100) / 10 + "K";
   }
@@ -42,22 +42,22 @@ const MapChart = (props) => {
             geographies.map(geo => {
               
               const { NAME, POP_EST } = geo.properties;
-              let restingColor = "#ffffff";
+              let restingColor = "#E2EDEA";
               if(listOfCountriesWithData.includes(NAME))
-                restingColor ="#00FF00";
+                restingColor ="#FFD15A";
               let style = {
                 default: {
                   fill: restingColor,
-                  stroke: "#d4dbe8",
+                  stroke: "#005B67",
                   outline: "none",
-                  strokeWidth: "0.75"
+                  strokeWidth: "0.4"
                 },
                 hover: {
-                  fill: "#ffcf33",
+                  fill: "#005B67",
                   outline: "none"
                 },
                 pressed: {
-                  fill: "#1500d1",
+                  fill: "#005B67",
                   outline: "none"
                 }
               }
@@ -72,7 +72,7 @@ const MapChart = (props) => {
                   }}
                   onMouseEnter={() => {
                     const { NAME, POP_EST } = geo.properties;
-                    setTooltipContent(`${NAME} — ${rounded(POP_EST)} people`);
+                    setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
                   }}
                   onMouseLeave={() => {
                     setTooltipContent("");

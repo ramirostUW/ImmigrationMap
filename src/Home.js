@@ -54,43 +54,102 @@ export function Home() {
             <main>
             </main>
             <Tabs>
-                <div label="INTERACTIVE MAPS">
+                <div label="INTERACTIVE MAP">
                     {buttonEnabled && <GraphCard btnToggle={enableButton} currentCountry={currentCountry} />}
                     {!buttonEnabled && <div>
                         <MapChart setTooltipContent={setContent} onClickCountry={showCard} />
                         <ReactTooltip>{content}</ReactTooltip>
                     </div>}
                 </div>
-                <div label="ABOUT US">
-                    <h2 class="titleAbout">ABOUT THE PROJECT</h2>
-                    <div class="aboutProject"> In the Winter of 2022, a team of four Informatics students posessing various skillsets came together to ask the question: How can we effectively communicate information to prospective immigrants so that they can assess a host country based on quality of life?
-
-                        Research indicates that immigrants today feel they need to be more knowledgable to transition successful into a new country, as differences in culture and language cause them to feel like they need as much information as possible to understand the host country and adapt smoothly. They need more information that can help them understand a country prior to moving. There is a lack of centralized and useful information pertaining to immigration on the internet today; this lack of information can hamper the quality of decisions prospective immigrants may take in regards to their host destinations.
-
-                        Immigrants' wellbeing are impacted in all facets of their life as they attempt to reach their destination; in these travels, they face barriers in accessing adequate healthcare, housing, education, employment, and more. Immigrants are also subject to exploitation and abuse due to lack of support and resources. To better protect immigrants and ensure that they are making well-informed decisions in choosing where to immigrate, more resources and information are vital to prevent potential harm and poor quality of life in their host countries. Immigration Inc. advocates to promote the necessary transfer of knowledge and resources for those interested in moving out of their home country. This project seeks to alleviate stressors associated with immigration and help individuals feel confident in their decisions.
+                <div label="GUIDANCE OF USE">
+                    <h2 class="titleAbout">HOW TO USE EACH TAB</h2>
+                    <div class="aboutProject">
+<ol>
+<li>Click on the Interactive Map tab to begin. </li>
+<li>Explore the map of the world by clicking on a country to learn more. Highlighted countries will have data and more complete information. </li>
+<li>When you click on a country, there will be a variety of tabs on the left side. </li>
+<li>Click on any tab to reveal more information about the country. Some tabs may be empty as there is not enough data present for those countries. </li>
+<li>To return to the map, press the back button below all the information tabs. </li>
+</ol>
                     </div>
-                    <h2 class="titleAbout">ABOUT THE DATA</h2>
-                    <div>
-                        <div class="sources">FBI: UCR. (2018, November 5). Hate Crime Statistics 2019. FBI. Retrieved March 11, 2022, from https://ucr.fbi.gov/hate-crime/2019/downloads/downloads</div>
 
-                        <div class="sources">Glasmeier, Amy K. Living Wage Calculator. 2020. Massachusetts Institute of Technology. livingwage.mit.edu.</div>
+                    <h2 class="titleAbout">AVAILABLE DATA</h2>
+                    <div class="aboutProject">
+                        <ul>
+                            <li>Migration Flows: Displays data about the flow of migration by country of origin
+</li>
+                            <li>Immigrant Population: Displays data about the proportion of immigrants living in the country and where
+</li>
+                            <li>Education: Displays data about the average cost of expenses and tuition in the country
+</li>
+                            <li>Religion: Displays data about the proportion of religious affiliations in the country
+</li>
+                            <li>Employment: Displays data about the most common occupation industries and/or average median wages
+</li>
+                            <li>Crime: Displays data about the most prevalent types of crime in the country and hate bias motivations
+</li>
+                            <li>Cost of Living: Displays data about the average cost of living in different parts of the country
+</li>
+                            </ul>
+                    </div>
 
-                        <div class="sources"> Migration Policy Institute. (2021, March 26). U.S. Immigrant Population by State and County. migrationpolicy.org. Retrieved February 28, 2022, from https://www.migrationpolicy.org/programs/data-hub/charts/us-immigrant-population-state-and-county</div>
+                    <h2 class="titleAbout">Data Sources</h2>
+                    <div class="aboutProject makeSmall">
+                        <ul>
+                            <li>https://www.un.org/development/desa/pd/content/international-migrant-stock
+</li>
+                            <li>https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/datasets/employmentbyindustryemp13
 
-                        <div class="sources"> National Center for Education Statistics. (n.d.). Digest of Education Statistics, 2020. National Center for Education Statistics (NCES). Retrieved March 11, 2022, from https://nces.ed.gov/programs/digest/d20/tables/dt20_330.10.asp</div>
+</li>
+                            <li>https://www.theguardian.com/education/datablog/2012/aug/15/students-tuition-fees-2012-league-table-data#data
 
-                        <div class="sources">“The American Religious Landscape in 2020” PRRI (July 8, 2021). https://www.prri.org/research/2020-census-of-american-religion/</div>
+</li>
+                            <li>https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/datasets/populationoftheunitedkingdombycountryofbirthandnationality
 
-                        <div class="sources"> United Nations. (2021). International Migrant Stock 2020. United Nations Population Division. Retrieved February 28, 2022, from https://www.un.org/development/desa/pd/content/international-migrant-stock</div>
+</li>
+                            <li>https://data.london.gov.uk/dataset/mps-hate-crime-or-special-crime-dashboard-data
 
-                        <div class="sources"> United States Census Bureau. (n.d.). Census - Table Results. Decennial Census 2020. Retrieved February 28, 2022, from https://data.census.gov/cedsci/table?q=population&amp;tid=DECENNIALPL2020.P1</div>
+</li>
+                            <li>https://data.london.gov.uk/dataset/mps-hate-crime-or-special-crime-dashboard-data
 
-                        <div class="sources">U.S. Bureau of Labor Statistics. (2021, March 31). May 2020 National Occupational Employment and Wage Estimates United States. Occupational Employment and Wage Statistics. Retrieved March 11, 2022, from https://www.bls.gov/oes/current/oes_nat.htm</div>
+</li>
+                            <li>https://statistics.ukdataservice.ac.uk/dataset/religion-great-britain-2011
 
-                        <div class="sources"> U.S. Department of State. (2021, March 30). Nonimmigrant visa issuances by Visa category and by nationality for Fiscal Years 1997-2014. Data.gov. Retrieved March 11, 2022, from https://catalog.data.gov/dataset/nonimmigrant-visa-issuances-by-visa-category-and-by-nationality-for-fiscal-years-1997-2014</div>
+</li>
+<li>https://www.numbeo.com/cost-of-living/country_result.jsp?country=United+Kingdom
 
-                        <div class="sources"> U.S. Citizenship and Immigration Services. (2022). Historical National Median Processing Time (in Months) for All USCIS Offices for Select Forms By Fiscal Year. USCIS Case Processing Times. Retrieved February 28, 2022, from https://egov.uscis.gov/processing-times/historic-pt </div>
 
+</li>
+<li>https://www.numbeo.com/cost-of-living/country_result.jsp?country=Canada
+
+</li>
+<li>https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3510004901
+</li>
+<li>https://www150.statcan.gc.ca/n1/pub/85-002-x/2022001/article/00005/tbl/tbl01-eng.htm
+
+</li>
+<li>https://open.canada.ca/data/en/dataset/22ccf4ad-6ec1-48d4-9d53-f68b3537d90c/resource/4e4f0bdd-c675-47ec-b55b-9c914260b250#resource-list
+</li>
+<li>https://www12.statcan.gc.ca/datasets/Rp-eng.cfm?LANG=E&APATH=3&DETAIL=0&DIM=0&FL=A&FREE=0&GC=0&GID=0&GK=0&GRP=1&PID=55821&PRID=0&PTYPE=55440&S=0&SHOWALL=0&SUB=0&Temporal=2001&THEME=56&VID=0&VNAMEE=&VNAMEF=
+</li>
+<li>https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710000301
+</li>
+<li>https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/bulletins/annualmidyearpopulationestimates/mid2020#measuring-the-data
+</li>
+<li>https://ucr.fbi.gov/hate-crime/2019/downloads/downloads
+</li>
+<li>https://nces.ed.gov/programs/digest/d20/tables/dt20_330.10.asp
+</li>
+<li>https://www.migrationpolicy.org/programs/data-hub/charts/us-immigrant-population-state-and-county
+</li>
+<li>https://www.prri.org/research/2020-census-of-american-religion/ 
+</li>
+<li>https://livingwage.mit.edu/
+</li>
+<li>https://www.bls.gov/oes/current/oes_nat.htm
+</li>
+
+                            </ul>
                     </div>
                 </div>
 
@@ -161,7 +220,7 @@ function GraphCard(props) {
                         <Button onClick={() => { setCurrentCardOption("economy"); changeClickedStyle(setEconomyButtonStyle) }} style={economyButtonStyle}>Employment</Button>
                         <Button onClick={() => { setCurrentCardOption("crime"); changeClickedStyle(setCrimeButtonStyle) }} style={crimetButtonStyle}>Crime</Button>
                         <Button onClick={() => { setCurrentCardOption("costOfLiving"); changeClickedStyle(setCostLivingButtonStyle) }} style={costLivingButtonStyle}>Cost of Living</Button>
-                        <Button style={{ margin: BTN_MARGIN, marginTop: "10px", marginLeft: "10px", height: "40px", width: "230px", borderRadius: "40px", fontFamily: "Sora:wght@400", textAlign: "center", backgroundColor: "#005B67" }} onClick={disableButton}>Back</Button>
+                        <Button style={{ margin: BTN_MARGIN, padding: "0px", marginTop: "10px", marginLeft: "10px", height: "40px", width: "230px", borderRadius: "40px", fontFamily: "Sora:wght@400", textAlign: "center", backgroundColor: "#005B67" }} onClick={disableButton}>Back</Button>
                     </div>
                     <div class="nine">
                         <CardBody>

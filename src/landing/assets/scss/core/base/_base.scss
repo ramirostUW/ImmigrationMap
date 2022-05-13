@@ -25,9 +25,9 @@ ul, ol {
 	margin-top: 0;
 	padding-left: $spacing--shared-h;
 
-	&:not(:last-child) {
-		margin-bottom: $spacing--shared-v;
-	}
+	// &:not(:last-child) {
+	// 	margin-bottom: $spacing--shared-v;
+	// }
 }
 
 ul {
@@ -36,13 +36,14 @@ ul {
 
 ol {
 	list-style: decimal;
+	margin-bottom: 0px;
 }
 
 li {
 
-	&:not(:last-child) {
-		margin-bottom: $spacing--shared-v * 0.5;
-	}
+	// &:not(:last-child) {
+	// 	margin-bottom: $spacing--shared-v * 0.5;
+	// }
 }
 
 li > ul,
