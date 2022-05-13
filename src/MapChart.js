@@ -72,7 +72,7 @@ const MapChart = (props) => {
                   }}
                   onMouseEnter={() => {
                     const { NAME, POP_EST } = geo.properties;
-                    setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
+                    setTooltipContent(`${NAME} — ${rounded(POP_EST)} people`);
                   }}
                   onMouseLeave={() => {
                     setTooltipContent("");

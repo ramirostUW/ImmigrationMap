@@ -14,7 +14,7 @@ export function App() {
         <Route path="/site" element={
           <div>
             <header>
-              <a href="/#/site"><img style={{ display: "block", marginLeft: "auto", marginRight: "auto" }} src={logo} width="170px" /></a>
+              <a href="http://localhost:1234"><img style={{ display: "block", marginLeft: "auto", marginRight: "auto" }} src={logo} width="170px" /></a>
             </header>
             <Home /></div>
         } />

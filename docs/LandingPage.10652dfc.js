@@ -15836,22 +15836,7 @@ const Header = ({ className , navPosition , hideNav , hideSignin , bottomOuterDi
                                     className: "header-nav-inner",
                                     children: [
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("ul", {
-                                            className: _classnamesDefault.default('list-reset text-xs', navPosition && `header-nav-${navPosition}`),
-                                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("li", {
-                                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
-                                                    to: "#0",
-                                                    onClick: closeMenu,
-                                                    children: "About Us"
-                                                }, void 0, false, {
-                                                    fileName: "src/landing/components/layout/Header.js",
-                                                    lineNumber: 115,
-                                                    columnNumber: 23
-                                                }, undefined)
-                                            }, void 0, false, {
-                                                fileName: "src/landing/components/layout/Header.js",
-                                                lineNumber: 114,
-                                                columnNumber: 21
-                                            }, undefined)
+                                            className: _classnamesDefault.default('list-reset text-xs', navPosition && `header-nav-${navPosition}`)
                                         }, void 0, false, {
                                             fileName: "src/landing/components/layout/Header.js",
                                             lineNumber: 109,
@@ -15867,17 +15852,17 @@ const Header = ({ className , navPosition , hideNav , hideSignin , bottomOuterDi
                                                     children: "Interactive Map"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/layout/Header.js",
-                                                    lineNumber: 123,
+                                                    lineNumber: 120,
                                                     columnNumber: 25
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/landing/components/layout/Header.js",
-                                                lineNumber: 122,
+                                                lineNumber: 119,
                                                 columnNumber: 23
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/landing/components/layout/Header.js",
-                                            lineNumber: 119,
+                                            lineNumber: 116,
                                             columnNumber: 21
                                         }, undefined)
                                     ]
@@ -16022,7 +16007,7 @@ $RefreshReg$(_c, "Logo");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","classnames":"jocGM","react-router-dom":"fdOAw","../../elements/Image":"6djb1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./../../../assets/images/logo.png":"12iLW"}],"6djb1":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","classnames":"jocGM","react-router-dom":"fdOAw","../../elements/Image":"6djb1","./../../../assets/images/logo.png":"12iLW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6djb1":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3f06 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -16234,66 +16219,8 @@ const FooterNav = ({ className , ...props })=>{
         ...props,
         className: classes,
         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("ul", {
-            className: "list-reset",
-            children: [
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("li", {
-                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
-                        to: "#0",
-                        children: "Contact"
-                    }, void 0, false, {
-                        fileName: "src/landing/components/layout/partials/FooterNav.js",
-                        lineNumber: 22,
-                        columnNumber: 11
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/landing/components/layout/partials/FooterNav.js",
-                    lineNumber: 21,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("li", {
-                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
-                        to: "#0",
-                        children: "About us"
-                    }, void 0, false, {
-                        fileName: "src/landing/components/layout/partials/FooterNav.js",
-                        lineNumber: 25,
-                        columnNumber: 11
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/landing/components/layout/partials/FooterNav.js",
-                    lineNumber: 24,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("li", {
-                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
-                        to: "#0",
-                        children: "FAQ's"
-                    }, void 0, false, {
-                        fileName: "src/landing/components/layout/partials/FooterNav.js",
-                        lineNumber: 28,
-                        columnNumber: 11
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/landing/components/layout/partials/FooterNav.js",
-                    lineNumber: 27,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("li", {
-                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
-                        to: "#0",
-                        children: "Support"
-                    }, void 0, false, {
-                        fileName: "src/landing/components/layout/partials/FooterNav.js",
-                        lineNumber: 31,
-                        columnNumber: 11
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/landing/components/layout/partials/FooterNav.js",
-                    lineNumber: 30,
-                    columnNumber: 9
-                }, undefined)
-            ]
-        }, void 0, true, {
+            className: "list-reset"
+        }, void 0, false, {
             fileName: "src/landing/components/layout/partials/FooterNav.js",
             lineNumber: 20,
             columnNumber: 7
@@ -16595,7 +16522,7 @@ $RefreshReg$(_c, "Hero");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","classnames":"jocGM","../../utils/SectionProps":"dzqXi","../elements/ButtonGroup":"4sqco","../elements/Button":"fAu1v","../elements/Image":"6djb1","../elements/Modal":"9H222","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./../../assets/images/placeholder.png":"fMrAL"}],"dzqXi":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","classnames":"jocGM","../../utils/SectionProps":"dzqXi","../elements/ButtonGroup":"4sqco","../elements/Button":"fAu1v","../elements/Image":"6djb1","../elements/Modal":"9H222","./../../assets/images/placeholder.png":"fMrAL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dzqXi":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SectionProps", ()=>SectionProps
@@ -17230,7 +17157,7 @@ $RefreshReg$(_c, "FeaturesSplit");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","classnames":"jocGM","../../utils/SectionProps":"dzqXi","./partials/SectionHeader":"8LhVI","../elements/Image":"6djb1","./../../assets/images/features-split-image-01.png":"4fcD4","./../../assets/images/features-split-image-02.png":"5Ugdx","./../../assets/images/features-split-image-03.png":"d37BG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","lodash":"3qBDj","./../../assets/images/passport.png":"4TZMX"}],"8LhVI":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","classnames":"jocGM","../../utils/SectionProps":"dzqXi","./partials/SectionHeader":"8LhVI","../elements/Image":"6djb1","lodash":"3qBDj","./../../assets/images/passport.png":"4TZMX","./../../assets/images/features-split-image-01.png":"4fcD4","./../../assets/images/features-split-image-02.png":"5Ugdx","./../../assets/images/features-split-image-03.png":"d37BG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8LhVI":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9d3a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -17314,7 +17241,10 @@ $RefreshReg$(_c, "SectionHeader");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","classnames":"jocGM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4fcD4":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","classnames":"jocGM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4TZMX":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('kk5XU') + "passport.3cb53767.png" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"4fcD4":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('kk5XU') + "features-split-image-01.2957ba92.png" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"5Ugdx":[function(require,module,exports) {
@@ -17322,9 +17252,6 @@ module.exports = require('./helpers/bundle-url').getBundleURL('kk5XU') + "featur
 
 },{"./helpers/bundle-url":"lgJ39"}],"d37BG":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('kk5XU') + "features-split-image-03.3454d542.png" + "?" + Date.now();
-
-},{"./helpers/bundle-url":"lgJ39"}],"4TZMX":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('kk5XU') + "passport.3cb53767.png" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"isgf9":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$c541 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
@@ -17414,14 +17341,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
                                                     className: "testimonial-item-link",
-                                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                                        href: "#0",
-                                                        children: "Program Manager"
-                                                    }, void 0, false, {
-                                                        fileName: "src/landing/components/sections/Testimonial.js",
-                                                        lineNumber: 72,
-                                                        columnNumber: 21
-                                                    }, undefined)
+                                                    children: "Project Manager"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
                                                     lineNumber: 71,
@@ -17481,14 +17401,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
                                                     className: "testimonial-item-link",
-                                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                                        href: "#0",
-                                                        children: "UX Design/Research"
-                                                    }, void 0, false, {
-                                                        fileName: "src/landing/components/sections/Testimonial.js",
-                                                        lineNumber: 89,
-                                                        columnNumber: 21
-                                                    }, undefined)
+                                                    children: "UX Design/Research"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
                                                     lineNumber: 88,
@@ -17548,14 +17461,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
                                                     className: "testimonial-item-link",
-                                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                                        href: "#0",
-                                                        children: "Full Stack Developer"
-                                                    }, void 0, false, {
-                                                        fileName: "src/landing/components/sections/Testimonial.js",
-                                                        lineNumber: 106,
-                                                        columnNumber: 21
-                                                    }, undefined)
+                                                    children: "Full Stack Developer"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
                                                     lineNumber: 105,
@@ -17615,14 +17521,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
                                                     className: "testimonial-item-link",
-                                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                                        href: "#0",
-                                                        children: "Full Stack Developer"
-                                                    }, void 0, false, {
-                                                        fileName: "src/landing/components/sections/Testimonial.js",
-                                                        lineNumber: 123,
-                                                        columnNumber: 21
-                                                    }, undefined)
+                                                    children: "Full Stack Developer"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
                                                     lineNumber: 122,
@@ -17682,14 +17581,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
                                                     className: "testimonial-item-link",
-                                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                                        href: "#0",
-                                                        children: "Full Stack Developer"
-                                                    }, void 0, false, {
-                                                        fileName: "src/landing/components/sections/Testimonial.js",
-                                                        lineNumber: 140,
-                                                        columnNumber: 21
-                                                    }, undefined)
+                                                    children: "Full Stack Developer"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
                                                     lineNumber: 139,
@@ -17747,7 +17639,7 @@ $RefreshReg$(_c, "Testimonial");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","classnames":"jocGM","../../utils/SectionProps":"dzqXi","./partials/SectionHeader":"8LhVI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../elements/Image":"6djb1","./../../assets/images/amara.png":"fTsxo","./../../assets/images/faiza.png":"bEoUg","./../../assets/images/ramiro.png":"8QQhC","./../../assets/images/shourya.png":"d2ABf","./../../assets/images/talin.png":"3aCve"}],"fTsxo":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","classnames":"jocGM","../../utils/SectionProps":"dzqXi","./partials/SectionHeader":"8LhVI","../elements/Image":"6djb1","./../../assets/images/amara.png":"fTsxo","./../../assets/images/faiza.png":"bEoUg","./../../assets/images/ramiro.png":"8QQhC","./../../assets/images/shourya.png":"d2ABf","./../../assets/images/talin.png":"3aCve","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fTsxo":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('kk5XU') + "amara.1d1e1887.png" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"bEoUg":[function(require,module,exports) {
