@@ -3,7 +3,7 @@ import React, { Suspense, lazy } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 const Home = lazy(() => import('.//Home'));
 const LandingPage = lazy(() => import('./landing/LandingPage'));
-import logo from './img/applogo.png';
+import logo from './img/newlogo.png';
 
 export function App() {
   //<h1>IMMIGRATION INC. </h1>
