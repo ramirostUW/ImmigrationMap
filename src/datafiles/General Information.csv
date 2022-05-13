@@ -1,4 +1,5 @@
-Country,Capital,Population,National Language,Government,Currency,GDP (Total)
-United States of America,"Washington, DC",331449281,English,Federal presidential constitutional republic,U.S. dollar ($),USD 24.8 trillion
+Country,Capital,Population,National Language,Government,Currency,Unemployment %
+United States of America,"Washington, DC",331449281,English,Federal presidential constitutional republic,U.S. dollar ($),3.9
+Canada,Ottawa,994837,French/English,Federal parliamentary constitutional monarchy,CA dollar ($),5.3
 United Kingdom,London,67081000,English,"Unitary parliamentary
-constitutional monarchy",Pound Sterling (GBP),USD 2.708 trillion
+constitutional monarchy",Pound Sterling (GBP),4.1
