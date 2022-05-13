@@ -9,7 +9,7 @@ import {
     getReligionData, getEconomyData, getCrimeBiasData,
     getCostOfLivingData, getVisaData, getStateCoded, getCrimeTypeData, getVisaWaitData,
     getMigrationFlowDataUK, getMigrationFlowDataGermany, getMigrationFlowDataCanada, getEducationDataCanada, getEmploymentDataCanada,
-    getCrimeDataCanada, getCanadaReligionData, getCanadaColData, getUKrelData, getUKcrimeData, getUKeduData
+    getCrimeDataCanada, getCanadaReligionData, getCanadaColData, getUKrelData, getUKcrimeData, getUKeduData, getUKEconomyData
 } from "./AccessDatabase"
 import Tabs from "./Tabs"
 import ReactTooltip from "react-tooltip";
@@ -168,21 +168,25 @@ export function ReligionCard(props) {
 
 export function EconomyCard(props) {
     let [crimeData, crimeDataLoading] = getEconomyData();
-    let isCanada = false
     let isUK = false
-    if (props.currentCountry === "Canada") {
-        isCanada = true
-    }
+    let isCanada = false;
+    let isUS = false;
     if (props.currentCountry === "United Kingdom") {
         isUK = true
     }
-
+    if (props.currentCountry === "United States of America") {
+        isUS = true
+    }
+    if (props.currentCountry === "Canada") {
+        isCanada = true
+    }
     return (
         <div>
             <h1 class="chart-name">Economy for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {(!crimeDataLoading && !isCanada && !isUK) && <CardText><EconomyGraph /></CardText>}
-            {(!crimeDataLoading && isCanada && !isUK) && <CardText><EmploymentGraphCanada /></CardText>}
+            {(!crimeDataLoading && isUS) && <CardText><EconomyGraph /></CardText>}
+            {(!crimeDataLoading && isCanada) && <CardText><EmploymentGraphCanada /></CardText>}
+            {(!crimeDataLoading && isUK) && <CardText><EmploymentGraphUK /></CardText>}
         </div>
 
     )
@@ -1065,6 +1069,38 @@ function EduGraphUk() {
         
     )         
         
+    } else {
+        return (
+            <p>Data is still loading!</p>
+        )
+    }
+}
+
+function EmploymentGraphUK(){
+    let [empData, empDataLoading] = getUKEconomyData();
+    if (!empDataLoading) {
+        let wages = []
+        let industries = []
+        let firstRow = empData[0];
+        let firstRowKeys = Object.keys(firstRow);
+        let processedData = {};
+        for (i = 0; i  < firstRowKeys.length; i++){
+            let currKey = firstRowKeys[i];
+            if(currKey !== ""){
+                processedData[currKey] = parseInt(firstRow[currKey]);
+            }
+        }
+        return (
+            <Plot
+                data={[
+                    { type: 'bar', x: Object.keys(processedData), y: Object.values(processedData), name: "Employment per industry in FY2021Q4", font: { family: "Sora:wght@300" }, marker: { color: '#004AAD' } },
+                ]}
+                layout={{
+                    width: 750, height: 750, title: 'How many people were employed in each industry in the UK at the end of 2021?', paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }, yaxis: { title: "people employed" }, xaxis: { tickangle: 20, tickfont: { size: 9 } }
+                }}
+            />
+        )
     } else {
         return (
             <p>Data is still loading!</p>

@@ -194,3 +194,10 @@ export function getCanadaImmigrantPopulationData() {
     return [crimeData, crimeDataLoading];
     
 }
+
+export function getUKEconomyData() {
+    
+    let [crimeData, crimeDataLoading] = useFetch("https://raw.githubusercontent.com/ramirostUW/ImmigrationMap/main/src/datafiles/UK%20employment.csv");
+    return [crimeData, crimeDataLoading];
+    
+}
