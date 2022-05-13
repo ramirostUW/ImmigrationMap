@@ -880,7 +880,7 @@ function EmploymentGraphCanada() {
                     { type: 'bar', x: industries, y: wages, name: "Mean Annual Wage", font: { family: "Sora:wght@300" }, marker: { color: '#005B67' } },
                 ]}
                 layout={{
-                    width: 750, height: 750, title: 'How does the mean annual wage vary across industries in Canada', paper_bgcolor: 'rgba(0,0,0,0)',
+                    width: 750, height: 750, title: 'How does the mean annual wage vary across industries?', paper_bgcolor: 'rgba(0,0,0,0)',
                     plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }, yaxis: { title: "CAN Dollars ($)" }, xaxis: { tickangle: 20, tickfont: { size: 9 } }
                 }}
             />
@@ -911,7 +911,7 @@ function CrimeGraphCanada() {
                         { type: 'bar', x: Object.keys(plotMap), y: Object.values(plotMap), name: "Type of Crime", font: { family: "Sora:wght@300" }, marker: { color: '#005B67' } },
                     ]}
                     layout={{
-                        width: 750, height: 750, title: 'Number of violations per 100,000 people', paper_bgcolor: 'rgba(0,0,0,0)',
+                        width: 750, height: 750, title: 'What are the most prevalent types of crime?', paper_bgcolor: 'rgba(0,0,0,0)',
                         plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }, yaxis: { title: "proportion per 100,000 people" }, xaxis: { tickangle: 45, tickfont: { size: 12 } }
                     }}
                 />
@@ -1122,7 +1122,7 @@ function EduGraphUk() {
                 { type: 'bar', x: Object.keys(plotMap), y: Object.values(plotMap), name: "Cost of Attendance", font: { family: "Sora:wght@300" }, marker: { color: '#6FC1C2' } },
             ]}
             layout={{
-                width: 700, height: 500, title: 'Average cost of attendance at the top 100 instuitions in UK with avg min/max for nationality', paper_bgcolor: 'rgba(0,0,0,0)',
+                width: 700, height: 500, title: 'What is the average minimum/maximum cost of attendance at the top 100 instuitions?', paper_bgcolor: 'rgba(0,0,0,0)',
                 fontTitle: "Sora:wght@300",
                 plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }
             }}

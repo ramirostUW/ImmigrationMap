@@ -91,6 +91,7 @@ export function Home() {
                             <li>Cost of Living: Displays data about the average cost of living in different parts of the country
 </li>
                             </ul>
+                            *Note: Immigrants in this project are defined as any individual who comes to a country to take up permanent residence, but has not currently acquired national citizenship for their current host country.
                     </div>
 
                     <h2 class="titleAbout">DATA SOURCES</h2>
