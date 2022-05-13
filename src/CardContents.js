@@ -66,7 +66,7 @@ export function DefaultCardContent(props) {
         return (
 
             <div class="flag-page">
-                <img length={550} width={550} src={findFlagUrlByCountryName(selectedName)} />
+                <img class="centerFlag" length={550} width={550} src={findFlagUrlByCountryName(selectedName)} />
                 <Plot data={data} layout={{
                     length: 300, width: 750, paper_bgcolor: 'rgba(0,0,0,0)',
                     plot_bgcolor: 'rgba(0,0,0,0)', margin: 0
