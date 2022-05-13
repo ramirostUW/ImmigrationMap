@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { SectionSplitProps } from '../../utils/SectionProps';
 import SectionHeader from './partials/SectionHeader';
 import Image from '../elements/Image';
+import { split } from 'lodash';
 
 const propTypes = {
   ...SectionSplitProps.types
@@ -32,9 +33,7 @@ const FeaturesSplit = ({
     topOuterDivider && 'has-top-divider',
     bottomOuterDivider && 'has-bottom-divider',
     hasBgColor && 'has-bg-color',
-    invertColor && 'invert-color',
-    className
-  );
+    invertColor && 'invert-color'  );
 
   const innerClasses = classNames(
     'features-split-inner section-inner',
@@ -50,12 +49,12 @@ const FeaturesSplit = ({
   );
 
   const sectionHeader = {
-    title: 'About Us',
+    title: 'Process',
     paragraph: 'Immigrants report that they need as much information as possible when adapting to a new country to combat differences in culture and transition smoothly. Without appropriate research, they can face barriers in accessing basic needs and may be subject to exploitation. To address this ongoing issue, Immigration Inc. was created to promote the necessary transfer of knowledge and resources for those interested in moving out of their home country. Immigration Inc. advocates to make individuals feel confident in decision-making for the best quality of life.'
   };
 
   const sectionHeader2 = {
-    title: 'Process',
+    title: 'Benefits',
     paragraph: 'Immigrants report that they need as much information as possible when adapting to a new country to combat differences in culture and transition smoothly. Without appropriate research, they can face barriers in accessing basic needs and may be subject to exploitation. To address this ongoing issue, Immigration Inc. was created to promote the necessary transfer of knowledge and resources for those interested in moving out of their home country. Immigration Inc. advocates to make individuals feel confident in decision-making for the best quality of life.'
   };
 
@@ -66,9 +65,37 @@ const FeaturesSplit = ({
     >
       <div className="container">
         <div className={innerClasses}>
-          <SectionHeader data={sectionHeader} className="center-content" />
-          <SectionHeader data={sectionHeader2} className="center-content" />
+
           <div className={splitClasses}>
+
+          <div className="split-item">
+              <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
+                <h3 className="mt-0 mb-12">
+                  About Us
+                  </h3>
+                <p className="m-0">
+                Immigrants need as much information as possible when adapting to a new
+country to combat differences in culture and transition smoothly. Without appropriate research, they can face barriers in accessing basic needs and are often subject to exploitation. 
+
+Immigration Inc. is an interactive website providing knowledge and resources for those interested in moving out of their home countries. Through data visualizations powered by government statistics covering topics such as education, employment, and population, Immigration Inc. enables users to make informed decisions regarding immigration.
+                  </p>
+              </div>
+              <div className={
+                classNames(
+                  'split-item-image center-content-mobile reveal-from-bottom',
+                  imageFill && 'split-item-image-fill', 
+                )}
+                data-reveal-container=".split-item">
+                <Image
+                  src={require('./../../assets/images/passport.png')}
+                  alt="passport"
+                  width={297}
+                  height={223}
+                   />
+              </div>
+            </div>
+          
+          <SectionHeader data={sectionHeader} className="center-content" />
 
             <div className="split-item">
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
@@ -147,6 +174,9 @@ const FeaturesSplit = ({
                   height={396} />
               </div>
             </div>
+
+            <SectionHeader data={sectionHeader2} className="center-content" />
+
 
           </div>
         </div>

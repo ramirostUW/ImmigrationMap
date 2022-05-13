@@ -6,8 +6,8 @@
 	height: $button-form--height;
     text-decoration: none !important;
 	text-transform: $button--transform;
-	color: color(button-light);
-    background-color: color-bg(button-light);
+	color: #005B67;
+    background-color: #FFD15A;
     border-width: $button-form--border-width;
 	border-style: $button-form--border-style;
 	border-color: color-border(button-light);
@@ -91,7 +91,7 @@
 }
 
 .button-primary {
-	color: color(button-primary);
+	color: color(button-secondary);
     background-color: color-bg(button-primary);
 	border-color: color-border(button-primary);
 
@@ -109,7 +109,7 @@
 }
 
 .button-secondary {
-	color: color(button-secondary);
+	color: #005B67;
     background-color: color-bg(button-secondary);
 	border-color: color-border(button-secondary);
 

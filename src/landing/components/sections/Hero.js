@@ -61,18 +61,18 @@ const Hero = ({
         <div className={innerClasses}>
           <div className="hero-content">
             <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
-              Where do <span className="text-color-primary">you</span> want to immigrate?
+            <pp2> Where do <span className="text-color-secondary">you</span> want to immigrate?            </pp2>
             </h1>
             <div className="container-xs">
-              <p className="m-0 mb-32 reveal-from-bottom" data-reveal-delay="400">
-                View our interactive map to explore statistical information by category from various countries.
+              <p className="m-0 mb-32 reveal-from-bottom text" data-reveal-delay="400"> <pp>
+                View our interactive map to explore statistical information by category from various countries. </pp>
               </p>
               <div className="reveal-from-bottom" data-reveal-delay="600">
                 <ButtonGroup>
                   <Button tag="a" color="primary" wideMobile href="/#/site">
                     Get started
                     </Button>
-                  <Button tag="a" color="dark" wideMobile href="https://github.com/ramirostUW/ImmigrationMap">
+                  <Button tag="a" color="secondary" wideMobile href="https://github.com/ramirostUW/ImmigrationMap">
                     View on Github
                     </Button>
                 </ButtonGroup>

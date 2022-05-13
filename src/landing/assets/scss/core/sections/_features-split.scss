@@ -8,6 +8,10 @@
 	.section-header {
 		padding-bottom: $features-split-header--padding__mobile;
 	}
+
+	.testing {
+		color: black;
+	}
 }
 
 @include media( '>medium' ) {

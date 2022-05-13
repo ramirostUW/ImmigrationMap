@@ -3,8 +3,17 @@ html {
 }
 
 body {
-	color: color(base);
-	font-size: 1rem;
+	color:darkslategrey;
+	font-size: 0.9rem;
+}
+
+pp {
+	font-style: italic;
+	color: white;
+	font-weight: bolder;
+	margin-left: -45px;
+	font-size: 13.5px;
+	background-color: #6FC1C2;
 }
 
 body,
@@ -21,9 +30,16 @@ h1, h2, h3, h4, h5, h6,
 	@include font-family(heading);
 	@include font-weight(heading);
 	clear: both;
-	color: color(heading);
+	color: white;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
+}
+
+pp2 {
+	background-color:#005B67;
+	padding: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 h1,
@@ -39,6 +55,8 @@ h2,
 h3,
 .h3 {
 	@include font-size(h3);
+	color: #005B67;
+	text-transform: uppercase;
 }
 
 h4,
@@ -72,6 +90,7 @@ figcaption {
 }
 
 a {
+
 
 	&:not(.button) {
 		@include anchor-aspect(main);
@@ -107,6 +126,8 @@ h3,
 .h3 {
 	margin-top: $spacing--h3-t;
 	margin-bottom: $spacing--h3-b;
+	font-size: 0.75rem;
+
 }
 
 h4, h5, h6,
