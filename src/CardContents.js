@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import MapChartUK from "./MapChartUK"
+import MapChartUKCOL from "./MapChartUKCOL"
 import MapChartCanada from "./MapChartCanada"
 import MapChartSample from "./MapChartSample"
 import {
@@ -212,17 +213,25 @@ export function CrimeCard(props) {
 
 export function CostOfLivingCard(props) {
     let [crimeData, crimeDataLoading] = getCostOfLivingData();
-    let isCanada = false
+    let isUK = false
+    let isCanada = false;
+    let isUS = false;
+    if (props.currentCountry === "United Kingdom") {
+        isUK = true
+    }
+    if (props.currentCountry === "United States of America") {
+        isUS = true
+    }
     if (props.currentCountry === "Canada") {
         isCanada = true
     }
-
     return (
         <div>
             <h1 class="chart-name">Cost of Living for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {(!crimeDataLoading && !isCanada) && <CardText><CostOfLivingGraph /></CardText>}
+            {(!crimeDataLoading && isUS) && <CardText><CostOfLivingGraph /></CardText>}
             {(!crimeDataLoading && isCanada) && <CardText><ColGraphCanada /></CardText>}
+            {(!crimeDataLoading && isUK) && <CardText><MapChartUKCOL /></CardText>}
         </div>
 
     )
