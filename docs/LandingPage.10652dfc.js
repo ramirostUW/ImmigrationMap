@@ -590,7 +590,7 @@ const LandingPage = ()=>{
             }, void 0, false, void 0, void 0)
     }, void 0, false, {
         fileName: "src/landing/LandingPage.js",
-        lineNumber: 38,
+        lineNumber: 37,
         columnNumber: 5
     }, undefined);
 };
@@ -16430,92 +16430,93 @@ const Hero = ({ className , topOuterDivider , bottomOuterDivider , topDivider , 
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h1", {
                                 className: "mt-0 mb-16 reveal-from-bottom",
                                 "data-reveal-delay": "200",
-                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("pp2", {
+                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                    className: "newstuff",
                                     children: [
-                                        " Where do ",
-                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                                            className: "text-color-secondary",
-                                            children: "you"
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("pp2", {
+                                            children: [
+                                                " Where do ",
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                                    className: "text-color-secondary",
+                                                    children: "you"
+                                                }, void 0, false, {
+                                                    fileName: "src/landing/components/sections/Hero.js",
+                                                    lineNumber: 66,
+                                                    columnNumber: 28
+                                                }, undefined),
+                                                " want to immigrate?"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/landing/components/sections/Hero.js",
+                                            lineNumber: 66,
+                                            columnNumber: 13
+                                        }, undefined),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("br", {}, void 0, false, {
+                                            fileName: "src/landing/components/sections/Hero.js",
+                                            lineNumber: 66,
+                                            columnNumber: 102
+                                        }, undefined),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("pp", {
+                                            children: " View our interactive map to explore statistical information by category from various countries. "
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/Hero.js",
-                                            lineNumber: 64,
-                                            columnNumber: 28
-                                        }, undefined),
-                                        " want to immigrate?            "
+                                            lineNumber: 67,
+                                            columnNumber: 13
+                                        }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/landing/components/sections/Hero.js",
-                                    lineNumber: 64,
+                                    lineNumber: 65,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/landing/components/sections/Hero.js",
-                                lineNumber: 63,
+                                lineNumber: 64,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                                 className: "container-xs",
-                                children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
-                                        className: "m-0 mb-32 reveal-from-bottom text",
-                                        "data-reveal-delay": "400",
+                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                    className: "reveal-from-bottom",
+                                    "data-reveal-delay": "600",
+                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonGroupDefault.default, {
                                         children: [
-                                            " ",
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("pp", {
-                                                children: "View our interactive map to explore statistical information by category from various countries. "
+                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
+                                                tag: "a",
+                                                color: "primary",
+                                                wideMobile: true,
+                                                href: "/#/site",
+                                                children: "Get started"
                                             }, void 0, false, {
                                                 fileName: "src/landing/components/sections/Hero.js",
-                                                lineNumber: 67,
-                                                columnNumber: 89
+                                                lineNumber: 74,
+                                                columnNumber: 19
+                                            }, undefined),
+                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
+                                                tag: "a",
+                                                color: "secondary",
+                                                wideMobile: true,
+                                                href: "https://github.com/ramirostUW/ImmigrationMap",
+                                                children: "View on Github"
+                                            }, void 0, false, {
+                                                fileName: "src/landing/components/sections/Hero.js",
+                                                lineNumber: 77,
+                                                columnNumber: 19
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/landing/components/sections/Hero.js",
-                                        lineNumber: 67,
-                                        columnNumber: 15
-                                    }, undefined),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                        className: "reveal-from-bottom",
-                                        "data-reveal-delay": "600",
-                                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonGroupDefault.default, {
-                                            children: [
-                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
-                                                    tag: "a",
-                                                    color: "primary",
-                                                    wideMobile: true,
-                                                    href: "/#/site",
-                                                    children: "Get started"
-                                                }, void 0, false, {
-                                                    fileName: "src/landing/components/sections/Hero.js",
-                                                    lineNumber: 72,
-                                                    columnNumber: 19
-                                                }, undefined),
-                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
-                                                    tag: "a",
-                                                    color: "secondary",
-                                                    wideMobile: true,
-                                                    href: "https://github.com/ramirostUW/ImmigrationMap",
-                                                    children: "View on Github"
-                                                }, void 0, false, {
-                                                    fileName: "src/landing/components/sections/Hero.js",
-                                                    lineNumber: 75,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "src/landing/components/sections/Hero.js",
-                                            lineNumber: 71,
-                                            columnNumber: 17
-                                        }, undefined)
-                                    }, void 0, false, {
-                                        fileName: "src/landing/components/sections/Hero.js",
-                                        lineNumber: 70,
-                                        columnNumber: 15
+                                        lineNumber: 73,
+                                        columnNumber: 17
                                     }, undefined)
-                                ]
-                            }, void 0, true, {
+                                }, void 0, false, {
+                                    fileName: "src/landing/components/sections/Hero.js",
+                                    lineNumber: 72,
+                                    columnNumber: 15
+                                }, undefined)
+                            }, void 0, false, {
                                 fileName: "src/landing/components/sections/Hero.js",
-                                lineNumber: 66,
+                                lineNumber: 71,
                                 columnNumber: 13
                             }, undefined)
                         ]
@@ -16541,17 +16542,17 @@ const Hero = ({ className , topOuterDivider , bottomOuterDivider , topDivider , 
                                 height: 504
                             }, void 0, false, {
                                 fileName: "src/landing/components/sections/Hero.js",
-                                lineNumber: 89,
+                                lineNumber: 91,
                                 columnNumber: 15
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/landing/components/sections/Hero.js",
-                            lineNumber: 83,
+                            lineNumber: 85,
                             columnNumber: 13
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/landing/components/sections/Hero.js",
-                        lineNumber: 82,
+                        lineNumber: 84,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_modalDefault.default, {
@@ -16562,7 +16563,7 @@ const Hero = ({ className , topOuterDivider , bottomOuterDivider , topDivider , 
                         videoTag: "iframe"
                     }, void 0, false, {
                         fileName: "src/landing/components/sections/Hero.js",
-                        lineNumber: 97,
+                        lineNumber: 99,
                         columnNumber: 11
                     }, undefined)
                 ]
@@ -16995,7 +16996,7 @@ const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topD
                         }, void 0, true, {
                             fileName: "src/landing/components/sections/FeaturesSplit.js",
                             lineNumber: 71,
-                            columnNumber: 11
+                            columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_sectionHeaderDefault.default, {
                             data: sectionHeader,
@@ -17003,7 +17004,7 @@ const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topD
                         }, void 0, false, {
                             fileName: "src/landing/components/sections/FeaturesSplit.js",
                             lineNumber: 98,
-                            columnNumber: 11
+                            columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                             className: "split-item",

@@ -373,11 +373,9 @@ body {
 
 pp {
   color: #fff;
-  background-color: #6fc1c2;
-  margin-left: -45px;
+  margin: 0;
   font-size: 13.5px;
   font-style: italic;
-  font-weight: bolder;
 }
 
 body, button, input, select, textarea {
@@ -394,8 +392,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 800;
 }
 
-pp2 {
+.newstuff {
   background-color: #005b67;
+}
+
+pp2 {
   padding: 10px 30px;
 }
 
