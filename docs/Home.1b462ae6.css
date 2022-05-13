@@ -38,6 +38,10 @@ header {
   background-color: #d0f3eb;
 }
 
+.centerFlag {
+  text-align: center;
+}
+
 .dataTitle {
   text-align: center;
   color: #005b67;
