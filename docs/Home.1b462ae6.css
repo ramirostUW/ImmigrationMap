@@ -1,7 +1,7 @@
-@import "https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&family=Questrial&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Sora:wght@300;400&display=swap";
 .tab-list {
   text-align: center;
-  border-bottom: 2px solid #004aad;
+  border-bottom: 2px solid #005b67;
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 0;
@@ -10,20 +10,20 @@
 
 .tab-list-item {
   text-align: center;
-  color: #004aad;
-  border: 0 solid #004aad;
+  color: #005b67;
+  border: 0 solid #005b67;
   border-width: 2px 0 0 2px;
   flex: 1;
   padding: .5rem;
-  font-family: League Spartan, Helvetica, sans-serif;
+  font-family: "Sora:wght@300", Helvetica, sans-serif;
   font-size: 17px;
   list-style: none;
 }
 
 .tab-list-active {
   color: #fff;
-  background-color: #004aad;
-  border: 2px solid #004aad;
+  background-color: #005b67;
+  border: 2px solid #005b67;
   border-bottom-width: 0;
 }
 
@@ -32,7 +32,7 @@
 }
 
 * {
-  font-family: Questrial, Helvetica, sans-serif;
+  font-family: "Sora:wght@300", Helvetica, sans-serif;
 }
 
 header {
@@ -117,7 +117,7 @@ h1 {
   color: #004aad;
   text-transform: uppercase;
   text-align: center;
-  font-family: League Spartan, Helvetica, sans-serif;
+  font-family: Sora\:wght400, Helvetica, sans-serif;
   font-size: 24px;
 }
 
@@ -134,7 +134,7 @@ main p {
 }
 
 .one {
-  width: 180px;
+  width: 200px;
   grid-area: 1 / 1 / auto / 2;
 }
 
@@ -155,7 +155,7 @@ body {
 
 .backButton {
   margin-bottom: 0;
-  margin-left: 2px;
+  margin-left: 10px;
   position: absolute;
   bottom: -10px;
 }

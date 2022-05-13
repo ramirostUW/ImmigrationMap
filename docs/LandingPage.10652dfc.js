@@ -16430,19 +16430,25 @@ const Hero = ({ className , topOuterDivider , bottomOuterDivider , topDivider , 
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h1", {
                                 className: "mt-0 mb-16 reveal-from-bottom",
                                 "data-reveal-delay": "200",
-                                children: [
-                                    "Where do ",
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                                        className: "text-color-primary",
-                                        children: "you"
-                                    }, void 0, false, {
-                                        fileName: "src/landing/components/sections/Hero.js",
-                                        lineNumber: 64,
-                                        columnNumber: 24
-                                    }, undefined),
-                                    " want to immigrate?"
-                                ]
-                            }, void 0, true, {
+                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("pp2", {
+                                    children: [
+                                        " Where do ",
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                            className: "text-color-secondary",
+                                            children: "you"
+                                        }, void 0, false, {
+                                            fileName: "src/landing/components/sections/Hero.js",
+                                            lineNumber: 64,
+                                            columnNumber: 28
+                                        }, undefined),
+                                        " want to immigrate?            "
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/landing/components/sections/Hero.js",
+                                    lineNumber: 64,
+                                    columnNumber: 13
+                                }, undefined)
+                            }, void 0, false, {
                                 fileName: "src/landing/components/sections/Hero.js",
                                 lineNumber: 63,
                                 columnNumber: 13
@@ -16451,10 +16457,19 @@ const Hero = ({ className , topOuterDivider , bottomOuterDivider , topDivider , 
                                 className: "container-xs",
                                 children: [
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
-                                        className: "m-0 mb-32 reveal-from-bottom",
+                                        className: "m-0 mb-32 reveal-from-bottom text",
                                         "data-reveal-delay": "400",
-                                        children: "View our interactive map to explore statistical information by category from various countries."
-                                    }, void 0, false, {
+                                        children: [
+                                            " ",
+                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("pp", {
+                                                children: "View our interactive map to explore statistical information by category from various countries. "
+                                            }, void 0, false, {
+                                                fileName: "src/landing/components/sections/Hero.js",
+                                                lineNumber: 67,
+                                                columnNumber: 89
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "src/landing/components/sections/Hero.js",
                                         lineNumber: 67,
                                         columnNumber: 15
@@ -16477,7 +16492,7 @@ const Hero = ({ className , topOuterDivider , bottomOuterDivider , topDivider , 
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
                                                     tag: "a",
-                                                    color: "dark",
+                                                    color: "secondary",
                                                     wideMobile: true,
                                                     href: "https://github.com/ramirostUW/ImmigrationMap",
                                                     children: "View on Github"
@@ -16900,6 +16915,7 @@ var _sectionHeader = require("./partials/SectionHeader");
 var _sectionHeaderDefault = parcelHelpers.interopDefault(_sectionHeader);
 var _image = require("../elements/Image");
 var _imageDefault = parcelHelpers.interopDefault(_image);
+var _lodash = require("lodash");
 const propTypes = {
     ..._sectionProps.SectionSplitProps.types
 };
@@ -16907,11 +16923,15 @@ const defaultProps = {
     ..._sectionProps.SectionSplitProps.defaults
 };
 const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topDivider , bottomDivider , hasBgColor , invertColor , invertMobile , invertDesktop , alignTop , imageFill , ...props })=>{
-    const outerClasses = _classnamesDefault.default('features-split section', topOuterDivider && 'has-top-divider', bottomOuterDivider && 'has-bottom-divider', hasBgColor && 'has-bg-color', invertColor && 'invert-color', className);
+    const outerClasses = _classnamesDefault.default('features-split section', topOuterDivider && 'has-top-divider', bottomOuterDivider && 'has-bottom-divider', hasBgColor && 'has-bg-color', invertColor && 'invert-color');
     const innerClasses = _classnamesDefault.default('features-split-inner section-inner', topDivider && 'has-top-divider', bottomDivider && 'has-bottom-divider');
     const splitClasses = _classnamesDefault.default('split-wrap', invertMobile && 'invert-mobile', invertDesktop && 'invert-desktop', alignTop && 'align-top');
     const sectionHeader = {
-        title: 'About Us',
+        title: 'Process',
+        paragraph: 'Immigrants report that they need as much information as possible when adapting to a new country to combat differences in culture and transition smoothly. Without appropriate research, they can face barriers in accessing basic needs and may be subject to exploitation. To address this ongoing issue, Immigration Inc. was created to promote the necessary transfer of knowledge and resources for those interested in moving out of their home country. Immigration Inc. advocates to make individuals feel confident in decision-making for the best quality of life.'
+    };
+    const sectionHeader2 = {
+        title: 'Benefits',
         paragraph: 'Immigrants report that they need as much information as possible when adapting to a new country to combat differences in culture and transition smoothly. Without appropriate research, they can face barriers in accessing basic needs and may be subject to exploitation. To address this ongoing issue, Immigration Inc. was created to promote the necessary transfer of knowledge and resources for those interested in moving out of their home country. Immigration Inc. advocates to make individuals feel confident in decision-making for the best quality of life.'
     };
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("section", {
@@ -16921,221 +16941,280 @@ const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topD
             className: "container",
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                 className: innerClasses,
-                children: [
-                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_sectionHeaderDefault.default, {
-                        data: sectionHeader,
-                        className: "center-content"
-                    }, void 0, false, {
-                        fileName: "src/landing/components/sections/FeaturesSplit.js",
-                        lineNumber: 64,
-                        columnNumber: 11
-                    }, undefined),
-                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                        className: splitClasses,
-                        children: [
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "split-item",
-                                children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                        className: "split-item-content center-content-mobile reveal-from-left",
-                                        "data-reveal-container": ".split-item",
-                                        children: [
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                                className: "text-xxs text-color-primary fw-600 tt-u mb-8",
-                                                children: "Easily find your destination"
-                                            }, void 0, false, {
-                                                fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                                lineNumber: 69,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h3", {
-                                                className: "mt-0 mb-12",
-                                                children: "Dynamic World Country Map"
-                                            }, void 0, false, {
-                                                fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                                lineNumber: 72,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
-                                                className: "m-0",
-                                                children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua \u2014 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                                            }, void 0, false, {
-                                                fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                                lineNumber: 75,
-                                                columnNumber: 17
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                        lineNumber: 68,
-                                        columnNumber: 15
-                                    }, undefined),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                        className: _classnamesDefault.default('split-item-image center-content-mobile reveal-from-bottom', imageFill && 'split-item-image-fill'),
-                                        "data-reveal-container": ".split-item",
-                                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_imageDefault.default, {
-                                            src: require('./../../assets/images/features-split-image-01.png'),
-                                            alt: "Features split 01",
-                                            width: 528,
-                                            height: 396
+                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                    className: splitClasses,
+                    children: [
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "split-item",
+                            children: [
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                    className: "split-item-content center-content-mobile reveal-from-left",
+                                    "data-reveal-container": ".split-item",
+                                    children: [
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h3", {
+                                            className: "mt-0 mb-12",
+                                            children: "About Us"
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                            lineNumber: 85,
+                                            lineNumber: 73,
                                             columnNumber: 17
-                                        }, undefined)
-                                    }, void 0, false, {
-                                        fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                        lineNumber: 79,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                lineNumber: 67,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "split-item",
-                                children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                        className: "split-item-content center-content-mobile reveal-from-right",
-                                        "data-reveal-container": ".split-item",
-                                        children: [
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                                className: "text-xxs text-color-primary fw-600 tt-u mb-8",
-                                                children: "Wide array of immigration information"
-                                            }, void 0, false, {
-                                                fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                                lineNumber: 95,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h3", {
-                                                className: "mt-0 mb-12",
-                                                children: "Information by Category"
-                                            }, void 0, false, {
-                                                fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                                lineNumber: 98,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
-                                                className: "m-0",
-                                                children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua \u2014 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                                            }, void 0, false, {
-                                                fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                                lineNumber: 101,
-                                                columnNumber: 17
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                        lineNumber: 94,
-                                        columnNumber: 15
-                                    }, undefined),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                        className: _classnamesDefault.default('split-item-image center-content-mobile reveal-from-bottom', imageFill && 'split-item-image-fill'),
-                                        "data-reveal-container": ".split-item",
-                                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_imageDefault.default, {
-                                            src: require('./../../assets/images/features-split-image-02.png'),
-                                            alt: "Features split 02",
-                                            width: 528,
-                                            height: 396
+                                        }, undefined),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                                            className: "m-0",
+                                            children: "Immigrants need as much information as possible when adapting to a new country to combat differences in culture and transition smoothly. Without appropriate research, they can face barriers in accessing basic needs and are often subject to exploitation. Immigration Inc. is an interactive website providing knowledge and resources for those interested in moving out of their home countries. Through data visualizations powered by government statistics covering topics such as education, employment, and population, Immigration Inc. enables users to make informed decisions regarding immigration."
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                            lineNumber: 111,
+                                            lineNumber: 76,
                                             columnNumber: 17
                                         }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                    lineNumber: 72,
+                                    columnNumber: 15
+                                }, undefined),
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                    className: _classnamesDefault.default('split-item-image center-content-mobile reveal-from-bottom', imageFill && 'split-item-image-fill'),
+                                    "data-reveal-container": ".split-item",
+                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_imageDefault.default, {
+                                        src: require('./../../assets/images/passport.png'),
+                                        alt: "passport",
+                                        width: 297,
+                                        height: 223
                                     }, void 0, false, {
                                         fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                        lineNumber: 105,
-                                        columnNumber: 15
+                                        lineNumber: 89,
+                                        columnNumber: 17
                                     }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                lineNumber: 93,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "split-item",
-                                children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                        className: "split-item-content center-content-mobile reveal-from-left",
-                                        "data-reveal-container": ".split-item",
-                                        children: [
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                                className: "text-xxs text-color-primary fw-600 tt-u mb-8",
-                                                children: "Lightning fast workflow"
-                                            }, void 0, false, {
-                                                fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                                lineNumber: 121,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h3", {
-                                                className: "mt-0 mb-12",
-                                                children: "Interactive Data Visualizations"
-                                            }, void 0, false, {
-                                                fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                                lineNumber: 124,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
-                                                className: "m-0",
-                                                children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua \u2014 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                                            }, void 0, false, {
-                                                fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                                lineNumber: 127,
-                                                columnNumber: 17
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                        lineNumber: 120,
-                                        columnNumber: 15
-                                    }, undefined),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                        className: _classnamesDefault.default('split-item-image center-content-mobile reveal-from-bottom', imageFill && 'split-item-image-fill'),
-                                        "data-reveal-container": ".split-item",
-                                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_imageDefault.default, {
-                                            src: require('./../../assets/images/features-split-image-03.png'),
-                                            alt: "Features split 03",
-                                            width: 528,
-                                            height: 396
+                                }, void 0, false, {
+                                    fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                    lineNumber: 83,
+                                    columnNumber: 15
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                            lineNumber: 71,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_sectionHeaderDefault.default, {
+                            data: sectionHeader,
+                            className: "center-content"
+                        }, void 0, false, {
+                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                            lineNumber: 98,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "split-item",
+                            children: [
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                    className: "split-item-content center-content-mobile reveal-from-left",
+                                    "data-reveal-container": ".split-item",
+                                    children: [
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                            className: "text-xxs text-color-primary fw-600 tt-u mb-8",
+                                            children: "Easily find your destination"
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                            lineNumber: 137,
+                                            lineNumber: 102,
+                                            columnNumber: 17
+                                        }, undefined),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h3", {
+                                            className: "mt-0 mb-12",
+                                            children: "Dynamic World Country Map"
+                                        }, void 0, false, {
+                                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                            lineNumber: 105,
+                                            columnNumber: 17
+                                        }, undefined),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                                            className: "m-0",
+                                            children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua \u2014 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                                        }, void 0, false, {
+                                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                            lineNumber: 108,
                                             columnNumber: 17
                                         }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                    lineNumber: 101,
+                                    columnNumber: 15
+                                }, undefined),
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                    className: _classnamesDefault.default('split-item-image center-content-mobile reveal-from-bottom', imageFill && 'split-item-image-fill'),
+                                    "data-reveal-container": ".split-item",
+                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_imageDefault.default, {
+                                        src: require('./../../assets/images/features-split-image-01.png'),
+                                        alt: "Features split 01",
+                                        width: 528,
+                                        height: 396
                                     }, void 0, false, {
                                         fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                        lineNumber: 131,
-                                        columnNumber: 15
+                                        lineNumber: 118,
+                                        columnNumber: 17
                                     }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                lineNumber: 119,
-                                columnNumber: 13
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/landing/components/sections/FeaturesSplit.js",
-                        lineNumber: 65,
-                        columnNumber: 11
-                    }, undefined)
-                ]
-            }, void 0, true, {
+                                }, void 0, false, {
+                                    fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                    lineNumber: 112,
+                                    columnNumber: 15
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                            lineNumber: 100,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "split-item",
+                            children: [
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                    className: "split-item-content center-content-mobile reveal-from-right",
+                                    "data-reveal-container": ".split-item",
+                                    children: [
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                            className: "text-xxs text-color-primary fw-600 tt-u mb-8",
+                                            children: "Wide array of immigration information"
+                                        }, void 0, false, {
+                                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                            lineNumber: 128,
+                                            columnNumber: 17
+                                        }, undefined),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h3", {
+                                            className: "mt-0 mb-12",
+                                            children: "Information by Category"
+                                        }, void 0, false, {
+                                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                            lineNumber: 131,
+                                            columnNumber: 17
+                                        }, undefined),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                                            className: "m-0",
+                                            children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua \u2014 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                                        }, void 0, false, {
+                                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                            lineNumber: 134,
+                                            columnNumber: 17
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                    lineNumber: 127,
+                                    columnNumber: 15
+                                }, undefined),
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                    className: _classnamesDefault.default('split-item-image center-content-mobile reveal-from-bottom', imageFill && 'split-item-image-fill'),
+                                    "data-reveal-container": ".split-item",
+                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_imageDefault.default, {
+                                        src: require('./../../assets/images/features-split-image-02.png'),
+                                        alt: "Features split 02",
+                                        width: 528,
+                                        height: 396
+                                    }, void 0, false, {
+                                        fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                        lineNumber: 144,
+                                        columnNumber: 17
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                    lineNumber: 138,
+                                    columnNumber: 15
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                            lineNumber: 126,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "split-item",
+                            children: [
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                    className: "split-item-content center-content-mobile reveal-from-left",
+                                    "data-reveal-container": ".split-item",
+                                    children: [
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                            className: "text-xxs text-color-primary fw-600 tt-u mb-8",
+                                            children: "Lightning fast workflow"
+                                        }, void 0, false, {
+                                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                            lineNumber: 154,
+                                            columnNumber: 17
+                                        }, undefined),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h3", {
+                                            className: "mt-0 mb-12",
+                                            children: "Interactive Data Visualizations"
+                                        }, void 0, false, {
+                                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                            lineNumber: 157,
+                                            columnNumber: 17
+                                        }, undefined),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                                            className: "m-0",
+                                            children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua \u2014 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                                        }, void 0, false, {
+                                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                            lineNumber: 160,
+                                            columnNumber: 17
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                    lineNumber: 153,
+                                    columnNumber: 15
+                                }, undefined),
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                    className: _classnamesDefault.default('split-item-image center-content-mobile reveal-from-bottom', imageFill && 'split-item-image-fill'),
+                                    "data-reveal-container": ".split-item",
+                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_imageDefault.default, {
+                                        src: require('./../../assets/images/features-split-image-03.png'),
+                                        alt: "Features split 03",
+                                        width: 528,
+                                        height: 396
+                                    }, void 0, false, {
+                                        fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                        lineNumber: 170,
+                                        columnNumber: 17
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/landing/components/sections/FeaturesSplit.js",
+                                    lineNumber: 164,
+                                    columnNumber: 15
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                            lineNumber: 152,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_sectionHeaderDefault.default, {
+                            data: sectionHeader2,
+                            className: "center-content"
+                        }, void 0, false, {
+                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                            lineNumber: 178,
+                            columnNumber: 13
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/landing/components/sections/FeaturesSplit.js",
+                    lineNumber: 69,
+                    columnNumber: 11
+                }, undefined)
+            }, void 0, false, {
                 fileName: "src/landing/components/sections/FeaturesSplit.js",
-                lineNumber: 63,
+                lineNumber: 67,
                 columnNumber: 9
             }, undefined)
         }, void 0, false, {
             fileName: "src/landing/components/sections/FeaturesSplit.js",
-            lineNumber: 62,
+            lineNumber: 66,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/landing/components/sections/FeaturesSplit.js",
-        lineNumber: 58,
+        lineNumber: 62,
         columnNumber: 5
     }, undefined);
 };
@@ -17151,7 +17230,7 @@ $RefreshReg$(_c, "FeaturesSplit");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","classnames":"jocGM","../../utils/SectionProps":"dzqXi","./partials/SectionHeader":"8LhVI","../elements/Image":"6djb1","./../../assets/images/features-split-image-01.png":"4fcD4","./../../assets/images/features-split-image-02.png":"5Ugdx","./../../assets/images/features-split-image-03.png":"d37BG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8LhVI":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","classnames":"jocGM","../../utils/SectionProps":"dzqXi","./partials/SectionHeader":"8LhVI","../elements/Image":"6djb1","./../../assets/images/features-split-image-01.png":"4fcD4","./../../assets/images/features-split-image-02.png":"5Ugdx","./../../assets/images/features-split-image-03.png":"d37BG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","lodash":"3qBDj","./../../assets/images/passport.png":"4TZMX"}],"8LhVI":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9d3a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -17243,6 +17322,9 @@ module.exports = require('./helpers/bundle-url').getBundleURL('kk5XU') + "featur
 
 },{"./helpers/bundle-url":"lgJ39"}],"d37BG":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('kk5XU') + "features-split-image-03.3454d542.png" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"4TZMX":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('kk5XU') + "passport.3cb53767.png" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"isgf9":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$c541 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");

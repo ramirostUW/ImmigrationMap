@@ -28,7 +28,7 @@ const MapChart = (props) => {
   let setTooltipContent = props.setTooltipContent
   let onClickCountry = props.onClickCountry;
 
-  let listOfCountriesWithData = ["United States of America", "Germany", "United Kingdom", "Canada"]
+  let listOfCountriesWithData = ["United States of America", "United Kingdom", "Canada"]
   //{ setTooltipContent }
   return (
     <>
