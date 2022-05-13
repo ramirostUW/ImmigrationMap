@@ -3,7 +3,6 @@
   text-align: center;
   border-bottom: 2px solid #005b67;
   margin-top: 0;
-  margin-bottom: 0;
   padding-left: 0;
   display: flex;
 }
@@ -36,30 +35,30 @@
 }
 
 header {
-  background-color: #d0ebff;
+  background-color: #d0f3eb;
 }
 
 .dataTitle {
   text-align: center;
-  color: #004aad;
+  color: #005b67;
   padding-top: 20px;
   font-size: 20px;
   font-style: italic;
 }
 
 .countryData {
-  background-color: #d0ebff;
-  border: 1px solid #004aad;
+  background-color: #d0f3eb;
+  border: 1px solid #005b67;
 }
 
 h1 {
-  color: #004aad;
+  color: #005b67;
   margin-left: 20px;
 }
 
 .titleAbout {
-  color: #004aad;
-  background-color: #d7f3ff;
+  color: #005b67;
+  background-color: #d0f3eb;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 30px;
@@ -114,7 +113,7 @@ h1 {
 }
 
 .chart-name {
-  color: #004aad;
+  color: #005b67;
   text-transform: uppercase;
   text-align: center;
   font-family: Sora\:wght400, Helvetica, sans-serif;
@@ -150,7 +149,7 @@ body {
 }
 
 .rsm-svg {
-  background-color: #d7f3ff;
+  background-color: #d0f3eb;
 }
 
 .backButton {
@@ -158,6 +157,10 @@ body {
   margin-left: 10px;
   position: absolute;
   bottom: -10px;
+}
+
+.makeSmall {
+  font-size: 11px;
 }
 
 /*# sourceMappingURL=Home.1b462ae6.css.map */

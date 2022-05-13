@@ -29224,8 +29224,8 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
-var _applogoPng = require("./img/applogo.png");
-var _applogoPngDefault = parcelHelpers.interopDefault(_applogoPng);
+var _newlogoPng = require("./img/newlogo.png");
+var _newlogoPngDefault = parcelHelpers.interopDefault(_newlogoPng);
 const Home = /*#__PURE__*/ _react.lazy(_c = ()=>require("7953e837dfca1ab8")
 );
 _c1 = Home;
@@ -29253,7 +29253,7 @@ function App() {
                                             marginLeft: "auto",
                                             marginRight: "auto"
                                         },
-                                        src: _applogoPngDefault.default,
+                                        src: _newlogoPngDefault.default,
                                         width: "170px"
                                     }, void 0, false, void 0, void 0)
                                 }, void 0, false, void 0, void 0)
@@ -29305,44 +29305,7 @@ $RefreshReg$(_c4, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","./img/applogo.png":"ixGBV","7953e837dfca1ab8":"ep3K7","936b9ab3834b64ea":"1XxiT","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ixGBV":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('bLxZJ') + "applogo.431c1ba5.png" + "?" + Date.now();
-
-},{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ('' + err.stack).match(/(https?|file|ftp|(chrome|moz)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return '/';
-}
-function getBaseURL(url) {
-    return ('' + url).replace(/^((?:https?|file|ftp|(chrome|moz)-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ('' + url).match(/(https?|file|ftp|(chrome|moz)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error('Origin not found');
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"ep3K7":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","7953e837dfca1ab8":"ep3K7","936b9ab3834b64ea":"1XxiT","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./img/newlogo.png":"bBwgb"}],"ep3K7":[function(require,module,exports) {
 module.exports = Promise.all([
     require("./helpers/browser/css-loader")(require('./helpers/bundle-url').getBundleURL('bLxZJ') + "Home.1b462ae6.css" + "?" + Date.now()).catch((err)=>{
         delete module.bundle.cache[module.id];
@@ -29409,6 +29372,40 @@ module.exports = function(loader, type) {
         });
     };
 };
+
+},{}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ('' + err.stack).match(/(https?|file|ftp|(chrome|moz)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return '/';
+}
+function getBaseURL(url) {
+    return ('' + url).replace(/^((?:https?|file|ftp|(chrome|moz)-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ('' + url).match(/(https?|file|ftp|(chrome|moz)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error('Origin not found');
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
 
 },{}],"61B45":[function(require,module,exports) {
 "use strict";
@@ -29580,6 +29577,9 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"786KC"}]},["kn9T2","7fmqN","8lqZg"], "8lqZg", "parcelRequiredaf3")
+},{"react-refresh/runtime":"786KC"}],"bBwgb":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('bLxZJ') + "newlogo.c24f3331.png" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}]},["kn9T2","7fmqN","8lqZg"], "8lqZg", "parcelRequiredaf3")
 
 //# sourceMappingURL=index.975ef6c8.js.map

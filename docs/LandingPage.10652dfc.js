@@ -21347,8 +21347,8 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
-var _applogoPng = require("./img/applogo.png");
-var _applogoPngDefault = parcelHelpers.interopDefault(_applogoPng);
+var _newlogoPng = require("./img/newlogo.png");
+var _newlogoPngDefault = parcelHelpers.interopDefault(_newlogoPng);
 const Home = /*#__PURE__*/ _react.lazy(_c = ()=>require("7953e837dfca1ab8")
 );
 _c1 = Home;
@@ -21376,7 +21376,7 @@ function App() {
                                             marginLeft: "auto",
                                             marginRight: "auto"
                                         },
-                                        src: _applogoPngDefault.default,
+                                        src: _newlogoPngDefault.default,
                                         width: "170px"
                                     }, void 0, false, void 0, void 0)
                                 }, void 0, false, void 0, void 0)
@@ -21428,10 +21428,7 @@ $RefreshReg$(_c4, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","./img/applogo.png":"71cW3","7953e837dfca1ab8":"6rOrY","936b9ab3834b64ea":"9NkER","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"71cW3":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('kk5XU') + "applogo.431c1ba5.png" + "?" + Date.now();
-
-},{"./helpers/bundle-url":"lgJ39"}],"6rOrY":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","7953e837dfca1ab8":"6rOrY","936b9ab3834b64ea":"9NkER","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./img/newlogo.png":"j2ttT"}],"6rOrY":[function(require,module,exports) {
 module.exports = Promise.all([
     require("./helpers/browser/css-loader")(require('./helpers/bundle-url').getBundleURL('kk5XU') + "Home.1b462ae6.css" + "?" + Date.now()).catch((err)=>{
         delete module.bundle.cache[module.id];
@@ -21447,7 +21444,10 @@ module.exports = Promise.all([
 },{"./helpers/browser/css-loader":"1MWPE","./helpers/bundle-url":"lgJ39","./helpers/browser/js-loader":"61B45"}],"9NkER":[function(require,module,exports) {
 module.exports = Promise.resolve(module.bundle.root("3SOqY"));
 
-},{}],"37oPg":[function(require,module,exports) {
+},{}],"j2ttT":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('kk5XU') + "newlogo.c24f3331.png" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"37oPg":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e959 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

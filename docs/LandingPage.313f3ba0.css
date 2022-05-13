@@ -267,20 +267,13 @@ ul, ol {
   padding-left: 24px;
 }
 
-ul:not(:last-child), ol:not(:last-child) {
-  margin-bottom: 24px;
-}
-
 ul {
   list-style: disc;
 }
 
 ol {
+  margin-bottom: 0;
   list-style: decimal;
-}
-
-li:not(:last-child) {
-  margin-bottom: 12px;
 }
 
 li > ul, li > ol {
