@@ -284,9 +284,13 @@ function MigrationFlowGraph(props) {
             return map[val1] - map[val2];
         })
         let sortedMap = {};
+        let sortedMapLimit25 = {};
         for (let i = 0; i < countryNames.length; i++) {
             let currentCountry = countryNames[i];
             sortedMap[currentCountry] = map[currentCountry];
+            if(i >= countryNames.length - 26){
+                sortedMapLimit25[currentCountry] = map[currentCountry];
+            }
         }
         return (
             <div>
@@ -322,14 +326,14 @@ function MigrationFlowGraph(props) {
                 <Plot
                     data={[
                         {
-                            type: 'bar', x: Object.values(sortedMap), y: Object.keys(sortedMap), orientation: "h"
+                            type: 'bar', x: Object.values(sortedMapLimit25), y: Object.keys(sortedMapLimit25), orientation: "h"
                             , marker: {
                                 color: '#004AAD', orientation: 'v'
                             }
                         },
                     ]}
                     layout={{
-                        width: 1100, height: 3000, title: 'Where are immigrants coming from by nationality?', xaxis: {
+                        width: 1100, height: 1000, title: 'Where are immigrants coming from by nationality?', xaxis: {
                             side: 'top'
                         }, yaxis: { fixedrange: false, title: "# of Immigrants" }, paper_bgcolor: 'rgba(0,0,0,0)',
                         plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
