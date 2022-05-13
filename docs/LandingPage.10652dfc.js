@@ -20369,8 +20369,6 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _header = require("../components/layout/Header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
-var _footer = require("../components/layout/Footer");
-var _footerDefault = parcelHelpers.interopDefault(_footer);
 const LayoutDefault = ({ children  })=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_jsxDevRuntime.Fragment, {
         children: [
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_headerDefault.default, {
@@ -20378,7 +20376,7 @@ const LayoutDefault = ({ children  })=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_jsxD
                 className: "reveal-from-bottom"
             }, void 0, false, {
                 fileName: "src/landing/layouts/LayoutDefault.js",
-                lineNumber: 7,
+                lineNumber: 6,
                 columnNumber: 5
             }, undefined),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("main", {
@@ -20386,12 +20384,7 @@ const LayoutDefault = ({ children  })=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_jsxD
                 children: children
             }, void 0, false, {
                 fileName: "src/landing/layouts/LayoutDefault.js",
-                lineNumber: 8,
-                columnNumber: 5
-            }, undefined),
-            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_footerDefault.default, {}, void 0, false, {
-                fileName: "src/landing/layouts/LayoutDefault.js",
-                lineNumber: 11,
+                lineNumber: 7,
                 columnNumber: 5
             }, undefined)
         ]
@@ -20407,7 +20400,7 @@ $RefreshReg$(_c, "LayoutDefault");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../components/layout/Header":"gUuPY","../components/layout/Footer":"fTCPi","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gUuPY":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../components/layout/Header":"gUuPY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gUuPY":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$15b7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -20540,7 +20533,7 @@ const Header = ({ className , navPosition , hideNav , hideSignin , bottomOuterDi
                                             className: "list-reset header-nav-right",
                                             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("li", {
                                                 children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
-                                                    to: "/#/site",
+                                                    to: "/site",
                                                     className: "button button-primary button-wide-mobile button-sm",
                                                     onClick: closeMenu,
                                                     children: "Interactive Map"
@@ -20790,152 +20783,7 @@ $RefreshReg$(_c, "Image");
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"12iLW":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('kk5XU') + "logo.1019d314.png" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"fTCPi":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$4c16 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$4c16.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _logo = require("./partials/Logo");
-var _logoDefault = parcelHelpers.interopDefault(_logo);
-var _footerNav = require("./partials/FooterNav");
-var _footerNavDefault = parcelHelpers.interopDefault(_footerNav);
-// import FooterSocial from './partials/FooterSocial';
-const propTypes = {
-    topOuterDivider: _propTypesDefault.default.bool,
-    topDivider: _propTypesDefault.default.bool
-};
-const defaultProps = {
-    topOuterDivider: false,
-    topDivider: false
-};
-const Footer = ({ className , topOuterDivider , topDivider , ...props })=>{
-    const classes = _classnamesDefault.default('site-footer center-content-mobile', topOuterDivider && 'has-top-divider', className);
-    return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("footer", {
-        ...props,
-        className: classes,
-        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-            className: "container",
-            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                className: _classnamesDefault.default('site-footer-inner', topDivider && 'has-top-divider'),
-                children: [
-                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                        className: "footer-top space-between text-xxs",
-                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_logoDefault.default, {}, void 0, false, {
-                            fileName: "src/landing/components/layout/Footer.js",
-                            lineNumber: 43,
-                            columnNumber: 13
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/landing/components/layout/Footer.js",
-                        lineNumber: 42,
-                        columnNumber: 11
-                    }, undefined),
-                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                        className: "footer-bottom space-between text-xxs invert-order-desktop",
-                        children: [
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_footerNavDefault.default, {}, void 0, false, {
-                                fileName: "src/landing/components/layout/Footer.js",
-                                lineNumber: 47,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "footer-copyright",
-                                children: "Made by Team iGlobetrotters."
-                            }, void 0, false, {
-                                fileName: "src/landing/components/layout/Footer.js",
-                                lineNumber: 48,
-                                columnNumber: 13
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/landing/components/layout/Footer.js",
-                        lineNumber: 46,
-                        columnNumber: 11
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/landing/components/layout/Footer.js",
-                lineNumber: 37,
-                columnNumber: 9
-            }, undefined)
-        }, void 0, false, {
-            fileName: "src/landing/components/layout/Footer.js",
-            lineNumber: 36,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/landing/components/layout/Footer.js",
-        lineNumber: 32,
-        columnNumber: 5
-    }, undefined);
-};
-_c = Footer;
-Footer.propTypes = propTypes;
-Footer.defaultProps = defaultProps;
-exports.default = Footer;
-var _c;
-$RefreshReg$(_c, "Footer");
-
-  $parcel$ReactRefreshHelpers$4c16.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","classnames":"jocGM","./partials/Logo":"9fy7t","./partials/FooterNav":"5Dlj3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"5Dlj3":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$6de7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$6de7.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _reactRouterDom = require("react-router-dom");
-const FooterNav = ({ className , ...props })=>{
-    const classes = _classnamesDefault.default('footer-nav', className);
-    return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("nav", {
-        ...props,
-        className: classes,
-        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("ul", {
-            className: "list-reset"
-        }, void 0, false, {
-            fileName: "src/landing/components/layout/partials/FooterNav.js",
-            lineNumber: 20,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/landing/components/layout/partials/FooterNav.js",
-        lineNumber: 16,
-        columnNumber: 5
-    }, undefined);
-};
-_c = FooterNav;
-exports.default = FooterNav;
-var _c;
-$RefreshReg$(_c, "FooterNav");
-
-  $parcel$ReactRefreshHelpers$6de7.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","classnames":"jocGM","react-router-dom":"fdOAw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"domjM":[function(require,module,exports) {
+},{"./helpers/bundle-url":"lgJ39"}],"domjM":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$66df = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -21041,110 +20889,61 @@ const Hero = ({ className , topOuterDivider , bottomOuterDivider , topDivider , 
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("section", {
         ...props,
         className: outerClasses,
-        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-            className: "container-sm",
-            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                className: innerClasses,
+        children: [
+            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                className: "container-sm",
                 children: [
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                        className: "hero-content",
-                        children: [
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h1", {
-                                className: "mt-0 mb-16 reveal-from-bottom",
-                                "data-reveal-delay": "200",
-                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("pp2", {
+                        className: innerClasses,
+                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "hero-content",
+                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                className: "moveDown reveal-from-bottom",
+                                "data-reveal-delay": "600",
+                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonGroupDefault.default, {
                                     children: [
-                                        " Where do ",
-                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                                            className: "text-color-secondary",
-                                            children: "you"
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
+                                            tag: "a",
+                                            color: "primary",
+                                            wideMobile: true,
+                                            href: _app.absoluteLink("/site"),
+                                            children: "Get started"
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/Hero.js",
-                                            lineNumber: 65,
-                                            columnNumber: 28
+                                            lineNumber: 74,
+                                            columnNumber: 19
                                         }, undefined),
-                                        " want to immigrate?            "
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
+                                            tag: "a",
+                                            color: "secondary",
+                                            wideMobile: true,
+                                            href: "https://github.com/ramirostUW/ImmigrationMap",
+                                            children: "View on Github"
+                                        }, void 0, false, {
+                                            fileName: "src/landing/components/sections/Hero.js",
+                                            lineNumber: 77,
+                                            columnNumber: 19
+                                        }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/landing/components/sections/Hero.js",
-                                    lineNumber: 65,
-                                    columnNumber: 13
+                                    lineNumber: 73,
+                                    columnNumber: 17
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/landing/components/sections/Hero.js",
-                                lineNumber: 64,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "container-xs",
-                                children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
-                                        className: "m-0 mb-32 reveal-from-bottom text",
-                                        "data-reveal-delay": "400",
-                                        children: [
-                                            " ",
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("pp", {
-                                                children: "View our interactive map to explore statistical information by category from various countries. "
-                                            }, void 0, false, {
-                                                fileName: "src/landing/components/sections/Hero.js",
-                                                lineNumber: 68,
-                                                columnNumber: 89
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/landing/components/sections/Hero.js",
-                                        lineNumber: 68,
-                                        columnNumber: 15
-                                    }, undefined),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                        className: "reveal-from-bottom",
-                                        "data-reveal-delay": "600",
-                                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonGroupDefault.default, {
-                                            children: [
-                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
-                                                    tag: "a",
-                                                    color: "primary",
-                                                    wideMobile: true,
-                                                    href: _app.absoluteLink("/site"),
-                                                    children: "Get started"
-                                                }, void 0, false, {
-                                                    fileName: "src/landing/components/sections/Hero.js",
-                                                    lineNumber: 73,
-                                                    columnNumber: 19
-                                                }, undefined),
-                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
-                                                    tag: "a",
-                                                    color: "secondary",
-                                                    wideMobile: true,
-                                                    href: "https://github.com/ramirostUW/ImmigrationMap",
-                                                    children: "View on Github"
-                                                }, void 0, false, {
-                                                    fileName: "src/landing/components/sections/Hero.js",
-                                                    lineNumber: 76,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "src/landing/components/sections/Hero.js",
-                                            lineNumber: 72,
-                                            columnNumber: 17
-                                        }, undefined)
-                                    }, void 0, false, {
-                                        fileName: "src/landing/components/sections/Hero.js",
-                                        lineNumber: 71,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/landing/components/sections/Hero.js",
-                                lineNumber: 67,
-                                columnNumber: 13
+                                lineNumber: 72,
+                                columnNumber: 15
                             }, undefined)
-                        ]
-                    }, void 0, true, {
+                        }, void 0, false, {
+                            fileName: "src/landing/components/sections/Hero.js",
+                            lineNumber: 63,
+                            columnNumber: 11
+                        }, undefined)
+                    }, void 0, false, {
                         fileName: "src/landing/components/sections/Hero.js",
-                        lineNumber: 63,
-                        columnNumber: 11
+                        lineNumber: 62,
+                        columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                         className: "hero-figure reveal-from-bottom illustration-element-01",
@@ -21163,17 +20962,17 @@ const Hero = ({ className , topOuterDivider , bottomOuterDivider , topDivider , 
                                 height: 504
                             }, void 0, false, {
                                 fileName: "src/landing/components/sections/Hero.js",
-                                lineNumber: 90,
+                                lineNumber: 91,
                                 columnNumber: 15
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/landing/components/sections/Hero.js",
-                            lineNumber: 84,
+                            lineNumber: 85,
                             columnNumber: 13
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/landing/components/sections/Hero.js",
-                        lineNumber: 83,
+                        lineNumber: 84,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_modalDefault.default, {
@@ -21184,21 +20983,33 @@ const Hero = ({ className , topOuterDivider , bottomOuterDivider , topDivider , 
                         videoTag: "iframe"
                     }, void 0, false, {
                         fileName: "src/landing/components/sections/Hero.js",
-                        lineNumber: 98,
+                        lineNumber: 99,
                         columnNumber: 11
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/landing/components/sections/Hero.js",
-                lineNumber: 62,
+                lineNumber: 61,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                className: "m-0 center-content ",
+                children: "Project Status: University of Washington Information School Capstone project for Winter/Spring 2022"
+            }, void 0, false, {
+                fileName: "src/landing/components/sections/Hero.js",
+                lineNumber: 106,
                 columnNumber: 9
+            }, undefined),
+            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                className: "m-0 center-content",
+                children: "This project is now available as an open-source project on Github"
+            }, void 0, false, {
+                fileName: "src/landing/components/sections/Hero.js",
+                lineNumber: 110,
+                columnNumber: 1
             }, undefined)
-        }, void 0, false, {
-            fileName: "src/landing/components/sections/Hero.js",
-            lineNumber: 61,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
+        ]
+    }, void 0, true, {
         fileName: "src/landing/components/sections/Hero.js",
         lineNumber: 57,
         columnNumber: 5
@@ -21663,16 +21474,14 @@ const defaultProps = {
     ..._sectionProps.SectionSplitProps.defaults
 };
 const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topDivider , bottomDivider , hasBgColor , invertColor , invertMobile , invertDesktop , alignTop , imageFill , ...props })=>{
-    const outerClasses = _classnamesDefault.default('features-split section', topOuterDivider && 'has-top-divider', bottomOuterDivider && 'has-bottom-divider', hasBgColor && 'has-bg-color', invertColor && 'invert-color');
+    const outerClasses = _classnamesDefault.default('features-split section', topOuterDivider && 'has-top-divider', bottomOuterDivider && 'has-bottom-divider', hasBgColor && 'has-bg-color', invertColor && 'invert-color', 'addMargin2');
     const innerClasses = _classnamesDefault.default('features-split-inner section-inner', topDivider && 'has-top-divider', bottomDivider && 'has-bottom-divider');
     const splitClasses = _classnamesDefault.default('split-wrap', invertMobile && 'invert-mobile', invertDesktop && 'invert-desktop', alignTop && 'align-top');
     const sectionHeader = {
-        title: 'Process',
-        paragraph: 'Immigrants report that they need as much information as possible when adapting to a new country to combat differences in culture and transition smoothly. Without appropriate research, they can face barriers in accessing basic needs and may be subject to exploitation. To address this ongoing issue, Immigration Inc. was created to promote the necessary transfer of knowledge and resources for those interested in moving out of their home country. Immigration Inc. advocates to make individuals feel confident in decision-making for the best quality of life.'
+        title: 'Process'
     };
     const sectionHeader2 = {
-        title: 'Benefits',
-        paragraph: 'Immigrants report that they need as much information as possible when adapting to a new country to combat differences in culture and transition smoothly. Without appropriate research, they can face barriers in accessing basic needs and may be subject to exploitation. To address this ongoing issue, Immigration Inc. was created to promote the necessary transfer of knowledge and resources for those interested in moving out of their home country. Immigration Inc. advocates to make individuals feel confident in decision-making for the best quality of life.'
+        title: 'Benefits'
     };
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("section", {
         ...props,
@@ -21745,6 +21554,22 @@ const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topD
                             lineNumber: 98,
                             columnNumber: 11
                         }, undefined),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                            className: "m-0 center-content",
+                            children: "Market Research \u2192 Literature Review \u2192 Survey Research \u2192 Data Analysis \u2192 User Persona Development"
+                        }, void 0, false, {
+                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                            lineNumber: 100,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                            className: "m-0 center-content marginBottom",
+                            children: "\u2192 Brainstorming/Prototyping \u2192 Minimal Viable Product Development \u2192 Usability Testing \u2192 Final Product Development"
+                        }, void 0, false, {
+                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                            lineNumber: 103,
+                            columnNumber: 11
+                        }, undefined),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                             className: "split-item",
                             children: [
@@ -21757,7 +21582,7 @@ const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topD
                                             children: "Easily find your destination"
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                            lineNumber: 102,
+                                            lineNumber: 108,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h3", {
@@ -21765,21 +21590,21 @@ const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topD
                                             children: "Dynamic World Country Map"
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                            lineNumber: 105,
+                                            lineNumber: 111,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
                                             className: "m-0",
-                                            children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua \u2014 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                                            children: "Explore multiple countries to compare information and quality of living"
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                            lineNumber: 108,
+                                            lineNumber: 114,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                    lineNumber: 101,
+                                    lineNumber: 107,
                                     columnNumber: 15
                                 }, undefined),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -21792,18 +21617,18 @@ const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topD
                                         height: 396
                                     }, void 0, false, {
                                         fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                        lineNumber: 118,
+                                        lineNumber: 124,
                                         columnNumber: 17
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                    lineNumber: 112,
+                                    lineNumber: 118,
                                     columnNumber: 15
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                            lineNumber: 100,
+                            lineNumber: 106,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -21815,10 +21640,10 @@ const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topD
                                     children: [
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                                             className: "text-xxs text-color-primary fw-600 tt-u mb-8",
-                                            children: "Wide array of immigration information"
+                                            children: "Wide array of information"
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                            lineNumber: 128,
+                                            lineNumber: 134,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h3", {
@@ -21826,21 +21651,21 @@ const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topD
                                             children: "Information by Category"
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                            lineNumber: 131,
+                                            lineNumber: 137,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
                                             className: "m-0",
-                                            children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua \u2014 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                                            children: "Navigate categories to learn about the statistics of the country"
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                            lineNumber: 134,
+                                            lineNumber: 140,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                    lineNumber: 127,
+                                    lineNumber: 133,
                                     columnNumber: 15
                                 }, undefined),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -21853,18 +21678,18 @@ const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topD
                                         height: 396
                                     }, void 0, false, {
                                         fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                        lineNumber: 144,
+                                        lineNumber: 150,
                                         columnNumber: 17
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                    lineNumber: 138,
+                                    lineNumber: 144,
                                     columnNumber: 15
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                            lineNumber: 126,
+                            lineNumber: 132,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -21876,10 +21701,10 @@ const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topD
                                     children: [
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                                             className: "text-xxs text-color-primary fw-600 tt-u mb-8",
-                                            children: "Lightning fast workflow"
+                                            children: "Visually impactful data"
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                            lineNumber: 154,
+                                            lineNumber: 160,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h3", {
@@ -21887,21 +21712,21 @@ const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topD
                                             children: "Interactive Data Visualizations"
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                            lineNumber: 157,
+                                            lineNumber: 163,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
                                             className: "m-0",
-                                            children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua \u2014 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                                            children: "View various visualizations sourced from government public data                  "
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                            lineNumber: 160,
+                                            lineNumber: 166,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                    lineNumber: 153,
+                                    lineNumber: 159,
                                     columnNumber: 15
                                 }, undefined),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -21914,18 +21739,18 @@ const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topD
                                         height: 396
                                     }, void 0, false, {
                                         fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                        lineNumber: 170,
+                                        lineNumber: 175,
                                         columnNumber: 17
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/landing/components/sections/FeaturesSplit.js",
-                                    lineNumber: 164,
+                                    lineNumber: 169,
                                     columnNumber: 15
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                            lineNumber: 152,
+                            lineNumber: 158,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_sectionHeaderDefault.default, {
@@ -21933,8 +21758,32 @@ const FeaturesSplit = ({ className , topOuterDivider , bottomOuterDivider , topD
                             className: "center-content"
                         }, void 0, false, {
                             fileName: "src/landing/components/sections/FeaturesSplit.js",
-                            lineNumber: 178,
+                            lineNumber: 183,
                             columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                            className: "m-0 center-content benefits",
+                            children: "Improved quality of life and smoother transition"
+                        }, void 0, false, {
+                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                            lineNumber: 185,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                            className: "m-0 center-content benefits",
+                            children: "Increased satisfaction in host country"
+                        }, void 0, false, {
+                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                            lineNumber: 188,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                            className: "m-0 center-content benefits",
+                            children: "Centralized location to look for statistical information"
+                        }, void 0, false, {
+                            fileName: "src/landing/components/sections/FeaturesSplit.js",
+                            lineNumber: 191,
+                            columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
@@ -22093,7 +21942,7 @@ const defaultProps = {
 };
 const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDivider , bottomDivider , hasBgColor , invertColor , pushLeft , ...props })=>{
     const outerClasses = _classnamesDefault.default('testimonial section', topOuterDivider && 'has-top-divider', bottomOuterDivider && 'has-bottom-divider', hasBgColor && 'has-bg-color', invertColor && 'invert-color', className);
-    const innerClasses = _classnamesDefault.default('testimonial-inner section-inner', topDivider && 'has-top-divider', bottomDivider && 'has-bottom-divider');
+    const innerClasses = _classnamesDefault.default('testimonial-inner section-inner', topDivider && 'has-top-divider', bottomDivider && 'has-bottom-divider', 'addMargin');
     const tilesClasses = _classnamesDefault.default('tiles-wrap', pushLeft && 'push-left');
     const sectionHeader = {
         title: 'Meet the Team'
@@ -22111,7 +21960,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                         className: "center-content"
                     }, void 0, false, {
                         fileName: "src/landing/components/sections/Testimonial.js",
-                        lineNumber: 58,
+                        lineNumber: 59,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -22130,7 +21979,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                             height: 396
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/Testimonial.js",
-                                            lineNumber: 63,
+                                            lineNumber: 64,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -22141,7 +21990,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                     children: "Amara Perry"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                                    lineNumber: 69,
+                                                    lineNumber: 70,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -22149,7 +21998,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                     children: " / "
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                                    lineNumber: 70,
+                                                    lineNumber: 71,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -22157,24 +22006,24 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                     children: "Project Manager"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                                    lineNumber: 71,
+                                                    lineNumber: 72,
                                                     columnNumber: 19
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/landing/components/sections/Testimonial.js",
-                                            lineNumber: 68,
+                                            lineNumber: 69,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                    lineNumber: 62,
+                                    lineNumber: 63,
                                     columnNumber: 15
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/landing/components/sections/Testimonial.js",
-                                lineNumber: 61,
+                                lineNumber: 62,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -22190,7 +22039,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                             height: 396
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/Testimonial.js",
-                                            lineNumber: 80,
+                                            lineNumber: 81,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -22201,7 +22050,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                     children: "Faiza Hussain"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                                    lineNumber: 86,
+                                                    lineNumber: 87,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -22209,7 +22058,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                     children: " / "
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                                    lineNumber: 87,
+                                                    lineNumber: 88,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -22217,24 +22066,24 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                     children: "UX Design/Research"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                                    lineNumber: 88,
+                                                    lineNumber: 89,
                                                     columnNumber: 19
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/landing/components/sections/Testimonial.js",
-                                            lineNumber: 85,
+                                            lineNumber: 86,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                    lineNumber: 79,
+                                    lineNumber: 80,
                                     columnNumber: 15
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/landing/components/sections/Testimonial.js",
-                                lineNumber: 78,
+                                lineNumber: 79,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -22250,7 +22099,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                             height: 396
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/Testimonial.js",
-                                            lineNumber: 97,
+                                            lineNumber: 98,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -22261,7 +22110,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                     children: "Ramiro Steinmann Petrasso"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                                    lineNumber: 103,
+                                                    lineNumber: 104,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -22269,7 +22118,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                     children: " / "
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                                    lineNumber: 104,
+                                                    lineNumber: 105,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -22277,24 +22126,24 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                     children: "Full Stack Developer"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                                    lineNumber: 105,
+                                                    lineNumber: 106,
                                                     columnNumber: 19
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/landing/components/sections/Testimonial.js",
-                                            lineNumber: 102,
+                                            lineNumber: 103,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                    lineNumber: 96,
+                                    lineNumber: 97,
                                     columnNumber: 15
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/landing/components/sections/Testimonial.js",
-                                lineNumber: 95,
+                                lineNumber: 96,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -22310,7 +22159,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                             height: 396
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/Testimonial.js",
-                                            lineNumber: 114,
+                                            lineNumber: 115,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -22321,7 +22170,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                     children: "Shourya Srivastava"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                                    lineNumber: 120,
+                                                    lineNumber: 121,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -22329,7 +22178,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                     children: " / "
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                                    lineNumber: 121,
+                                                    lineNumber: 122,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -22337,24 +22186,24 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                     children: "Full Stack Developer"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                                    lineNumber: 122,
+                                                    lineNumber: 123,
                                                     columnNumber: 19
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/landing/components/sections/Testimonial.js",
-                                            lineNumber: 119,
+                                            lineNumber: 120,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                    lineNumber: 113,
+                                    lineNumber: 114,
                                     columnNumber: 15
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/landing/components/sections/Testimonial.js",
-                                lineNumber: 112,
+                                lineNumber: 113,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -22370,7 +22219,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                             height: 396
                                         }, void 0, false, {
                                             fileName: "src/landing/components/sections/Testimonial.js",
-                                            lineNumber: 131,
+                                            lineNumber: 132,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -22381,7 +22230,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                     children: "Talin Hans"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                                    lineNumber: 137,
+                                                    lineNumber: 138,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -22389,7 +22238,7 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                     children: " / "
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                                    lineNumber: 138,
+                                                    lineNumber: 139,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -22397,46 +22246,46 @@ const Testimonial = ({ className , topOuterDivider , bottomOuterDivider , topDiv
                                                     children: "Full Stack Developer"
                                                 }, void 0, false, {
                                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                                    lineNumber: 139,
+                                                    lineNumber: 140,
                                                     columnNumber: 19
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/landing/components/sections/Testimonial.js",
-                                            lineNumber: 136,
+                                            lineNumber: 137,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/landing/components/sections/Testimonial.js",
-                                    lineNumber: 130,
+                                    lineNumber: 131,
                                     columnNumber: 15
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/landing/components/sections/Testimonial.js",
-                                lineNumber: 129,
+                                lineNumber: 130,
                                 columnNumber: 13
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/landing/components/sections/Testimonial.js",
-                        lineNumber: 59,
+                        lineNumber: 60,
                         columnNumber: 11
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/landing/components/sections/Testimonial.js",
-                lineNumber: 57,
+                lineNumber: 58,
                 columnNumber: 9
             }, undefined)
         }, void 0, false, {
             fileName: "src/landing/components/sections/Testimonial.js",
-            lineNumber: 56,
+            lineNumber: 57,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/landing/components/sections/Testimonial.js",
-        lineNumber: 52,
+        lineNumber: 53,
         columnNumber: 5
     }, undefined);
 };

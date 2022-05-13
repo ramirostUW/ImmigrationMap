@@ -371,13 +371,20 @@ body {
   font-size: .9rem;
 }
 
-pp {
-  color: #fff;
-  background-color: #6fc1c2;
-  margin-left: -45px;
-  font-size: 13.5px;
+.addMargin {
+  margin-top: 70px;
+}
+
+.addMargin2 {
+  margin-top: 20px;
+}
+
+.benefits {
   font-style: italic;
-  font-weight: bolder;
+}
+
+.moveDown {
+  margin-top: 280px;
 }
 
 body, button, input, select, textarea {
@@ -387,16 +394,11 @@ body, button, input, select, textarea {
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   clear: both;
-  color: #fff;
+  color: #005b67;
   word-wrap: break-word;
   overflow-wrap: break-word;
   font-family: Inter, sans-serif;
   font-weight: 800;
-}
-
-pp2 {
-  background-color: #005b67;
-  padding: 10px 30px;
 }
 
 h1, .h1 {
@@ -658,10 +660,10 @@ b, strong {
 
 .container-sm {
   max-width: 944px;
-  background-image: url("globe.4e69af86.png");
+  background-image: url("globe2.58046afb.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 110%;
+  background-size: 95%;
   margin-bottom: 50px;
 }
 
@@ -1903,23 +1905,23 @@ textarea.form-input {
 }
 
 .section-inner {
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: 20px;
+  padding-bottom: 50px;
   position: relative;
 }
 
 .section-header {
-  padding-bottom: 48px;
+  padding-bottom: 0;
 }
 
 @media (min-width: 641px) {
   .section-inner {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 20px;
+    padding-bottom: 50px;
   }
 
   .section-header {
-    padding-bottom: 80px;
+    padding-bottom: 50px;
   }
 }
 
@@ -1945,13 +1947,17 @@ textarea.form-input {
   }
 }
 
+.features-split .section-inner, .features-split .section-header {
+  padding-bottom: 20px;
+}
+
 .features-split .testing {
   color: #000;
 }
 
 @media (min-width: 641px) {
-  .features-split .section-header {
-    padding-bottom: 92px;
+  .features-split .section-inner, .features-split .section-header {
+    padding-bottom: 20px;
   }
 }
 
@@ -2057,7 +2063,7 @@ h3, h4, h5, h6, .h3, .h4, .h5, .h6 {
 }
 
 .testimonial .tiles-item-inner {
-  background: #25282c;
+  background: #005b67;
 }
 
 .testimonial-item-content {
@@ -2081,15 +2087,15 @@ h3, h4, h5, h6, .h3, .h4, .h5, .h6 {
 }
 
 .testimonial-item-footer.has-top-divider:before {
-  background: #33363a;
+  background: #6fc1c2;
 }
 
 .testimonial-item-link {
-  color: #1cb68b;
+  color: #ffd15a;
 }
 
 .testimonial-item-link a {
-  color: #1cb68b;
+  color: #ffd15a;
   text-decoration: none;
 }
 
