@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import MapChartUK from "./MapChartUK"
+import MapChartUKCOL from "./MapChartUKCOL"
 import MapChartCanada from "./MapChartCanada"
 import MapChartSample from "./MapChartSample"
 import {
@@ -212,17 +213,25 @@ export function CrimeCard(props) {
 
 export function CostOfLivingCard(props) {
     let [crimeData, crimeDataLoading] = getCostOfLivingData();
-    let isCanada = false
+    let isUK = false
+    let isCanada = false;
+    let isUS = false;
+    if (props.currentCountry === "United Kingdom") {
+        isUK = true
+    }
+    if (props.currentCountry === "United States of America") {
+        isUS = true
+    }
     if (props.currentCountry === "Canada") {
         isCanada = true
     }
-
     return (
         <div>
             <h1 class="chart-name">Cost of Living for {props.currentCountry}</h1>
             {crimeDataLoading && <CardText>Loading Data. . .</CardText>}
-            {(!crimeDataLoading && !isCanada) && <CardText><CostOfLivingGraph /></CardText>}
+            {(!crimeDataLoading && isUS) && <CardText><CostOfLivingGraph /></CardText>}
             {(!crimeDataLoading && isCanada) && <CardText><ColGraphCanada /></CardText>}
+            {(!crimeDataLoading && isUK) && <CardText><MapChartUKCOL /></CardText>}
         </div>
 
     )
@@ -275,9 +284,13 @@ function MigrationFlowGraph(props) {
             return map[val1] - map[val2];
         })
         let sortedMap = {};
+        let sortedMapLimit25 = {};
         for (let i = 0; i < countryNames.length; i++) {
             let currentCountry = countryNames[i];
             sortedMap[currentCountry] = map[currentCountry];
+            if(i >= countryNames.length - 26){
+                sortedMapLimit25[currentCountry] = map[currentCountry];
+            }
         }
         return (
             <div>
@@ -313,14 +326,14 @@ function MigrationFlowGraph(props) {
                 <Plot
                     data={[
                         {
-                            type: 'bar', x: Object.values(sortedMap), y: Object.keys(sortedMap), orientation: "h"
+                            type: 'bar', x: Object.values(sortedMapLimit25), y: Object.keys(sortedMapLimit25), orientation: "h"
                             , marker: {
                                 color: '#004AAD', orientation: 'v'
                             }
                         },
                     ]}
                     layout={{
-                        width: 1100, height: 3000, title: 'Where are immigrants coming from by nationality?', xaxis: {
+                        width: 1100, height: 1000, title: 'Where are immigrants coming from by nationality?', xaxis: {
                             side: 'top'
                         }, yaxis: { fixedrange: false, title: "# of Immigrants" }, paper_bgcolor: 'rgba(0,0,0,0)',
                         plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Questrial" }
@@ -354,6 +367,7 @@ function MigrationFlowGraph(props) {
     }
 
 }
+
 
 function ImmigrantPopGraph() {
     let [migPopData, migPopDataLoading] = getImmigrantPopulationData()

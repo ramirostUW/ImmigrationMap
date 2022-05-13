@@ -160,7 +160,6 @@ function GraphCard(props) {
                         <Button onClick={() => { setCurrentCardOption("economy"); changeClickedStyle(setEconomyButtonStyle) }} style={economyButtonStyle}>Employment</Button>
                         <Button onClick={() => { setCurrentCardOption("crime"); changeClickedStyle(setCrimeButtonStyle) }} style={crimetButtonStyle}>Crime</Button>
                         <Button onClick={() => { setCurrentCardOption("costOfLiving"); changeClickedStyle(setCostLivingButtonStyle) }} style={costLivingButtonStyle}>Cost of Living</Button>
-                        <Button onClick={() => { setCurrentCardOption("visas"); changeClickedStyle(setVisaButtonStyle) }} style={visaButtonStyle}>Visas</Button>
                         <Button style={{ margin: BTN_MARGIN, marginTop: "10px", marginLeft: "10px", height: "40px", width: "230px", borderRadius: "40px", fontFamily: "Sora:wght@400", textAlign: "center", backgroundColor: "#005B67" }} onClick={disableButton}>Back</Button>
                     </div>
                     <div class="nine">

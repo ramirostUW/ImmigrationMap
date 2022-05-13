@@ -29224,13 +29224,13 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 var _applogoPng = require("./img/applogo.png");
 var _applogoPngDefault = parcelHelpers.interopDefault(_applogoPng);
-const Home = /*#__PURE__*/ _react.lazy(_c = ()=>require("c8ceb0db64647acb")
+const Home = /*#__PURE__*/ _react.lazy(_c = ()=>require("7953e837dfca1ab8")
 );
 _c1 = Home;
-const LandingPage = /*#__PURE__*/ _react.lazy(_c2 = ()=>require("cea2174de1eaecda")
+const LandingPage = /*#__PURE__*/ _react.lazy(_c2 = ()=>require("936b9ab3834b64ea")
 );
 _c3 = LandingPage;
-const PicturePage = /*#__PURE__*/ _react.lazy(_c4 = ()=>require("7d3c0cb74884cc31")
+const PicturePage = /*#__PURE__*/ _react.lazy(_c4 = ()=>require("804f19ab91a95159")
 );
 _c5 = PicturePage;
 function App() {
@@ -29303,7 +29303,7 @@ $RefreshReg$(_c6, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","./img/applogo.png":"ixGBV","c8ceb0db64647acb":"ep3K7","cea2174de1eaecda":"1XxiT","7d3c0cb74884cc31":"76ykH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ixGBV":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","./img/applogo.png":"ixGBV","7953e837dfca1ab8":"ep3K7","936b9ab3834b64ea":"1XxiT","804f19ab91a95159":"76ykH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ixGBV":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('bLxZJ') + "applogo.431c1ba5.png" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {
