@@ -21007,7 +21007,7 @@ $RefreshReg$(_c, "Hero");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","classnames":"jocGM","../../utils/SectionProps":"dzqXi","../elements/ButtonGroup":"4sqco","../elements/Button":"fAu1v","../../../App":"2kQhy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-player":"6tM2f","../elements/Image":"6djb1","../elements/Modal":"9H222"}],"dzqXi":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","classnames":"jocGM","../../utils/SectionProps":"dzqXi","../elements/ButtonGroup":"4sqco","../elements/Button":"fAu1v","../elements/Image":"6djb1","../elements/Modal":"9H222","../../../App":"2kQhy","react-player":"6tM2f","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dzqXi":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SectionProps", ()=>SectionProps
@@ -21162,6 +21162,145 @@ var _c;
 $RefreshReg$(_c, "Button");
 
   $parcel$ReactRefreshHelpers$5798.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","classnames":"jocGM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9H222":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$5bd0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$5bd0.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _s = $RefreshSig$();
+const propTypes = {
+    children: _propTypesDefault.default.node,
+    handleClose: _propTypesDefault.default.func.isRequired,
+    show: _propTypesDefault.default.bool.isRequired,
+    closeHidden: _propTypesDefault.default.bool,
+    video: _propTypesDefault.default.string,
+    videoTag: _propTypesDefault.default.oneOf([
+        'iframe',
+        'video'
+    ])
+};
+const defaultProps = {
+    children: null,
+    show: false,
+    closeHidden: false,
+    video: '',
+    videoTag: 'iframe'
+};
+const Modal = ({ className , children , handleClose , show , closeHidden , video , videoTag , ...props })=>{
+    _s();
+    _react.useEffect(()=>{
+        document.addEventListener('keydown', keyPress);
+        document.addEventListener('click', stopProgagation);
+        return ()=>{
+            document.removeEventListener('keydown', keyPress);
+            document.removeEventListener('click', stopProgagation);
+        };
+    });
+    _react.useEffect(()=>{
+        handleBodyClass();
+    }, [
+        props.show
+    ]);
+    const handleBodyClass = ()=>{
+        if (document.querySelectorAll('.modal.is-active').length) document.body.classList.add('modal-is-active');
+        else document.body.classList.remove('modal-is-active');
+    };
+    const keyPress = (e)=>{
+        e.keyCode === 27 && handleClose(e);
+    };
+    const stopProgagation = (e)=>{
+        e.stopPropagation();
+    };
+    const classes = _classnamesDefault.default('modal', show && 'is-active', video && 'modal-video', className);
+    return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_jsxDevRuntime.Fragment, {
+        children: show && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+            ...props,
+            className: classes,
+            onClick: handleClose,
+            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                className: "modal-inner",
+                onClick: stopProgagation,
+                children: video ? /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                    className: "responsive-video",
+                    children: videoTag === 'iframe' ? /*#__PURE__*/ _jsxDevRuntime.jsxDEV("iframe", {
+                        title: "video",
+                        src: video,
+                        frameBorder: "0",
+                        allowFullScreen: true
+                    }, void 0, false, {
+                        fileName: "src/landing/components/elements/Modal.js",
+                        lineNumber: 81,
+                        columnNumber: 19
+                    }, undefined) : /*#__PURE__*/ _jsxDevRuntime.jsxDEV("video", {
+                        "v-else": true,
+                        controls: true,
+                        src: video
+                    }, void 0, false, {
+                        fileName: "src/landing/components/elements/Modal.js",
+                        lineNumber: 87,
+                        columnNumber: 19
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/landing/components/elements/Modal.js",
+                    lineNumber: 79,
+                    columnNumber: 15
+                }, undefined) : /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_jsxDevRuntime.Fragment, {
+                    children: [
+                        !closeHidden && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
+                            className: "modal-close",
+                            "aria-label": "close",
+                            onClick: handleClose
+                        }, void 0, false, {
+                            fileName: "src/landing/components/elements/Modal.js",
+                            lineNumber: 96,
+                            columnNumber: 19
+                        }, undefined),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "modal-content",
+                            children: children
+                        }, void 0, false, {
+                            fileName: "src/landing/components/elements/Modal.js",
+                            lineNumber: 102,
+                            columnNumber: 17
+                        }, undefined)
+                    ]
+                }, void 0, true)
+            }, void 0, false, {
+                fileName: "src/landing/components/elements/Modal.js",
+                lineNumber: 77,
+                columnNumber: 11
+            }, undefined)
+        }, void 0, false, {
+            fileName: "src/landing/components/elements/Modal.js",
+            lineNumber: 72,
+            columnNumber: 9
+        }, undefined)
+    }, void 0, false);
+};
+_s(Modal, "3ubReDTFssvu4DHeldAg55cW/CI=");
+_c = Modal;
+Modal.propTypes = propTypes;
+Modal.defaultProps = defaultProps;
+exports.default = Modal;
+var _c;
+$RefreshReg$(_c, "Modal");
+
+  $parcel$ReactRefreshHelpers$5bd0.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -23235,146 +23374,7 @@ module.exports = require("./helpers/browser/js-loader")(require('./helpers/bundl
 }).then(()=>module.bundle.root('8Vhrn')
 );
 
-},{"./helpers/browser/js-loader":"61B45","./helpers/bundle-url":"lgJ39"}],"9H222":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$5bd0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$5bd0.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _s = $RefreshSig$();
-const propTypes = {
-    children: _propTypesDefault.default.node,
-    handleClose: _propTypesDefault.default.func.isRequired,
-    show: _propTypesDefault.default.bool.isRequired,
-    closeHidden: _propTypesDefault.default.bool,
-    video: _propTypesDefault.default.string,
-    videoTag: _propTypesDefault.default.oneOf([
-        'iframe',
-        'video'
-    ])
-};
-const defaultProps = {
-    children: null,
-    show: false,
-    closeHidden: false,
-    video: '',
-    videoTag: 'iframe'
-};
-const Modal = ({ className , children , handleClose , show , closeHidden , video , videoTag , ...props })=>{
-    _s();
-    _react.useEffect(()=>{
-        document.addEventListener('keydown', keyPress);
-        document.addEventListener('click', stopProgagation);
-        return ()=>{
-            document.removeEventListener('keydown', keyPress);
-            document.removeEventListener('click', stopProgagation);
-        };
-    });
-    _react.useEffect(()=>{
-        handleBodyClass();
-    }, [
-        props.show
-    ]);
-    const handleBodyClass = ()=>{
-        if (document.querySelectorAll('.modal.is-active').length) document.body.classList.add('modal-is-active');
-        else document.body.classList.remove('modal-is-active');
-    };
-    const keyPress = (e)=>{
-        e.keyCode === 27 && handleClose(e);
-    };
-    const stopProgagation = (e)=>{
-        e.stopPropagation();
-    };
-    const classes = _classnamesDefault.default('modal', show && 'is-active', video && 'modal-video', className);
-    return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_jsxDevRuntime.Fragment, {
-        children: show && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-            ...props,
-            className: classes,
-            onClick: handleClose,
-            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                className: "modal-inner",
-                onClick: stopProgagation,
-                children: video ? /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                    className: "responsive-video",
-                    children: videoTag === 'iframe' ? /*#__PURE__*/ _jsxDevRuntime.jsxDEV("iframe", {
-                        title: "video",
-                        src: video,
-                        frameBorder: "0",
-                        allowFullScreen: true
-                    }, void 0, false, {
-                        fileName: "src/landing/components/elements/Modal.js",
-                        lineNumber: 81,
-                        columnNumber: 19
-                    }, undefined) : /*#__PURE__*/ _jsxDevRuntime.jsxDEV("video", {
-                        "v-else": true,
-                        controls: true,
-                        src: video
-                    }, void 0, false, {
-                        fileName: "src/landing/components/elements/Modal.js",
-                        lineNumber: 87,
-                        columnNumber: 19
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/landing/components/elements/Modal.js",
-                    lineNumber: 79,
-                    columnNumber: 15
-                }, undefined) : /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_jsxDevRuntime.Fragment, {
-                    children: [
-                        !closeHidden && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                            className: "modal-close",
-                            "aria-label": "close",
-                            onClick: handleClose
-                        }, void 0, false, {
-                            fileName: "src/landing/components/elements/Modal.js",
-                            lineNumber: 96,
-                            columnNumber: 19
-                        }, undefined),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                            className: "modal-content",
-                            children: children
-                        }, void 0, false, {
-                            fileName: "src/landing/components/elements/Modal.js",
-                            lineNumber: 102,
-                            columnNumber: 17
-                        }, undefined)
-                    ]
-                }, void 0, true)
-            }, void 0, false, {
-                fileName: "src/landing/components/elements/Modal.js",
-                lineNumber: 77,
-                columnNumber: 11
-            }, undefined)
-        }, void 0, false, {
-            fileName: "src/landing/components/elements/Modal.js",
-            lineNumber: 72,
-            columnNumber: 9
-        }, undefined)
-    }, void 0, false);
-};
-_s(Modal, "3ubReDTFssvu4DHeldAg55cW/CI=");
-_c = Modal;
-Modal.propTypes = propTypes;
-Modal.defaultProps = defaultProps;
-exports.default = Modal;
-var _c;
-$RefreshReg$(_c, "Modal");
-
-  $parcel$ReactRefreshHelpers$5bd0.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","classnames":"jocGM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"37oPg":[function(require,module,exports) {
+},{"./helpers/browser/js-loader":"61B45","./helpers/bundle-url":"lgJ39"}],"37oPg":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e959 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
