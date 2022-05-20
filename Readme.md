@@ -32,11 +32,17 @@ The website includes a dynamic world map visualization that will make  website m
 It includes: 
 
 -Flow of migration by country of origin
+
 -Proportion of immigrants
+
 -Average number of visas granted by -country of origin
+
 -Proportion of religious affiliations
+
 -Most prevalent crime types
+
 -Average cost of academic expenses and tuition
+
 -Average cost of living and expenses etc.
 
 Immigrants need as much information as possible when adapting to a new
