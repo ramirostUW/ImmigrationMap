@@ -645,7 +645,7 @@ function CostOfLivingGraph() {
                     },
                 ]}
                 layout={{
-                    title: "Where is it more expensive to live in parts of the country?", geo: { scope: 'usa' }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
+                    title: "Where is it least expensive to live in parts of the country?", geo: { scope: 'usa' }, width: 1100, height: 600, paper_bgcolor: 'rgba(0,0,0,0)',
                     plot_bgcolor: 'rgba(0,0,0,0)', font: { family: "Sora:wght@300" }
                 }
                 }
