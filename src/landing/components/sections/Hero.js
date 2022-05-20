@@ -87,7 +87,7 @@ const Hero = ({
 </p>
 
 <p className="m-0 center-content">
-This project is now available as an open-source project on Github
+This project is available as an open-source project on Github, effective May 20th, 2022.
 </p>
     </section>
   );
